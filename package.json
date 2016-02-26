@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-github-bot",
+  "version": "1.0.0-beta1",
+  "description": "Node.js GitHub Bot",
+  "scripts": {
+    "start": "node server.js",
+    "test": "standard"
+  },
+  "engines": {
+    "node": ">= 4.2.0"
+  },
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "github": "^0.2.4",
+    "travis-ci": "^2.1.0"
+  },
+  "devDependencies": {
+    "standard": "^6.0.7"
+  }
+}
