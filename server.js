@@ -16,7 +16,7 @@ app.all('/hooks/github', (req, res) => {
     const repo = req.body.repository
 
     console.log(`* ${repo.owner.login}/${repo.name}/#${req.body.number} Opened, starting build checks!`)
-    pollTravis.pollAndComment(repo.owner.login, repo.name, parseInt(req.body.number))
+    pollTravis.pollThenComment(repo.owner.login, repo.name, parseInt(req.body.number))
   }
 
   res.end()
@@ -24,7 +24,7 @@ app.all('/hooks/github', (req, res) => {
 
 // to trigger polling manually
 app.get('/pr/:owner/:repo/:prId', (req, res) => {
-  pollTravis.pollAndComment(req.params.owner, req.params.repo, parseInt(req.params.prId))
+  pollTravis.pollThenComment(req.params.owner, req.params.repo, parseInt(req.params.prId))
   res.end()
 })
 
