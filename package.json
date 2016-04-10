@@ -21,6 +21,7 @@
     "travis-ci": "^2.1.0"
   },
   "devDependencies": {
+    "eventsource": "^0.2.1",
     "standard": "^6.0.7"
   }
 }
