@@ -2,8 +2,8 @@
 
 The Node.js Foundation's uses this bot to help manage [the repositories of the GitHub organization](https://github.com/nodejs). 
 It executes [scripts](https://github.com/nodejs-github-bot/github-bot/tree/master/scripts) in response to events that are 
-pushed to it via GitHub webhooks. All [repositories](https://github.com/nodejs) use this same bot instance and need to 
-have the same webhook url & secret configured. Org-wide webhooks are not allow.
+pushed to it via GitHub webhooks. All [repositories](https://github.com/nodejs) that use this bot have the same webhook url & 
+secret configured (there is only 1 bot instance). Org-wide webhooks are not allow.
 
 ## Contributing
 
@@ -49,6 +49,14 @@ The `GITHUB_WEBHOOK_SECRET` environment variable is not required when using the 
 ```bash
 $ npm start
 ```
+
+When developing a script, it is likely that you will only want to run the script(s) that you are working on. You may 
+pass an additional [glob](https://www.npmjs.com/package/glob) argument to specify which scripts to run.
+
+```bash
+$ npm start ./scripts/my-new-event-handler.js
+```
+
 
 ## License
 
