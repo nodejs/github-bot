@@ -15,9 +15,11 @@
     "body-parser": "^1.15.0",
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
+    "effd": "^1.4.8",
     "express": "^4.13.4",
     "github": "^0.2.4",
     "glob": "^7.0.3",
+    "mentions-regex": "^2.0.3",
     "travis-ci": "^2.1.0"
   },
   "devDependencies": {
