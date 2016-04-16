@@ -4,7 +4,8 @@
   "description": "Node.js GitHub Bot",
   "scripts": {
     "start": "node server.js",
-    "test": "standard"
+    "test": "tap test/*.test.js && standard",
+    "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
     "node": ">= 4.2.0"
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "eventsource": "^0.2.1",
-    "standard": "^6.0.7"
+    "nodemon": "^1.9.1",
+    "standard": "^6.0.7",
+    "tap": "^5.7.1"
   }
 }
