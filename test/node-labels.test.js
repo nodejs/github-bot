@@ -16,6 +16,40 @@ tap.test('label: "test" when only ./test/ files has been changed', (t) => {
   t.end()
 })
 
+tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'test/debugger/test-debugger-pid.js',
+    'doc/api/fs.md'
+  ])
+
+  t.same(labels, [])
+
+  t.end()
+})
+
+tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/fs.md',
+    'doc/api/http.md',
+    'doc/onboarding.md'
+  ])
+
+  t.same(labels, ['doc'])
+
+  t.end()
+})
+
+tap.test('label: "benchmark" when only ./benchmark/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'benchmark/http_server_lag.js',
+    'benchmark/http/check_is_http_token.js'
+  ])
+
+  t.same(labels, ['benchmark'])
+
+  t.end()
+})
+
 tap.test('label: "c++" when ./src/* has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'src/async-wrap.h',
