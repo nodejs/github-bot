@@ -61,6 +61,37 @@ tap.test('label: "c++" when ./src/* has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: "v8" when ./deps/v8/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/src/arguments.cc'
+  ])
+
+  t.same(labels, ['v8'])
+
+  t.end()
+})
+
+tap.test('label: "libuv" when ./deps/ub/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/uv/src/fs-poll.c'
+  ])
+
+  t.same(labels, ['libuv'])
+
+  t.end()
+})
+
+tap.test('label: "v8", "openssl" when ./deps/v8/ and ./deps/openssl/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/src/arguments.cc',
+    'deps/openssl/openssl/ssl/ssl_rsa.c'
+  ])
+
+  t.same(labels, ['v8', 'openssl'])
+
+  t.end()
+})
+
 //
 // Planned tests to be resolved later
 //
