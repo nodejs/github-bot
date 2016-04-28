@@ -19,6 +19,7 @@
     "express": "^4.13.4",
     "github": "^0.2.4",
     "glob": "^7.0.3",
+    "request": "^2.72.0",
     "travis-ci": "^2.1.0"
   },
   "devDependencies": {
