@@ -27,6 +27,20 @@ tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
   t.end()
 })
 
+// This ensures older mislabelling issues doesn't happen again
+// https://github.com/nodejs/node/pull/6432
+// https://github.com/nodejs/node/pull/6448
+tap.test('no labels: when ./test/ and ./lib/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'lib/assert.js',
+    'test/parallel/test-assert.js'
+  ])
+
+  t.same(labels, [])
+
+  t.end()
+})
+
 tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'doc/api/fs.md',
