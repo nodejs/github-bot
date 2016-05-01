@@ -147,3 +147,26 @@ tap.test('label: "lib / src" when more than 5 sub-systems has been changed', (t)
 
   t.end()
 })
+
+tap.test('label: "doc" when top-level .md files have changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'BUILDING.md',
+    'README.md'
+  ])
+
+  t.same(labels, ['doc'])
+
+  t.end()
+})
+
+tap.test('label: not "doc" when other top-level files have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'LICENSE',
+    'configure',
+    '.mailmap'
+  ])
+
+  t.same(labels.indexOf('doc'), -1)
+
+  t.end()
+})
