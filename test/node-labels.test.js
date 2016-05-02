@@ -147,3 +147,60 @@ tap.test('label: "lib / src" when more than 5 sub-systems has been changed', (t)
 
   t.end()
 })
+
+tap.test('label: "meta" when meta-info files have changed', (t) => {
+  // e.g. LICENSE, AUTHORS, some ./*.md files
+  const labels = nodeLabels.resolveLabels([
+    '.gitattributes',
+    '.gitignore',
+    '.mailmap',
+    'AUTHORS',
+    'LICENSE',
+    'CHANGELOG.md',
+    'CODE_OF_CONDUCT.md',
+    'GOVERNANCE.md',
+    'ROADMAP.md',
+    'WORKING_GROUPS.md'
+  ])
+
+  t.same(labels, ['meta'])
+
+  t.end()
+})
+
+tap.test('label: not "meta" when other top-level have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'BUILDING.md',
+    'README.md',
+    'COLLABORATOR_GUIDE.md',
+    'CONTRIBUTING.md',
+    'configure'
+  ])
+
+  t.same(labels.indexOf('meta'), -1)
+
+  t.end()
+})
+
+tap.test('label: "doc" when top-level .md files have changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'BUILDING.md',
+    'README.md'
+  ])
+
+  t.same(labels, ['doc'])
+
+  t.end()
+})
+
+tap.test('label: not "doc" when other top-level files have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'LICENSE',
+    'configure',
+    '.mailmap'
+  ])
+
+  t.same(labels.indexOf('doc'), -1)
+
+  t.end()
+})
