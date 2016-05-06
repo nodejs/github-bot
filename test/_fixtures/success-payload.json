@@ -1,0 +1,12 @@
+{
+    "fullDisplayName": "node-test-commit-osx #3157",
+    "result": "SUCCESS",
+    "changeSet": {
+        "items": [
+            {
+                "commitId": "7190bd23810f0880d95605bf6f785224a345d477"
+            }
+        ]
+    },
+    "url": "https://ci.nodejs.org/job/node-test-commit-osx/3157/"
+}
