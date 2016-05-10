@@ -9,6 +9,6 @@ module.exports = function (app) {
       repoName: 'node'
     }, req.body)
 
-    res.end()
+    res.status(201).end()
   })
 }
