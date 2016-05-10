@@ -24,6 +24,7 @@
   "devDependencies": {
     "eventsource": "^0.2.1",
     "nodemon": "^1.9.1",
+    "request": "^2.72.0",
     "standard": "^6.0.7",
     "tap": "^5.7.1"
   }
