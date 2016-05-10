@@ -5,7 +5,7 @@ const pushJenkinsUpdate = require('../lib/push-jenkins-update')
 module.exports = function (app) {
   app.post('/node/jenkins', (req, res) => {
     pushJenkinsUpdate({
-      owner: 'TestOrgPleaseIgnore',
+      owner: 'nodejs',
       repoName: 'node'
     }, req.body)
 
