@@ -1,24 +1,25 @@
 'use strict'
 
-require('dotenv').load({ silent: true })
-
-const glob = require('glob')
-const express = require('express')
-const bodyParser = require('body-parser')
-
-const captureRaw = (req, res, buffer) => { req.raw = buffer }
-
-const app = express()
-app.use(bodyParser.json({ verify: captureRaw }))
-require('./lib/github-events.js')(app)
-
-// load all the files in the scripts folder
-glob.sync(process.argv[2] || './scripts/**/*.js').forEach((file) => {
-  console.log('loading:', file)
-  require(file)(app)
-})
+const app = require('./app')
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-  console.log('Example app listening on port', port)
+  console.log('Bot listening on port', port)
 })
+
+// may open up an SSE relay channel helpful for local debugging
+// of github repository events, wo/having to deploy changes
+if (process.env.SSE_RELAY) {
+  const EventSource = require('eventsource')
+  const es = new EventSource(process.env.SSE_RELAY)
+  es.onmessage = (e) => {
+    try {
+      const data = JSON.parse(e.data)
+      if (!data.action) return
+
+      app.emitGhEvent(data)
+    } catch (e) {
+      console.error('Error while receiving SSE relay message', e)
+    }
+  }
+}
