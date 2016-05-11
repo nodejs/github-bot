@@ -6,6 +6,8 @@ const glob = require('glob')
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const logger = require('./lib/logger')
+
 const captureRaw = (req, res, buffer) => { req.raw = buffer }
 
 const app = express()
@@ -14,7 +16,7 @@ require('./lib/github-events')(app)
 
 // load all the files in the scripts folder
 glob.sync(process.argv[2] || './scripts/**/*.js').forEach((file) => {
-  console.log('loading:', file)
+  logger.info('Loading:', file)
   require(file)(app)
 })
 

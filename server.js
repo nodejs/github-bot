@@ -1,10 +1,11 @@
 'use strict'
 
 const app = require('./app')
+const logger = require('./lib/logger')
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-  console.log('Bot listening on port', port)
+  logger.info('Listening on port', port)
 })
 
 // may open up an SSE relay channel helpful for local debugging
@@ -19,7 +20,7 @@ if (process.env.SSE_RELAY) {
 
       app.emitGhEvent(data)
     } catch (e) {
-      console.error('Error while receiving SSE relay message', e)
+      logger.error('Error while receiving SSE relay message', e)
     }
   }
 }

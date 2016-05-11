@@ -11,7 +11,7 @@ module.exports = function (app) {
     }
 
     pushJenkinsUpdate.push({
-      owner: 'nodejs',
+      owner: 'TestOrgPleaseIgnore',
       repoName: 'node'
     }, req.body)
 
