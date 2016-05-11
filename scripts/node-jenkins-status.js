@@ -4,7 +4,13 @@ const pushJenkinsUpdate = require('../lib/push-jenkins-update')
 
 module.exports = function (app) {
   app.post('/node/jenkins', (req, res) => {
-    pushJenkinsUpdate({
+    const isValid = pushJenkinsUpdate.validate(req.body)
+
+    if (!isValid) {
+      return res.status(400).end('Invalid payload')
+    }
+
+    pushJenkinsUpdate.push({
       owner: 'nodejs',
       repoName: 'node'
     }, req.body)
