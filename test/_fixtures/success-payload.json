@@ -1,0 +1,7 @@
+{
+    "identifier": "test/osx",
+    "status": "success",
+    "message": "tests passed",
+    "commit": "8a5fec2a6bade91e544a30314d7cf21f8a200de1",
+    "url": "https://ci.nodejs.org/job/node-test-commit-osx/3157/"
+}

@@ -1,0 +1,7 @@
+{
+    "identifier": "test/linux",
+    "status": "pending",
+    "message": "checking for errors",
+    "commit": "8a5fec2a6bade91e544a30314d7cf21f8a200de1",
+    "url": "https://ci.nodejs.org/job/node-test-commit-linux/3176/"
+}
