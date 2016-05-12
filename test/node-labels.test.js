@@ -32,7 +32,7 @@ tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
 // https://github.com/nodejs/node/pull/6448
 tap.test('no labels: when ./test/ and ./lib/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
-    'lib/assert.js',
+    'lib/punycode.js',
     'test/parallel/test-assert.js'
   ])
 
@@ -128,7 +128,7 @@ tap.test('label: "repl" when ./lib/repl.js has been changed', (t) => {
     'test/debugger/test-debugger-repl-term.js'
   ])
 
-  t.same(labels, ['repl'], { todo: true })
+  t.same(labels, ['repl'])
 
   t.end()
 })
