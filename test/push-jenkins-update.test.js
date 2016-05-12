@@ -52,6 +52,23 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     })
 })
 
+tap.test('Responds with 400 / "Bad request" when incoming request has invalid payload', (t) => {
+  const fixture = readFixture('invalid-payload.json')
+
+  // don't care about the results, just want to prevent any HTTP request ever being made
+  nock('https://api.github.com')
+
+  t.plan(1)
+
+  supertest(app)
+    .post('/node/jenkins')
+    .send(fixture)
+    .expect(400, 'Invalid payload')
+    .end((err, res) => {
+      t.equal(err, null)
+    })
+})
+
 function ignoreQueryParams (pathAndQuery) {
   return url.parse(pathAndQuery, true).pathname
 }
