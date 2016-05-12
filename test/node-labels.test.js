@@ -133,17 +133,29 @@ tap.test('label: "repl" when ./lib/repl.js has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "lib / src" when more than 5 sub-systems has been changed', (t) => {
+tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
     'lib/dns.js',
     'lib/repl.js',
     'lib/process.js',
-    'src/async-wrap.cc',
     'lib/module.js'
   ])
 
-  t.same(labels, ['lib / src'], { todo: true })
+  t.same(labels, ['lib / src'])
+
+  t.end()
+})
+
+tap.test('label: "JS sub-systems when less than 5 sub-systems have changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'lib/assert.js',
+    'lib/dns.js',
+    'lib/repl.js',
+    'lib/process.js'
+  ])
+
+  t.same(labels, ['assert', 'dns', 'repl', 'process'])
 
   t.end()
 })

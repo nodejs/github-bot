@@ -35,7 +35,7 @@ tap.test('label: lib oddities', (t) => {
     'lib/internal/v8_prof_processor.js'
   ]
 
-  const labels = nodeLabels.resolveLabels(libFiles)
+  const labels = nodeLabels.resolveLabels(libFiles, false)
 
   t.same(labels, [
     'debugger',  // _debug_agent
@@ -106,7 +106,7 @@ tap.test('label: lib normal without "lib / src" limiting', (t) => {
     'lib/zlib.js'
   ]
 
-  const labels = nodeLabels.resolveLabels(libFiles)
+  const labels = nodeLabels.resolveLabels(libFiles, false)
 
   t.same(labels, libFiles.map((path) => /lib\/(_)?(\w+)\.js/.exec(path)[2]))
 
@@ -125,7 +125,7 @@ tap.test('label: lib internals without "lib / src" limiting', (t) => {
     'lib/internal/util.js'
   ]
 
-  const labels = nodeLabels.resolveLabels(libFiles)
+  const labels = nodeLabels.resolveLabels(libFiles, false)
 
   t.same(labels, libFiles.map((path) => /lib\/internal\/(\w+)\.js/.exec(path)[1]))
 
