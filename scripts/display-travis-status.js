@@ -9,22 +9,24 @@ module.exports = function (app) {
   // Pull Request updates
   app.on('pull_request.synchronize', handlePrUpdate)
 
-  function handlePrUpdate (event) {
-    const owner = event.repository.owner.login
-    const repo = event.repository.name
+  function handlePrUpdate (event, owner, repo, pr) {
     if (!~enabledRepos.indexOf(repo)) return
 
-    debug(`/${owner}/${repo}/pull/${event.number} opened`)
-    pollTravis.pollThenStatus(owner, repo, event.number)
+    const options = { owner, repo, pr, logger: event.logger }
+
+    debug(`/${owner}/${repo}/pull/${pr} opened`)
+    pollTravis.pollThenStatus(options)
   }
 
   // to trigger polling manually
   app.get('/pr/:owner/:repo/:id', (req, res) => {
     const owner = req.params.owner
     const repo = req.params.repo
-    const id = req.params.id
+    const pr = parseInt(req.params.id, 10)
+    const options = { owner, repo, pr, logger: req.log }
+
     if (~enabledRepos.indexOf(repo)) {
-      pollTravis.pollThenStatus(owner, repo, parseInt(id, 10))
+      pollTravis.pollThenStatus(options)
     }
     res.end()
   })

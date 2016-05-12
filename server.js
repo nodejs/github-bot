@@ -18,7 +18,7 @@ if (process.env.SSE_RELAY) {
       const data = JSON.parse(e.data)
       if (!data.action) return
 
-      app.emitGhEvent(data)
+      app.emitGhEvent(data, logger)
     } catch (e) {
       logger.error('Error while receiving SSE relay message', e)
     }

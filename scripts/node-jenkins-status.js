@@ -12,7 +12,8 @@ module.exports = function (app) {
 
     pushJenkinsUpdate.push({
       owner: 'TestOrgPleaseIgnore',
-      repoName: 'node'
+      repo: 'node',
+      logger: req.log
     }, req.body)
 
     res.status(201).end()
