@@ -13,6 +13,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
     "bunyan": "^1.8.1",
     "bunyan-middleware": "^0.3.1",

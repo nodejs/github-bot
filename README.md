@@ -20,6 +20,8 @@ Please do, contributions are more than welcome!
 - **`TRAVIS_CI_TOKEN`**<br>
   For scripts that communicate with Travis CI. Your Travis token is visible on [your profile](https://travis-ci.org/profile) 
   page, by clicking the "show token" link. Also See: https://blog.travis-ci.com/2013-01-28-token-token-token
+**`LOGIN_CREDENTIALS`**<br>
+  Username and password used to protected the log files exposed in /logs. Expected format: `username:password`.
 
 
 ### Developing Locally
