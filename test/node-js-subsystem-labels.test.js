@@ -25,7 +25,6 @@ tap.test('label: lib oddities', (t) => {
     'lib/_tls_wrap.js',
     'lib/constants.js',
     'lib/punycode.js', // ignored
-    'lib/string_decoder.js',
     'lib/sys.js', // ignored
     'lib/internal/freelist.js', // ignored
     'lib/internal/process',
@@ -38,16 +37,15 @@ tap.test('label: lib oddities', (t) => {
   const labels = nodeLabels.resolveLabels(libFiles, false)
 
   t.same(labels, [
-    'debugger',  // _debug_agent
-    'http',      // _http_*
-    'timers',    // linklist
-    'stream',    // _stream_*
-    'tls',       // _tls_*
-    'lib / src', // constants
-    'buffer',    // string_decoder
-    'process',   // internal/process/
-    'net',       // socket_list
-    'tools'      // v8_prof_*
+    'debugger',       // _debug_agent
+    'http',           // _http_*
+    'timers',         // linklist
+    'stream',         // _stream_*
+    'tls',            // _tls_*
+    'lib / src',      // constants
+    'process',        // internal/process/
+    'net',            // socket_list
+    'tools'           // v8_prof_*
   ])
 
   t.end()
@@ -96,6 +94,7 @@ tap.test('label: lib normal without "lib / src" limiting', (t) => {
     'lib/readline.js',
     'lib/repl.js',
     'lib/stream.js',
+    'lib/string_decoder.js',
     'lib/timers.js',
     'lib/tls.js',
     'lib/tty.js',
