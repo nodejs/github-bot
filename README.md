@@ -20,6 +20,10 @@ Please do, contributions are more than welcome!
 - **`TRAVIS_CI_TOKEN`**<br>
   For scripts that communicate with Travis CI. Your Travis token is visible on [your profile](https://travis-ci.org/profile) 
   page, by clicking the "show token" link. Also See: https://blog.travis-ci.com/2013-01-28-token-token-token
+- **`LOGIN_CREDENTIALS`**<br>
+  Username and password used to protected the log files exposed in /logs. Expected format: `username:password`.
+- **`KEEP_LOGS`**<br>
+  Number of days to keep rotated log files in `./logs`, defaults to `10` if not set.
 
 
 ### Developing Locally
