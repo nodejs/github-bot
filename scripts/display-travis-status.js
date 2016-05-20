@@ -9,9 +9,10 @@ module.exports = function (app) {
   // Pull Request updates
   app.on('pull_request.synchronize', handlePrUpdate)
 
-  function handlePrUpdate (event, owner, repo, pr) {
+  function handlePrUpdate (event, owner, repo) {
     if (!~enabledRepos.indexOf(repo)) return
 
+    const pr = event.number
     const options = { owner, repo, pr, logger: event.logger }
 
     debug(`/${owner}/${repo}/pull/${pr} opened`)
