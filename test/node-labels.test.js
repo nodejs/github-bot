@@ -95,7 +95,7 @@ tap.test('label: "v8" when ./deps/v8/ files has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "libuv" when ./deps/ub/ files has been changed', (t) => {
+tap.test('label: "libuv" when ./deps/uv/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/uv/src/fs-poll.c'
   ])

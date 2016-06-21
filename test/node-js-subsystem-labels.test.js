@@ -130,3 +130,25 @@ tap.test('label: lib internals without "lib / src" limiting', (t) => {
 
   t.end()
 })
+
+tap.test('label: add subsystem when ./doc/api/<subsystem>.md has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/fs.md'
+  ], false)
+
+  t.same(labels, ['doc', 'fs'])
+
+  t.end()
+})
+
+tap.test('label: only "doc" with multiple API doc files changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/fs.md',
+    'doc/api/stream.md'
+  ], false)
+
+  t.same(labels, ['doc'])
+
+  t.end()
+})
+
