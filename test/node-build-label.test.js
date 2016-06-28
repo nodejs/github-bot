@@ -11,7 +11,14 @@ tap.test('label: "build" when build related files has been changed', (t) => {
     'common.gypi',
     'BSDmakefile',
     'Makefile',
-    'tools/Makefile'
+    'tools/Makefile',
+    'tools/install.py',
+    'tools/create_android_makefiles',
+    'tools/genv8constants.py',
+    'tools/getnodeversion.py',
+    'tools/js2c.py',
+    'tools/utils.py',
+    'tools/configure.d/nodedownload.py'
   ]
 
   buildRelatedFiles.forEach((filepath) => {
