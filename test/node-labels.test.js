@@ -85,6 +85,16 @@ tap.test('label: not "c++" when ./src/node_version.h has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: "v8_inspector" when ./src/inspector_* has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'src/inspector_socket.cc'
+  ])
+
+  t.same(labels, ['c++', 'v8_inspector'])
+
+  t.end()
+})
+
 tap.test('label: "v8" when ./deps/v8/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/v8/src/arguments.cc'
