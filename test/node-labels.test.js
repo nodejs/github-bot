@@ -157,6 +157,21 @@ tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (
   t.end()
 })
 
+// https://github.com/nodejs/node/pull/7488 wrongfully labelled with "lib / src"
+tap.test('label: not "lib / src" when only deps have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/test/cctest/interpreter/bytecode_expectations/ArrayLiterals.golden',
+    'deps/v8/test/cctest/interpreter/bytecode_expectations/ArrayLiteralsWide.golden',
+    'deps/v8/test/cctest/interpreter/bytecode_expectations/AssignmentsInBinaryExpression.golden',
+    'deps/v8/test/cctest/interpreter/bytecode_expectations/BasicBlockToBoolean.golden',
+    'deps/v8/test/cctest/interpreter/bytecode_expectations/BasicLoops.golden'
+  ])
+
+  t.same(labels, ['v8'])
+
+  t.end()
+})
+
 tap.test('label: "JS sub-systems when less than 5 sub-systems have changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
