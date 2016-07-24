@@ -241,3 +241,59 @@ tap.test('label: not "doc" when other top-level files have been changed', (t) =>
 
   t.end()
 })
+
+tap.test('label: version labels (old)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'common.gypi'
+  ], 'v0.12')
+
+  t.same(labels, ['build', 'v0.12'])
+
+  t.end()
+})
+
+tap.test('label: version labels (old, staging)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'common.gypi'
+  ], 'v0.12-staging')
+
+  t.same(labels, ['build', 'v0.12'])
+
+  t.end()
+})
+
+tap.test('label: version labels (new)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/include/v8-version.h',
+    'deps/v8/src/crankshaft/hydrogen.cc',
+    'deps/v8/test/mjsunit/regress/regress-5033.js'
+  ], 'v6.x')
+
+  t.same(labels, ['v8', 'v6.x'])
+
+  t.end()
+})
+
+tap.test('label: version labels (new, staging)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/include/v8-version.h',
+    'deps/v8/src/crankshaft/hydrogen.cc',
+    'deps/v8/test/mjsunit/regress/regress-5033.js'
+  ], 'v6.x-staging')
+
+  t.same(labels, ['v8', 'v6.x'])
+
+  t.end()
+})
+
+tap.test('label: no version labels (master)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/v8/include/v8-version.h',
+    'deps/v8/src/crankshaft/hydrogen.cc',
+    'deps/v8/test/mjsunit/regress/regress-5033.js'
+  ], 'master')
+
+  t.same(labels, ['v8'])
+
+  t.end()
+})
