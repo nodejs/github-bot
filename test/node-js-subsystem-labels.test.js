@@ -152,3 +152,12 @@ tap.test('label: only "doc" with multiple API doc files changed', (t) => {
   t.end()
 })
 
+tap.test('label: "doc,module" when doc/api/modules.md was changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/modules.md'
+  ], false)
+
+  t.same(labels, ['doc', 'module'])
+
+  t.end()
+})
