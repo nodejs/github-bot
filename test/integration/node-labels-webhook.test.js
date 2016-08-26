@@ -6,10 +6,21 @@ const path = require('path')
 const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
+const proxyquire = require('proxyquire')
 
-const app = require('../../app')
+const testStubs = {
+  './github-secret': {
+    isValid: () => true,
+
+    // necessary to make makes proxyquire return this stub
+    // whenever *any* module tries to require('./github-secret')
+    '@global': true
+  }
+}
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
+  const app = proxyquire('../../app', testStubs)
+
   const expectedLabels = ['timers']
   const webhookPayload = readFixture('pull-request-opened.json')
 
