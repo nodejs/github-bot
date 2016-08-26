@@ -37,6 +37,14 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
   t.plan(1)
   t.tearDown(() => filesScope.done() && newLabelsScope.done())
 
+  nock.emitter.on('no match', (req) => {
+    // requests against the app is expected and we shouldn't need to tell nock about it
+    if (req.hostname === '127.0.0.1') return
+
+    const reqUrl = `${req._headers.host}${req.path}`
+    t.bailout(`Unexpected request was sent to ${reqUrl}`)
+  })
+
   supertest(app)
     .post('/hooks/github')
     .set('x-github-event', 'pull_request')
