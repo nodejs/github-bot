@@ -4,7 +4,7 @@
   "description": "Node.js GitHub Bot",
   "scripts": {
     "start": "node server.js | bunyan -o short",
-    "test": "tap test/*.test.js && standard",
+    "test": "tap test/**/*.test.js && standard",
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {

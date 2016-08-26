@@ -2,7 +2,7 @@
 
 const tap = require('tap')
 
-const nodeLabels = require('../lib/node-labels')
+const nodeLabels = require('../../lib/node-labels')
 
 tap.test('label: "test" when only ./test/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([

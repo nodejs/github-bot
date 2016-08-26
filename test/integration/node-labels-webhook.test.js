@@ -7,7 +7,7 @@ const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 
-const app = require('../app')
+const app = require('../../app')
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
   const expectedLabels = ['timers']
@@ -41,6 +41,6 @@ function ignoreQueryParams (pathAndQuery) {
 }
 
 function readFixture (fixtureName) {
-  const content = fs.readFileSync(path.join(__dirname, '_fixtures', fixtureName)).toString()
+  const content = fs.readFileSync(path.join(__dirname, '..', '_fixtures', fixtureName)).toString()
   return JSON.parse(content)
 }

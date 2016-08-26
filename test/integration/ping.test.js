@@ -3,7 +3,7 @@
 const tap = require('tap')
 const request = require('request')
 
-const app = require('../app')
+const app = require('../../app')
 
 tap.test('GET /ping responds with status 200 / "pong"', (t) => {
   const server = app.listen()

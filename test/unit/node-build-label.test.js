@@ -2,7 +2,7 @@
 
 const tap = require('tap')
 
-const nodeLabels = require('../lib/node-labels')
+const nodeLabels = require('../../lib/node-labels')
 
 tap.test('label: "build" when build related files has been changed', (t) => {
   const buildRelatedFiles = [
