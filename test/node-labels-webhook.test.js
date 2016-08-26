@@ -10,6 +10,7 @@ const supertest = require('supertest')
 const app = require('../app')
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
+  const expectedLabels = ['timers']
   const webhookPayload = readFixture('pull-request-opened.json')
 
   const filesScope = nock('https://api.github.com')
@@ -17,18 +18,13 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
                       .get('/repos/nodejs/node/pulls/19/files')
                       .reply(200, readFixture('pull-request-files.json'))
 
-  const existingLabelsScope = nock('https://api.github.com')
-                      .filteringPath(ignoreQueryParams)
-                      .get('/repos/nodejs/node/issues/19/labels')
-                      .reply(200, readFixture('pull-request-labels.json'))
-
   const newLabelsScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
-                        .post('/repos/nodejs/node/issues/19/labels')
+                        .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && newLabelsScope.done() && existingLabelsScope.done())
+  t.tearDown(() => filesScope.done() && newLabelsScope.done())
 
   supertest(app)
     .post('/hooks/github')
