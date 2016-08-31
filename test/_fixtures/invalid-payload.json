@@ -1,5 +1,6 @@
 {
     "identifier": "test/osx",
     "status": "pending",
-    "url": "https://ci.nodejs.org/job/node-test-commit-osx/3157/"
+    "url": "https://ci.nodejs.org/job/node-test-commit-osx/3157/",
+    "ref": "refs/pull/12345/head"
 }
