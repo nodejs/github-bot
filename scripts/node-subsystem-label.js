@@ -10,6 +10,7 @@ module.exports = function (app) {
   function handlePrCreated (event, owner, repo) {
     const prId = event.number
     const logger = event.logger
+    const baseBranch = event.pull_request.base.ref
 
     // subsystem labelling is for node core only
     if (repo !== 'node') return
@@ -18,6 +19,12 @@ module.exports = function (app) {
     // by not hard coding the owner repo to nodejs/node here,
     // we can test these this script in a different repo than
     // *actual* node core as long as the repo is named "node"
-    nodeRepo.resolveLabelsThenUpdatePr({ owner, repo, prId, logger })
+    nodeRepo.resolveLabelsThenUpdatePr({
+      owner,
+      repo,
+      prId,
+      logger,
+      baseBranch
+    })
   }
 }
