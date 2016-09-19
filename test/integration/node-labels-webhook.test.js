@@ -31,13 +31,18 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
                       .get('/repos/nodejs/node/pulls/19/files')
                       .reply(200, readFixture('pull-request-files.json'))
 
+  const existingRepoLabelsScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .get('/repos/nodejs/node/labels')
+                        .reply(200, readFixture('repo-labels.json'))
+
   const newLabelsScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
                         .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && newLabelsScope.done())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done())
 
   supertest(app)
     .post('/hooks/github')
@@ -58,13 +63,45 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
                       .get('/repos/nodejs/node/pulls/19/files')
                       .reply(200, readFixture('pull-request-files.json'))
 
+  const existingRepoLabelsScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .get('/repos/nodejs/node/labels')
+                        .reply(200, readFixture('repo-labels.json'))
+
   const newLabelsScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
                         .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && newLabelsScope.done())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done())
+
+  supertest(app)
+    .post('/hooks/github')
+    .set('x-github-event', 'pull_request')
+    .send(webhookPayload)
+    .expect(200)
+    .end((err, res) => {
+      t.equal(err, null)
+    })
+})
+
+// reported bug: https://github.com/nodejs/github-bot/issues/58
+tap.test('Does not create labels which does not already exist', (t) => {
+  const webhookPayload = readFixture('pull-request-opened-mapproxy.json')
+
+  const filesScope = nock('https://api.github.com')
+                      .filteringPath(ignoreQueryParams)
+                      .get('/repos/nodejs/node/pulls/7972/files')
+                      .reply(200, readFixture('pull-request-files-mapproxy.json'))
+
+  const existingRepoLabelsScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .get('/repos/nodejs/node/labels')
+                        .reply(200, readFixture('repo-labels.json'))
+
+  t.plan(1)
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done())
 
   supertest(app)
     .post('/hooks/github')
