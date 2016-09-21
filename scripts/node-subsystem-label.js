@@ -24,7 +24,8 @@ module.exports = function (app) {
       repo,
       prId,
       logger,
-      baseBranch
+      baseBranch,
+      timeoutInSec: 2
     })
   }
 }
