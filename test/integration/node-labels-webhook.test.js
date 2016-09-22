@@ -7,6 +7,7 @@ const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 const proxyquire = require('proxyquire')
+const lolex = require('lolex')
 
 const testStubs = {
   './github-secret': {
@@ -23,6 +24,7 @@ const app = proxyquire('../../app', testStubs)
 setupNoRequestMatchHandler()
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
+  const clock = lolex.install()
   const expectedLabels = ['timers']
   const webhookPayload = readFixture('pull-request-opened.json')
 
@@ -42,7 +44,7 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -50,11 +52,13 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
     .send(webhookPayload)
     .expect(200)
     .end((err, res) => {
+      clock.runAll()
       t.equal(err, null)
     })
 })
 
 tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => {
+  const clock = lolex.install()
   const expectedLabels = ['timers', 'v6.x']
   const webhookPayload = readFixture('pull-request-opened-v6.x.json')
 
@@ -74,7 +78,7 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -82,12 +86,14 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
     .send(webhookPayload)
     .expect(200)
     .end((err, res) => {
+      clock.runAll()
       t.equal(err, null)
     })
 })
 
 // reported bug: https://github.com/nodejs/github-bot/issues/58
 tap.test('Does not create labels which does not already exist', (t) => {
+  const clock = lolex.install()
   const webhookPayload = readFixture('pull-request-opened-mapproxy.json')
 
   const filesScope = nock('https://api.github.com')
@@ -101,7 +107,7 @@ tap.test('Does not create labels which does not already exist', (t) => {
                         .reply(200, readFixture('repo-labels.json'))
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -109,6 +115,7 @@ tap.test('Does not create labels which does not already exist', (t) => {
     .send(webhookPayload)
     .expect(200)
     .end((err, res) => {
+      clock.runAll()
       t.equal(err, null)
     })
 })

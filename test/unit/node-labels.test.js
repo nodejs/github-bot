@@ -297,3 +297,13 @@ tap.test('label: no version labels (master)', (t) => {
 
   t.end()
 })
+
+tap.test('label: tools label', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'tools/doc/json.js'
+  ])
+
+  t.same(labels, ['tools'])
+
+  t.end()
+})
