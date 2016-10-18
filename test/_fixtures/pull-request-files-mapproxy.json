@@ -1,0 +1,38 @@
+[
+  {
+    "sha": "00f41a5fa444ce911ac6388227883761f445b12d",
+    "filename": "benchmark/misc/mapproxy.js",
+    "status": "added",
+    "additions": 82,
+    "deletions": 0,
+    "changes": 82,
+    "blob_url": "https://github.com/nodejs/node/blob/b26ee729176bdcf34eef072e666b5b51360c1d18/benchmark/misc/mapproxy.js",
+    "raw_url": "https://github.com/nodejs/node/raw/b26ee729176bdcf34eef072e666b5b51360c1d18/benchmark/misc/mapproxy.js",
+    "contents_url": "https://api.github.com/repos/nodejs/node/contents/benchmark/misc/mapproxy.js?ref=b26ee729176bdcf34eef072e666b5b51360c1d18",
+    "patch": "@@ -0,0 +1,82 @@\n+'use strict';\n+\n+const common = require('../common.js');\n+const mp = require('internal/mapproxy');\n+const assert = require('assert');\n+\n+var bench = common.createBenchmark(main, {\n+  n: [100000],\n+  m: ['nullproto', 'map', 'mapproxy']\n+});\n+\n+function runNullProtoObject() {\n+  const obj = Object.create(null);\n+  obj.a = 'testing';\n+  obj.b = 'this';\n+  obj.c = 'thing';\n+  delete obj.a;\n+  delete obj.b;\n+  assert.strictEqual(obj.c, 'thing');\n+}\n+\n+function runMap() {\n+  const map = new Map();\n+  map.set('a', 'testing');\n+  map.set('b', 'this');\n+  map.set('c', 'thing');\n+  map.delete('a');\n+  map.delete('b');\n+  assert.strictEqual(map.get('c'), 'thing');\n+}\n+\n+function runMapProxy() {\n+  const map = new Map();\n+  const obj = mp.wrap(map);\n+  obj.a = 'testing';\n+  obj.b = 'this';\n+  obj.c = 'thing';\n+  delete obj.a;\n+  delete obj.b;\n+  assert.strictEqual(obj.c, 'thing');\n+}\n+\n+function doNullProtoObject(n) {\n+  common.v8ForceOptimization(runNullProtoObject);\n+  bench.start();\n+  for (var i = 0; i < n; i++)\n+    runNullProtoObject();\n+  bench.end(n);\n+}\n+\n+function doMap(n) {\n+  common.v8ForceOptimization(runMap);\n+  bench.start();\n+  for (var i = 0; i < n; i++) {\n+    runMap();\n+  }\n+  bench.end(n);\n+}\n+\n+function doMapProxy(n) {\n+  common.v8ForceOptimization(runMapProxy);\n+  bench.start();\n+  for (var i = 0; i < n; i++)\n+    runMapProxy();\n+  bench.end(n);\n+}\n+\n+function main(conf) {\n+  const n = conf.n;\n+  const m = conf.m;\n+  console.log(n);\n+  switch (m) {\n+    case 'nullproto':\n+      return doNullProtoObject(n);\n+    case 'map':\n+      return doMap(n);\n+    case 'mapproxy':\n+      return doMapProxy(n);\n+    default:\n+      throw new Error('unexpected parameter ' + m);\n+  }\n+}"
+  },
+  {
+    "sha": "0bbc88a47fe9d335cf13b3d994e24146b188e56c",
+    "filename": "lib/internal/mapproxy.js",
+    "status": "added",
+    "additions": 63,
+    "deletions": 0,
+    "changes": 63,
+    "blob_url": "https://github.com/nodejs/node/blob/b26ee729176bdcf34eef072e666b5b51360c1d18/lib/internal/mapproxy.js",
+    "raw_url": "https://github.com/nodejs/node/raw/b26ee729176bdcf34eef072e666b5b51360c1d18/lib/internal/mapproxy.js",
+    "contents_url": "https://api.github.com/repos/nodejs/node/contents/lib/internal/mapproxy.js?ref=b26ee729176bdcf34eef072e666b5b51360c1d18",
+    "patch": "@@ -0,0 +1,63 @@\n+'use strict';\n+\n+// A proxy object implementation that wraps a Map and makes it look and\n+// act a close as possible to a dictionary-type object.\n+\n+const handler = {\n+  getPrototypeOf(target) {\n+    return Object.getPrototypeOf(target);\n+  },\n+  isExtensible(target) {\n+    return true;\n+  },\n+  getOwnPropertyDescriptor(target, prop) {\n+    if (!target.has(prop))\n+      return;\n+    return {\n+      enumerable: true,\n+      configurable: true,\n+      writable: true,\n+      value: target.get(prop)\n+    };\n+  },\n+  defineProperty(target, prop, descriptor) {\n+    // Properties cannot be defined on these objects\n+    // because the semantics do not carry through to\n+    // the underlying Map appropriately.\n+    throw new TypeError(\n+      'Object.defineProperty is unsupported on this object.');\n+  },\n+  has(target, prop) {\n+    return target.has(prop);\n+  },\n+  get(target, prop) {\n+    if (target.has(prop))\n+      return target.get(prop);\n+    var fn = Object.prototype[prop];\n+    if (typeof fn === 'function') {\n+      return new Proxy(fn, {\n+        apply(target, thisArg, argumentsList) {\n+          return fn.apply(thisArg, argumentsList);\n+        }\n+      });\n+    }\n+    return fn;\n+  },\n+  set(target, prop, value) {\n+    target.set(prop, value);\n+    return true;\n+  },\n+  deleteProperty(target, prop) {\n+    target.delete(prop);\n+    return true;\n+  },\n+  ownKeys(target) {\n+    return Array.from(target.keys());\n+  }\n+};\n+\n+function wrap(map) {\n+  return new Proxy(map, handler);\n+}\n+\n+exports.wrap = wrap;"
+  },
+  {
+    "sha": "e4129c068016cb3531b4e8d8c5a1872aa2df30f9",
+    "filename": "node.gyp",
+    "status": "modified",
+    "additions": 1,
+    "deletions": 0,
+    "changes": 1,
+    "blob_url": "https://github.com/nodejs/node/blob/b26ee729176bdcf34eef072e666b5b51360c1d18/node.gyp",
+    "raw_url": "https://github.com/nodejs/node/raw/b26ee729176bdcf34eef072e666b5b51360c1d18/node.gyp",
+    "contents_url": "https://api.github.com/repos/nodejs/node/contents/node.gyp?ref=b26ee729176bdcf34eef072e666b5b51360c1d18",
+    "patch": "@@ -78,6 +78,7 @@\n       'lib/internal/freelist.js',\n       'lib/internal/linkedlist.js',\n       'lib/internal/net.js',\n+      'lib/internal/mapproxy.js',\n       'lib/internal/module.js',\n       'lib/internal/process/next_tick.js',\n       'lib/internal/process/promises.js',"
+  }
+]

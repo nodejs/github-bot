@@ -22,6 +22,7 @@
     "express": "^4.13.4",
     "github": "^2.5.2",
     "glob": "^7.0.3",
+    "lru-cache": "^4.0.1",
     "travis-ci": "^2.1.0"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "nodemon": "^1.9.1",
     "proxyquire": "^1.7.10",
     "request": "^2.72.0",
+    "sinon": "^1.17.6",
     "standard": "^6.0.7",
     "supertest": "^1.2.0",
     "tap": "^5.7.1"
