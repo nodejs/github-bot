@@ -1,13 +1,13 @@
 'use strict'
 
 const tap = require('tap')
-const fs = require('fs')
-const path = require('path')
 const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 
 const app = require('../../app')
+
+const readFixture = require('../read-fixture')
 
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
@@ -84,9 +84,4 @@ function setupGetCommitsMock () {
 
 function ignoreQueryParams (pathAndQuery) {
   return url.parse(pathAndQuery, true).pathname
-}
-
-function readFixture (fixtureName) {
-  const content = fs.readFileSync(path.join(__dirname, '..', '_fixtures', fixtureName)).toString()
-  return JSON.parse(content)
 }
