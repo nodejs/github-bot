@@ -1,8 +1,6 @@
 'use strict'
 
 const tap = require('tap')
-const fs = require('fs')
-const path = require('path')
 const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
@@ -20,6 +18,8 @@ const testStubs = {
 }
 
 const app = proxyquire('../../app', testStubs)
+
+const readFixture = require('../read-fixture')
 
 setupNoRequestMatchHandler()
 
@@ -122,11 +122,6 @@ tap.test('Does not create labels which does not already exist', (t) => {
 
 function ignoreQueryParams (pathAndQuery) {
   return url.parse(pathAndQuery, true).pathname
-}
-
-function readFixture (fixtureName) {
-  const content = fs.readFileSync(path.join(__dirname, '..', '_fixtures', fixtureName)).toString()
-  return JSON.parse(content)
 }
 
 // nock doesn't make the tests explode if an unexpected external request is made,
