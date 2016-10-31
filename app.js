@@ -15,6 +15,8 @@ const captureRaw = (req, res, buffer) => { req.raw = buffer }
 
 const app = express()
 
+const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
+
 app.use(bodyParser.json({ verify: captureRaw }))
 app.use('/logs', authMiddleware, express.static(path.join(__dirname, 'logs')))
 // bunyanMiddleware gives us request id's and unique loggers per incoming request,
@@ -24,7 +26,7 @@ app.use(bunyanMiddleware({ logger, obscureHeaders: ['x-hub-signature'] }))
 require('./lib/github-events')(app)
 
 // load all the files in the scripts folder
-glob.sync(process.argv[2] || './scripts/**/*.js').forEach((file) => {
+glob.sync(scriptsToLoad).forEach((file) => {
   logger.info('Loading:', file)
   require(file)(app)
 })
