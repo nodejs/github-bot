@@ -59,7 +59,7 @@ When developing a script, it is likely that you will only want to run the script
 pass an additional [glob](https://www.npmjs.com/package/glob) argument to specify which scripts to run.
 
 ```bash
-$ npm start ./scripts/my-new-event-handler.js
+$ SCRIPTS=./scripts/my-new-event-handler.js npm start
 ```
 
 
