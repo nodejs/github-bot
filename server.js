@@ -1,5 +1,20 @@
 'use strict'
 
+const child_process = require('child_process')
+
+if (process.env.NODE_REPO_DIR) {
+  const fs = require('fs')
+  global._node_repo_dir = fs.realpathSync(process.env.NODE_REPO_DIR)
+  const out = child_process.spawnSync('git', ['status'], { cwd: global._node_repo_dir })
+
+  if (out.status !== 0) {
+    logger.info(out.stdout)
+    logger.error(out.stderr)
+    logger.error('Bad NODE_REPO_DIR. Backport patch testing disabled.')
+    global._node_repo_dir = false
+  }
+}
+
 const app = require('./app')
 const logger = require('./lib/logger')
 
