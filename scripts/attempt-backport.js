@@ -3,7 +3,9 @@
 const child_process = require('child_process')
 const debug = require('debug')('attempt-backport')
 const request = require('request')
-const updatePrWithLabels = require('../lib/node-repo').updatePrWithLabels
+const node_repo = require('../lib/node-repo')
+const updatePrWithLabels = node_repo.updatePrWithLabels
+const removeLabelFromPR = node_repo.removeLabelFromPR
 
 const enabledRepos = ['node']
 const queue = []
@@ -193,7 +195,11 @@ function attemptBackport(options, version, isLTS, cb) {
     options.logger.debug(`attempting a backport to v${version}...`)
     const cp = wrapCP('git', ['am'], { stdio: 'pipe' }, function done() {
       // Success!
-      if (isLTS) updatePrWithLabels(options, [`lts-watch-v${version}.x`])
+      if (isLTS) {
+        updatePrWithLabels(options, [`lts-watch-v${version}.x`])
+      } else {
+        removeLabelFromPR(options, `dont-land-on-v${version}.x`)
+      }
 
       setImmediate(() => {
         options.logger.debug(`backport to v${version} successful`)
