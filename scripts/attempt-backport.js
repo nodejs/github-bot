@@ -67,7 +67,7 @@ function processNextBackport() {
 
 function queueAttemptBackport(options, version, isLTS) {
   queue.push(function() {
-    debug(`processing a new backport to v${version}`)
+    options.logger.debug(`processing a new backport to v${version}`)
     attemptBackport(options, version, isLTS, processNextBackport)
   })
 }
@@ -121,7 +121,7 @@ function attemptBackport(options, version, isLTS, cb) {
     if (!cb) return
     const _cb = cb
     setImmediate(() => {
-      debug(`backport to ${version} failed`)
+      options.logger.debug(`backport to ${version} failed`)
       if (!isLTS) updatePrWithLabels(options, [`dont-land-on-v${version}.x`])
       setImmediate(() => {
         inProgress = false
@@ -134,7 +134,7 @@ function attemptBackport(options, version, isLTS, cb) {
   function gitAmAbort() {
     // TODO(Fishrock123): this should probably just merge into wrapCP
     let exited = false
-    debug(`aborting any previous backport attempt...`)
+    options.logger.debug(`aborting any previous backport attempt...`)
 
     const cp = child_process.spawn('git', ['am', '--abort'], { cwd: global._node_repo_dir })
     const argsString = 'git am --abort'
@@ -154,22 +154,22 @@ function attemptBackport(options, version, isLTS, cb) {
   }
 
   function gitRemoteUpdate() {
-    debug(`updating git remotes...`)
+    options.logger.debug(`updating git remotes...`)
     wrapCP('git', ['remote', 'update', '-p'], gitCheckout)
   }
 
   function gitCheckout() {
-    debug(`checking out upstream/v${version}.x-staging...`)
+    options.logger.debug(`checking out upstream/v${version}.x-staging...`)
     wrapCP('git', ['checkout', `upstream/v${version}.x-staging`], gitReset)
   }
 
   function gitReset() {
-    debug(`resetting upstream/v${version}.x-staging...`)
+    options.logger.debug(`resetting upstream/v${version}.x-staging...`)
     wrapCP('git', ['reset', `upstream/v${version}.x-staging`, '--hard'], fetchDiff)
   }
 
   function fetchDiff() {
-    debug(`fetching diff from pr ${options.prId}...`)
+    options.logger.debug(`fetching diff from pr ${options.prId}...`)
 
     const url = `https://patch-diff.githubusercontent.com/raw/${options.owner}/${options.repo}/pull/${options.prId}.patch`
 
@@ -190,13 +190,13 @@ function attemptBackport(options, version, isLTS, cb) {
   }
 
   function gitAttemptBackport(req) {
-    debug(`attempting a backport to v${version}...`)
+    options.logger.debug(`attempting a backport to v${version}...`)
     const cp = wrapCP('git', ['am'], { stdio: 'pipe' }, function done() {
       // Success!
       if (isLTS) updatePrWithLabels(options, [`lts-watch-v${version}.x`])
 
       setImmediate(() => {
-        debug(`backport to v${version} successful`)
+        options.logger.debug(`backport to v${version} successful`)
         inProgress = false
         cb()
       })
