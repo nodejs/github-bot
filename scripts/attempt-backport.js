@@ -161,13 +161,13 @@ function attemptBackport (options, version, isLTS, cb) {
   }
 
   function gitCheckout () {
-    options.logger.debug(`checking out upstream/v${version}.x-staging...`)
-    wrapCP('git', ['checkout', `upstream/v${version}.x-staging`], gitReset)
+    options.logger.debug(`checking out origin/v${version}.x-staging...`)
+    wrapCP('git', ['checkout', `origin/v${version}.x-staging`], gitReset)
   }
 
   function gitReset () {
-    options.logger.debug(`resetting upstream/v${version}.x-staging...`)
-    wrapCP('git', ['reset', `upstream/v${version}.x-staging`, '--hard'], fetchDiff)
+    options.logger.debug(`resetting origin/v${version}.x-staging...`)
+    wrapCP('git', ['reset', `origin/v${version}.x-staging`, '--hard'], fetchDiff)
   }
 
   function fetchDiff () {
