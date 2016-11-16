@@ -12,6 +12,7 @@ const queue = []
 let inProgress = false
 
 module.exports = function (app) {
+  return
   if (!global._node_repo_dir) return
 
   app.on('pull_request.opened', handlePrUpdate)
