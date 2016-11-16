@@ -5,7 +5,7 @@ const debug = require('debug')('attempt-backport')
 const request = require('request')
 const node_repo = require('../lib/node-repo')
 const updatePrWithLabels = node_repo.updatePrWithLabels
-const removeLabelFromPR = node_repo.removeLabelFromPR
+// const removeLabelFromPR = node_repo.removeLabelFromPR
 
 const enabledRepos = ['node']
 const queue = []
@@ -197,9 +197,11 @@ function attemptBackport(options, version, isLTS, cb) {
       // Success!
       if (isLTS) {
         updatePrWithLabels(options, [`lts-watch-v${version}.x`])
-      } else {
-        removeLabelFromPR(options, `dont-land-on-v${version}.x`)
-      }
+      }// else {
+        // TODO(Fishrock123): Re-enable this, but do a check first
+        // to make sure the label was set by the bot only.
+        // removeLabelFromPR(options, `dont-land-on-v${version}.x`)
+      //}
 
       setImmediate(() => {
         options.logger.debug(`backport to v${version} successful`)
