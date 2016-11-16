@@ -8,6 +8,11 @@ const updatePrWithLabels = node_repo.updatePrWithLabels
 // const removeLabelFromPR = node_repo.removeLabelFromPR
 
 const enabledRepos = ['node']
+const nodeVersions = [
+  { version: 4, lts: true },
+  { version: 6, lts: true },
+  { version: 7 }
+]
 const queue = []
 let inProgress = false
 
@@ -27,9 +32,9 @@ module.exports = function (app) {
     const options = { owner, repo, prId, logger: event.logger }
 
     debug(`/${owner}/${repo}/pull/${prId} sync`)
-    queueAttemptBackport(options, 7, false)
-    queueAttemptBackport(options, 6, true)
-    queueAttemptBackport(options, 4, true)
+    for (const node of nodeVersions) {
+      queueAttemptBackport(options, node.version, !!node.lts)
+    }
 
     if (!inProgress) processNextBackport()
   }
@@ -42,9 +47,9 @@ module.exports = function (app) {
     const options = { owner, repo, prId, logger: req.log }
 
     if (~enabledRepos.indexOf(repo)) {
-      queueAttemptBackport(options, 7, false)
-      queueAttemptBackport(options, 6, true)
-      queueAttemptBackport(options, 4, true)
+      for (const node of nodeVersions) {
+        queueAttemptBackport(options, node.version, !!node.lts)
+      }
     }
 
     if (!inProgress) processNextBackport()
