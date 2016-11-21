@@ -90,7 +90,7 @@ tap.test('label: "v8_inspector" when ./src/inspector_* has been changed', (t) =>
     'src/inspector_socket.cc'
   ])
 
-  t.same(labels, ['c++', 'v8_inspector'])
+  t.same(labels, ['c++', 'v8_inspector', 'dont-land-on-v4.x'])
 
   t.end()
 })
