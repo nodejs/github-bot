@@ -148,5 +148,10 @@
     "url": "https://api.github.com/repos/nodejs/node/labels/repl",
     "name": "repl",
     "color": "5319e7"
+  },
+  {
+    "url": "https://api.github.com/repos/nodejs/node/labels/V8",
+    "name": "V8",
+    "color": "0052cc"
   }
 ]

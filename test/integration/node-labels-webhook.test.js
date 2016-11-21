@@ -120,6 +120,41 @@ tap.test('Does not create labels which does not already exist', (t) => {
     })
 })
 
+// reported bug: https://github.com/nodejs/github-bot/issues/92
+tap.test('Adds V8 label when PR has deps/v8 file changes', (t) => {
+  const clock = lolex.install()
+  const expectedLabels = ['V8']
+  const webhookPayload = readFixture('pull-request-opened-v8.json')
+
+  const filesScope = nock('https://api.github.com')
+                      .filteringPath(ignoreQueryParams)
+                      .get('/repos/nodejs/node/pulls/9422/files')
+                      .reply(200, readFixture('pull-request-files-v8.json'))
+
+  const existingRepoLabelsScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .get('/repos/nodejs/node/labels')
+                        .reply(200, readFixture('repo-labels.json'))
+
+  const newLabelsScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .post('/repos/nodejs/node/issues/9422/labels', expectedLabels)
+                        .reply(200)
+
+  t.plan(1)
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+
+  supertest(app)
+    .post('/hooks/github')
+    .set('x-github-event', 'pull_request')
+    .send(webhookPayload)
+    .expect(200)
+    .end((err, res) => {
+      clock.runAll()
+      t.equal(err, null)
+    })
+})
+
 function ignoreQueryParams (pathAndQuery) {
   return url.parse(pathAndQuery, true).pathname
 }
