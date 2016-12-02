@@ -1,0 +1,72 @@
+[
+  {
+    "id": 280213872,
+    "url": "https://api.github.com/repos/nodejs/node/labels/v0.12",
+    "name": "v0.12",
+    "color": "c7def8",
+    "default": false
+  },
+  {
+    "id": 280213880,
+    "url": "https://api.github.com/repos/nodejs/node/labels/v4.x",
+    "name": "v4.x",
+    "color": "eb6420",
+    "default": false
+  },
+  {
+    "id": 364835500,
+    "url": "https://api.github.com/repos/nodejs/node/labels/v6.x",
+    "name": "v6.x",
+    "color": "c2e0c6",
+    "default": false
+  },
+  {
+    "id": 441404503,
+    "url": "https://api.github.com/repos/nodejs/node/labels/v7.x",
+    "name": "v7.x",
+    "color": "fbca04",
+    "default": false
+  },
+  {
+    "id": 176191361,
+    "url": "https://api.github.com/repos/nodejs/node/labels/V8",
+    "name": "V8",
+    "color": "0052cc",
+    "default": false
+  },
+  {
+    "id": 386816750,
+    "url": "https://api.github.com/repos/nodejs/node/labels/V8_inspector",
+    "name": "V8_inspector",
+    "color": "ededed",
+    "default": false
+  },
+  {
+    "id": 155436007,
+    "url": "https://api.github.com/repos/nodejs/node/labels/vm",
+    "name": "vm",
+    "color": "bfdadc",
+    "default": false
+  },
+  {
+    "id": 166236401,
+    "url": "https://api.github.com/repos/nodejs/node/labels/windows",
+    "name": "windows",
+    "color": "9944dd",
+    "default": false
+  },
+  {
+    "id": 151728680,
+    "url": "https://api.github.com/repos/nodejs/node/labels/wontfix",
+    "name": "wontfix",
+    "color": "ededed",
+    "default": true
+  },
+  {
+    "id": 155436008,
+    "url": "https://api.github.com/repos/nodejs/node/labels/zlib",
+    "name": "zlib",
+    "color": "009800",
+    "default": false
+  }
+]
