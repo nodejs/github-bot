@@ -307,3 +307,13 @@ tap.test('label: tools label', (t) => {
 
   t.end()
 })
+
+tap.test('label: build label (windows)', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'vcbuild.bat'
+  ])
+
+  t.same(labels, ['build'])
+
+  t.end()
+})
