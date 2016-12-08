@@ -152,8 +152,13 @@ function attemptBackport (options, version, isLTS, cb) {
         debug(`error before exit, code: ${code}, on '${argsString}'`)
         return
       }
-      gitRemoteUpdate()
+      gitResetBefore()
     })
+  }
+
+  function gitResetBefore () {
+    options.logger.debug(`resetting origin/v${version}.x-staging...`)
+    wrapCP('git', ['reset', `origin/v${version}.x-staging`, '--hard'], gitRemoteUpdate)
   }
 
   function gitRemoteUpdate () {
