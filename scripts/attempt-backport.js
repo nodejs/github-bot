@@ -107,14 +107,14 @@ function attemptBackport (options, version, isLTS, cb) {
       }
       callback()
     })
-    // Useful when debugging.
-
-    cp.stdout.on('data', (data) => {
-      options.logger.debug(data.toString())
-    })
-    cp.stderr.on('data', (data) => {
-      options.logger.debug(data.toString())
-    })
+    // // Useful when debugging.
+    //
+    // cp.stdout.on('data', (data) => {
+    //   options.logger.debug(data.toString())
+    // })
+    // cp.stderr.on('data', (data) => {
+    //   options.logger.debug(data.toString())
+    // })
 
     return cp
   }
