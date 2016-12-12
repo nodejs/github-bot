@@ -9,9 +9,9 @@ const updatePrWithLabels = node_repo.updatePrWithLabels
 
 const enabledRepos = ['node']
 const nodeVersions = [
+  { version: 7 },
   { version: 4, lts: true },
-  { version: 6, lts: true },
-  { version: 7 }
+  { version: 6, lts: true }
 ]
 const queue = []
 let inProgress = false
