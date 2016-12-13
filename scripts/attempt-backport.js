@@ -5,7 +5,8 @@ const debug = require('debug')('attempt-backport')
 const request = require('request')
 const node_repo = require('../lib/node-repo')
 const updatePrWithLabels = node_repo.updatePrWithLabels
-// const removeLabelFromPR = node_repo.removeLabelFromPR
+const removeLabelFromPR = node_repo.removeLabelFromPR
+const getBotPrLabels = node_repo.getBotPrLabels
 
 const enabledRepos = ['node']
 const nodeVersions = [
@@ -129,7 +130,23 @@ function attemptBackport (options, version, isLTS, cb) {
     const _cb = cb
     setImmediate(() => {
       options.logger.debug(`backport to ${version} failed`)
-      if (!isLTS) updatePrWithLabels(options, [`dont-land-on-v${version}.x`])
+
+      if (!isLTS) {
+        updatePrWithLabels(options, [`dont-land-on-v${version}.x`])
+      } else {
+        getBotPrLabels(options, (err, ourLabels) => {
+          if (err) {
+            options.logger.error(err, 'Error fetching existing bot labels')
+            return
+          }
+
+          const label = `lts-watch-v${version}.x`
+          if (!ourLabels.includes(label)) return
+
+          removeLabelFromPR(options, label)
+        })
+      }
+
       setImmediate(() => {
         inProgress = false
         _cb()
@@ -207,11 +224,21 @@ function attemptBackport (options, version, isLTS, cb) {
       // Success!
       if (isLTS) {
         updatePrWithLabels(options, [`lts-watch-v${version}.x`])
-      }// else {
+      } else {
         // TODO(Fishrock123): Re-enable this, but do a check first
         // to make sure the label was set by the bot only.
-        // removeLabelFromPR(options, `dont-land-on-v${version}.x`)
-      // }
+        getBotPrLabels(options, (err, ourLabels) => {
+          if (err) {
+            options.logger.error(err, 'Error fetching existing bot labels')
+            return
+          }
+
+          const label = `dont-land-on-v${version}.x`
+          if (!ourLabels.includes(label)) return
+
+          removeLabelFromPR(options, label)
+        })
+      }
 
       setImmediate(() => {
         options.logger.debug(`backport to v${version} successful`)
