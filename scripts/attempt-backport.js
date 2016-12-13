@@ -4,7 +4,7 @@ const child_process = require('child_process')
 const debug = require('debug')('attempt-backport')
 const request = require('request')
 const node_repo = require('../lib/node-repo')
-const updatePrWithLabels = node_repo.updatePrWithLabels
+const fetchExistingThenUpdatePr = node_repo.fetchExistingThenUpdatePr
 const removeLabelFromPR = node_repo.removeLabelFromPR
 const getBotPrLabels = node_repo.getBotPrLabels
 
@@ -132,7 +132,7 @@ function attemptBackport (options, version, isLTS, cb) {
       options.logger.debug(`backport to ${version} failed`)
 
       if (!isLTS) {
-        updatePrWithLabels(options, [`dont-land-on-v${version}.x`])
+        fetchExistingThenUpdatePr(options, [`dont-land-on-v${version}.x`])
       } else {
         getBotPrLabels(options, (err, ourLabels) => {
           if (err) {
@@ -217,7 +217,7 @@ function attemptBackport (options, version, isLTS, cb) {
     const cp = wrapCP('git', ['am'], { stdio: 'pipe' }, function done () {
       // Success!
       if (isLTS) {
-        updatePrWithLabels(options, [`lts-watch-v${version}.x`])
+        fetchExistingThenUpdatePr(options, [`lts-watch-v${version}.x`])
       } else {
         // TODO(Fishrock123): Re-enable this, but do a check first
         // to make sure the label was set by the bot only.
