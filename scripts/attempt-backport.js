@@ -156,13 +156,8 @@ function attemptBackport (options, version, isLTS, cb) {
         debug(`error before exit, code: ${code}, on '${argsString}'`)
         return
       }
-      gitResetBefore()
+      gitRemoteUpdate()
     })
-  }
-
-  function gitResetBefore () {
-    options.logger.debug(`resetting origin/v${version}.x-staging...`)
-    wrapCP('git', ['reset', `origin/v${version}.x-staging`, '--hard'], gitRemoteUpdate)
   }
 
   function gitRemoteUpdate () {
@@ -176,12 +171,7 @@ function attemptBackport (options, version, isLTS, cb) {
   }
 
   function gitClean_fd () {
-    wrapCP('git', ['clean', '-fd'], gitReset)
-  }
-
-  function gitReset () {
-    options.logger.debug(`resetting origin/v${version}.x-staging...`)
-    wrapCP('git', ['reset', `origin/v${version}.x-staging`, '--hard'], fetchDiff)
+    wrapCP('git', ['clean', '-fd'], fetchDiff)
   }
 
   function fetchDiff () {
