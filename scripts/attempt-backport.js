@@ -167,11 +167,11 @@ function attemptBackport (options, version, isLTS, cb) {
 
   function gitCheckout () {
     options.logger.debug(`checking out origin/v${version}.x-staging...`)
-    wrapCP('git', ['checkout', `origin/v${version}.x-staging`], gitClean_fd)
+    wrapCP('git', ['checkout', `origin/v${version}.x-staging`], gitClean_fdx)
   }
 
-  function gitClean_fd () {
-    wrapCP('git', ['clean', '-fd'], fetchDiff)
+  function gitClean_fdx () {
+    wrapCP('git', ['clean', '-fdx'], fetchDiff)
   }
 
   function fetchDiff () {
