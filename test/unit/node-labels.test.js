@@ -317,3 +317,13 @@ tap.test('label: build label (windows)', (t) => {
 
   t.end()
 })
+
+tap.test('label: dont-land-on labels for WHATWG URL', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'lib/internal/url.js'
+  ])
+
+  t.same(labels, ['url', 'dont-land-on-v4.x', 'dont-land-on-v6.x'])
+
+  t.end()
+})
