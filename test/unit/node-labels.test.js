@@ -66,8 +66,7 @@ tap.test('label: "benchmark" when only ./benchmark/ files has been changed', (t)
 
 tap.test('label: "c++" when ./src/* has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
-    'src/async-wrap.h',
-    'src/async-wrap.cc'
+    'src/node.cc'
   ])
 
   t.same(labels, ['c++'])
@@ -75,12 +74,105 @@ tap.test('label: "c++" when ./src/* has been changed', (t) => {
   t.end()
 })
 
+const srcCases = [
+  [ 'async_wrap', ['async-wrap-inl.h', 'async-wrap.h', 'async-wrap.cc'] ],
+  [ 'buffer',
+    ['base64.h',
+     'node_buffer.cc',
+     'node_buffer.h',
+     'string_bytes.cc',
+     'string_bytes.h',
+     'string_search.cc',
+     'string_search.h'] ],
+  [ 'cares', ['cares_wrap.cc'] ],
+  [ 'child_process', ['process_wrap.cc', 'spawn_sync.cc', 'spawn_sync.h'] ],
+  [ 'crypto',
+    ['node_crypto.cc',
+     'node_crypto.h',
+     'node_crypto_bio.cc',
+     'node_crypto_bio.h',
+     'node_crypto_clienthello-inl.h',
+     'node_crypto_clienthello.cc',
+     'node_crypto_clienthello.h',
+     'node_crypto_groups.h'] ],
+  [ 'debugger', ['debug-agent.cc', 'debug-agent.h', 'node_debug_options.cc'] ],
+  [ 'dgram', ['udp_wrap.cc', 'udp_wrap.h'] ],
+  [ 'fs',
+    ['fs_event_wrap.cc',
+     'node_file.cc',
+     'node_file.h',
+     'node_stat_watcher.cc',
+     'node_stat_watcher.h'] ],
+  [ 'http_parser', ['node_http_parser.cc', 'node_http_parser.h'] ],
+  [ 'intl', ['node_i18n.cc', 'node_i18n.h'] ],
+  [ 'libuv', ['uv.cc'] ],
+  [ 'net',
+    ['connect_wrap.cc',
+     'connect_wrap.h',
+     'connection_wrap.cc',
+     'connection_wrap.h',
+     'pipe_wrap.cc',
+     'pipe_wrap.h',
+     'tcp_wrap.cc',
+     'tcp_wrap.h'] ],
+  [ 'os', ['node_os.cc'] ],
+  [ 'process', ['node_main.cc', 'signal_wrap.cc'] ],
+  [ 'timers', ['timer_wrap.cc'] ],
+  [ 'tls',
+    ['CNNICHashWhitelist.inc',
+     'node_root_certs.h',
+     'tls_wrap.cc',
+     'tls_wrap.h'] ],
+  [ 'tty', ['tty_wrap.cc', 'tty_wrap.h'] ],
+  [ ['url', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+    ['node_url.cc', 'node_url.h'] ],
+  [ 'util', ['node_util.cc'] ],
+  [ 'V8', ['node_v8.cc', 'v8abbr.h'] ],
+  [ 'vm', ['node_contextify.cc'] ],
+  [ 'windows',
+    ['backtrace_win32.cc',
+     'node_win32_etw_provider-inl.h',
+     'node_win32_etw_provider.cc',
+     'node_win32_etw_provider.h',
+     'node_win32_perfctr_provider.cc',
+     'node_win32_perfctr_provider.h'] ],
+  [ 'zlib', ['node_zlib.cc'] ]
+]
+for (const info of srcCases) {
+  var labels = info[0]
+  if (!Array.isArray(labels)) {
+    labels = [labels]
+  }
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./src/${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([`src/${file}`])
+
+      t.same(resolved, ['c++'].concat(labels))
+
+      t.end()
+    })
+  }
+}
+
 tap.test('label: not "c++" when ./src/node_version.h has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'src/node_version.h'
   ])
 
   t.same(labels, [])
+
+  t.end()
+})
+
+tap.test('label: not "c++" when ./src/*.py has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'src/nolttng_macros.py',
+    'src/notrace_macros.py',
+    'src/perfctr_macros.py'
+  ])
+
+  t.same(labels, ['lib / src'])
 
   t.end()
 })
