@@ -3,6 +3,8 @@
 const tap = require('tap')
 const request = require('request')
 
+// only load the script being tested
+process.env.SCRIPTS = './scripts/ping.js'
 const app = require('../../app')
 
 tap.test('GET /ping responds with status 200 / "pong"', (t) => {

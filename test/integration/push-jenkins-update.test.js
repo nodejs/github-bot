@@ -5,6 +5,8 @@ const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 
+// only load the script being tested
+process.env.SCRIPTS = './scripts/node-jenkins-status.js'
 const app = require('../../app')
 
 const readFixture = require('../read-fixture')
