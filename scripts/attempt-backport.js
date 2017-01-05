@@ -219,8 +219,6 @@ function attemptBackport (options, version, isLTS, cb) {
       if (isLTS) {
         fetchExistingThenUpdatePr(options, [`lts-watch-v${version}.x`])
       } else {
-        // TODO(Fishrock123): Re-enable this, but do a check first
-        // to make sure the label was set by the bot only.
         getBotPrLabels(options, (err, ourLabels) => {
           if (err) {
             options.logger.error(err, 'Error fetching existing bot labels')
