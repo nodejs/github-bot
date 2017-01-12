@@ -124,7 +124,7 @@ const srcCases = [
      'tls_wrap.cc',
      'tls_wrap.h'] ],
   [ 'tty', ['tty_wrap.cc', 'tty_wrap.h'] ],
-  [ ['url', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['node_url.cc', 'node_url.h'] ],
   [ 'util', ['node_util.cc'] ],
   [ 'V8', ['node_v8.cc', 'v8abbr.h'] ],
@@ -415,7 +415,7 @@ tap.test('label: dont-land-on labels for WHATWG URL', (t) => {
     'lib/internal/url.js'
   ])
 
-  t.same(labels, ['url', 'dont-land-on-v4.x', 'dont-land-on-v6.x'])
+  t.same(labels, ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'])
 
   t.end()
 })
