@@ -214,7 +214,7 @@ function attemptBackport (options, version, isLTS, cb) {
 
   function gitAttemptBackport (req) {
     options.logger.debug(`attempting a backport to v${version}...`)
-    const cp = wrapCP('git', ['am'], { stdio: 'pipe' }, function done () {
+    const cp = wrapCP('git', ['am', '-3'], { stdio: 'pipe' }, function done () {
       // Success!
       if (isLTS) {
         fetchExistingThenUpdatePr(options, [`lts-watch-v${version}.x`])
