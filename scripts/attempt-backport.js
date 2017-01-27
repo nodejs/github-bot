@@ -132,7 +132,7 @@ function attemptBackport (options, version, isLTS, cb) {
       options.logger.debug(`backport to ${version} failed`)
 
       if (!isLTS) {
-        fetchExistingThenUpdatePr(options, [`dont-land-on-v${version}.x`])
+        options.logger.debug(`Should have added (but temporary disabled): dont-land-on-v${version}.x`)
       } else {
         getBotPrLabels(options, (err, ourLabels) => {
           if (err) {
