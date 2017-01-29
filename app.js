@@ -2,7 +2,6 @@
 
 require('dotenv').load({ silent: true })
 
-const path = require('path')
 const glob = require('glob')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -16,9 +15,14 @@ const captureRaw = (req, res, buffer) => { req.raw = buffer }
 const app = express()
 
 const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
+const logsDir = process.env.LOGS_DIR
 
 app.use(bodyParser.json({ verify: captureRaw }))
-app.use('/logs', authMiddleware, express.static(path.join(__dirname, 'logs')))
+
+if (logsDir) {
+  app.use('/logs', authMiddleware, express.static(logsDir))
+}
+
 // bunyanMiddleware gives us request id's and unique loggers per incoming request,
 // for satefy reasons we don't want to include the webhook GitHub secret in logs
 app.use(bunyanMiddleware({ logger, obscureHeaders: ['x-hub-signature'] }))
