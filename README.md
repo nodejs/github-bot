@@ -24,8 +24,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - **`LOGIN_CREDENTIALS`**<br>
   Username and password used to protected the log files exposed in /logs. Expected format: `username:password`.
 - **`KEEP_LOGS`**<br>
-  Number of days to keep rotated log files in `./logs`, defaults to `10` if not set.
-
+  Number of days to keep rotated log files, defaults to `10` if not set.
+- **`LOGS_DIR`**<br>
+  Directory where logs should be written and exposed by the `/logs` endpoint.
 
 ### Developing Locally
 
