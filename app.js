@@ -15,7 +15,7 @@ const captureRaw = (req, res, buffer) => { req.raw = buffer }
 const app = express()
 
 const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
-const logsDir = process.env.LOGS_DIR
+const logsDir = process.env.LOGS_DIR || ''
 
 app.use(bodyParser.json({ verify: captureRaw }))
 
