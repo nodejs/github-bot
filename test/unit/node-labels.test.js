@@ -428,3 +428,14 @@ tap.test('label: dont-land-on labels for WHATWG URL', (t) => {
 
   t.end()
 })
+
+tap.test('label: doc label for non-subsystem API doc changes', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/_toc.md',
+    'doc/api/all.md'
+  ])
+
+  t.same(labels, ['doc'])
+
+  t.end()
+})
