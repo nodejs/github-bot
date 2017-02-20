@@ -37,6 +37,8 @@ module.exports = function (app) {
       return res.status(400).end('Invalid repository')
     }
 
+    req.log.debug({ payload: req.body }, 'Jenkins / Github PR end status incoming')
+
     pushJenkinsUpdate.pushEnded({
       owner: 'nodejs',
       repo,
