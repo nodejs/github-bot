@@ -18,6 +18,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
   The webhook secret that GitHub signs the POSTed payloads with. This is created when the webhook is defined. The default is `hush-hush`.
 - **`TRAVIS_CI_TOKEN`**<br>
   For scripts that communicate with Travis CI. Your Travis token is visible on [yourprofile](https://travis-ci.org/profile) page, by clicking the "show token" link. Also See: https://blog.travis-ci.com/2013-01-28-token-token-token
+- **`JENKINS_API_CREDENTIALS`** (optional)<br>
+  For scripts that communicate with Jenkins on http://ci.nodejs.org. The Jenkins API token is visible on
+  your own profile page `https://ci.nodejs.org/user/<YOUR_GITHUB_USERNAME>/configure`, by clicking the
+  "show API token" button. Also See: https://wiki.jenkins-ci.org/display/JENKINS/Authenticating+scripted+clients
+- **`JENKINS_JOB_URL_<REPO_NAME>`** (optional)<br>
+  Only required for the trigger Jenkins build script, to know which job to trigger a build for when
+  repository collaborator posts a comment to the bot. E.g. `JENKINS_JOB_URL_NODE=https://ci.nodejs.org/job/node-test-pull-request`
+- **`JENKINS_BUILD_TOKEN_<REPO_NAME>`** (optional)<br>
+  Only required for the trigger Jenkins build script. The authentication token configured for a particular
+  Jenkins job, for remote scripts to trigger builds remotely. Found on the job configuration page in
+  `Build Triggers -> Trigger builds remotely (e.g., from scripts)`.
 - **`LOGIN_CREDENTIALS`**<br>
   Username and password used to protected the log files exposed in /logs. Expected format: `username:password`.
 - **`KEEP_LOGS`**<br>
