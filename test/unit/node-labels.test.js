@@ -326,7 +326,7 @@ tap.test('label: "doc" when top-level .md files have changed', (t) => {
     'README.md'
   ])
 
-  t.same(labels, ['doc'])
+  t.same(labels, ['build', 'doc'])
 
   t.end()
 })
