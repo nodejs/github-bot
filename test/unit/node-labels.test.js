@@ -4,18 +4,6 @@ const tap = require('tap')
 
 const nodeLabels = require('../../lib/node-labels')
 
-tap.test('label: "test" when only ./test/ files has been changed', (t) => {
-  const labels = nodeLabels.resolveLabels([
-    'test/debugger/test-debugger-pid.js',
-    'test/debugger/test-debugger-repl-break-in-module.js',
-    'test/debugger/test-debugger-repl-term.js'
-  ])
-
-  t.same(labels, ['test'])
-
-  t.end()
-})
-
 tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'test/debugger/test-debugger-pid.js',
@@ -49,17 +37,6 @@ tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
   ])
 
   t.same(labels, ['doc'])
-
-  t.end()
-})
-
-tap.test('label: "benchmark" when only ./benchmark/ files has been changed', (t) => {
-  const labels = nodeLabels.resolveLabels([
-    'benchmark/http_server_lag.js',
-    'benchmark/http/check_is_http_token.js'
-  ])
-
-  t.same(labels, ['benchmark'])
 
   t.end()
 })
@@ -148,7 +125,7 @@ const srcCases = [
   [ 'zlib', ['node_zlib.cc'] ]
 ]
 for (const info of srcCases) {
-  var labels = info[0]
+  let labels = info[0]
   if (!Array.isArray(labels)) {
     labels = [labels]
   }
@@ -399,22 +376,12 @@ tap.test('label: no version labels (master)', (t) => {
   t.end()
 })
 
-tap.test('label: tools label', (t) => {
-  const labels = nodeLabels.resolveLabels([
-    'tools/doc/json.js'
-  ])
-
-  t.same(labels, ['tools'])
-
-  t.end()
-})
-
 tap.test('label: build label (windows)', (t) => {
   const labels = nodeLabels.resolveLabels([
     'vcbuild.bat'
   ])
 
-  t.same(labels, ['build'])
+  t.same(labels, ['build', 'windows'])
 
   t.end()
 })
@@ -439,3 +406,123 @@ tap.test('label: doc label for non-subsystem API doc changes', (t) => {
 
   t.end()
 })
+
+const specificBenchmarks = [
+  [ [], ['fixtures/alice.html', 'misc/freelist.js'] ],
+  [ 'assert', ['assert/deepequal-buffer.js'] ],
+  [ 'buffer', ['buffers/buffer-base64-decode.js'] ],
+  [ 'child_process', ['child_process/child-process-exec-stdout.js'] ],
+  [ 'crypto', ['crypto/aes-gcm-throughput.js'] ],
+  [ 'dgram', ['dgram/bind-params.js'] ],
+  [ 'domain', ['domain/domain-fn-args.js'] ],
+  [ 'events', ['events/ee-emit.js'] ],
+  [ 'fs', ['fs/readfile.js'] ],
+  [ 'http', ['_http-benchmarkers.js', 'http/simple.js'] ],
+  [ 'module', ['module/module-loader.js'] ],
+  [ 'net', ['net/net-c2s.js'] ],
+  [ 'os', ['os/loadavg.js'] ],
+  [ 'path', ['path/basename-posix.js'] ],
+  [ 'process', ['process/memoryUsage.js'] ],
+  [ 'querystring', ['querystring/querystring-parse.js'] ],
+  [ 'stream', ['streams/readable-readall.js'] ],
+  [ 'string_decoder', ['string_decoder/string-decoder.js'] ],
+  [ 'timers', ['timers/set-immediate-depth.js'] ],
+  [ 'tls', ['tls/throughput.js'] ],
+  [ 'url', ['url/url-resolve.js'] ],
+  [ 'util', ['util/format.js'] ],
+  [ 'V8', ['arrays/var-int.js', 'es/defaultparams-bench.js'] ],
+  [ 'vm', ['vm/run-in-context.js'] ]
+]
+for (const info of specificBenchmarks) {
+  let labels = info[0]
+  if (!Array.isArray(labels)) {
+    labels = ['benchmark', labels]
+  } else {
+    labels = ['benchmark'].concat(labels)
+  }
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./benchmark/${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([`benchmark/${file}`])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
+}
+
+const moreTools = [
+  '.eslintignore', '.editorconfig', '.eslintrc.yaml', '.remarkrc'
+]
+for (const file of moreTools) {
+  tap.test(`label: "tools" when ${file} has been changed`, (t) => {
+    const resolved = nodeLabels.resolveLabels([`${file}`])
+
+    t.same(resolved, ['tools'])
+
+    t.end()
+  })
+}
+
+const specificTests = [
+  [ 'addons', ['addons/async-hello-world/binding.cc'] ],
+  [ 'debugger', ['debugger/test-debugger-repl.js'] ],
+  [ ['doc', 'tools'], ['doctool/test-doctool-html.js'] ],
+  [ 'timers', ['timers/test-timers-reliability.js'] ],
+  [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ]
+]
+for (const info of specificTests) {
+  let labels = info[0]
+  if (!Array.isArray(labels)) {
+    labels = ['test', labels]
+  } else {
+    labels = ['test'].concat(labels)
+  }
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./test/${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([`test/${file}`])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
+}
+
+const specificTools = [
+  [ 'build', ['gyp/gyp_main.py', 'gyp_node.py'] ],
+  [ 'doc', ['doc/generate.js'] ],
+  [ 'intl', ['icu/icu-generate.gyp'] ],
+  [ 'macos',
+    ['macosx-firewall.sh',
+     'osx-codesign.sh' ] ],
+  [ ['macos', 'install'],
+    ['osx-pkg.pmdoc/index.xml.tmpl',
+     'pkgsrc/description' ] ],
+  [ ['test', 'npm'], ['test-npm.sh', 'test-npm-package.js'] ],
+  [ ['test'], ['test.py'] ],
+  [ ['openssl', 'tls'], ['certdata.txt', 'mkssldef.py', 'mk-ca-bundle.pl'] ],
+  [ ['windows'], ['sign.bat'] ],
+  [ ['windows', 'install'], ['msvs/msi/product.wxs'] ],
+  [ ['V8'], ['make-v8.sh'] ]
+]
+for (const info of specificTools) {
+  let labels = info[0]
+  if (!Array.isArray(labels)) {
+    labels = ['tools', labels]
+  } else {
+    labels = ['tools'].concat(labels)
+  }
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./tools/${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([`tools/${file}`])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
+}
