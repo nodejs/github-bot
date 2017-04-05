@@ -530,3 +530,21 @@ for (const info of specificTools) {
     })
   }
 }
+
+[
+  [ ['c++', 'n-api'],
+    ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
+  [ ['test', 'n-api'], ['test/addons-napi/foo'] ]
+].forEach((info) => {
+  const labels = info[0]
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([file])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
+})
