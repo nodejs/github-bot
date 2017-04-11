@@ -163,12 +163,12 @@ tap.test('label: not "c++" when ./src/*.py has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "v8_inspector" when ./src/inspector_* has been changed', (t) => {
+tap.test('label: "inspector" when ./src/inspector_* has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'src/inspector_socket.cc'
   ])
 
-  t.same(labels, ['c++', 'v8_inspector', 'dont-land-on-v4.x'])
+  t.same(labels, ['c++', 'inspector', 'dont-land-on-v4.x'])
 
   t.end()
 })
@@ -469,8 +469,12 @@ const specificTests = [
   [ 'addons', ['addons/async-hello-world/binding.cc'] ],
   [ 'debugger', ['debugger/test-debugger-repl.js'] ],
   [ ['doc', 'tools'], ['doctool/test-doctool-html.js'] ],
+  [ ['inspector', 'dont-land-on-v4.x'],
+    ['inspector/test-inspector.js', 'cctest/test_inspector_socket.cc'] ],
   [ 'timers', ['timers/test-timers-reliability.js'] ],
-  [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ]
+  [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ],
+  [ ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+    ['cctest/test_url.cc'] ]
 ]
 for (const info of specificTests) {
   let labels = info[0]
