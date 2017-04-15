@@ -150,8 +150,8 @@
     "color": "5319e7"
   },
   {
-    "url": "https://api.github.com/repos/nodejs/node/labels/V8",
-    "name": "V8",
+    "url": "https://api.github.com/repos/nodejs/node/labels/V8 Engine",
+    "name": "V8 Engine",
     "color": "0052cc"
   }
 ]

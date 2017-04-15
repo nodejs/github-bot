@@ -113,7 +113,7 @@ const srcCases = [
   [ ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['node_url.cc', 'node_url.h'] ],
   [ 'util', ['node_util.cc'] ],
-  [ 'V8', ['node_v8.cc', 'v8abbr.h'] ],
+  [ 'V8 Engine', ['node_v8.cc', 'v8abbr.h'] ],
   [ 'vm', ['node_contextify.cc'] ],
   [ 'windows',
     ['backtrace_win32.cc',
@@ -430,7 +430,7 @@ const specificBenchmarks = [
   [ 'tls', ['tls/throughput.js'] ],
   [ 'url', ['url/url-resolve.js'] ],
   [ 'util', ['util/format.js'] ],
-  [ 'V8', ['arrays/var-int.js', 'es/defaultparams-bench.js'] ],
+  [ 'V8 Engine', ['arrays/var-int.js', 'es/defaultparams-bench.js'] ],
   [ 'vm', ['vm/run-in-context.js'] ]
 ]
 for (const info of specificBenchmarks) {

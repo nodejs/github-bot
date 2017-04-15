@@ -121,9 +121,9 @@ tap.test('Does not create labels which does not already exist', (t) => {
 })
 
 // reported bug: https://github.com/nodejs/github-bot/issues/92
-tap.test('Adds V8 label when PR has deps/v8 file changes', (t) => {
+tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
   const clock = lolex.install()
-  const expectedLabels = ['V8']
+  const expectedLabels = ['V8 Engine']
   const webhookPayload = readFixture('pull-request-opened-v8.json')
 
   const filesScope = nock('https://api.github.com')

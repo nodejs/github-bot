@@ -29,7 +29,7 @@
   },
   {
     "id": 176191361,
-    "url": "https://api.github.com/repos/nodejs/node/labels/V8",
+    "url": "https://api.github.com/repos/nodejs/node/labels/V8 Engine",
     "name": "V8",
     "color": "0052cc",
     "default": false
