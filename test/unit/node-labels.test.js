@@ -173,12 +173,12 @@ tap.test('label: "inspector" when ./src/inspector_* has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "v8" when ./deps/v8/ files has been changed', (t) => {
+tap.test('label: "V8 Engine" when ./deps/v8/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/v8/src/arguments.cc'
   ])
 
-  t.same(labels, ['v8'])
+  t.same(labels, ['V8 Engine'])
 
   t.end()
 })
@@ -193,13 +193,13 @@ tap.test('label: "libuv" when ./deps/uv/ files has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "v8", "openssl" when ./deps/v8/ and ./deps/openssl/ files has been changed', (t) => {
+tap.test('label: "V8 Engine", "openssl" when ./deps/v8/ and ./deps/openssl/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/v8/src/arguments.cc',
     'deps/openssl/openssl/ssl/ssl_rsa.c'
   ])
 
-  t.same(labels, ['v8', 'openssl'])
+  t.same(labels, ['V8 Engine', 'openssl'])
 
   t.end()
 })
@@ -245,7 +245,7 @@ tap.test('label: not "lib / src" when only deps have been changed', (t) => {
     'deps/v8/test/cctest/interpreter/bytecode_expectations/BasicLoops.golden'
   ])
 
-  t.same(labels, ['v8'])
+  t.same(labels, ['V8 Engine'])
 
   t.end()
 })
@@ -347,7 +347,7 @@ tap.test('label: version labels (new)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'v6.x')
 
-  t.same(labels, ['v8', 'v6.x'])
+  t.same(labels, ['V8 Engine', 'v6.x'])
 
   t.end()
 })
@@ -359,7 +359,7 @@ tap.test('label: version labels (new, staging)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'v6.x-staging')
 
-  t.same(labels, ['v8', 'v6.x'])
+  t.same(labels, ['V8 Engine', 'v6.x'])
 
   t.end()
 })
@@ -371,7 +371,7 @@ tap.test('label: no version labels (master)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'master')
 
-  t.same(labels, ['v8'])
+  t.same(labels, ['V8 Engine'])
 
   t.end()
 })
@@ -510,7 +510,7 @@ const specificTools = [
   [ ['openssl', 'tls'], ['certdata.txt', 'mkssldef.py', 'mk-ca-bundle.pl'] ],
   [ ['windows'], ['sign.bat'] ],
   [ ['windows', 'install'], ['msvs/msi/product.wxs'] ],
-  [ ['V8'], ['make-v8.sh'] ]
+  [ ['V8 Engine'], ['make-v8.sh'] ]
 ]
 for (const info of specificTools) {
   let labels = info[0]
