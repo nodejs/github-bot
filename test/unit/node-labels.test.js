@@ -532,7 +532,7 @@ for (const info of specificTools) {
 }
 
 [
-  [ ['V8 Engine', 'postmortem'],
+  [ ['V8 Engine', 'post-mortem'],
     ['deps/v8/tools/gen-postmortem-metadata.py'] ],
   [ ['c++', 'n-api'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
