@@ -221,7 +221,7 @@ tap.test('label: "repl" when ./lib/repl.js has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (t) => {
+tap.test('label: "lib / src" when 4 or more JS sub-systems have been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
     'lib/dns.js',
@@ -237,7 +237,7 @@ tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (
 
 // https://github.com/nodejs/node/pull/12366 should have been labelled "lib / src"
 // https://github.com/nodejs/github-bot/issues/137
-tap.test('label: "lib / src" when 5 or more native files have been changed', (t) => {
+tap.test('label: "lib / src" when 4 or more native files have been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'node.gyp',
     'src/cares_wrap.cc',
@@ -283,7 +283,7 @@ tap.test('label: not "lib / src" when only deps have been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "JS sub-systems when less than 5 sub-systems have changed', (t) => {
+tap.test('label: "JS sub-systems when less than 4 sub-systems have changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
     'lib/dns.js',
