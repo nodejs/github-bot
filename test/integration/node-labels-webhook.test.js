@@ -17,6 +17,8 @@ const testStubs = {
   }
 }
 
+// only load the script being tested
+process.env.SCRIPTS = './scripts/node-subsystem-label.js'
 const app = proxyquire('../../app', testStubs)
 
 const readFixture = require('../read-fixture')
