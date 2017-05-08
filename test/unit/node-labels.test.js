@@ -536,7 +536,8 @@ for (const info of specificTools) {
     ['deps/v8/tools/gen-postmortem-metadata.py'] ],
   [ ['c++', 'n-api'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
-  [ ['test', 'n-api'], ['test/addons-napi/foo'] ]
+  [ ['test', 'n-api'], ['test/addons-napi/foo'] ],
+  [ ['doc', 'n-api'], ['doc/api/n-api.md'] ]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
