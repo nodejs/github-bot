@@ -550,4 +550,21 @@ for (const info of specificTools) {
       t.end()
     })
   }
+});
+
+[
+  [ ['async_hooks'], ['lib/async_hooks.js'] ],
+  [ ['test', 'async_hooks'], ['test/async-hooks/test-connection.ssl.js'] ]
+].forEach((info) => {
+  const labels = info[0]
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([file])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
 })
