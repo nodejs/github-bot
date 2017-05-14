@@ -568,3 +568,14 @@ for (const info of specificTools) {
     })
   }
 })
+
+tap.test('label: "build" when ./android-configure has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'android-configure'
+  ])
+
+  t.same(labels, ['build'])
+
+  t.end()
+})
+
