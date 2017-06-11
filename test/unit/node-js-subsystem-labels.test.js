@@ -161,3 +161,14 @@ tap.test('label: "doc,module" when doc/api/modules.md was changed', (t) => {
 
   t.end()
 })
+
+tap.test('label: appropriate labels for files in internal subdirectories', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'lib/internal/cluster/master.js',
+    'lib/internal/process/next_tick.js'
+  ], false)
+
+  t.same(labels, ['cluster', 'process'])
+
+  t.end()
+})
