@@ -221,7 +221,7 @@ tap.test('label: "repl" when ./lib/repl.js has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (t) => {
+tap.test('label: "lib / src" when 4 or more JS sub-systems have been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
     'lib/dns.js',
@@ -231,6 +231,39 @@ tap.test('label: "lib / src" when 5 or more JS sub-systems have been changed', (
   ])
 
   t.same(labels, ['lib / src'])
+
+  t.end()
+})
+
+// https://github.com/nodejs/node/pull/12366 should have been labelled "lib / src"
+// https://github.com/nodejs/github-bot/issues/137
+tap.test('label: "lib / src" when 4 or more native files have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'node.gyp',
+    'src/cares_wrap.cc',
+    'src/fs_event_wrap.cc',
+    'src/node.cc',
+    'src/node_api.cc',
+    'src/node_buffer.cc',
+    'src/node_config.cc',
+    'src/node_constants.cc',
+    'src/node_contextify.cc',
+    'src/node_file.cc',
+    'src/node_file.h',
+    'src/node_http_parser.cc',
+    'src/node_http_parser.h',
+    'src/node_i18n.cc',
+    'src/node_revert.cc',
+    'src/node_serdes.cc',
+    'src/node_zlib.cc',
+    'src/process_wrap.cc',
+    'src/signal_wrap.cc',
+    'src/string_bytes.cc',
+    'src/timer_wrap.cc',
+    'src/uv.cc'
+  ])
+
+  t.same(labels, ['c++', 'lib / src'])
 
   t.end()
 })
@@ -250,7 +283,7 @@ tap.test('label: not "lib / src" when only deps have been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "JS sub-systems when less than 5 sub-systems have changed', (t) => {
+tap.test('label: "JS sub-systems when less than 4 sub-systems have changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/assert.js',
     'lib/dns.js',
