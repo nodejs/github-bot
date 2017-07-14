@@ -3,6 +3,19 @@
 const pushJenkinsUpdate = require('../lib/push-jenkins-update')
 const enabledRepos = ['citgm', 'node']
 
+const jenkinsIpWhitelist = process.env.JENKINS_WORKER_IPS ? process.env.JENKINS_WORKER_IPS.split(',') : []
+
+function isJenkinsIpWhitelisted (req) {
+  const ip = req.connection.remoteAddress
+
+  if (jenkinsIpWhitelist.length && !jenkinsIpWhitelist.includes(ip)) {
+    req.log.warn({ ip }, 'Ignoring, not allowed to push Jenkins updates')
+    return false
+  }
+
+  return true
+}
+
 module.exports = function (app) {
   app.post('/:repo/jenkins/start', (req, res) => {
     const isValid = pushJenkinsUpdate.validate(req.body)
@@ -14,6 +27,10 @@ module.exports = function (app) {
 
     if (!enabledRepos.includes(repo)) {
       return res.status(400).end('Invalid repository')
+    }
+
+    if (!isJenkinsIpWhitelisted(req)) {
+      return res.status(401).end('Invalid Jenkins IP')
     }
 
     pushJenkinsUpdate.pushStarted({
@@ -35,6 +52,10 @@ module.exports = function (app) {
 
     if (!enabledRepos.includes(repo)) {
       return res.status(400).end('Invalid repository')
+    }
+
+    if (!isJenkinsIpWhitelisted(req)) {
+      return res.status(401).end('Invalid Jenkins IP')
     }
 
     pushJenkinsUpdate.pushEnded({

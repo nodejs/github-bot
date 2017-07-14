@@ -18,6 +18,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
   The webhook secret that GitHub signs the POSTed payloads with. This is created when the webhook is defined. The default is `hush-hush`.
 - **`TRAVIS_CI_TOKEN`**<br>
   For scripts that communicate with Travis CI. Your Travis token is visible on [yourprofile](https://travis-ci.org/profile) page, by clicking the "show token" link. Also See: https://blog.travis-ci.com/2013-01-28-token-token-token
+- **`JENKINS_WORKER_IPS`**<br>
+  List of valid Jenkins worker IPs allowed to push PR status updates, split by comma: `192.168.1.100,192.168.1.101`.
 - **`JENKINS_API_CREDENTIALS`** (optional)<br>
   For scripts that communicate with Jenkins on http://ci.nodejs.org. The Jenkins API token is visible on
   your own profile page `https://ci.nodejs.org/user/<YOUR_GITHUB_USERNAME>/configure`, by clicking the
