@@ -610,5 +610,30 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
   t.same(labels, ['build'])
 
   t.end()
-})
+});
 
+[
+  [ ['http2'],
+    ['lib/http2.js',
+     'lib/internal/http2/core.js',
+     'deps/nghttp2/lib/nghttp2_buf.c'] ],
+  [ ['c++', 'http2'],
+    ['src/node_http2.cc',
+     'src/node_http2.h',
+     'src/node_http2_core.h',
+     'src/node_http2_core-inl.h'] ],
+  [ ['build', 'http2'], ['deps/nghttp2/nghttp2.gyp'] ],
+  [ ['doc', 'http2'], ['doc/api/http2.md'] ]
+].forEach((info) => {
+  const labels = info[0]
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([file])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
+})
