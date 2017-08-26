@@ -567,10 +567,12 @@ for (const info of specificTools) {
 [
   [ ['V8 Engine', 'post-mortem'],
     ['deps/v8/tools/gen-postmortem-metadata.py'] ],
-  [ ['c++', 'n-api'],
+  [ ['c++', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
-  [ ['test', 'n-api'], ['test/addons-napi/foo'] ],
-  [ ['doc', 'n-api'], ['doc/api/n-api.md'] ]
+  [ ['test', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+    ['test/addons-napi/foo'] ],
+  [ ['doc', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+    ['doc/api/n-api.md'] ]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
