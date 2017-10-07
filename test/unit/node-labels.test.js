@@ -615,7 +615,7 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
 });
 
 [
-  [ ['http2'],
+  [ ['http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['lib/http2.js',
      'lib/internal/http2/core.js',
      'deps/nghttp2/lib/nghttp2_buf.c'] ],
