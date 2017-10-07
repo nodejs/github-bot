@@ -615,16 +615,17 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
 });
 
 [
-  [ ['http2'],
+  [ ['http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['lib/http2.js',
      'lib/internal/http2/core.js',
      'deps/nghttp2/lib/nghttp2_buf.c'] ],
-  [ ['c++', 'http2'],
+  [ ['c++', 'http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
     ['src/node_http2.cc',
      'src/node_http2.h',
      'src/node_http2_core.h',
      'src/node_http2_core-inl.h'] ],
-  [ ['build', 'http2'], ['deps/nghttp2/nghttp2.gyp'] ],
+  [ ['build', 'http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+    ['deps/nghttp2/nghttp2.gyp'] ],
   [ ['doc', 'http2'], ['doc/api/http2.md'] ]
 ].forEach((info) => {
   const labels = info[0]
