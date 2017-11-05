@@ -31,8 +31,8 @@ tap.test('no labels: when ./test/ and ./lib/ files has been changed', (t) => {
 
 tap.test('label: correct when lib/{not internal}/ files have been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
-    'lib/http/common.js',
-    'lib/tls/legacy.js'
+    'lib/internal/http/common.js',
+    'lib/internal/tls/legacy.js'
   ])
 
   t.same(labels, ['http', 'tls'])
