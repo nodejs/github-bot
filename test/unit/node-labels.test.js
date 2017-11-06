@@ -29,6 +29,17 @@ tap.test('no labels: when ./test/ and ./lib/ files has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: correct when lib/{not internal}/ files have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'lib/internal/http/common.js',
+    'lib/internal/tls/legacy.js'
+  ])
+
+  t.same(labels, ['http', 'tls'])
+
+  t.end()
+})
+
 tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'doc/api/fs.md',
