@@ -1,7 +1,7 @@
 'use strict'
 
 const pushJenkinsUpdate = require('../lib/push-jenkins-update')
-const enabledRepos = ['citgm', 'node']
+const enabledRepos = ['citgm', 'http-parser', 'node']
 
 const jenkinsIpWhitelist = process.env.JENKINS_WORKER_IPS ? process.env.JENKINS_WORKER_IPS.split(',') : []
 
