@@ -2,7 +2,10 @@
 
 const debug = require('debug')('display_travis_status')
 const pollTravis = require('../lib/pollTravis')
-const enabledRepos = ['citgm', 'readable-stream', 'nodejs.org', 'docker-node']
+const enabledRepos = [
+  'citgm', 'readable-stream', 'nodejs.org', 'docker-node',
+  'llnode', 'nan', 'node-core-utils'
+]
 
 module.exports = function (app) {
   app.on('pull_request.opened', handlePrUpdate)
