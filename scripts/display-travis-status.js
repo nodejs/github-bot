@@ -4,7 +4,7 @@ const debug = require('debug')('display_travis_status')
 const pollTravis = require('../lib/pollTravis')
 const enabledRepos = [
   'citgm', 'readable-stream', 'nodejs.org', 'docker-node',
-  'llnode', 'nan', 'node-core-utils'
+  'llnode', 'nan', 'node-core-utils', 'core-validate-commit'
 ]
 
 module.exports = function (app) {
