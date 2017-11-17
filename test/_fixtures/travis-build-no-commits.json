@@ -1,0 +1,47 @@
+{
+  "builds": [
+    {
+      "id": 302956738,
+      "repository_id": 15864968,
+      "commit_id": 89377517,
+      "number": "322",
+      "event_type": "pull_request",
+      "pull_request": true,
+      "pull_request_title": "Testing github intergrations",
+      "pull_request_number": 100,
+      "config": {
+        "language": "node_js",
+        "node_js": [
+          "9",
+          "8"
+        ],
+        "sudo": false,
+        "cache": {
+          "directories": [
+            "node_modules"
+          ]
+        },
+        "script": [
+          "npm run lint",
+          "npm run coverage-all"
+        ],
+        "after_success": [
+          "npm run report-coverage"
+        ],
+        ".result": "configured",
+        "group": "stable",
+        "dist": "trusty"
+      },
+      "state": "created",
+      "started_at": "2017-11-16T10:46:47Z",
+      "finished_at": "2017-11-16T10:48:40Z",
+      "duration": 189,
+      "job_ids": [
+        302956739,
+        302956740
+      ]
+    }
+  ],
+  "jobs": [ ],
+  "commits": [ ]
+}
