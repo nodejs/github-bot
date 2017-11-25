@@ -1,7 +1,12 @@
 'use strict'
 
 const pushJenkinsUpdate = require('../lib/push-jenkins-update')
-const enabledRepos = ['citgm', 'http-parser', 'node']
+const enabledRepos = {
+  'citgm': 'nodejs',
+  'http-parser': 'nodejs',
+  'node': 'nodejs',
+  'libuv': 'libuv'
+}
 
 const jenkinsIpWhitelist = process.env.JENKINS_WORKER_IPS ? process.env.JENKINS_WORKER_IPS.split(',') : []
 
@@ -25,7 +30,7 @@ module.exports = function (app) {
       return res.status(400).end('Invalid payload')
     }
 
-    if (!enabledRepos.includes(repo)) {
+    if (!Object.keys(enabledRepos).includes(repo)) {
       return res.status(400).end('Invalid repository')
     }
 
@@ -34,7 +39,7 @@ module.exports = function (app) {
     }
 
     pushJenkinsUpdate.pushStarted({
-      owner: 'nodejs',
+      owner: enabledRepos[repo],
       repo,
       logger: req.log
     }, req.body)
@@ -50,7 +55,7 @@ module.exports = function (app) {
       return res.status(400).end('Invalid payload')
     }
 
-    if (!enabledRepos.includes(repo)) {
+    if (!Object.keys(enabledRepos).includes(repo)) {
       return res.status(400).end('Invalid repository')
     }
 
@@ -59,7 +64,7 @@ module.exports = function (app) {
     }
 
     pushJenkinsUpdate.pushEnded({
-      owner: 'nodejs',
+      owner: enabledRepos[repo],
       repo,
       logger: req.log
     }, req.body)
