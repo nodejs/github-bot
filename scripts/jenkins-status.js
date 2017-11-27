@@ -6,7 +6,7 @@ const enabledRepos = ['citgm', 'http-parser', 'node']
 const jenkinsIpWhitelist = process.env.JENKINS_WORKER_IPS ? process.env.JENKINS_WORKER_IPS.split(',') : []
 
 function isJenkinsIpWhitelisted (req) {
-  const ip = req.connection.remoteAddress
+  const ip = req.connection.remoteAddress.split(':').pop()
 
   if (jenkinsIpWhitelist.length && !jenkinsIpWhitelist.includes(ip)) {
     req.log.warn({ ip }, 'Ignoring, not allowed to push Jenkins updates')
