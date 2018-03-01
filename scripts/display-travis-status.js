@@ -14,6 +14,7 @@ const DEFAULT_POLL_INTERVAL = process.env.TRAVIS_POLL_INTERVAL || 30
 const enabledRepos = {
   'citgm': { retry: 40 },
   'readable-stream': { retry: 60, interval: 60 },
+  'string_decoder': { retry: 60, interval: 60 },
   'nodejs.org': { },
   'docker-node': { retry: 70, interval: 120 },
   'llnode': { retry: 60, interval: 60 },
