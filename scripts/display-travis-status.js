@@ -20,7 +20,8 @@ const enabledRepos = {
   'llnode': { retry: 60, interval: 60 },
   'nan': { retry: 60, interval: 60 },
   'node-core-utils': { },
-  'core-validate-commit': { }
+  'core-validate-commit': { },
+  'i18n': { }
 }
 
 module.exports = function (app) {
