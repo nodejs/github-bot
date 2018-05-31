@@ -34,15 +34,39 @@ function buildTokenForRepo (repo) {
   return process.env[`JENKINS_BUILD_TOKEN_${repo.toUpperCase()}`] || ''
 }
 
+function buildParametersForRepo (options, repo) {
+  if (repo === 'citgm') {
+    return [{
+      name: 'GIT_REMOTE_REF',
+      value: `refs/pull/${options.number}/head`
+    }]
+  } else {
+    return [{
+      name: 'CERTIFY_SAFE',
+      value: 'true'
+    },
+    {
+      name: 'TARGET_GITHUB_ORG',
+      value: 'nodejs'
+    },
+    {
+      name: 'TARGET_REPO_NAME',
+      value: 'node'
+    },
+    {
+      name: 'PR_ID',
+      value: options.number
+    }
+    ]
+  }
+}
+
 function triggerBuild (options, cb) {
   const { repo } = options
   const base64Credentials = new Buffer(jenkinsApiCredentials).toString('base64')
   const authorization = `Basic ${base64Credentials}`
-  const buildParameters = [{
-    name: 'GIT_REMOTE_REF',
-    value: `refs/pull/${options.number}/head`
-  }]
-  const payload = JSON.stringify({ parameter: buildParameters })
+
+  const payload = JSON.stringify({ parameter: buildParametersForRepo(options, repo) })
   const uri = buildUrlForRepo(repo)
   const buildAuthToken = buildTokenForRepo(repo)
 
@@ -138,11 +162,9 @@ module.exports = (app) => {
     function replyToCollabWithBuildStarted (err, buildUrl) {
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
-        return createPrComment(options, `@${pullRequestAuthor} sadly an error occured when I tried to trigger a build :(`)
+      } else {
+        logger.info({ buildUrl }, 'Jenkins build started')
       }
-
-      createPrComment(options, `@${pullRequestAuthor} build started: ${buildUrl}`)
-      logger.info({ buildUrl }, 'Jenkins build started')
     }
 
     function triggerBuildWhenCollaborator (err) {

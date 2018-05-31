@@ -27,9 +27,6 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
   process.env.JENKINS_BUILD_TOKEN_NODE = 'myToken'
 
   const webhookPayload = readFixture('pull-request-opened.json')
-  const expectedComment = {
-    body: '@phillipj build started: https://ci.nodejs.org/job/node-test-pull-request/1'
-  }
 
   const collaboratorsScope = nock('https://api.github.com')
                       .filteringPath(ignoreQueryParams)
@@ -41,13 +38,9 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
                         .reply(201, '', {
                           'Location': 'https://ci.nodejs.org/job/node-test-pull-request/1'
                         })
-  const ciJobCommentScope = nock('https://api.github.com')
-                        .filteringPath(ignoreQueryParams)
-                        .post('/repos/nodejs/node/issues/19/comments', expectedComment)
-                        .reply(201)
 
   t.plan(1)
-  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && ciJobCommentScope.done() && clock.uninstall())
+  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
