@@ -124,4 +124,35 @@ module.exports = (app) => {
       githubClient.repos.checkCollaborator({ owner, repo, username: commentAuthor }, triggerBuildWhenCollaborator)
     })
   })
+
+  app.on('pull_request.opened', function handlePullCreated (event, owner, repo) {
+    const { number, logger, pull_request } = event
+    const pullRequestAuthor = pull_request.user.login
+    const options = {
+      owner,
+      repo,
+      number,
+      logger
+    }
+
+    function replyToCollabWithBuildStarted (err, buildUrl) {
+      if (err) {
+        logger.error(err, 'Error while triggering Jenkins build')
+        return createPrComment(options, `@${pullRequestAuthor} sadly an error occured when I tried to trigger a build :(`)
+      }
+
+      createPrComment(options, `@${pullRequestAuthor} build started: ${buildUrl}`)
+      logger.info({ buildUrl }, 'Jenkins build started')
+    }
+
+    function triggerBuildWhenCollaborator (err) {
+      if (err) {
+        return logger.debug(`Ignoring comment to me by @${pullRequestAuthor} because they are not a repo collaborator`)
+      }
+
+      triggerBuild(options, replyToCollabWithBuildStarted)
+    }
+
+    githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)
+  })
 }
