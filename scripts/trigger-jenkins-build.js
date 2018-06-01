@@ -159,11 +159,11 @@ module.exports = (app) => {
       logger
     }
 
-    function replyToCollabWithBuildStarted (err, buildUrl) {
+    function logBuildStarted (err) {
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
       } else {
-        logger.info({ buildUrl }, 'Jenkins build started')
+        logger.info('Jenkins build started')
       }
     }
 
