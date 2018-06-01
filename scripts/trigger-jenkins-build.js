@@ -34,15 +34,39 @@ function buildTokenForRepo (repo) {
   return process.env[`JENKINS_BUILD_TOKEN_${repo.toUpperCase()}`] || ''
 }
 
+function buildParametersForRepo (options, repo) {
+  if (repo === 'citgm') {
+    return [{
+      name: 'GIT_REMOTE_REF',
+      value: `refs/pull/${options.number}/head`
+    }]
+  } else {
+    return [{
+      name: 'CERTIFY_SAFE',
+      value: 'true'
+    },
+    {
+      name: 'TARGET_GITHUB_ORG',
+      value: 'nodejs'
+    },
+    {
+      name: 'TARGET_REPO_NAME',
+      value: 'node'
+    },
+    {
+      name: 'PR_ID',
+      value: options.number
+    }
+    ]
+  }
+}
+
 function triggerBuild (options, cb) {
   const { repo } = options
   const base64Credentials = new Buffer(jenkinsApiCredentials).toString('base64')
   const authorization = `Basic ${base64Credentials}`
-  const buildParameters = [{
-    name: 'GIT_REMOTE_REF',
-    value: `refs/pull/${options.number}/head`
-  }]
-  const payload = JSON.stringify({ parameter: buildParameters })
+
+  const payload = JSON.stringify({ parameter: buildParametersForRepo(options, repo) })
   const uri = buildUrlForRepo(repo)
   const buildAuthToken = buildTokenForRepo(repo)
 
@@ -123,5 +147,34 @@ module.exports = (app) => {
 
       githubClient.repos.checkCollaborator({ owner, repo, username: commentAuthor }, triggerBuildWhenCollaborator)
     })
+  })
+
+  app.on('pull_request.opened', function handlePullCreated (event, owner, repo) {
+    const { number, logger, pull_request } = event
+    const pullRequestAuthor = pull_request.user.login
+    const options = {
+      owner,
+      repo,
+      number,
+      logger
+    }
+
+    function logBuildStarted (err) {
+      if (err) {
+        logger.error(err, 'Error while triggering Jenkins build')
+      } else {
+        logger.info('Jenkins build started')
+      }
+    }
+
+    function triggerBuildWhenCollaborator (err) {
+      if (err) {
+        return logger.debug(`Ignoring comment to me by @${pullRequestAuthor} because they are not a repo collaborator`)
+      }
+
+      triggerBuild(options, replyToCollabWithBuildStarted)
+    }
+
+    githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)
   })
 }
