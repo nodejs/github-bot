@@ -56,6 +56,10 @@ function buildParametersForRepo (options, repo) {
     {
       name: 'PR_ID',
       value: options.number
+    },
+    {
+      name: 'REBASE_ONTO',
+      value: '<pr base branch>'
     }
     ]
   }
@@ -172,7 +176,7 @@ module.exports = (app) => {
         return logger.debug(`Ignoring comment to me by @${pullRequestAuthor} because they are not a repo collaborator`)
       }
 
-      triggerBuild(options, replyToCollabWithBuildStarted)
+      triggerBuild(options, logBuildStarted)
     }
 
     githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)
