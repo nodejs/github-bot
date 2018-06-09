@@ -39,3 +39,13 @@ if (process.env.SSE_RELAY) {
     }
   }
 }
+
+function logUnhandledException (err) {
+  logger.fatal(err, 'Unchaught exception, terminating bot process immediately')
+
+  // leave time for error to be written to disk before exiting process
+  setTimeout(() => process.exit(1), 10)
+}
+
+process.on('uncaughtException', logUnhandledException)
+process.on('unhandledRejection', logUnhandledException)
