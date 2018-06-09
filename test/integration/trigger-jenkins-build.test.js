@@ -23,11 +23,11 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
 
   const originalJobUrlValue = process.env.JENKINS_JOB_URL_NODE
   const originalTokenValue = process.env.JENKINS_BUILD_TOKEN_NODE
-  process.env.JENKINS_JOB_URL_NODE = 'https://ci.nodejs.org/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/'
+  process.env.JENKINS_JOB_NODE = 'node-test-pull-request-lite-pipeline'
   process.env.JENKINS_BUILD_TOKEN_NODE = 'myToken'
 
   const webhookPayload = readFixture('pull-request-opened.json')
-  const pipelineUrl = '/blue/organizations/jenkins/node-test-pull-request-lite-pipeline/detail/node-test-pull-request-lite-pipeline/23/pipeline/'
+  const pipelineUrl = 'https://ci.nodejs.org/blue/organizations/jenkins/node-test-pull-request-lite-pipeline/detail/node-test-pull-request-lite-pipeline/1/pipeline'
 
   const collaboratorsScope = nock('https://api.github.com')
                       .filteringPath(ignoreQueryParams)
@@ -36,11 +36,11 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
   const ciJobScope = nock('https://ci.nodejs.org')
                         .filteringPath(ignoreQueryParams)
                         .post('/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/')
-                        .reply(200, { _links: { self: { href: pipelineUrl } } }, {})
+                        .reply(200, { id: 1 }, {})
 
   const commentScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
-                        .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: https://ci.nodejs.org/${pipelineUrl}` })
+                        .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: ${pipelineUrl}` })
                         .reply(200)
 
   t.plan(1)
