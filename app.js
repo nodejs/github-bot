@@ -25,7 +25,11 @@ if (logsDir) {
 
 // bunyanMiddleware gives us request id's and unique loggers per incoming request,
 // for satefy reasons we don't want to include the webhook GitHub secret in logs
-app.use(bunyanMiddleware({ logger, obscureHeaders: ['x-hub-signature'] }))
+app.use(bunyanMiddleware({
+  logger,
+  level: 'trace',
+  obscureHeaders: ['x-hub-signature']
+}))
 
 require('./lib/github-events')(app)
 
