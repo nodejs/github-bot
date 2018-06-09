@@ -39,4 +39,9 @@ glob.sync(scriptsToLoad).forEach((file) => {
   require(file)(app)
 })
 
+app.use(function logUnhandledErrors (err, req, res, next) {
+  logger.error(err, 'Unhandled error while responding to incoming HTTP request')
+  res.status(500).end()
+})
+
 module.exports = app
