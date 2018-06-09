@@ -115,6 +115,23 @@ tap.test('Responds with 400 / "Bad request" when incoming request has invalid pa
     })
 })
 
+tap.test('Responds with 400 / "Bad request" when incoming request is not related to a pull request', (t) => {
+  const fixture = readFixture('jenkins-staging-failure-payload.json')
+
+  // don't care about the results, just want to prevent any HTTP request ever being made
+  nock('https://api.github.com')
+
+  t.plan(1)
+
+  supertest(app)
+    .post('/node/jenkins/start')
+    .send(fixture)
+    .expect(400, 'Will only push builds related to pull requests')
+    .end((err, res) => {
+      t.equal(err, null)
+    })
+})
+
 tap.test('Responds with 400 / "Bad request" when incoming providing invalid repository name', (t) => {
   const fixture = readFixture('pending-payload.json')
 
