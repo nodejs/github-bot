@@ -20,11 +20,10 @@ function ifBotWasMentionedInCiComment (commentBody, cb) {
   })
 }
 
-// URL to the Jenkins job should be triggered for a given repository
-function buildUrlForRepo (repo) {
-  // e.g. JENKINS_JOB_URL_CITGM = https://ci.nodejs.org/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/
-  const jobUrl = process.env[`JENKINS_JOB_URL_${repo.toUpperCase()}`] || ''
-  return jobUrl
+// Name for the Jenkins job should be triggered for a given repository
+function getJobNameForRepo (repo) {
+  // e.g. JENKINS_JOB_CITGM = node-test-pull-request-lite-pipeline
+  return process.env[`JENKINS_JOB_${repo.toUpperCase()}`] || ''
 }
 
 // Authentication token configured per Jenkins job needed when triggering a build,
@@ -56,11 +55,11 @@ function triggerBuild (options, cb) {
   const base64Credentials = new Buffer(jenkinsApiCredentials).toString('base64')
   const authorization = `Basic ${base64Credentials}`
 
-  const uri = buildUrlForRepo(repo)
+  const jobName = getJobNameForRepo(repo)
   const buildAuthToken = buildTokenForRepo(repo)
 
-  if (!uri) {
-    return cb(new TypeError(`Will not trigger Jenkins build because $JENKINS_JOB_URL_${repo.toUpperCase()} is not set`))
+  if (!jobName) {
+    return cb(new TypeError(`Will not trigger Jenkins build because $JENKINS_JOB_${repo.toUpperCase()} is not set`))
   }
 
   if (!buildAuthToken) {
@@ -70,7 +69,7 @@ function triggerBuild (options, cb) {
   options.logger.debug('Triggering Jenkins build')
 
   request.post({
-    uri,
+    uri: `https://ci.nodejs.org/blue/rest/organizations/jenkins/pipelines/${jobName}/runs/`,
     headers: { authorization },
     qs: { token: buildAuthToken },
     json: { parameters: buildParametersForRepo(options, repo) }
@@ -81,7 +80,8 @@ function triggerBuild (options, cb) {
       return cb(new Error(`Expected 200 from Jenkins, got ${response.statusCode}`))
     }
 
-    cb(null, response.body._links.self.href)
+    cb(null,
+      `https://ci.nodejs.org/blue/organizations/jenkins/${jobName}/detail/${jobName}/${response.body.id}/pipeline`)
   })
 }
 
@@ -154,7 +154,7 @@ module.exports = (app) => {
         return createPrComment(options, `@${pullRequestAuthor} sadly an error occured when I tried to trigger a build :(`)
       }
 
-      createPrComment(options, `@${pullRequestAuthor} build started: https://ci.nodejs.org${buildUrl}`)
+      createPrComment(options, `@${pullRequestAuthor} build started: ${buildUrl}`)
       logger.info({ buildUrl }, 'Jenkins build started')
     }
 
