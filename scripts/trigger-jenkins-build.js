@@ -22,9 +22,9 @@ function ifBotWasMentionedInCiComment (commentBody, cb) {
 
 // URL to the Jenkins job should be triggered for a given repository
 function buildUrlForRepo (repo) {
-  // e.g. JENKINS_JOB_URL_CITGM = https://ci.nodejs.org/job/citgm-continuous-integration-pipeline
+  // e.g. JENKINS_JOB_URL_CITGM = https://ci.nodejs.org/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/
   const jobUrl = process.env[`JENKINS_JOB_URL_${repo.toUpperCase()}`] || ''
-  return jobUrl ? `${jobUrl}/build` : ''
+  return jobUrl
 }
 
 // Authentication token configured per Jenkins job needed when triggering a build,
@@ -41,26 +41,12 @@ function buildParametersForRepo (options, repo) {
       value: `refs/pull/${options.number}/head`
     }]
   } else {
-    return [{
-      name: 'CERTIFY_SAFE',
-      value: 'true'
-    },
-    {
-      name: 'TARGET_GITHUB_ORG',
-      value: 'nodejs'
-    },
-    {
-      name: 'TARGET_REPO_NAME',
-      value: 'node'
-    },
-    {
-      name: 'PR_ID',
-      value: options.number
-    },
-    {
-      name: 'REBASE_ONTO',
-      value: '<pr base branch>'
-    }
+    return [
+      { name: 'CERTIFY_SAFE', value: 'true' },
+      { name: 'GITHUB_ORG', value: 'nodejs' },
+      { name: 'REPO_NAME', value: 'node' },
+      { name: 'PR_ID', value: options.number },
+      { name: 'REBASE_ONTO', value: '' }
     ]
   }
 }
@@ -70,7 +56,6 @@ function triggerBuild (options, cb) {
   const base64Credentials = new Buffer(jenkinsApiCredentials).toString('base64')
   const authorization = `Basic ${base64Credentials}`
 
-  const payload = JSON.stringify({ parameter: buildParametersForRepo(options, repo) })
   const uri = buildUrlForRepo(repo)
   const buildAuthToken = buildTokenForRepo(repo)
 
@@ -88,15 +73,15 @@ function triggerBuild (options, cb) {
     uri,
     headers: { authorization },
     qs: { token: buildAuthToken },
-    form: { json: payload }
+    json: { parameters: buildParametersForRepo(options, repo) }
   }, (err, response) => {
     if (err) {
       return cb(err)
-    } else if (response.statusCode !== 201) {
-      return cb(new Error(`Expected 201 from Jenkins, got ${response.statusCode}`))
+    } else if (response.statusCode !== 200) {
+      return cb(new Error(`Expected 200 from Jenkins, got ${response.statusCode}`))
     }
 
-    cb(null, response.headers.location)
+    cb(null, response.body._links.self.href)
   })
 }
 
@@ -163,12 +148,14 @@ module.exports = (app) => {
       logger
     }
 
-    function logBuildStarted (err) {
+    function replyToCollabWithBuildStarted (err, buildUrl) {
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
-      } else {
-        logger.info('Jenkins build started')
+        return createPrComment(options, `@${pullRequestAuthor} sadly an error occured when I tried to trigger a build :(`)
       }
+
+      createPrComment(options, `@${pullRequestAuthor} build started: https://ci.nodejs.org${buildUrl}`)
+      logger.info({ buildUrl }, 'Jenkins build started')
     }
 
     function triggerBuildWhenCollaborator (err) {
@@ -176,7 +163,7 @@ module.exports = (app) => {
         return logger.debug(`Ignoring comment to me by @${pullRequestAuthor} because they are not a repo collaborator`)
       }
 
-      triggerBuild(options, logBuildStarted)
+      triggerBuild(options, replyToCollabWithBuildStarted)
     }
 
     githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)

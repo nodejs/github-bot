@@ -23,10 +23,11 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
 
   const originalJobUrlValue = process.env.JENKINS_JOB_URL_NODE
   const originalTokenValue = process.env.JENKINS_BUILD_TOKEN_NODE
-  process.env.JENKINS_JOB_URL_NODE = 'https://ci.nodejs.org/job/node-test-pull-request'
+  process.env.JENKINS_JOB_URL_NODE = 'https://ci.nodejs.org/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/'
   process.env.JENKINS_BUILD_TOKEN_NODE = 'myToken'
 
   const webhookPayload = readFixture('pull-request-opened.json')
+  const pipelineUrl = '/blue/organizations/jenkins/node-test-pull-request-lite-pipeline/detail/node-test-pull-request-lite-pipeline/23/pipeline/'
 
   const collaboratorsScope = nock('https://api.github.com')
                       .filteringPath(ignoreQueryParams)
@@ -34,13 +35,16 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
                       .reply(200, { permission: 'admin' })
   const ciJobScope = nock('https://ci.nodejs.org')
                         .filteringPath(ignoreQueryParams)
-                        .post('/job/node-test-pull-request/build')
-                        .reply(201, '', {
-                          'Location': 'https://ci.nodejs.org/job/node-test-pull-request/1'
-                        })
+                        .post('/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/')
+                        .reply(200, { _links: { self: { href: pipelineUrl } } }, {})
+
+  const commentScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: https://ci.nodejs.org/${pipelineUrl}` })
+                        .reply(200)
 
   t.plan(1)
-  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && clock.uninstall())
+  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
