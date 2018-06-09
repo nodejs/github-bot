@@ -16,6 +16,11 @@ function isJenkinsIpWhitelisted (req) {
   return true
 }
 
+function isRelatedToPullRequest (gitRef) {
+  // refs/pull/12345/head vs refs/heads/v8.x-staging/head
+  return gitRef.includes('/pull/')
+}
+
 module.exports = function (app) {
   app.post('/:repo/jenkins/start', (req, res) => {
     const isValid = pushJenkinsUpdate.validate(req.body)
@@ -23,6 +28,10 @@ module.exports = function (app) {
 
     if (!isValid) {
       return res.status(400).end('Invalid payload')
+    }
+
+    if (!isRelatedToPullRequest(req.body.ref)) {
+      return res.status(400).end('Will only push builds related to pull requests')
     }
 
     if (!enabledRepos.includes(repo)) {

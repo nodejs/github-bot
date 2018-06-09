@@ -1,0 +1,8 @@
+{
+    "identifier": "node-test-commit-aix",
+    "status": "failure",
+    "message": "tests failed",
+    "commit": "084ef6016994a41ffbbe9e48584abe874a197d43",
+    "url": "https://ci.nodejs.org/job/node-test-commit-aix/15657/",
+    "ref": "refs/heads/v8.x-staging"
+}
