@@ -59,6 +59,10 @@ module.exports = function (app) {
       return res.status(400).end('Invalid payload')
     }
 
+    if (!isRelatedToPullRequest(req.body.ref)) {
+      return res.status(400).end('Will only push builds related to pull requests')
+    }
+
     if (!enabledRepos.includes(repo)) {
       return res.status(400).end('Invalid repository')
     }
