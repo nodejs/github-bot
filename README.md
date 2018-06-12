@@ -16,12 +16,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
   The [GitHub API token](https://github.com/blog/1509-personal-api-tokens) for your account (or bot account) that will be used to make API calls to GitHub. The account must have proper access to perform the actions required by your script.
 - **`GITHUB_WEBHOOK_SECRET`**<br>
   The webhook secret that GitHub signs the POSTed payloads with. This is created when the webhook is defined. The default is `hush-hush`.
-- **`TRAVIS_CI_TOKEN`**<br>
-  For scripts that communicate with Travis CI. Your Travis token is visible on [yourprofile](https://travis-ci.org/profile) page, by clicking the "show token" link. Also See: https://blog.travis-ci.com/2013-01-28-token-token-token
-- **`TRAVIS_POLL_RETRY`**<br>
-  Default number of retries that the bot should attempt to poll for the Travis build status.
-- **`TRAVIS_POLL_INTERVAL`**<br>
-  Default interval that the bot should use to poll for the Travis build status.
 - **`JENKINS_WORKER_IPS`**<br>
   List of valid Jenkins worker IPs allowed to push PR status updates, split by comma: `192.168.1.100,192.168.1.101`.
 - **`JENKINS_API_CREDENTIALS`** (optional)<br>
@@ -48,7 +42,6 @@ The bot will try to load a `.env` file at the root of the project if it exists t
 
 ```
 GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-TRAVIS_CI_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 SSE_RELAY=https://hook-relay.herokuapp.com
 ```
 
