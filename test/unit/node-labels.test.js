@@ -110,7 +110,7 @@ const srcCases = [
      'tls_wrap.cc',
      'tls_wrap.h'] ],
   [ 'tty', ['tty_wrap.cc', 'tty_wrap.h'] ],
-  [ ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['url-whatwg', 'dont-land-on-v4.x'],
     ['node_url.cc', 'node_url.h'] ],
   [ 'util', ['node_util.cc'] ],
   [ 'V8 Engine', ['node_v8.cc', 'v8abbr.h'] ],
@@ -424,7 +424,7 @@ tap.test('label: dont-land-on labels for WHATWG URL', (t) => {
     'lib/internal/url.js'
   ])
 
-  t.same(labels, ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'])
+  t.same(labels, ['url-whatwg', 'dont-land-on-v4.x'])
 
   t.end()
 })
@@ -506,7 +506,7 @@ const specificTests = [
     ['inspector/test-inspector.js', 'cctest/test_inspector_socket.cc'] ],
   [ 'timers', ['timers/test-timers-reliability.js'] ],
   [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ],
-  [ ['url-whatwg', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['url-whatwg', 'dont-land-on-v4.x'],
     ['cctest/test_url.cc'] ]
 ]
 for (const info of specificTests) {
@@ -567,11 +567,11 @@ for (const info of specificTools) {
 [
   [ ['V8 Engine', 'post-mortem'],
     ['deps/v8/tools/gen-postmortem-metadata.py'] ],
-  [ ['c++', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['c++', 'n-api', 'dont-land-on-v4.x'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
-  [ ['test', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['test', 'n-api', 'dont-land-on-v4.x'],
     ['test/addons-napi/foo'] ],
-  [ ['doc', 'n-api', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['doc', 'n-api', 'dont-land-on-v4.x'],
     ['doc/api/n-api.md'] ]
 ].forEach((info) => {
   const labels = info[0]
