@@ -166,6 +166,7 @@ module.exports = (app) => {
       triggerBuild(options, replyToCollabWithBuildStarted)
     }
 
-    githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)
+    if (repo === 'node')
+      githubClient.repos.checkCollaborator({ owner, repo, username: pullRequestAuthor }, triggerBuildWhenCollaborator)
   })
 }
