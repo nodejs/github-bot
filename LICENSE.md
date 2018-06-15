@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright (c) 2016 Node.js Github Bot contributors
+Copyright (c) 2016-2018 Node.js Github Bot contributors
 --------------------------------------------------
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
