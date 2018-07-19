@@ -92,3 +92,33 @@ tap.test('fetchExistingLabels(): can retrieve more than 100 labels', (t) => {
     t.ok(existingLabels.includes('windows'))
   })
 })
+
+tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
+  const events = readFixture('pull-request-events.json')
+  sinon.stub(githubClient.issues, 'getEvents', (options, cb) => { cb(null, events) })
+  const nodeRepo = proxyquire('../../lib/node-repo', {'./github-client': githubClient})
+
+  t.plan(1)
+  t.tearDown(() => {
+    githubClient.issues.getEvents.restore()
+  })
+
+  nodeRepo.getBotPrLabels({ owner: 'nodejs', repo: 'node', prId: '1' }, (_, labels) => {
+    t.same(labels, ['testlabel'])
+  })
+})
+
+tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bot', (t) => {
+  const events = readFixture('pull-request-events-2.json')
+  sinon.stub(githubClient.issues, 'getEvents', (options, cb) => { cb(null, events) })
+  const nodeRepo = proxyquire('../../lib/node-repo', {'./github-client': githubClient})
+
+  t.plan(1)
+  t.tearDown(() => {
+    githubClient.issues.getEvents.restore()
+  })
+
+  nodeRepo.getBotPrLabels({ owner: 'nodejs', repo: 'node', prId: '1' }, (_, labels) => {
+    t.same(labels, [])
+  })
+})

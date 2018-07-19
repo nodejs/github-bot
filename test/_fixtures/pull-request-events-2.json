@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "event": "labeled",
+      "actor": {
+        "login": "nodejs-github-bot"
+      },
+      "label": {
+        "name": "testlabel"
+      }
+    },
+    {
+      "event": "unlabeled",
+      "actor": {
+        "login": "nodejs-github-bot"
+      },
+      "label": {
+        "name": "testlabel"
+      }
+    }
+  ]
+}
