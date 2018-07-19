@@ -110,7 +110,7 @@ const srcCases = [
      'tls_wrap.cc',
      'tls_wrap.h'] ],
   [ 'tty', ['tty_wrap.cc', 'tty_wrap.h'] ],
-  [ ['url-whatwg', 'dont-land-on-v4.x'],
+  [ ['url-whatwg'],
     ['node_url.cc', 'node_url.h'] ],
   [ 'util', ['node_util.cc'] ],
   [ 'V8 Engine', ['node_v8.cc', 'v8abbr.h'] ],
@@ -168,7 +168,7 @@ tap.test('label: "inspector" when ./src/inspector_* has been changed', (t) => {
     'src/inspector_socket.cc'
   ])
 
-  t.same(labels, ['c++', 'inspector', 'dont-land-on-v4.x'])
+  t.same(labels, ['c++', 'inspector'])
 
   t.end()
 })
@@ -419,16 +419,6 @@ tap.test('label: build label (windows)', (t) => {
   t.end()
 })
 
-tap.test('label: dont-land-on labels for WHATWG URL', (t) => {
-  const labels = nodeLabels.resolveLabels([
-    'lib/internal/url.js'
-  ])
-
-  t.same(labels, ['url-whatwg', 'dont-land-on-v4.x'])
-
-  t.end()
-})
-
 tap.test('label: doc label for non-subsystem API doc changes', (t) => {
   const labels = nodeLabels.resolveLabels([
     'doc/api/_toc.md',
@@ -502,11 +492,11 @@ const specificTests = [
   [ 'addons', ['addons/async-hello-world/binding.cc'] ],
   [ 'debugger', ['debugger/test-debugger-repl.js'] ],
   [ ['doc', 'tools'], ['doctool/test-doctool-html.js'] ],
-  [ ['inspector', 'dont-land-on-v4.x'],
+  [ ['inspector'],
     ['inspector/test-inspector.js', 'cctest/test_inspector_socket.cc'] ],
   [ 'timers', ['timers/test-timers-reliability.js'] ],
   [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ],
-  [ ['url-whatwg', 'dont-land-on-v4.x'],
+  [ ['url-whatwg'],
     ['cctest/test_url.cc'] ]
 ]
 for (const info of specificTests) {
@@ -567,11 +557,11 @@ for (const info of specificTools) {
 [
   [ ['V8 Engine', 'post-mortem'],
     ['deps/v8/tools/gen-postmortem-metadata.py'] ],
-  [ ['c++', 'n-api', 'dont-land-on-v4.x'],
+  [ ['c++', 'n-api'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
-  [ ['test', 'n-api', 'dont-land-on-v4.x'],
+  [ ['test', 'n-api'],
     ['test/addons-napi/foo'] ],
-  [ ['doc', 'n-api', 'dont-land-on-v4.x'],
+  [ ['doc', 'n-api'],
     ['doc/api/n-api.md'] ]
 ].forEach((info) => {
   const labels = info[0]
@@ -615,16 +605,16 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
 });
 
 [
-  [ ['http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['http2', 'dont-land-on-v6.x'],
     ['lib/http2.js',
      'lib/internal/http2/core.js',
      'deps/nghttp2/lib/nghttp2_buf.c'] ],
-  [ ['c++', 'http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['c++', 'http2', 'dont-land-on-v6.x'],
     ['src/node_http2.cc',
      'src/node_http2.h',
      'src/node_http2_core.h',
      'src/node_http2_core-inl.h'] ],
-  [ ['build', 'http2', 'dont-land-on-v4.x', 'dont-land-on-v6.x'],
+  [ ['build', 'http2', 'dont-land-on-v6.x'],
     ['deps/nghttp2/nghttp2.gyp'] ],
   [ ['doc', 'http2'], ['doc/api/http2.md'] ]
 ].forEach((info) => {
