@@ -4,3 +4,5 @@ npm-debug.log
 .DS_Store
 .env
 .vscode
+coverage
+.nyc_output

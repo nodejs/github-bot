@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js | bunyan -o short",
     "test": "STATUS=0; tap test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
-    "test:watch": "nodemon -q -x 'npm test'"
+    "test:watch": "nodemon -q -x 'npm test'",
+    "test:coverage": "nyc --reporter=html npm test"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -31,6 +32,7 @@
     "lolex": "^1.5.1",
     "nock": "^8.0.0",
     "nodemon": "^1.9.1",
+    "nyc": "^12.0.2",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
     "standard": "^6.0.7",
