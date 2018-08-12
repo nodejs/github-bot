@@ -42,9 +42,13 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
                         .filteringPath(ignoreQueryParams)
                         .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
                         .reply(200)
+  const statusScope = nock('https://api.github.com')
+                       .filteringPath(ignoreQueryParams)
+                       .post('/repos/nodejs/node/statuses/aae34fdac0caea4e4aa204aeade6a12befe32e73')
+                       .reply(201)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && statusScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -77,8 +81,13 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
                         .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
                         .reply(200)
 
+  const statusScope = nock('https://api.github.com')
+                       .filteringPath(ignoreQueryParams)
+                       .post('/repos/nodejs/node/statuses/aae34fdac0caea4e4aa204aeade6a12befe32e73')
+                       .reply(201)
+
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && statusScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -106,8 +115,13 @@ tap.test('Does not create labels which does not already exist', (t) => {
                         .get('/repos/nodejs/node/labels')
                         .reply(200, readFixture('repo-labels.json'))
 
+  const statusScope = nock('https://api.github.com')
+                       .filteringPath(ignoreQueryParams)
+                       .post('/repos/nodejs/node/statuses/b26ee729176bdcf34eef072e666b5b51360c1d18')
+                       .reply(201)
+
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && statusScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -141,8 +155,13 @@ tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
                         .post('/repos/nodejs/node/issues/9422/labels', expectedLabels)
                         .reply(200)
 
+  const statusScope = nock('https://api.github.com')
+                       .filteringPath(ignoreQueryParams)
+                       .post('/repos/nodejs/node/statuses/b26ee729176bdcf34eef072e666b5b51360c1d18')
+                       .reply(201)
+
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && statusScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')

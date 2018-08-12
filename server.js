@@ -1,6 +1,7 @@
 'use strict'
 
 const child_process = require('child_process')
+const { checkPullRequests } = require('./lib/node-land-checks')
 
 if (process.env.NODE_REPO_DIR) {
   const fs = require('fs')
@@ -17,6 +18,8 @@ if (process.env.NODE_REPO_DIR) {
 
 const app = require('./app')
 const logger = require('./lib/logger')
+
+setTimeout(checkPullRequests, 10000)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

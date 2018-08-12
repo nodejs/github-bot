@@ -43,8 +43,13 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
                         .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: ${pipelineUrl}` })
                         .reply(200)
 
+  const statusScope = nock('https://api.github.com')
+                       .filteringPath(ignoreQueryParams)
+                       .post('/repos/nodejs/node/statuses/aae34fdac0caea4e4aa204aeade6a12befe32e73')
+                       .reply(201)
+
   t.plan(1)
-  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && clock.uninstall())
+  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && statusScope.done() && clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
