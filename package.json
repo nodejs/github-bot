@@ -29,7 +29,7 @@
   "devDependencies": {
     "eventsource": "^0.2.1",
     "lolex": "^1.5.1",
-    "nock": "^8.0.0",
+    "nock": "^9.6.1",
     "nodemon": "^1.9.1",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
