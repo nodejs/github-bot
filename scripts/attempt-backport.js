@@ -24,22 +24,6 @@ module.exports = function (app) {
   // Pull Request updates
   app.on('pull_request.synchronize', handlePrUpdate)
 
-  function handlePrUpdate (event, owner, repo) {
-    if (!~enabledRepos.indexOf(repo)) return
-
-    if (event.pull_request.base.ref !== 'master') return
-
-    const prId = event.number
-    const options = { owner, repo, prId, logger: event.logger }
-
-    debug(`/${owner}/${repo}/pull/${prId} sync`)
-    for (const node of nodeVersions) {
-      queueAttemptBackport(options, node.version, !!node.lts)
-    }
-
-    if (!inProgress) processNextBackport()
-  }
-
   // to trigger polling manually
   app.get('/attempt-backport/pr/:owner/:repo/:id', (req, res) => {
     const owner = req.params.owner
@@ -57,6 +41,22 @@ module.exports = function (app) {
 
     res.end()
   })
+}
+
+function handlePrUpdate (event, owner, repo) {
+  if (!~enabledRepos.indexOf(repo)) return
+
+  if (event.pull_request.base.ref !== 'master') return
+
+  const prId = event.number
+  const options = { owner, repo, prId, logger: event.logger }
+
+  debug(`/${owner}/${repo}/pull/${prId} sync`)
+  for (const node of nodeVersions) {
+    queueAttemptBackport(options, node.version, !!node.lts)
+  }
+
+  if (!inProgress) processNextBackport()
 }
 
 function processNextBackport () {
