@@ -1,6 +1,6 @@
 # Node.js GitHub Bot
 
-The Node.js Foundation's uses this bot to help manage [the repositories of the GitHub organization](https://github.com/nodejs).
+The Node.js Foundation members use this bot to help manage [the repositories of the GitHub organization](https://github.com/nodejs).
 
 It executes [scripts](https://github.com/nodejs/github-bot/tree/master/scripts) in response to events that are
 pushed to it via GitHub webhooks. All [repositories](https://github.com/nodejs) that use this bot have the same webhook url & secret configured (there is only 1 bot instance). Org-wide webhooks are not allowed.
