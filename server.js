@@ -1,5 +1,6 @@
 'use strict'
 
+const logger = require('./lib/logger')
 const child_process = require('child_process')
 
 if (process.env.NODE_REPO_DIR) {
@@ -15,10 +16,9 @@ if (process.env.NODE_REPO_DIR) {
   }
 }
 
-const app = require('./app')
-const logger = require('./lib/logger')
-
 const port = process.env.PORT || 3000
+const app = require('./app')
+
 app.listen(port, () => {
   logger.info('Listening on port', port)
 })
