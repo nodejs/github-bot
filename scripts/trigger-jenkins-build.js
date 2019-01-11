@@ -119,41 +119,45 @@ function triggerBuildIfValid (options) {
 }
 
 module.exports = (app) => {
-  app.on('issue_comment.created', function handleCommentCreated (event, owner, repo) {
-    const { number, logger, comment } = event
-    const commentAuthor = comment.user.login
-    const options = {
-      owner,
-      repo,
-      number,
-      logger,
-      author: commentAuthor
+  app.on('issue_comment.created', handleCommentCreated)
+
+  app.on('pull_request.opened', handlePullCreated)
+}
+
+function handleCommentCreated (event, owner, repo) {
+  const { number, logger, comment } = event
+  const commentAuthor = comment.user.login
+  const options = {
+    owner,
+    repo,
+    number,
+    logger,
+    author: commentAuthor
+  }
+
+  ifBotWasMentionedInCiComment(comment.body, (err, wasMentioned) => {
+    if (err) {
+      return logger.error(err, 'Error while checking if the bot username was mentioned in a comment')
     }
 
-    ifBotWasMentionedInCiComment(comment.body, (err, wasMentioned) => {
-      if (err) {
-        return logger.error(err, 'Error while checking if the bot username was mentioned in a comment')
-      }
+    if (!wasMentioned) return
 
-      if (!wasMentioned) return
-
-      triggerBuildIfValid(options)
-    })
+    triggerBuildIfValid(options)
   })
+}
 
-  app.on('pull_request.opened', function handlePullCreated (event, owner, repo) {
-    const { number, logger, pull_request } = event
-    const pullRequestAuthor = pull_request.user.login
-    const options = {
-      owner,
-      repo,
-      number,
-      logger,
-      author: pullRequestAuthor
-    }
+function handlePullCreated (event, owner, repo) {
+  const { number, logger, pull_request } = event
+  const pullRequestAuthor = pull_request.user.login
+  const options = {
+    owner,
+    repo,
+    number,
+    logger,
+    author: pullRequestAuthor
+  }
 
-    if (repo === 'node') {
-      triggerBuildIfValid(options)
-    }
-  })
+  if (repo === 'node') {
+    triggerBuildIfValid(options)
+  }
 }
