@@ -52,7 +52,7 @@ function buildParametersForRepo (options, repo) {
 
 function triggerBuild (options, cb) {
   const { repo } = options
-  const base64Credentials = new Buffer(jenkinsApiCredentials).toString('base64')
+  const base64Credentials = Buffer.from(jenkinsApiCredentials, 'base64')
   const authorization = `Basic ${base64Credentials}`
 
   const jobName = getJobNameForRepo(repo)
