@@ -109,7 +109,7 @@ function triggerBuildIfValid (options) {
     triggerBuild(options, function onBuildTriggered (err, buildUrl) {
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
-        return createPrComment(options, `@${options.author} sadly an error occured when I tried to trigger a build :(`)
+        return createPrComment(options, `@${options.author} Sadly, an error occurred when I tried to trigger a build. :(`)
       }
 
       createPrComment(options, `@${options.author} build started: ${buildUrl}`)
