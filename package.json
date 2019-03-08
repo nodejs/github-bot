@@ -24,7 +24,7 @@
     "github": "^12.1.0",
     "glob": "^7.0.3",
     "lru-cache": "^4.0.1",
-    "request": "^2.72.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "eventsource": "^0.2.1",
