@@ -629,4 +629,26 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
       t.end()
     })
   }
+});
+
+[
+  [ ['c++', 'report'],
+    ['src/node_report.cc',
+     'src/node_report.h',
+     'src/node_report_module.cc',
+     'src/node_report_utils.cc'] ],
+  [ ['doc', 'report'], ['doc/api/report.md'] ],
+  [ ['test', 'report'], ['test/report/test-report-config.js'] ]
+].forEach((info) => {
+  const labels = info[0]
+  const files = info[1]
+  for (const file of files) {
+    tap.test(`label: "${labels.join('","')}" when ./${file} has been changed`, (t) => {
+      const resolved = nodeLabels.resolveLabels([file])
+
+      t.same(resolved, labels)
+
+      t.end()
+    })
+  }
 })
