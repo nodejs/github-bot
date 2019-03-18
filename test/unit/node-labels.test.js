@@ -41,6 +41,16 @@ tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: "doc" & "deprecations" when ./doc/api/deprecations.md has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/deprecations.md'
+  ])
+
+  t.same(labels, ['doc', 'deprecations'])
+
+  t.end()
+})
+
 tap.test('label: "c++" when ./src/* has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'src/node.cc'
