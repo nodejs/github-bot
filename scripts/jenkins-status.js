@@ -46,9 +46,10 @@ module.exports = function (app) {
       owner: 'nodejs',
       repo,
       logger: req.log
-    }, req.body)
-
-    res.status(201).end()
+    }, req.body, (err) => {
+      const statusCode = err !== null ? 500 : 201
+      res.status(statusCode).end()
+    })
   })
 
   app.post('/:repo/jenkins/end', (req, res) => {
@@ -75,8 +76,9 @@ module.exports = function (app) {
       owner: 'nodejs',
       repo,
       logger: req.log
-    }, req.body)
-
-    res.status(201).end()
+    }, req.body, (err) => {
+      const statusCode = err !== null ? 500 : 201
+      res.status(statusCode).end()
+    })
   })
 }
