@@ -102,6 +102,32 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     })
 })
 
+tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t) => {
+  const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
+  const commentScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
+                        .reply(200)
+
+  // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
+  setupGetCommitsMock('node')
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
+    .reply(201)
+
+  t.plan(1)
+  t.tearDown(() => commentScope.done())
+
+  supertest(app)
+    .post('/node/jenkins/start')
+    .send(fixture)
+    .expect(201)
+    .end((err, res) => {
+      t.equal(err, null)
+    })
+})
+
 tap.test('Responds with 400 / "Bad request" when incoming request has invalid payload', (t) => {
   const fixture = readFixture('invalid-payload.json')
 

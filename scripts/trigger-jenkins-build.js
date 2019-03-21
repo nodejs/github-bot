@@ -4,6 +4,7 @@ const request = require('request')
 
 const githubClient = require('../lib/github-client')
 const botUsername = require('../lib/bot-username')
+const { createPrComment } = require('../lib/github-comment')
 
 const jenkinsApiCredentials = process.env.JENKINS_API_CREDENTIALS || ''
 
@@ -82,19 +83,6 @@ function triggerBuild (options, cb) {
 
     cb(null,
       `https://ci.nodejs.org/blue/organizations/jenkins/${jobName}/detail/${jobName}/${response.body.id}/pipeline`)
-  })
-}
-
-function createPrComment ({ owner, repo, number, logger }, body) {
-  githubClient.issues.createComment({
-    owner,
-    repo,
-    number,
-    body
-  }, (err) => {
-    if (err) {
-      logger.error(err, 'Error while creating comment to reply on CI run comment')
-    }
   })
 }
 
