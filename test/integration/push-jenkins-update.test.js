@@ -67,7 +67,10 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
                   .reply(201)
 
   t.plan(1)
-  t.tearDown(() => prCommitsScope.done() && scope.done())
+  t.tearDown(() => {
+    prCommitsScope.done()
+    scope.done()
+  })
 
   supertest(app)
     .post('/citgm/jenkins/end')
@@ -93,7 +96,10 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
                   .reply(201)
 
   t.plan(1)
-  t.tearDown(() => prCommitsScope.done() && scope.done())
+  t.tearDown(() => {
+    prCommitsScope.done()
+    scope.done()
+  })
 
   supertest(app)
     .post('/node/jenkins/start')
