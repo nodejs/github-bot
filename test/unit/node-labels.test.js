@@ -665,7 +665,8 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
 
 [
   [ ['worker'],
-    ['lib/internal/worker.js',
+    ['lib/worker_threads.js',
+     'lib/internal/worker.js',
      'lib/internal/worker/io.js'] ],
   [ ['c++', 'worker'],
     ['src/node_worker.cc',
