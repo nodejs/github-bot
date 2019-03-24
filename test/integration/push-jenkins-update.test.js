@@ -117,13 +117,13 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .reply(201)
 
   t.plan(1)
-  t.tearDown(() => commentScope.done())
 
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
     .expect(201)
     .end((err, res) => {
+      commentScope.done()
       t.equal(err, null)
     })
 })
