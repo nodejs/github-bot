@@ -44,7 +44,7 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -53,6 +53,9 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
     .expect(200)
     .end((err, res) => {
       clock.runAll()
+      filesScope.done()
+      existingRepoLabelsScope.done()
+      newLabelsScope.done()
       t.equal(err, null)
     })
 })
@@ -78,7 +81,7 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -87,6 +90,9 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
     .expect(200)
     .end((err, res) => {
       clock.runAll()
+      filesScope.done()
+      existingRepoLabelsScope.done()
+      newLabelsScope.done()
       t.equal(err, null)
     })
 })
@@ -107,7 +113,7 @@ tap.test('Does not create labels which does not already exist', (t) => {
                         .reply(200, readFixture('repo-labels.json'))
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -116,6 +122,8 @@ tap.test('Does not create labels which does not already exist', (t) => {
     .expect(200)
     .end((err, res) => {
       clock.runAll()
+      filesScope.done()
+      existingRepoLabelsScope.done()
       t.equal(err, null)
     })
 })
@@ -142,7 +150,7 @@ tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => filesScope.done() && existingRepoLabelsScope.done() && newLabelsScope.done() && clock.uninstall())
+  t.tearDown(() => clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -151,6 +159,9 @@ tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
     .expect(200)
     .end((err, res) => {
       clock.runAll()
+      filesScope.done()
+      existingRepoLabelsScope.done()
+      newLabelsScope.done()
       t.equal(err, null)
     })
 })

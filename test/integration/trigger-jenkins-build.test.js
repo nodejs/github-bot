@@ -44,7 +44,7 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
                         .reply(200)
 
   t.plan(1)
-  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && clock.uninstall())
+  t.tearDown(() => clock.uninstall())
 
   supertest(app)
     .post('/hooks/github')
@@ -55,6 +55,9 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
       process.env.JENKINS_JOB_URL_NODE = originalJobUrlValue
       process.env.JENKINS_BUILD_TOKEN_NODE = originalTokenValue
       clock.runAll()
+      collaboratorsScope.done()
+      ciJobScope.done()
+      commentScope.done()
       t.equal(err, null)
     })
 })
