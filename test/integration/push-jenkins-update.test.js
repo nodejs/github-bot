@@ -140,7 +140,9 @@ tap.test('Edits existing CI comment when bot has posted a CI comment before', (t
 
   const editCommentScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
-                        .patch('/repos/nodejs/node/issues/comments/476584580', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
+                        .patch('/repos/nodejs/node/issues/comments/476584580', {
+                          body: `CI: https://ci.nodejs.org/job/node-test-pull-request/21904/\nCI: https://ci.nodejs.org/job/node-test-pull-request/21633/`
+                        })
                         .reply(200)
 
   nock('https://api.github.com')
