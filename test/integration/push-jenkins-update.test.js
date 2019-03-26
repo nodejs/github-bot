@@ -104,12 +104,18 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
 
 tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t) => {
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
-  const commentScope = nock('https://api.github.com')
+  const createCommentScope = nock('https://api.github.com')
                         .filteringPath(ignoreQueryParams)
                         .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
                         .reply(200)
 
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .get('/repos/nodejs/node/issues/12345/comments')
+    .reply(200, [])
+
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
+  setupGetBotUsernameMock()
   setupGetCommitsMock('node')
   nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
@@ -123,7 +129,41 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .send(fixture)
     .expect(201)
     .end((err, res) => {
-      commentScope.done()
+      createCommentScope.done()
+      t.equal(err, null)
+    })
+})
+
+tap.test('Edits existing CI comment when bot has posted a CI comment before', (t) => {
+  const incomingReqFixture = readFixture('jenkins-test-pull-request-success-payload.json')
+  const existingCommentsFixture = readFixture('pull-request-comments-with-ci-comment.json')
+
+  const editCommentScope = nock('https://api.github.com')
+                        .filteringPath(ignoreQueryParams)
+                        .patch('/repos/nodejs/node/issues/comments/476584580', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
+                        .reply(200)
+
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .get('/repos/nodejs/node/issues/12345/comments')
+    .reply(200, existingCommentsFixture)
+
+  // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
+  setupGetBotUsernameMock()
+  setupGetCommitsMock('node')
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
+    .reply(201)
+
+  t.plan(1)
+
+  supertest(app)
+    .post('/node/jenkins/start')
+    .send(incomingReqFixture)
+    .expect(201)
+    .end((err, res) => {
+      editCommentScope.done()
       t.equal(err, null)
     })
 })
@@ -203,6 +243,13 @@ function setupGetCommitsMock (repoName) {
             .filteringPath(ignoreQueryParams)
             .get(`/repos/nodejs/${repoName}/pulls/12345/commits`)
             .reply(200, commitsResponse)
+}
+
+function setupGetBotUsernameMock () {
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .get('/user')
+    .reply(200, readFixture('authenticated-user.json'))
 }
 
 function ignoreQueryParams (pathAndQuery) {
