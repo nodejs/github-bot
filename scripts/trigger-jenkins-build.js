@@ -8,17 +8,9 @@ const { createPrComment } = require('../lib/github-comment')
 
 const jenkinsApiCredentials = process.env.JENKINS_API_CREDENTIALS || ''
 
-function ifBotWasMentionedInCiComment (commentBody, cb) {
-  botUsername.resolve((err, username) => {
-    if (err) {
-      return cb(err)
-    }
-
-    const atBotName = new RegExp(`^@${username} run CI`, 'mi')
-    const wasMentioned = commentBody.match(atBotName) !== null
-
-    cb(null, wasMentioned)
-  })
+function wasBotMentionedInCiComment (commentBody) {
+  const atBotName = new RegExp(`^@${botUsername} run CI`, 'mi')
+  return commentBody.match(atBotName) !== null
 }
 
 // Name for the Jenkins job should be triggered for a given repository
@@ -123,15 +115,9 @@ function handleCommentCreated (event, owner, repo) {
     author: commentAuthor
   }
 
-  ifBotWasMentionedInCiComment(comment.body, (err, wasMentioned) => {
-    if (err) {
-      return logger.error(err, 'Error while checking if the bot username was mentioned in a comment')
-    }
-
-    if (!wasMentioned) return
-
+  if (wasBotMentionedInCiComment(comment.body)) {
     triggerBuildIfValid(options)
-  })
+  }
 }
 
 function handlePullCreated (event, owner, repo) {
