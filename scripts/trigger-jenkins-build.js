@@ -35,10 +35,7 @@ function buildParametersForRepo (options, repo) {
   } else {
     return [
       { name: 'CERTIFY_SAFE', value: 'true' },
-      { name: 'GITHUB_ORG', value: 'nodejs' },
-      { name: 'REPO_NAME', value: 'node' },
-      { name: 'PR_ID', value: options.number },
-      { name: 'REBASE_ONTO', value: '' }
+      { name: 'PR_ID', value: options.number }
     ]
   }
 }
@@ -73,8 +70,7 @@ function triggerBuild (options, cb) {
       return cb(new Error(`Expected 200 from Jenkins, got ${response.statusCode}`))
     }
 
-    cb(null,
-      `https://ci.nodejs.org/blue/organizations/jenkins/${jobName}/detail/${jobName}/${response.body.id}/pipeline`)
+    cb(null, { jobName, jobId: response.body.id })
   })
 }
 
@@ -86,14 +82,16 @@ function triggerBuildIfValid (options) {
       return logger.debug(`Ignoring comment to me by @${options.author} because they are not a repo collaborator`)
     }
 
-    triggerBuild(options, function onBuildTriggered (err, buildUrl) {
+    triggerBuild(options, function onBuildTriggered (err, { jobName, jobId }) {
+      const jobUrl = `https://ci.nodejs.org/job/${jobName}/${jobId}`
+      let body = `Lite-CI: ${jobUrl}`
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
-        return createPrComment(options, `@${options.author} Sadly, an error occurred when I tried to trigger a build. :(`)
+        body = 'Sadly, an error occurred when I tried to trigger a build. :('
+      } else {
+        logger.info({ jobUrl }, 'Jenkins build started')
       }
-
-      createPrComment(options, `@${options.author} build started: ${buildUrl}`)
-      logger.info({ buildUrl }, 'Jenkins build started')
+      createPrComment(options, body)
     })
   })
 }
@@ -121,6 +119,7 @@ function handleCommentCreated (event, owner, repo) {
 }
 
 function handlePullCreated (event, owner, repo) {
+  // eslint-disable-next-line camelcase
   const { number, logger, pull_request } = event
   const pullRequestAuthor = pull_request.user.login
   const options = {
