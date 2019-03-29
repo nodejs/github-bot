@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 'use strict'
 
 const tap = require('tap')

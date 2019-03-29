@@ -1,12 +1,12 @@
 'use strict'
 
 const logger = require('./lib/logger')
-const child_process = require('child_process')
+const { spawnSync } = require('child_process')
 
 if (process.env.NODE_REPO_DIR) {
   const fs = require('fs')
   global._node_repo_dir = fs.realpathSync(process.env.NODE_REPO_DIR)
-  const out = child_process.spawnSync('git', ['status'], { cwd: global._node_repo_dir })
+  const out = spawnSync('git', ['status'], { cwd: global._node_repo_dir })
 
   if (out.status !== 0) {
     logger.info(out.stdout)

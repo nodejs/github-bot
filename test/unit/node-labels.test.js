@@ -62,77 +62,77 @@ tap.test('label: "c++" when ./src/* has been changed', (t) => {
 })
 
 const srcCases = [
-  [ 'async_wrap', ['async-wrap-inl.h', 'async-wrap.h', 'async-wrap.cc'] ],
-  [ 'buffer',
+  ['async_wrap', ['async-wrap-inl.h', 'async-wrap.h', 'async-wrap.cc']],
+  ['buffer',
     ['base64.h',
-     'node_buffer.cc',
-     'node_buffer.h',
-     'string_bytes.cc',
-     'string_bytes.h',
-     'string_search.cc',
-     'string_search.h'] ],
-  [ 'cares', ['cares_wrap.cc'] ],
-  [ 'child_process', ['process_wrap.cc', 'spawn_sync.cc', 'spawn_sync.h'] ],
-  [ 'crypto',
+      'node_buffer.cc',
+      'node_buffer.h',
+      'string_bytes.cc',
+      'string_bytes.h',
+      'string_search.cc',
+      'string_search.h']],
+  ['cares', ['cares_wrap.cc']],
+  ['child_process', ['process_wrap.cc', 'spawn_sync.cc', 'spawn_sync.h']],
+  ['crypto',
     ['node_crypto.cc',
-     'node_crypto.h',
-     'node_crypto_bio.cc',
-     'node_crypto_bio.h',
-     'node_crypto_clienthello-inl.h',
-     'node_crypto_clienthello.cc',
-     'node_crypto_clienthello.h',
-     'node_crypto_groups.h'] ],
-  [ 'debugger', ['debug-agent.cc', 'debug-agent.h', 'node_debug_options.cc'] ],
-  [ 'dgram', ['udp_wrap.cc', 'udp_wrap.h'] ],
-  [ 'fs',
+      'node_crypto.h',
+      'node_crypto_bio.cc',
+      'node_crypto_bio.h',
+      'node_crypto_clienthello-inl.h',
+      'node_crypto_clienthello.cc',
+      'node_crypto_clienthello.h',
+      'node_crypto_groups.h']],
+  ['debugger', ['debug-agent.cc', 'debug-agent.h', 'node_debug_options.cc']],
+  ['dgram', ['udp_wrap.cc', 'udp_wrap.h']],
+  ['fs',
     ['fs_event_wrap.cc',
-     'node_file.cc',
-     'node_file.h',
-     'node_stat_watcher.cc',
-     'node_stat_watcher.h'] ],
-  [ 'http_parser', ['node_http_parser.cc', 'node_http_parser.h'] ],
-  [ 'intl', ['node_i18n.cc', 'node_i18n.h'] ],
-  [ 'libuv', ['uv.cc'] ],
-  [ 'net',
+      'node_file.cc',
+      'node_file.h',
+      'node_stat_watcher.cc',
+      'node_stat_watcher.h']],
+  ['http_parser', ['node_http_parser.cc', 'node_http_parser.h']],
+  ['intl', ['node_i18n.cc', 'node_i18n.h']],
+  ['libuv', ['uv.cc']],
+  ['net',
     ['connect_wrap.cc',
-     'connect_wrap.h',
-     'connection_wrap.cc',
-     'connection_wrap.h',
-     'pipe_wrap.cc',
-     'pipe_wrap.h',
-     'tcp_wrap.cc',
-     'tcp_wrap.h'] ],
-  [ 'os', ['node_os.cc'] ],
-  [ 'process', ['node_main.cc', 'signal_wrap.cc'] ],
-  [ 'timers', ['timer_wrap.cc'] ],
-  [ 'tracing',
+      'connect_wrap.h',
+      'connection_wrap.cc',
+      'connection_wrap.h',
+      'pipe_wrap.cc',
+      'pipe_wrap.h',
+      'tcp_wrap.cc',
+      'tcp_wrap.h']],
+  ['os', ['node_os.cc']],
+  ['process', ['node_main.cc', 'signal_wrap.cc']],
+  ['timers', ['timer_wrap.cc']],
+  ['tracing',
     ['tracing/agent.cc',
-     'tracing/agent.h',
-     'tracing/node_trace_buffer.cc',
-     'tracing/node_trace_buffer.h',
-     'tracing/node_trace_writer.cc',
-     'tracing/node_trace_writer.h',
-     'tracing/trace_event.cc',
-     'tracing/trace_event.h'] ],
-  [ 'tls',
+      'tracing/agent.h',
+      'tracing/node_trace_buffer.cc',
+      'tracing/node_trace_buffer.h',
+      'tracing/node_trace_writer.cc',
+      'tracing/node_trace_writer.h',
+      'tracing/trace_event.cc',
+      'tracing/trace_event.h']],
+  ['tls',
     ['CNNICHashWhitelist.inc',
-     'node_root_certs.h',
-     'tls_wrap.cc',
-     'tls_wrap.h'] ],
-  [ 'tty', ['tty_wrap.cc', 'tty_wrap.h'] ],
-  [ ['url-whatwg'],
-    ['node_url.cc', 'node_url.h'] ],
-  [ 'util', ['node_util.cc'] ],
-  [ 'V8 Engine', ['node_v8.cc', 'v8abbr.h'] ],
-  [ 'vm', ['node_contextify.cc'] ],
-  [ 'windows',
+      'node_root_certs.h',
+      'tls_wrap.cc',
+      'tls_wrap.h']],
+  ['tty', ['tty_wrap.cc', 'tty_wrap.h']],
+  [['url-whatwg'],
+    ['node_url.cc', 'node_url.h']],
+  ['util', ['node_util.cc']],
+  ['V8 Engine', ['node_v8.cc', 'v8abbr.h']],
+  ['vm', ['node_contextify.cc']],
+  ['windows',
     ['backtrace_win32.cc',
-     'node_win32_etw_provider-inl.h',
-     'node_win32_etw_provider.cc',
-     'node_win32_etw_provider.h',
-     'node_win32_perfctr_provider.cc',
-     'node_win32_perfctr_provider.h'] ],
-  [ 'zlib', ['node_zlib.cc'] ]
+      'node_win32_etw_provider-inl.h',
+      'node_win32_etw_provider.cc',
+      'node_win32_etw_provider.h',
+      'node_win32_perfctr_provider.cc',
+      'node_win32_perfctr_provider.h']],
+  ['zlib', ['node_zlib.cc']]
 ]
 for (const info of srcCases) {
   let labels = info[0]
@@ -441,30 +441,30 @@ tap.test('label: doc label for non-subsystem API doc changes', (t) => {
 })
 
 const specificBenchmarks = [
-  [ [], ['fixtures/alice.html', 'misc/freelist.js'] ],
-  [ 'assert', ['assert/deepequal-buffer.js'] ],
-  [ 'buffer', ['buffers/buffer-base64-decode.js'] ],
-  [ 'child_process', ['child_process/child-process-exec-stdout.js'] ],
-  [ 'crypto', ['crypto/aes-gcm-throughput.js'] ],
-  [ 'dgram', ['dgram/bind-params.js'] ],
-  [ 'domain', ['domain/domain-fn-args.js'] ],
-  [ 'events', ['events/ee-emit.js'] ],
-  [ 'fs', ['fs/readfile.js'] ],
-  [ 'http', ['_http-benchmarkers.js', 'http/simple.js'] ],
-  [ 'module', ['module/module-loader.js'] ],
-  [ 'net', ['net/net-c2s.js'] ],
-  [ 'os', ['os/loadavg.js'] ],
-  [ 'path', ['path/basename-posix.js'] ],
-  [ 'process', ['process/memoryUsage.js'] ],
-  [ 'querystring', ['querystring/querystring-parse.js'] ],
-  [ 'stream', ['streams/readable-readall.js'] ],
-  [ 'string_decoder', ['string_decoder/string-decoder.js'] ],
-  [ 'timers', ['timers/set-immediate-depth.js'] ],
-  [ 'tls', ['tls/throughput.js'] ],
-  [ 'url', ['url/url-resolve.js'] ],
-  [ 'util', ['util/format.js'] ],
-  [ 'V8 Engine', ['arrays/var-int.js', 'es/defaultparams-bench.js'] ],
-  [ 'vm', ['vm/run-in-context.js'] ]
+  [[], ['fixtures/alice.html', 'misc/freelist.js']],
+  ['assert', ['assert/deepequal-buffer.js']],
+  ['buffer', ['buffers/buffer-base64-decode.js']],
+  ['child_process', ['child_process/child-process-exec-stdout.js']],
+  ['crypto', ['crypto/aes-gcm-throughput.js']],
+  ['dgram', ['dgram/bind-params.js']],
+  ['domain', ['domain/domain-fn-args.js']],
+  ['events', ['events/ee-emit.js']],
+  ['fs', ['fs/readfile.js']],
+  ['http', ['_http-benchmarkers.js', 'http/simple.js']],
+  ['module', ['module/module-loader.js']],
+  ['net', ['net/net-c2s.js']],
+  ['os', ['os/loadavg.js']],
+  ['path', ['path/basename-posix.js']],
+  ['process', ['process/memoryUsage.js']],
+  ['querystring', ['querystring/querystring-parse.js']],
+  ['stream', ['streams/readable-readall.js']],
+  ['string_decoder', ['string_decoder/string-decoder.js']],
+  ['timers', ['timers/set-immediate-depth.js']],
+  ['tls', ['tls/throughput.js']],
+  ['url', ['url/url-resolve.js']],
+  ['util', ['util/format.js']],
+  ['V8 Engine', ['arrays/var-int.js', 'es/defaultparams-bench.js']],
+  ['vm', ['vm/run-in-context.js']]
 ]
 for (const info of specificBenchmarks) {
   let labels = info[0]
@@ -499,15 +499,15 @@ for (const file of moreTools) {
 }
 
 const specificTests = [
-  [ 'addons', ['addons/async-hello-world/binding.cc'] ],
-  [ 'debugger', ['debugger/test-debugger-repl.js'] ],
-  [ ['doc', 'tools'], ['doctool/test-doctool-html.js'] ],
-  [ ['inspector'],
-    ['inspector/test-inspector.js', 'cctest/test_inspector_socket.cc'] ],
-  [ 'timers', ['timers/test-timers-reliability.js'] ],
-  [ 'tty', ['pseudo-tty/stdin-setrawmode.js'] ],
-  [ ['url-whatwg'],
-    ['cctest/test_url.cc'] ]
+  ['addons', ['addons/async-hello-world/binding.cc']],
+  ['debugger', ['debugger/test-debugger-repl.js']],
+  [['doc', 'tools'], ['doctool/test-doctool-html.js']],
+  [['inspector'],
+    ['inspector/test-inspector.js', 'cctest/test_inspector_socket.cc']],
+  ['timers', ['timers/test-timers-reliability.js']],
+  ['tty', ['pseudo-tty/stdin-setrawmode.js']],
+  [['url-whatwg'],
+    ['cctest/test_url.cc']]
 ]
 for (const info of specificTests) {
   let labels = info[0]
@@ -529,21 +529,21 @@ for (const info of specificTests) {
 }
 
 const specificTools = [
-  [ 'build', ['gyp/gyp_main.py', 'gyp_node.py'] ],
-  [ 'doc', ['doc/generate.js'] ],
-  [ 'intl', ['icu/icu-generate.gyp'] ],
-  [ 'macos',
+  ['build', ['gyp/gyp_main.py', 'gyp_node.py']],
+  ['doc', ['doc/generate.js']],
+  ['intl', ['icu/icu-generate.gyp']],
+  ['macos',
     ['macosx-firewall.sh',
-     'osx-codesign.sh' ] ],
-  [ ['macos', 'install'],
+      'osx-codesign.sh']],
+  [['macos', 'install'],
     ['osx-pkg.pmdoc/index.xml.tmpl',
-     'pkgsrc/description' ] ],
-  [ ['test', 'npm'], ['test-npm.sh', 'test-npm-package.js'] ],
-  [ ['test'], ['test.py'] ],
-  [ ['openssl', 'tls'], ['certdata.txt', 'mkssldef.py', 'mk-ca-bundle.pl'] ],
-  [ ['windows'], ['sign.bat'] ],
-  [ ['windows', 'install'], ['msvs/msi/product.wxs'] ],
-  [ ['V8 Engine'], ['make-v8.sh'] ]
+      'pkgsrc/description']],
+  [['test', 'npm'], ['test-npm.sh', 'test-npm-package.js']],
+  [['test'], ['test.py']],
+  [['openssl', 'tls'], ['certdata.txt', 'mkssldef.py', 'mk-ca-bundle.pl']],
+  [['windows'], ['sign.bat']],
+  [['windows', 'install'], ['msvs/msi/product.wxs']],
+  [['V8 Engine'], ['make-v8.sh']]
 ]
 for (const info of specificTools) {
   let labels = info[0]
@@ -565,14 +565,14 @@ for (const info of specificTools) {
 }
 
 [
-  [ ['V8 Engine', 'post-mortem'],
-    ['deps/v8/tools/gen-postmortem-metadata.py'] ],
-  [ ['c++', 'n-api'],
-    ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h'] ],
-  [ ['test', 'n-api'],
-    ['test/addons-napi/foo'] ],
-  [ ['doc', 'n-api'],
-    ['doc/api/n-api.md'] ]
+  [['V8 Engine', 'post-mortem'],
+    ['deps/v8/tools/gen-postmortem-metadata.py']],
+  [['c++', 'n-api'],
+    ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h']],
+  [['test', 'n-api'],
+    ['test/addons-napi/foo']],
+  [['doc', 'n-api'],
+    ['doc/api/n-api.md']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -588,8 +588,8 @@ for (const info of specificTools) {
 });
 
 [
-  [ ['async_hooks'], ['lib/async_hooks.js'] ],
-  [ ['test', 'async_hooks'], ['test/async-hooks/test-connection.ssl.js'] ]
+  [['async_hooks'], ['lib/async_hooks.js']],
+  [['test', 'async_hooks'], ['test/async-hooks/test-connection.ssl.js']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -625,18 +625,18 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 });
 
 [
-  [ ['http2', 'dont-land-on-v6.x'],
+  [['http2', 'dont-land-on-v6.x'],
     ['lib/http2.js',
-     'lib/internal/http2/core.js',
-     'deps/nghttp2/lib/nghttp2_buf.c'] ],
-  [ ['c++', 'http2', 'dont-land-on-v6.x'],
+      'lib/internal/http2/core.js',
+      'deps/nghttp2/lib/nghttp2_buf.c']],
+  [['c++', 'http2', 'dont-land-on-v6.x'],
     ['src/node_http2.cc',
-     'src/node_http2.h',
-     'src/node_http2_core.h',
-     'src/node_http2_core-inl.h'] ],
-  [ ['build', 'http2', 'dont-land-on-v6.x'],
-    ['deps/nghttp2/nghttp2.gyp'] ],
-  [ ['doc', 'http2'], ['doc/api/http2.md'] ]
+      'src/node_http2.h',
+      'src/node_http2_core.h',
+      'src/node_http2_core-inl.h']],
+  [['build', 'http2', 'dont-land-on-v6.x'],
+    ['deps/nghttp2/nghttp2.gyp']],
+  [['doc', 'http2'], ['doc/api/http2.md']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -652,13 +652,13 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 });
 
 [
-  [ ['c++', 'report'],
+  [['c++', 'report'],
     ['src/node_report.cc',
-     'src/node_report.h',
-     'src/node_report_module.cc',
-     'src/node_report_utils.cc'] ],
-  [ ['doc', 'report'], ['doc/api/report.md'] ],
-  [ ['test', 'report'], ['test/report/test-report-config.js'] ]
+      'src/node_report.h',
+      'src/node_report_module.cc',
+      'src/node_report_utils.cc']],
+  [['doc', 'report'], ['doc/api/report.md']],
+  [['test', 'report'], ['test/report/test-report-config.js']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -674,14 +674,14 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 });
 
 [
-  [ ['worker'],
+  [['worker'],
     ['lib/worker_threads.js',
-     'lib/internal/worker.js',
-     'lib/internal/worker/io.js'] ],
-  [ ['c++', 'worker'],
+      'lib/internal/worker.js',
+      'lib/internal/worker/io.js']],
+  [['c++', 'worker'],
     ['src/node_worker.cc',
-     'src/node_worker.h'] ],
-  [ ['doc', 'worker'], ['doc/api/worker_threads.md'] ]
+      'src/node_worker.h']],
+  [['doc', 'worker'], ['doc/api/worker_threads.md']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
