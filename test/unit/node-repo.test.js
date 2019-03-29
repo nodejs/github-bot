@@ -79,7 +79,7 @@ tap.test('fetchExistingLabels(): can retrieve more than 100 labels', (t) => {
   const labelsFixturePage2 = readFixture('repo-labels-page-2.json')
   sinon.stub(githubClient.issues, 'getLabels', (options, cb) => cb(null, options.page === 1 ? labelsFixturePage1 : labelsFixturePage2))
   sinon.stub(githubClient, 'hasNextPage', (listing) => listing === labelsFixturePage1)
-  const nodeRepo = proxyquire('../../lib/node-repo', {'./github-client': githubClient})
+  const nodeRepo = proxyquire('../../lib/node-repo', { './github-client': githubClient })
 
   t.plan(3)
   t.tearDown(() => {
@@ -96,7 +96,7 @@ tap.test('fetchExistingLabels(): can retrieve more than 100 labels', (t) => {
 tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
   const events = readFixture('pull-request-events.json')
   sinon.stub(githubClient.issues, 'getEvents', (options, cb) => { cb(null, events) })
-  const nodeRepo = proxyquire('../../lib/node-repo', {'./github-client': githubClient})
+  const nodeRepo = proxyquire('../../lib/node-repo', { './github-client': githubClient })
 
   t.plan(1)
   t.tearDown(() => {
@@ -111,7 +111,7 @@ tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
 tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bot', (t) => {
   const events = readFixture('pull-request-events-2.json')
   sinon.stub(githubClient.issues, 'getEvents', (options, cb) => { cb(null, events) })
-  const nodeRepo = proxyquire('../../lib/node-repo', {'./github-client': githubClient})
+  const nodeRepo = proxyquire('../../lib/node-repo', { './github-client': githubClient })
 
   t.plan(1)
   t.tearDown(() => {

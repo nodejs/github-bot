@@ -30,18 +30,18 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
   const pipelineUrl = 'https://ci.nodejs.org/blue/organizations/jenkins/node-test-pull-request-lite-pipeline/detail/node-test-pull-request-lite-pipeline/1/pipeline'
 
   const collaboratorsScope = nock('https://api.github.com')
-                      .filteringPath(ignoreQueryParams)
-                      .get('/repos/nodejs/node/collaborators/phillipj')
-                      .reply(200, { permission: 'admin' })
+    .filteringPath(ignoreQueryParams)
+    .get('/repos/nodejs/node/collaborators/phillipj')
+    .reply(200, { permission: 'admin' })
   const ciJobScope = nock('https://ci.nodejs.org')
-                        .filteringPath(ignoreQueryParams)
-                        .post('/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/')
-                        .reply(200, { id: 1 }, {})
+    .filteringPath(ignoreQueryParams)
+    .post('/blue/rest/organizations/jenkins/pipelines/node-test-pull-request-lite-pipeline/runs/')
+    .reply(200, { id: 1 }, {})
 
   const commentScope = nock('https://api.github.com')
-                        .filteringPath(ignoreQueryParams)
-                        .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: ${pipelineUrl}` })
-                        .reply(200)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: ${pipelineUrl}` })
+    .reply(200)
 
   t.plan(1)
   t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && clock.uninstall())

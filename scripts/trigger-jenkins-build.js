@@ -103,32 +103,17 @@ module.exports = (app) => {
 }
 
 function handleCommentCreated (event, owner, repo) {
-  const { number, logger, comment } = event
-  const commentAuthor = comment.user.login
-  const options = {
-    owner,
-    repo,
-    number,
-    logger,
-    author: commentAuthor
-  }
+  const { number, logger, comment: { body, user: { login: author } } } = event
+  const options = { owner, repo, number, logger, author }
 
-  if (wasBotMentionedInCiComment(comment.body)) {
+  if (wasBotMentionedInCiComment(body)) {
     triggerBuildIfValid(options)
   }
 }
 
 function handlePullCreated (event, owner, repo) {
-  // eslint-disable-next-line camelcase
-  const { number, logger, pull_request } = event
-  const pullRequestAuthor = pull_request.user.login
-  const options = {
-    owner,
-    repo,
-    number,
-    logger,
-    author: pullRequestAuthor
-  }
+  const { number, logger, pull_request: { user: { login: author } } } = event
+  const options = { owner, repo, number, logger, author }
 
   if (repo === 'node') {
     triggerBuildIfValid(options)

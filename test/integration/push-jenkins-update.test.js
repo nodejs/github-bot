@@ -14,9 +14,9 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
 
   const prCommitsScope = setupGetCommitsMock('node')
   const scope = nock('https://api.github.com')
-                  .filteringPath(ignoreQueryParams)
-                  .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-                  .reply(201)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
+    .reply(201)
 
   t.plan(1)
 
@@ -36,9 +36,9 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 
   const prCommitsScope = setupGetCommitsMock('citgm')
   const scope = nock('https://api.github.com')
-                  .filteringPath(ignoreQueryParams)
-                  .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-                  .reply(201)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
+    .reply(201)
 
   t.plan(1)
 
@@ -58,9 +58,9 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 
   const prCommitsScope = setupGetCommitsMock('citgm')
   const scope = nock('https://api.github.com')
-                  .filteringPath(ignoreQueryParams)
-                  .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-                  .reply(201)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
+    .reply(201)
 
   t.plan(1)
 
@@ -80,14 +80,14 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
 
   const prCommitsScope = setupGetCommitsMock('node')
   const scope = nock('https://api.github.com')
-                  .filteringPath(ignoreQueryParams)
-                  .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1', {
-                    state: 'success',
-                    context: 'test/osx',
-                    description: 'tests passed',
-                    target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
-                  })
-                  .reply(201)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1', {
+      state: 'success',
+      context: 'test/osx',
+      description: 'tests passed',
+      target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
+    })
+    .reply(201)
 
   t.plan(1)
 
@@ -105,9 +105,9 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
 tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t) => {
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
   const commentScope = nock('https://api.github.com')
-                        .filteringPath(ignoreQueryParams)
-                        .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
-                        .reply(200)
+    .filteringPath(ignoreQueryParams)
+    .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
+    .reply(200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupGetCommitsMock('node')
@@ -228,9 +228,9 @@ function setupGetCommitsMock (repoName) {
   const commitsResponse = readFixture('pr-commits.json')
 
   return nock('https://api.github.com')
-            .filteringPath(ignoreQueryParams)
-            .get(`/repos/nodejs/${repoName}/pulls/12345/commits`)
-            .reply(200, commitsResponse)
+    .filteringPath(ignoreQueryParams)
+    .get(`/repos/nodejs/${repoName}/pulls/12345/commits`)
+    .reply(200, commitsResponse)
 }
 
 function ignoreQueryParams (pathAndQuery) {

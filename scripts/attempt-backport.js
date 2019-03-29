@@ -1,12 +1,9 @@
 'use strict'
 
-const child_process = require('child_process')
+const { spawn } = require('child_process')
 const debug = require('debug')('attempt-backport')
 const request = require('request')
-const node_repo = require('../lib/node-repo')
-const fetchExistingThenUpdatePr = node_repo.fetchExistingThenUpdatePr
-const removeLabelFromPR = node_repo.removeLabelFromPR
-const getBotPrLabels = node_repo.getBotPrLabels
+const { fetchExistingThenUpdatePr, removeLabelFromPR, getBotPrLabels } = require('../lib/node-repo')
 
 const enabledRepos = ['node']
 const nodeVersions = [
@@ -94,7 +91,7 @@ function attemptBackport (options, version, isLTS, cb) {
 
     opts.cwd = global._node_repo_dir
 
-    const cp = child_process.spawn(cmd, args, opts)
+    const cp = spawn(cmd, args, opts)
     const argsString = [cmd, ...args].join(' ')
 
     cp.on('error', function (err) {
@@ -160,7 +157,7 @@ function attemptBackport (options, version, isLTS, cb) {
     let exited = false
     options.logger.debug('aborting any previous backport attempt...')
 
-    const cp = child_process.spawn('git', ['am', '--abort'], { cwd: global._node_repo_dir })
+    const cp = spawn('git', ['am', '--abort'], { cwd: global._node_repo_dir })
     const argsString = 'git am --abort'
 
     cp.on('error', function (err) {
@@ -184,10 +181,10 @@ function attemptBackport (options, version, isLTS, cb) {
 
   function gitCheckout () {
     options.logger.debug(`checking out origin/v${version}.x-staging...`)
-    wrapCP('git', ['checkout', `origin/v${version}.x-staging`], gitClean_fdx)
+    wrapCP('git', ['checkout', `origin/v${version}.x-staging`], gitCleanFXD)
   }
 
-  function gitClean_fdx () {
+  function gitCleanFXD () {
     wrapCP('git', ['clean', '-fdx'], fetchDiff)
   }
 
