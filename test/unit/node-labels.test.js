@@ -612,6 +612,16 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
   t.same(labels, ['build'])
 
   t.end()
+})
+
+tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    '.travis.yml'
+  ])
+
+  t.same(labels, ['build'])
+
+  t.end()
 });
 
 [
