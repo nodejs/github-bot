@@ -109,6 +109,11 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
     .reply(200)
 
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .post('/graphql')
+    .reply(200, readFixture('pull-request-zero-comments-gql.json'))
+
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupGetCommitsMock('node')
   nock('https://api.github.com')
@@ -136,6 +141,11 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/node/issues/12345/comments', { body: 'Lite-CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
     .reply(200)
+
+  nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .post('/graphql')
+    .reply(200, readFixture('pull-request-zero-comments-gql.json'))
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupGetCommitsMock('node')
