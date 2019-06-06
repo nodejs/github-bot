@@ -82,15 +82,18 @@ function triggerBuildIfValid (options) {
       return logger.debug(`Ignoring comment to me by @${options.author} because they are not a repo collaborator`)
     }
 
-    triggerBuild(options, function onBuildTriggered (err, { jobName, jobId }) {
-      const jobUrl = `https://ci.nodejs.org/job/${jobName}/${jobId}`
-      let body = `Lite-CI: ${jobUrl}`
+    triggerBuild(options, function onBuildTriggered (err, result) {
+      let body = ''
+
       if (err) {
         logger.error(err, 'Error while triggering Jenkins build')
         body = 'Sadly, an error occurred when I tried to trigger a build. :('
       } else {
+        const jobUrl = `https://ci.nodejs.org/job/${result.jobName}/${result.jobId}`
         logger.info({ jobUrl }, 'Jenkins build started')
+        body = `Lite-CI: ${jobUrl}`
       }
+
       createPrComment(options, body)
     })
   })
