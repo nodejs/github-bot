@@ -63,11 +63,11 @@ function triggerBuild (options, cb) {
     headers: { authorization },
     qs: { token: buildAuthToken },
     json: { parameters: buildParametersForRepo(options, repo) }
-  }, (err, response) => {
+  }, (err, response, body) => {
     if (err) {
       return cb(err)
     } else if (response.statusCode !== 200) {
-      return cb(new Error(`Expected 200 from Jenkins, got ${response.statusCode}`))
+      return cb(new Error(`Expected 200 from Jenkins, got ${response.statusCode}: ${body}`))
     }
 
     cb(null, { jobName, jobId: response.body.id })
