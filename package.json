@@ -8,11 +8,12 @@
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 10"
   },
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@octokit/graphql": "2.1.1",
     "async": "2.1.5",
     "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
