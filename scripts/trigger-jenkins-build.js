@@ -83,18 +83,13 @@ function triggerBuildIfValid (options) {
     }
 
     triggerBuild(options, function onBuildTriggered (err, result) {
-      let body = ''
-
       if (err) {
-        logger.error(err, 'Error while triggering Jenkins build')
-        body = 'Sadly, an error occurred when I tried to trigger a build. :('
-      } else {
-        const jobUrl = `https://ci.nodejs.org/job/${result.jobName}/${result.jobId}`
-        logger.info({ jobUrl }, 'Jenkins build started')
-        body = `Lite-CI: ${jobUrl}`
+        return logger.error(err, 'Error while triggering Jenkins build')
       }
 
-      createPrComment(options, body)
+      const jobUrl = `https://ci.nodejs.org/job/${result.jobName}/${result.jobId}`
+      logger.info({ jobUrl }, 'Jenkins build started')
+      createPrComment(options, `Lite-CI: ${jobUrl}`)
     })
   })
 }
