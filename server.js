@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').load({ silent: true })
+
 const logger = require('./lib/logger')
 const { spawnSync } = require('child_process')
 
