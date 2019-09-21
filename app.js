@@ -1,7 +1,5 @@
 'use strict'
 
-require('dotenv').load({ silent: true })
-
 const glob = require('glob')
 const express = require('express')
 const bodyParser = require('body-parser')
