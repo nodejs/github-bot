@@ -203,6 +203,16 @@ tap.test('label: "libuv" when ./deps/uv/ files has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: "wasi" when ./deps/uvwasi/ files has been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'deps/uvwasi/src/uvwasi.c'
+  ])
+
+  t.same(labels, ['wasi'])
+
+  t.end()
+})
+
 tap.test('label: "V8 Engine", "openssl" when ./deps/v8/ and ./deps/openssl/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/v8/src/arguments.cc',
@@ -674,6 +684,15 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 });
 
 [
+  // wasi
+  [['wasi'],
+    ['lib/wasi.js']],
+  [['c++', 'wasi'],
+    ['src/node_wasi.cc',
+      'src/node_wasi.h']],
+  [['doc', 'wasi'], ['doc/api/wasi.md']],
+
+  // worker
   [['worker'],
     ['lib/worker_threads.js',
       'lib/internal/worker.js',
