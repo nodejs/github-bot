@@ -203,7 +203,7 @@ tap.test('label: "libuv" when ./deps/uv/ files has been changed', (t) => {
   t.end()
 })
 
-tap.test('label: "wasi" when ./deps/uv/ files has been changed', (t) => {
+tap.test('label: "wasi" when ./deps/uvwasi/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'deps/uvwasi/src/uvwasi.c'
   ])
