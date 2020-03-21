@@ -29,12 +29,12 @@
   "devDependencies": {
     "eventsource": "^0.2.1",
     "lolex": "^1.5.1",
-    "nock": "^9.6.1",
-    "nodemon": "^1.9.1",
+    "nock": "^12.0.3",
+    "nodemon": "^2.0.2",
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
     "standard": "^12.0.1",
     "supertest": "^3.4.2",
-    "tap": "^14.2.2"
+    "tap": "^14.10.6"
   }
 }
