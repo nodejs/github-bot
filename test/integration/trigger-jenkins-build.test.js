@@ -44,7 +44,12 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
     .reply(200)
 
   t.plan(1)
-  t.tearDown(() => collaboratorsScope.done() && ciJobScope.done() && commentScope.done() && clock.uninstall())
+  t.tearDown(() => {
+    collaboratorsScope.done()
+    ciJobScope.done()
+    commentScope.done()
+    clock.uninstall()
+  })
 
   supertest(app)
     .post('/hooks/github')
