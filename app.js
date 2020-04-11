@@ -4,6 +4,7 @@ const glob = require('glob')
 const express = require('express')
 const bodyParser = require('body-parser')
 const bunyanMiddleware = require('bunyan-middleware')
+const AsyncEventEmitter = require('events-async')
 
 const logger = require('./lib/logger')
 const authMiddleware = require('./lib/auth-middleware')
@@ -11,6 +12,7 @@ const authMiddleware = require('./lib/auth-middleware')
 const captureRaw = (req, res, buffer) => { req.raw = buffer }
 
 const app = express()
+const events = new AsyncEventEmitter()
 
 const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
 const logsDir = process.env.LOGS_DIR || ''
@@ -29,12 +31,12 @@ app.use(bunyanMiddleware({
   obscureHeaders: ['x-hub-signature']
 }))
 
-require('./lib/github-events')(app)
+require('./lib/github-events')(app, events)
 
 // load all the files in the scripts folder
 glob.sync(scriptsToLoad).forEach((file) => {
   logger.info('Loading:', file)
-  require(file)(app)
+  require(file)(app, events)
 })
 
 app.use(function logUnhandledErrors (err, req, res, next) {

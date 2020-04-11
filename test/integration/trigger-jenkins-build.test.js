@@ -24,7 +24,7 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
   process.env.JENKINS_BUILD_TOKEN_NODE = 'myToken'
 
   const webhookPayload = readFixture('pull-request-opened.json')
-  const pipelineUrl = 'https://ci.nodejs.org/blue/organizations/jenkins/node-test-pull-request-lite-pipeline/detail/node-test-pull-request-lite-pipeline/1/pipeline'
+  const pipelineUrl = 'https://ci.nodejs.org/job/node-test-pull-request-lite-pipeline/1'
 
   const collaboratorsScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
@@ -37,7 +37,7 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
 
   const commentScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/19/comments', { body: `@phillipj build started: ${pipelineUrl}` })
+    .post('/repos/nodejs/node/issues/19/comments', { body: `Lite-CI: ${pipelineUrl}` })
     .reply(200)
 
   t.plan(1)
