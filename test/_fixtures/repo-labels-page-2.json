@@ -15,13 +15,6 @@
       "default": false
     },
     {
-      "id": 364835500,
-      "url": "https://api.github.com/repos/nodejs/node/labels/v6.x",
-      "name": "v6.x",
-      "color": "c2e0c6",
-      "default": false
-    },
-    {
       "id": 441404503,
       "url": "https://api.github.com/repos/nodejs/node/labels/v7.x",
       "name": "v7.x",
