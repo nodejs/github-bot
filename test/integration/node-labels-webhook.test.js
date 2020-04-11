@@ -16,6 +16,8 @@ const testStubs = {
   }
 }
 
+process.env.WAIT_SECONDS_BEFORE_RESOLVING_LABELS = 0
+
 const readFixture = require('../read-fixture')
 
 setupNoRequestMatchHandler()
