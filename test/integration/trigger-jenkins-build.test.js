@@ -5,7 +5,6 @@ const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 const proxyquire = require('proxyquire')
-const lolex = require('lolex')
 const readFixture = require('../read-fixture')
 
 const app = proxyquire('../../app', {
@@ -19,8 +18,6 @@ const app = proxyquire('../../app', {
 })
 
 tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
-  const clock = lolex.install()
-
   const originalJobUrlValue = process.env.JENKINS_JOB_URL_NODE
   const originalTokenValue = process.env.JENKINS_BUILD_TOKEN_NODE
   process.env.JENKINS_JOB_NODE = 'node-test-pull-request-lite-pipeline'
@@ -48,7 +45,6 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
     collaboratorsScope.done()
     ciJobScope.done()
     commentScope.done()
-    clock.uninstall()
   })
 
   supertest(app)
@@ -59,7 +55,6 @@ tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
     .end((err, res) => {
       process.env.JENKINS_JOB_URL_NODE = originalJobUrlValue
       process.env.JENKINS_BUILD_TOKEN_NODE = originalTokenValue
-      clock.runAll()
       t.equal(err, null)
     })
 })

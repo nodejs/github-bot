@@ -1,9 +1,9 @@
 'use strict'
 
-const lolex = require('lolex')
 const proxyquire = require('proxyquire')
 const sinon = require('sinon')
 const tap = require('tap')
+const lolex = require('lolex')
 
 const logger = require('../../lib/logger')
 const githubClient = require('../../lib/github-client')
