@@ -154,6 +154,16 @@
       "url": "https://api.github.com/repos/nodejs/node/labels/V8 Engine",
       "name": "V8 Engine",
       "color": "0052cc"
+    },
+    {
+      "url": "https://api.github.com/repos/nodejs/node/labels/timers",
+      "name": "timers",
+      "color": "f7c6c7"
+    },
+    {
+      "url": "https://api.github.com/repos/nodejs/node/labels/v6.x",
+      "name": "v6.x",
+      "color": "c2e0c6"
     }
   ],
   "meta": {
