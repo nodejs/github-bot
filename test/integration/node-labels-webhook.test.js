@@ -16,13 +16,12 @@ const testStubs = {
   }
 }
 
-const app = proxyquire('../../app', testStubs)
-
 const readFixture = require('../read-fixture')
 
 setupNoRequestMatchHandler()
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
+  const app = proxyquire('../../app', testStubs)
   const expectedLabels = ['timers']
   const webhookPayload = readFixture('pull-request-opened.json')
 
@@ -59,6 +58,7 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
 })
 
 tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => {
+  const app = proxyquire('../../app', testStubs)
   const expectedLabels = ['timers', 'v6.x']
   const webhookPayload = readFixture('pull-request-opened-v6.x.json')
 
@@ -96,6 +96,7 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
 
 // reported bug: https://github.com/nodejs/github-bot/issues/58
 tap.test('Does not create labels which does not already exist', (t) => {
+  const app = proxyquire('../../app', testStubs)
   const webhookPayload = readFixture('pull-request-opened-mapproxy.json')
 
   const filesScope = nock('https://api.github.com')
@@ -126,6 +127,7 @@ tap.test('Does not create labels which does not already exist', (t) => {
 
 // reported bug: https://github.com/nodejs/github-bot/issues/92
 tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
+  const app = proxyquire('../../app', testStubs)
   const expectedLabels = ['V8 Engine']
   const webhookPayload = readFixture('pull-request-opened-v8.json')
 
