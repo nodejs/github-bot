@@ -7,7 +7,7 @@ const supertest = require('supertest')
 const proxyquire = require('proxyquire')
 const readFixture = require('../read-fixture')
 
-const app = proxyquire('../../app', {
+const { app, events } = proxyquire('../../app', {
   './github-secret': {
     isValid: () => true,
 
@@ -16,6 +16,8 @@ const app = proxyquire('../../app', {
     '@global': true
   }
 })
+
+require('../../scripts/trigger-jenkins-build')(app, events)
 
 tap.test('Sends POST request to https://ci.nodejs.org', (t) => {
   const originalJobUrlValue = process.env.JENKINS_JOB_URL_NODE

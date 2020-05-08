@@ -20,10 +20,27 @@ process.env.WAIT_SECONDS_BEFORE_RESOLVING_LABELS = 0
 
 const readFixture = require('../read-fixture')
 
+// Clearing the require cache is needed due to labels being cached into a singleton variable.
+// To ensure every test can run on its own without relying on other tests having run already
+// resulted in the cache being filled up, we enforce all tests to run without any "cache warming",
+// hence labels has to be fetched every time
+function clearRequireCache () {
+  for (const modulePath of Object.keys(require.cache)) {
+    delete require.cache[modulePath]
+  }
+}
+
+function initializeApp () {
+  const { app, events } = proxyquire('../../app', testStubs)
+  clearRequireCache()
+  require('../../scripts/node-subsystem-label')(app, events)
+  return app
+}
+
 setupNoRequestMatchHandler()
 
 tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/<PR-NUMBER>/labels', (t) => {
-  const app = proxyquire('../../app', testStubs)
+  const app = initializeApp()
   const expectedLabels = ['timers']
   const webhookPayload = readFixture('pull-request-opened.json')
 
@@ -60,7 +77,7 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
 })
 
 tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => {
-  const app = proxyquire('../../app', testStubs)
+  const app = initializeApp()
   const expectedLabels = ['timers', 'v6.x']
   const webhookPayload = readFixture('pull-request-opened-v6.x.json')
 
@@ -98,7 +115,7 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
 
 // reported bug: https://github.com/nodejs/github-bot/issues/58
 tap.test('Does not create labels which does not already exist', (t) => {
-  const app = proxyquire('../../app', testStubs)
+  const app = initializeApp()
   const webhookPayload = readFixture('pull-request-opened-mapproxy.json')
 
   const filesScope = nock('https://api.github.com')
@@ -129,7 +146,7 @@ tap.test('Does not create labels which does not already exist', (t) => {
 
 // reported bug: https://github.com/nodejs/github-bot/issues/92
 tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
-  const app = proxyquire('../../app', testStubs)
+  const app = initializeApp()
   const expectedLabels = ['V8 Engine']
   const webhookPayload = readFixture('pull-request-opened-v8.json')
 
