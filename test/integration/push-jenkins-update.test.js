@@ -5,9 +5,11 @@ const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
 
-const app = require('../../app')
+const { app, events } = require('../../app')
 
 const readFixture = require('../read-fixture')
+
+require('../../scripts/jenkins-status')(app, events)
 
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
