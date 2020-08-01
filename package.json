@@ -13,6 +13,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@octokit/rest": "^14.0.9",
     "async": "2.1.5",
     "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
@@ -22,7 +23,6 @@
     "dotenv": "^2.0.0",
     "events-async": "^1.2.1",
     "express": "^4.13.4",
-    "github": "^13.1.1",
     "glob": "^7.0.3",
     "lru-cache": "^4.0.1",
     "request": "^2.88.0"
