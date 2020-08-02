@@ -1,0 +1,8 @@
+./file1 @nodejs/test1
+./file2 @nodejs/test2
+./file3 @nodejs/test1 @nodejs/test2
+./file4 @nodejs/test1
+./file5 @nodejs/test3
+./folder1/* @nodejs/test3
+./folder2/file1.* @nodejs/test4 @nodejs/test5
+./lib/timers.js @nodejs/team @nodejs/team2
