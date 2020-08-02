@@ -14,17 +14,20 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^15.18.3",
+    "aigle": "^1.14.1",
     "async": "2.1.5",
     "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
     "bunyan": "^1.8.1",
     "bunyan-middleware": "0.8.0",
+    "codeowners-utils": "^1.0.2",
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
     "events-async": "^1.2.1",
     "express": "^4.13.4",
     "glob": "^7.0.3",
     "lru-cache": "^4.0.1",
+    "micromatch": "^4.0.2",
     "request": "^2.88.0"
   },
   "devDependencies": {

@@ -1,0 +1,32 @@
+{
+  "url": "https://api.github.com/repos/nodejs/node-auto-test/issues/comments/667621459",
+  "html_url": "https://github.com/nodejs/node-auto-test/pull/19#issuecomment-667621459",
+  "issue_url": "https://api.github.com/repos/nodejs/node-auto-test/issues/19",
+  "id": 667621459,
+  "node_id": "MDEyOklzc3VlQ29tbWVudDY2NzYyMTQ1OQ==",
+  "user": {
+    "login": "mmarchini",
+    "id": 4048656,
+    "node_id": "MDQ6VXNlcjQwNDg2NTY=",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/4048656?u=bf848ffe5efedded28239e602bfa3cd07b8e3e05&v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mmarchini",
+    "html_url": "https://github.com/mmarchini",
+    "followers_url": "https://api.github.com/users/mmarchini/followers",
+    "following_url": "https://api.github.com/users/mmarchini/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mmarchini/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mmarchini/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mmarchini/subscriptions",
+    "organizations_url": "https://api.github.com/users/mmarchini/orgs",
+    "repos_url": "https://api.github.com/users/mmarchini/repos",
+    "events_url": "https://api.github.com/users/mmarchini/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mmarchini/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "created_at": "2020-08-02T03:37:18Z",
+  "updated_at": "2020-08-02T03:37:18Z",
+  "author_association": "MEMBER",
+  "body": "test comment",
+  "performed_via_github_app": null
+}
