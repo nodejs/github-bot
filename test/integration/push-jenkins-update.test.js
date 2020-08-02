@@ -14,21 +14,25 @@ require('../../scripts/jenkins-status')(app, events)
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  const prCommitsScope = setupGetCommitsMock('node')
-  const scope = nock('https://api.github.com')
+  setupGetCommitsMock('node')
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
+  nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
     .reply(201)
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
 
-  t.plan(1)
+  t.plan(3)
 
   supertest(app)
     .post('/node/jenkins/start')
     .send(jenkinsPayload)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
-      prCommitsScope.done()
-      scope.done()
       t.equal(err, null)
     })
 })
@@ -36,21 +40,25 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
 tap.test('Allows repository name to be provided with URL parameter when pushing job started', (t) => {
   const jenkinsPayload = readFixture('pending-payload.json')
 
-  const prCommitsScope = setupGetCommitsMock('citgm')
-  const scope = nock('https://api.github.com')
+  setupGetCommitsMock('citgm')
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
+  nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
     .reply(201)
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
 
-  t.plan(1)
+  t.plan(3)
 
   supertest(app)
     .post('/citgm/jenkins/start')
     .send(jenkinsPayload)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
-      prCommitsScope.done()
-      scope.done()
       t.equal(err, null)
     })
 })
@@ -58,21 +66,25 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 tap.test('Allows repository name to be provided with URL parameter when pushing job ended', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  const prCommitsScope = setupGetCommitsMock('citgm')
-  const scope = nock('https://api.github.com')
+  setupGetCommitsMock('citgm')
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
+  nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
     .reply(201)
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
 
-  t.plan(1)
+  t.plan(3)
 
   supertest(app)
     .post('/citgm/jenkins/end')
     .send(jenkinsPayload)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
-      prCommitsScope.done()
-      scope.done()
       t.equal(err, null)
     })
 })
@@ -80,8 +92,11 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) => {
   const fixture = readFixture('success-payload.json')
 
-  const prCommitsScope = setupGetCommitsMock('node')
-  const scope = nock('https://api.github.com')
+  setupGetCommitsMock('node')
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
+  nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1', {
       state: 'success',
@@ -90,16 +105,17 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
       target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
     })
     .reply(201)
+    .on('replied', (req, interceptor) => {
+      t.doesNotThrow(() => interceptor.scope.done())
+    })
 
-  t.plan(1)
+  t.plan(3)
 
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
-      prCommitsScope.done()
-      scope.done()
       t.equal(err, null)
     })
 })
@@ -123,7 +139,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
       commentScope.done()
       t.equal(err, null)
@@ -151,7 +167,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
-    .expect(201)
+    .expect(200)
     .end((err, res) => {
       commentScope.done()
       t.equal(err, null)
