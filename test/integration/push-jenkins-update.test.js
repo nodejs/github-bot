@@ -14,7 +14,7 @@ require('../../scripts/jenkins-status')(app, events)
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  setupGetCommitsMock('node')
+  setupListCommitsMock('node')
     .on('replied', (req, interceptor) => {
       t.doesNotThrow(() => interceptor.scope.done())
     })
@@ -40,7 +40,7 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
 tap.test('Allows repository name to be provided with URL parameter when pushing job started', (t) => {
   const jenkinsPayload = readFixture('pending-payload.json')
 
-  setupGetCommitsMock('citgm')
+  setupListCommitsMock('citgm')
     .on('replied', (req, interceptor) => {
       t.doesNotThrow(() => interceptor.scope.done())
     })
@@ -66,7 +66,7 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 tap.test('Allows repository name to be provided with URL parameter when pushing job ended', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  setupGetCommitsMock('citgm')
+  setupListCommitsMock('citgm')
     .on('replied', (req, interceptor) => {
       t.doesNotThrow(() => interceptor.scope.done())
     })
@@ -92,7 +92,7 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
 tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) => {
   const fixture = readFixture('success-payload.json')
 
-  setupGetCommitsMock('node')
+  setupListCommitsMock('node')
     .on('replied', (req, interceptor) => {
       t.doesNotThrow(() => interceptor.scope.done())
     })
@@ -128,7 +128,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .reply(200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
-  setupGetCommitsMock('node')
+  setupListCommitsMock('node')
   nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
@@ -156,7 +156,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .reply(200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
-  setupGetCommitsMock('node')
+  setupListCommitsMock('node')
   nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
@@ -242,7 +242,7 @@ tap.test('Responds with 400 / "Bad request" when incoming providing invalid repo
     })
 })
 
-function setupGetCommitsMock (repoName) {
+function setupListCommitsMock (repoName) {
   const commitsResponse = readFixture('pr-commits.json')
 
   return nock('https://api.github.com')

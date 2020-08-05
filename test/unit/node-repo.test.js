@@ -10,7 +10,7 @@ const githubClient = require('../../lib/github-client')
 const readFixture = require('../read-fixture')
 
 tap.test('fetchExistingLabels(): caches existing repository labels', async (t) => {
-  sinon.stub(githubClient.issues, 'getLabels', () => Promise.resolve([]))
+  sinon.stub(githubClient.issues, 'listLabelsForRepo', () => Promise.resolve([]))
   sinon.stub(githubClient, 'hasNextPage', () => false)
   const nodeRepo = proxyquire('../../lib/node-repo', {
     './github-client': githubClient
@@ -18,18 +18,18 @@ tap.test('fetchExistingLabels(): caches existing repository labels', async (t) =
 
   t.plan(1)
   t.tearDown(() => {
-    githubClient.issues.getLabels.restore()
+    githubClient.issues.listLabelsForRepo.restore()
     githubClient.hasNextPage.restore()
   })
 
   await nodeRepo._fetchExistingLabels({ owner: 'nodejs', repo: 'node', logger })
   await nodeRepo._fetchExistingLabels({ owner: 'nodejs', repo: 'node', logger })
-  t.ok(githubClient.issues.getLabels.calledOnce)
+  t.ok(githubClient.issues.listLabelsForRepo.calledOnce)
 })
 
 tap.test('fetchExistingLabels(): cache expires after one hour', async (t) => {
   const clock = lolex.install()
-  sinon.stub(githubClient.issues, 'getLabels', () => Promise.resolve([]))
+  sinon.stub(githubClient.issues, 'listLabelsForRepo', () => Promise.resolve([]))
   sinon.stub(githubClient, 'hasNextPage', () => false)
   const nodeRepo = proxyquire('../../lib/node-repo', {
     './github-client': githubClient
@@ -37,7 +37,7 @@ tap.test('fetchExistingLabels(): cache expires after one hour', async (t) => {
 
   t.plan(1)
   t.tearDown(() => {
-    githubClient.issues.getLabels.restore()
+    githubClient.issues.listLabelsForRepo.restore()
     githubClient.hasNextPage.restore()
     clock.uninstall()
   })
@@ -48,12 +48,12 @@ tap.test('fetchExistingLabels(): cache expires after one hour', async (t) => {
   clock.tick(1000 * 60 * 61)
 
   await nodeRepo._fetchExistingLabels({ owner: 'nodejs', repo: 'node', logger })
-  t.equal(githubClient.issues.getLabels.callCount, 2)
+  t.equal(githubClient.issues.listLabelsForRepo.callCount, 2)
 })
 
 tap.test('fetchExistingLabels(): yields an array of existing label names', async (t) => {
   const labelsFixture = readFixture('repo-labels.json')
-  sinon.stub(githubClient.issues, 'getLabels', () => Promise.resolve(labelsFixture))
+  sinon.stub(githubClient.issues, 'listLabelsForRepo', () => Promise.resolve(labelsFixture))
   sinon.stub(githubClient, 'hasNextPage', () => false)
   const nodeRepo = proxyquire('../../lib/node-repo', {
     './github-client': githubClient
@@ -61,7 +61,7 @@ tap.test('fetchExistingLabels(): yields an array of existing label names', async
 
   t.plan(1)
   t.tearDown(() => {
-    githubClient.issues.getLabels.restore()
+    githubClient.issues.listLabelsForRepo.restore()
     githubClient.hasNextPage.restore()
   })
 
@@ -72,13 +72,13 @@ tap.test('fetchExistingLabels(): yields an array of existing label names', async
 tap.test('fetchExistingLabels(): can retrieve more than 100 labels', async (t) => {
   const labelsFixturePage1 = readFixture('repo-labels.json')
   const labelsFixturePage2 = readFixture('repo-labels-page-2.json')
-  sinon.stub(githubClient.issues, 'getLabels', (options) => Promise.resolve(options.page === 1 ? labelsFixturePage1 : labelsFixturePage2))
+  sinon.stub(githubClient.issues, 'listLabelsForRepo', (options) => Promise.resolve(options.page === 1 ? labelsFixturePage1 : labelsFixturePage2))
   sinon.stub(githubClient, 'hasNextPage', (listing) => listing === labelsFixturePage1)
   const nodeRepo = proxyquire('../../lib/node-repo', { './github-client': githubClient })
 
   t.plan(2)
   t.tearDown(() => {
-    githubClient.issues.getLabels.restore()
+    githubClient.issues.listLabelsForRepo.restore()
     githubClient.hasNextPage.restore()
   })
 
