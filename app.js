@@ -30,6 +30,7 @@ app.use(bunyanMiddleware({
 }))
 
 require('./lib/github-events')(app, events)
+require('./lib/jenkins-events')(app, events)
 
 app.use(function logUnhandledErrors (err, req, res, next) {
   logger.error(err, 'Unhandled error while responding to incoming HTTP request')
