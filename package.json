@@ -27,7 +27,6 @@
     "express": "^4.13.4",
     "glob": "^7.0.3",
     "lru-cache": "^4.0.1",
-    "micromatch": "^4.0.2",
     "request": "^2.88.0"
   },
   "devDependencies": {
