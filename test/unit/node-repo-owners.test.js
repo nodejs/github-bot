@@ -20,7 +20,7 @@ const options = {
   repo: 'node-auto-test',
   prId: 12345,
   number: 12345,
-  logger: { info: () => {}, error: () => {}, debug: () => {} },
+  logger: { info: () => {}, error: () => {}, debug: () => {}, child: function () { return this } },
   retries: 1,
   defaultBranch: 'main',
   retryInterval: 10
