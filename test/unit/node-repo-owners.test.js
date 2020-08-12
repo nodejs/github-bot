@@ -7,7 +7,7 @@ const url = require('url')
 const { resolveOwnersThenPingPr, _testExports } = require('../../lib/node-repo')
 const {
   getCodeOwnersUrl,
-  getFiles,
+  listFiles,
   getDefaultBranch,
   getCodeOwnersFile,
   pingOwners,
@@ -35,26 +35,26 @@ tap.test('getCodeOwnersUrl', (t) => {
   t.end()
 })
 
-tap.test('getFiles success', async (t) => {
+tap.test('listFiles success', async (t) => {
   const fixture = readFixture('pull-request-files.json')
   const scope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .get(`/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`)
     .reply(200, fixture)
 
-  const files = await getFiles(options)
+  const files = await listFiles(options)
   t.strictDeepEqual(files, fixture.map(({ filename }) => filename))
   scope.done()
   t.end()
 })
 
-tap.test('getFiles fail', async (t) => {
+tap.test('listFiles fail', async (t) => {
   const scope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
     .get(`/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`)
     .reply(500)
 
-  await t.rejects(getFiles(options))
+  await t.rejects(listFiles(options))
   scope.done()
   t.end()
 })
