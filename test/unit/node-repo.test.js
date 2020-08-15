@@ -134,7 +134,7 @@ tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bo
   })
 })
 
-tap.test('removeLabelFromPR(): should remove label', (t) => {
+tap.test('removeLabelFromPR(): should remove label', async (t) => {
   const owner = 'nodejs'
   const repo = 'node7'
   const prId = '3'
@@ -146,8 +146,7 @@ tap.test('removeLabelFromPR(): should remove label', (t) => {
     .reply(200)
   t.plan(1)
 
-  nodeRepo.removeLabelFromPR({ owner, repo, prId, logger }, label, (_, response) => {
-    t.same(label, response)
-    scope.done()
-  })
+  const response = await nodeRepo.removeLabelFromPR({ owner, repo, prId, logger }, label)
+  t.same(label, response)
+  scope.done()
 })
