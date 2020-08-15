@@ -56,7 +56,7 @@ tap.test('Sends POST request to https://api.github.com/repos/nodejs/node/issues/
 
   const newLabelsScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
+    .post('/repos/nodejs/node/issues/19/labels', { labels: expectedLabels })
     .reply(200)
 
   t.plan(1)
@@ -93,7 +93,7 @@ tap.test('Adds v6.x label when PR is targeting the v6.x-staging branch', (t) => 
 
   const newLabelsScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/19/labels', expectedLabels)
+    .post('/repos/nodejs/node/issues/19/labels', { labels: expectedLabels })
     .reply(200)
 
   t.plan(1)
@@ -162,7 +162,7 @@ tap.test('Adds V8 Engine label when PR has deps/v8 file changes', (t) => {
 
   const newLabelsScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/9422/labels', expectedLabels)
+    .post('/repos/nodejs/node/issues/9422/labels', { labels: expectedLabels })
     .reply(200)
 
   t.plan(1)
