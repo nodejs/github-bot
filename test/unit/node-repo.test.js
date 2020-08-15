@@ -133,3 +133,21 @@ tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bo
     scope.done()
   })
 })
+
+tap.test('removeLabelFromPR(): should remove label', (t) => {
+  const owner = 'nodejs'
+  const repo = 'node7'
+  const prId = '3'
+  const label = '3'
+
+  const scope = nock('https://api.github.com')
+    .filteringPath(ignoreQueryParams)
+    .delete(`/repos/${owner}/${repo}/issues/${prId}/labels/${label}`)
+    .reply(200)
+  t.plan(1)
+
+  nodeRepo.removeLabelFromPR({ owner, repo, prId, logger }, label, (_, response) => {
+    t.same(label, response)
+    scope.done()
+  })
+})
