@@ -83,7 +83,7 @@ tap.test('fetchExistingLabels(): can retrieve more than 100 labels', async (t) =
 
   const secondPageScope = nock('https://api.github.com')
     .get(`/repos/${owner}/${repo}/labels`)
-    .query({ page: 2, per_page: 100, access_token: 'invalid-placeholder-token' })
+    .query({ page: 2, per_page: 100 })
     .reply(200, labelsFixturePage2.data)
 
   t.plan(2)

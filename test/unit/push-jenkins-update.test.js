@@ -23,7 +23,7 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
 
   const lastPageScope = nock('https://api.github.com')
     .get(`/repos/${owner}/${repo}/pulls/${pr}/commits`)
-    .query({ page: 104, per_page: 100, access_token: 'invalid-placeholder-token' })
+    .query({ page: 104, per_page: 100 })
     .reply(200, commitsFixturePage104)
 
   t.plan(1)
