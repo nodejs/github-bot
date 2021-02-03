@@ -41,6 +41,16 @@ tap.test('label: "doc" when only ./doc/ files has been changed', (t) => {
   t.end()
 })
 
+tap.test('label: "doc" and "crypto" when webcrypto docs have been changed', (t) => {
+  const labels = nodeLabels.resolveLabels([
+    'doc/api/webcrypto.md'
+  ])
+
+  t.same(labels, ['doc', 'crypto'])
+
+  t.end()
+})
+
 tap.test('label: "doc" & "deprecations" when ./doc/api/deprecations.md has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'doc/api/deprecations.md'
