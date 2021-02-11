@@ -24,7 +24,8 @@ tap.test('label: "build" when build related files has been changed', (t) => {
   buildRelatedFiles.forEach((filepath) => {
     const labels = nodeLabels.resolveLabels([ filepath ])
 
-    t.same(labels, ['build'], filepath + ' got "build" label')
+    t.ok(labels.includes('build'), filepath + ' should have "build" label')
+    t.ok(labels.includes('needs-ci'), filepath + ' should have "needs-ci" label')
   })
 
   t.end()
@@ -36,6 +37,7 @@ tap.test('labels: not "build" when Makefile in ./deps has been changed', (t) => 
   ])
 
   t.notOk(labels.includes('build'))
+  t.ok(labels.includes('needs-ci'))
 
   t.end()
 })

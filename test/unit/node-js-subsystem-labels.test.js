@@ -38,6 +38,7 @@ tap.test('label: lib oddities', (t) => {
   const labels = nodeLabels.resolveLabels(libFiles, false)
 
   t.same(labels, [
+    'needs-ci',       // lib/
     'debugger',       // _debug_agent
     'http',           // _http_*
     'timers',         // linklist
@@ -62,6 +63,7 @@ tap.test('label: lib internals oddities duplicates', (t) => {
   const labels = nodeLabels.resolveLabels(libFiles)
 
   t.same(labels, [
+    'needs-ci',  // lib/
     'lib / src', // bootstrap_node
     'timers',    // linkedlist
     'stream'     // internal/streams/
@@ -108,6 +110,7 @@ tap.test('label: lib normal without "lib / src" limiting', (t) => {
 
   const labels = nodeLabels.resolveLabels(libFiles, false)
 
+  t.same(labels.shift(), 'needs-ci')
   t.same(labels, libFiles.map((path) => /lib\/(_)?(\w+)\.js/.exec(path)[2]))
 
   t.end()
@@ -127,6 +130,7 @@ tap.test('label: lib internals without "lib / src" limiting', (t) => {
 
   const labels = nodeLabels.resolveLabels(libFiles, false)
 
+  t.same(labels.shift(), 'needs-ci')
   t.same(labels, libFiles.map((path) => /lib\/internal\/(\w+)\.js/.exec(path)[1]))
 
   t.end()
@@ -169,7 +173,7 @@ tap.test('label: appropriate labels for files in internal subdirectories', (t) =
     'lib/internal/process/next_tick.js'
   ], false)
 
-  t.same(labels, ['cluster', 'process'])
+  t.same(labels, ['needs-ci', 'cluster', 'process'])
 
   t.end()
 })

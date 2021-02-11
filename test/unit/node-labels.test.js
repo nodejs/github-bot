@@ -4,13 +4,13 @@ const tap = require('tap')
 
 const nodeLabels = require('../../lib/node-labels')
 
-tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
+tap.test('label: "needs-ci" when ./test/ and ./doc/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'test/debugger/test-debugger-pid.js',
     'doc/api/fs.md'
   ])
 
-  t.same(labels, [])
+  t.same(labels, ['needs-ci'])
 
   t.end()
 })
@@ -18,13 +18,13 @@ tap.test('no labels: when ./test/ and ./doc/ files has been changed', (t) => {
 // This ensures older mislabelling issues doesn't happen again
 // https://github.com/nodejs/node/pull/6432
 // https://github.com/nodejs/node/pull/6448
-tap.test('no labels: when ./test/ and ./lib/ files has been changed', (t) => {
+tap.test('label: "needs-ci" when ./test/ and ./lib/ files has been changed', (t) => {
   const labels = nodeLabels.resolveLabels([
     'lib/punycode.js',
     'test/parallel/test-assert.js'
   ])
 
-  t.same(labels, [])
+  t.same(labels, ['needs-ci'])
 
   t.end()
 })
@@ -66,7 +66,7 @@ tap.test('label: "c++" when ./src/* has been changed', (t) => {
     'src/node.cc'
   ])
 
-  t.same(labels, ['c++'])
+  t.same(labels, ['needs-ci', 'c++'])
 
   t.end()
 })
@@ -154,7 +154,7 @@ for (const info of srcCases) {
     tap.test(`label: "${labels.join('","')}" when ./src/${file} has been changed`, (t) => {
       const resolved = nodeLabels.resolveLabels([`src/${file}`])
 
-      t.same(resolved, ['c++'].concat(labels))
+      t.same(resolved, ['needs-ci', 'c++'].concat(labels))
 
       t.end()
     })
@@ -166,7 +166,7 @@ tap.test('label: not "c++" when ./src/node_version.h has been changed', (t) => {
     'src/node_version.h'
   ])
 
-  t.same(labels, [])
+  t.same(labels, ['needs-ci'])
 
   t.end()
 })
@@ -178,7 +178,7 @@ tap.test('label: not "c++" when ./src/*.py has been changed', (t) => {
     'src/perfctr_macros.py'
   ])
 
-  t.same(labels, ['lib / src'])
+  t.same(labels, ['needs-ci', 'lib / src'])
 
   t.end()
 })
@@ -188,7 +188,7 @@ tap.test('label: "inspector" when ./src/inspector_* has been changed', (t) => {
     'src/inspector_socket.cc'
   ])
 
-  t.same(labels, ['c++', 'inspector'])
+  t.same(labels, ['needs-ci', 'c++', 'inspector'])
 
   t.end()
 })
@@ -198,7 +198,7 @@ tap.test('label: "V8 Engine" when ./deps/v8/ files has been changed', (t) => {
     'deps/v8/src/arguments.cc'
   ])
 
-  t.same(labels, ['V8 Engine'])
+  t.same(labels, ['needs-ci', 'V8 Engine'])
 
   t.end()
 })
@@ -208,7 +208,7 @@ tap.test('label: "libuv" when ./deps/uv/ files has been changed', (t) => {
     'deps/uv/src/fs-poll.c'
   ])
 
-  t.same(labels, ['libuv'])
+  t.same(labels, ['needs-ci', 'libuv'])
 
   t.end()
 })
@@ -218,7 +218,7 @@ tap.test('label: "wasi" when ./deps/uvwasi/ files has been changed', (t) => {
     'deps/uvwasi/src/uvwasi.c'
   ])
 
-  t.same(labels, ['wasi'])
+  t.same(labels, ['needs-ci', 'wasi'])
 
   t.end()
 })
@@ -229,7 +229,7 @@ tap.test('label: "V8 Engine", "openssl" when ./deps/v8/ and ./deps/openssl/ file
     'deps/openssl/openssl/ssl/ssl_rsa.c'
   ])
 
-  t.same(labels, ['V8 Engine', 'openssl'])
+  t.same(labels, ['needs-ci', 'V8 Engine', 'openssl'])
 
   t.end()
 })
@@ -246,7 +246,7 @@ tap.test('label: "repl" when ./lib/repl.js has been changed', (t) => {
     'test/debugger/test-debugger-repl-term.js'
   ])
 
-  t.same(labels, ['repl'])
+  t.same(labels, ['needs-ci', 'repl'])
 
   t.end()
 })
@@ -260,7 +260,7 @@ tap.test('label: "lib / src" when 4 or more JS sub-systems have been changed', (
     'lib/module.js'
   ])
 
-  t.same(labels, ['lib / src'])
+  t.same(labels, ['needs-ci', 'lib / src'])
 
   t.end()
 })
@@ -293,7 +293,7 @@ tap.test('label: "lib / src" when 4 or more native files have been changed', (t)
     'src/uv.cc'
   ])
 
-  t.same(labels, ['c++', 'lib / src'])
+  t.same(labels, ['needs-ci', 'c++', 'lib / src'])
 
   t.end()
 })
@@ -308,7 +308,7 @@ tap.test('label: not "lib / src" when only deps have been changed', (t) => {
     'deps/v8/test/cctest/interpreter/bytecode_expectations/BasicLoops.golden'
   ])
 
-  t.same(labels, ['V8 Engine'])
+  t.same(labels, ['needs-ci', 'V8 Engine'])
 
   t.end()
 })
@@ -321,7 +321,7 @@ tap.test('label: "JS sub-systems when less than 4 sub-systems have changed', (t)
     'lib/process.js'
   ])
 
-  t.same(labels, ['assert', 'dns', 'repl', 'process'])
+  t.same(labels, ['needs-ci', 'assert', 'dns', 'repl', 'process'])
 
   t.end()
 })
@@ -388,7 +388,7 @@ tap.test('label: version labels (old)', (t) => {
     'common.gypi'
   ], 'v0.12')
 
-  t.same(labels, ['build', 'v0.12'])
+  t.same(labels, ['build', 'needs-ci', 'v0.12'])
 
   t.end()
 })
@@ -398,7 +398,7 @@ tap.test('label: version labels (old, staging)', (t) => {
     'common.gypi'
   ], 'v0.12-staging')
 
-  t.same(labels, ['build', 'v0.12'])
+  t.same(labels, ['build', 'needs-ci', 'v0.12'])
 
   t.end()
 })
@@ -410,7 +410,7 @@ tap.test('label: version labels (new)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'v6.x')
 
-  t.same(labels, ['V8 Engine', 'v6.x'])
+  t.same(labels, ['needs-ci', 'V8 Engine', 'v6.x'])
 
   t.end()
 })
@@ -422,7 +422,7 @@ tap.test('label: version labels (new, staging)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'v6.x-staging')
 
-  t.same(labels, ['V8 Engine', 'v6.x'])
+  t.same(labels, ['needs-ci', 'V8 Engine', 'v6.x'])
 
   t.end()
 })
@@ -434,7 +434,7 @@ tap.test('label: no version labels (master)', (t) => {
     'deps/v8/test/mjsunit/regress/regress-5033.js'
   ], 'master')
 
-  t.same(labels, ['V8 Engine'])
+  t.same(labels, ['needs-ci', 'V8 Engine'])
 
   t.end()
 })
@@ -444,7 +444,7 @@ tap.test('label: build label (windows)', (t) => {
     'vcbuild.bat'
   ])
 
-  t.same(labels, ['build', 'windows'])
+  t.same(labels, ['build', 'windows', 'needs-ci'])
 
   t.end()
 })
@@ -532,9 +532,9 @@ const specificTests = [
 for (const info of specificTests) {
   let labels = info[0]
   if (!Array.isArray(labels)) {
-    labels = ['test', labels]
+    labels = ['needs-ci', 'test', labels]
   } else {
-    labels = ['test'].concat(labels)
+    labels = ['needs-ci', 'test'].concat(labels)
   }
   const files = info[1]
   for (const file of files) {
@@ -549,9 +549,9 @@ for (const info of specificTests) {
 }
 
 const specificTools = [
-  ['build', ['gyp/gyp_main.py', 'gyp_node.py']],
+  [['build', 'needs-ci'], ['gyp/gyp_main.py', 'gyp_node.py']],
   ['doc', ['doc/generate.js']],
-  ['intl', ['icu/icu-generate.gyp']],
+  [['intl', 'needs-ci'], ['icu/icu-generate.gyp']],
   ['macos',
     ['macosx-firewall.sh',
       'osx-codesign.sh']],
@@ -561,9 +561,9 @@ const specificTools = [
   [['test', 'npm'], ['test-npm.sh', 'test-npm-package.js']],
   [['test'], ['test.py']],
   [['openssl', 'tls'], ['certdata.txt', 'mkssldef.py', 'mk-ca-bundle.pl']],
-  [['windows'], ['sign.bat']],
-  [['windows', 'install'], ['msvs/msi/product.wxs']],
-  [['V8 Engine'], ['make-v8.sh']]
+  [['windows', 'needs-ci'], ['sign.bat']],
+  [['windows', 'install', 'needs-ci'], ['msvs/msi/product.wxs']],
+  [['V8 Engine', 'needs-ci'], ['make-v8.sh']]
 ]
 for (const info of specificTools) {
   let labels = info[0]
@@ -585,11 +585,11 @@ for (const info of specificTools) {
 }
 
 [
-  [['V8 Engine', 'post-mortem'],
+  [['needs-ci', 'V8 Engine', 'post-mortem'],
     ['deps/v8/tools/gen-postmortem-metadata.py']],
-  [['c++', 'n-api'],
+  [['needs-ci', 'c++', 'n-api'],
     ['src/node_api.cc', 'src/node_api.h', 'src/node_api_types.h']],
-  [['test', 'n-api'],
+  [['needs-ci', 'test', 'n-api'],
     ['test/addons-napi/foo']],
   [['doc', 'n-api'],
     ['doc/api/n-api.md']]
@@ -608,8 +608,8 @@ for (const info of specificTools) {
 });
 
 [
-  [['async_hooks'], ['lib/async_hooks.js']],
-  [['test', 'async_hooks'], ['test/async-hooks/test-connection.ssl.js']]
+  [['needs-ci', 'async_hooks'], ['lib/async_hooks.js']],
+  [['needs-ci', 'test', 'async_hooks'], ['test/async-hooks/test-connection.ssl.js']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -629,7 +629,7 @@ tap.test('label: "build" when ./android-configure has been changed', (t) => {
     'android-configure'
   ])
 
-  t.same(labels, ['build'])
+  t.same(labels, ['build', 'needs-ci'])
 
   t.end()
 })
@@ -639,22 +639,22 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
     '.travis.yml'
   ])
 
-  t.same(labels, ['build'])
+  t.same(labels, ['build', 'needs-ci'])
 
   t.end()
 });
 
 [
-  [['http2', 'dont-land-on-v6.x'],
+  [['needs-ci', 'http2', 'dont-land-on-v6.x'],
     ['lib/http2.js',
       'lib/internal/http2/core.js',
       'deps/nghttp2/lib/nghttp2_buf.c']],
-  [['c++', 'http2', 'dont-land-on-v6.x'],
+  [['needs-ci', 'c++', 'http2', 'dont-land-on-v6.x'],
     ['src/node_http2.cc',
       'src/node_http2.h',
       'src/node_http2_core.h',
       'src/node_http2_core-inl.h']],
-  [['build', 'http2', 'dont-land-on-v6.x'],
+  [['needs-ci', 'build', 'http2', 'dont-land-on-v6.x'],
     ['deps/nghttp2/nghttp2.gyp']],
   [['doc', 'http2'], ['doc/api/http2.md']]
 ].forEach((info) => {
@@ -672,13 +672,13 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 });
 
 [
-  [['c++', 'report'],
+  [['needs-ci', 'c++', 'report'],
     ['src/node_report.cc',
       'src/node_report.h',
       'src/node_report_module.cc',
       'src/node_report_utils.cc']],
   [['doc', 'report'], ['doc/api/report.md']],
-  [['test', 'report'], ['test/report/test-report-config.js']]
+  [['needs-ci', 'test', 'report'], ['test/report/test-report-config.js']]
 ].forEach((info) => {
   const labels = info[0]
   const files = info[1]
@@ -695,19 +695,19 @@ tap.test('label: "build" when ./.travis.yml has been changed', (t) => {
 
 [
   // wasi
-  [['wasi'],
+  [['needs-ci', 'wasi'],
     ['lib/wasi.js']],
-  [['c++', 'wasi'],
+  [['needs-ci', 'c++', 'wasi'],
     ['src/node_wasi.cc',
       'src/node_wasi.h']],
   [['doc', 'wasi'], ['doc/api/wasi.md']],
 
   // worker
-  [['worker'],
+  [['needs-ci', 'worker'],
     ['lib/worker_threads.js',
       'lib/internal/worker.js',
       'lib/internal/worker/io.js']],
-  [['c++', 'worker'],
+  [['needs-ci', 'c++', 'worker'],
     ['src/node_worker.cc',
       'src/node_worker.h']],
   [['doc', 'worker'], ['doc/api/worker_threads.md']]
