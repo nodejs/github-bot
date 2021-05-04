@@ -19,7 +19,6 @@ const options = {
   owner: 'nodejs',
   repo: 'node-auto-test',
   prId: 12345,
-  pull_number: 12345,
   logger: { info: () => {}, error: () => {}, debug: () => {}, child: function () { return this } },
   retries: 1,
   defaultBranch: 'main',
