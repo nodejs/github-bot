@@ -13,7 +13,7 @@ tap.test('GET /ping responds with status 200 / "pong"', (t) => {
   const url = `http://localhost:${port}/ping`
 
   t.plan(3)
-  t.tearDown(() => server.close())
+  t.teardown(() => server.close())
 
   request(url, (err, res, body) => {
     t.equal(err, null)
