@@ -26,7 +26,7 @@
     "events-async": "^1.2.1",
     "express": "^4.13.4",
     "glob": "^7.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eventsource": "^0.2.1",
@@ -36,6 +36,6 @@
     "sinon": "^1.17.6",
     "standard": "^12.0.1",
     "supertest": "^3.4.2",
-    "tap": "^14.10.7"
+    "tap": "^16.0.1"
   }
 }
