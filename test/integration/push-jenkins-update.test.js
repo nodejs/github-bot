@@ -1,9 +1,10 @@
 'use strict'
 
 const tap = require('tap')
-const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
+
+const { ignoreQueryParams } = require('../common')
 
 const { app, events } = require('../../app')
 
@@ -249,8 +250,4 @@ function setupListCommitsMock (repoName) {
     .filteringPath(ignoreQueryParams)
     .get(`/repos/nodejs/${repoName}/pulls/12345/commits`)
     .reply(200, commitsResponse)
-}
-
-function ignoreQueryParams (pathAndQuery) {
-  return url.parse(pathAndQuery, true).pathname
 }

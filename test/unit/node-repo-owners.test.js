@@ -2,7 +2,8 @@
 
 const tap = require('tap')
 const nock = require('nock')
-const url = require('url')
+
+const { ignoreQueryParams } = require('../common')
 
 const { resolveOwnersThenPingPr, _testExports } = require('../../lib/node-repo')
 const {
@@ -125,7 +126,7 @@ tap.test('getCodeOwnersFile fail', async (t) => {
 
 tap.test('pingOwners success', async (t) => {
   const fixture = readFixture('pull-request-create-comment.json')
-  const owners = [ '@owner1', '@owner2' ]
+  const owners = ['@owner1', '@owner2']
   const body = JSON.stringify({ body: getCommentForOwners(owners) })
   const scope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)
@@ -149,7 +150,7 @@ tap.test('pingOwners fail', async (t) => {
 })
 
 tap.test('resolveOwnersThenPingPr success', async (t) => {
-  const owners = [ '@nodejs/team', '@nodejs/team2' ]
+  const owners = ['@nodejs/team', '@nodejs/team2']
   const scopes = [
     nock('https://api.github.com')
       .filteringPath(ignoreQueryParams)
@@ -179,7 +180,3 @@ tap.test('resolveOwnersThenPingPr success', async (t) => {
   }
   t.end()
 })
-
-function ignoreQueryParams (pathAndQuery) {
-  return url.parse(pathAndQuery, true).pathname
-}

@@ -1,9 +1,7 @@
 'use strict'
 
-const url = require('url')
-
 function ignoreQueryParams (pathAndQuery) {
-  return url.parse(pathAndQuery, true).pathname
+  return new URL(pathAndQuery, 'http://apis.github.com/').pathname
 }
 
 module.exports = {
