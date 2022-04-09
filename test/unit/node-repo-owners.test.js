@@ -27,7 +27,7 @@ const options = {
 
 tap.test('getCodeOwnersUrl', (t) => {
   const { owner, repo, defaultBranch } = options
-  t.strictEqual(
+  t.equal(
     getCodeOwnersUrl(owner, repo, defaultBranch),
     `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/.github/CODEOWNERS`
   )
