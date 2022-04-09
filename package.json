@@ -4,11 +4,11 @@
   "description": "Node.js GitHub Bot",
   "scripts": {
     "start": "node server.js | bunyan -o short",
-    "test": "STATUS=0; tap test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
+    "test": "STATUS=0; tap --no-check-coverage test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 12.0.0"
   },
   "private": true,
   "license": "MIT",
@@ -26,7 +26,7 @@
     "events-async": "^1.2.1",
     "express": "^4.13.4",
     "glob": "^7.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eventsource": "^0.2.1",
@@ -36,6 +36,6 @@
     "sinon": "^1.17.6",
     "standard": "^12.0.1",
     "supertest": "^3.4.2",
-    "tap": "^14.10.7"
+    "tap": "^16.0.1"
   }
 }

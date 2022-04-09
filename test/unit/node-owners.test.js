@@ -9,7 +9,7 @@ const ownersFile = readFixture('CODEOWNERS')
 
 tap.test('single file single team match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'file1' ]),
     [ '@nodejs/test1' ]
   )
@@ -18,7 +18,7 @@ tap.test('single file single team match', (t) => {
 
 tap.test('double file single team match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'file1', 'file4' ]),
     [ '@nodejs/test1' ]
   )
@@ -27,7 +27,7 @@ tap.test('double file single team match', (t) => {
 
 tap.test('double file double individual team match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'file1', 'file2' ]),
     [ '@nodejs/test1', '@nodejs/test2' ]
   )
@@ -36,7 +36,7 @@ tap.test('double file double individual team match', (t) => {
 
 tap.test('single file double team match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'file3' ]),
     [ '@nodejs/test1', '@nodejs/test2' ]
   )
@@ -45,7 +45,7 @@ tap.test('single file double team match', (t) => {
 
 tap.test('double file triple team match (1 + 2)', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'file5', 'file3' ]),
     [ '@nodejs/test1', '@nodejs/test2', '@nodejs/test3' ]
   )
@@ -54,7 +54,7 @@ tap.test('double file triple team match (1 + 2)', (t) => {
 
 tap.test('folder match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'folder1/file5' ]),
     [ '@nodejs/test3' ]
   )
@@ -63,7 +63,7 @@ tap.test('folder match', (t) => {
 
 tap.test('extension match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'folder2/file1.js' ]),
     [ '@nodejs/test4', '@nodejs/test5' ]
   )
@@ -72,7 +72,7 @@ tap.test('extension match', (t) => {
 
 tap.test('no match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'unknown' ]),
     [ ]
   )
@@ -81,7 +81,7 @@ tap.test('no match', (t) => {
 
 tap.test('no match + single match', (t) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictDeepEqual(
+  t.strictSame(
     owners.getOwnersForPaths([ 'unknown', 'file1' ]),
     [ '@nodejs/test1' ]
   )
