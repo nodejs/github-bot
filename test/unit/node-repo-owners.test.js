@@ -42,7 +42,7 @@ tap.test('listFiles success', async (t) => {
     .reply(200, fixture)
 
   const files = await listFiles(options)
-  t.strictDeepEqual(files, fixture.map(({ filename }) => filename))
+  t.strictSame(files, fixture.map(({ filename }) => filename))
   scope.done()
   t.end()
 })
@@ -66,7 +66,7 @@ tap.test('getDefaultBranch success', async (t) => {
     .reply(200, fixture)
 
   const defaultBranch = await getDefaultBranch(options)
-  t.strictDeepEqual(defaultBranch, fixture.default_branch)
+  t.strictSame(defaultBranch, fixture.default_branch)
   scope.done()
   t.end()
 })
@@ -104,7 +104,7 @@ tap.test('getCodeOwnersFile success', async (t) => {
     .reply(200, fixture)
 
   const file = await getCodeOwnersFile(url, options)
-  t.strictDeepEqual(file, fixture)
+  t.strictSame(file, fixture)
   scope.done()
   t.end()
 })
