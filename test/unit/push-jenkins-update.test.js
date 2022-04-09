@@ -14,7 +14,7 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
   const pr = 9745
 
   const headers = {
-    'Link': '<https://api.github.com/repos/nodejs/node/pulls/9745/commits?page=104>; rel="last"'
+    Link: '<https://api.github.com/repos/nodejs/node/pulls/9745/commits?page=104>; rel="last"'
   }
   const firstPageScope = nock('https://api.github.com')
     .filteringPath(ignoreQueryParams)

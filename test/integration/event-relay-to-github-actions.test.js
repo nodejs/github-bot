@@ -1,9 +1,10 @@
 'use strict'
 
 const tap = require('tap')
-const url = require('url')
 const nock = require('nock')
 const supertest = require('supertest')
+
+const { ignoreQueryParams } = require('../common')
 
 const { app, events } = require('../../app')
 
@@ -32,7 +33,3 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/disp
       t.equal(err, null)
     })
 })
-
-function ignoreQueryParams (pathAndQuery) {
-  return url.parse(pathAndQuery, true).pathname
-}
