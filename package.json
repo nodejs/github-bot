@@ -29,7 +29,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "eventsource": "^0.2.1",
+    "eventsource": "^2.0.2",
     "nock": "^12.0.3",
     "nodemon": "^2.0.4",
     "proxyquire": "^1.7.10",
