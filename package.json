@@ -35,7 +35,7 @@
     "proxyquire": "^1.7.10",
     "sinon": "^1.17.6",
     "standard": "^16.0.4",
-    "supertest": "^3.4.2",
+    "supertest": "^6.2.4",
     "tap": "^16.0.1"
   }
 }
