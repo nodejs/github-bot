@@ -16,7 +16,7 @@
     "@octokit/rest": "^16.43.2",
     "aigle": "^1.14.1",
     "async": "3.2.2",
-    "basic-auth": "^1.0.4",
+    "basic-auth": "^2.0.1",
     "body-parser": "^1.15.0",
     "bunyan": "^1.8.1",
     "bunyan-middleware": "1.0.2",
