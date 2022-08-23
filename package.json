@@ -19,7 +19,7 @@
     "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
     "bunyan": "^1.8.1",
-    "bunyan-middleware": "0.8.0",
+    "bunyan-middleware": "1.0.2",
     "codeowners-utils": "^1.0.2",
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
