@@ -1,6 +1,6 @@
 'use strict'
 
-require('dotenv').load({ silent: true })
+require('dotenv').config({ silent: true })
 
 const glob = require('glob')
 const logger = require('./lib/logger')
