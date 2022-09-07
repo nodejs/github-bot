@@ -42,7 +42,7 @@ The bot will try to load a `.env` file at the root of the project if it exists t
 
 ```
 GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SSE_RELAY=https://hook-relay.herokuapp.com
+SSE_RELAY=https://hook-relay.example.com
 ```
 
 **Note the additional `SSE_RELAY` variable:**
