@@ -17,7 +17,7 @@
     "aigle": "^1.14.1",
     "async": "3.2.4",
     "basic-auth": "^2.0.1",
-    "body-parser": "^1.20.1",
+    "body-parser": "^1.20.2",
     "bunyan": "^1.8.1",
     "bunyan-middleware": "1.0.2",
     "codeowners-utils": "^1.0.2",
