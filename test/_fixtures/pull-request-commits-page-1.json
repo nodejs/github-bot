@@ -1,0 +1,2335 @@
+[
+    {
+      "sha": "45df0ee7171cf5f9642fb755be1b24075192347c",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NDVkZjBlZTcxNzFjZjVmOTY0MmZiNzU1YmUxYjI0MDc1MTkyMzQ3Yw==",
+      "commit": {
+        "author": {
+          "name": "Jaideep Bajwa",
+          "email": "bjaideep@ca.ibm.com",
+          "date": "2016-11-01T06:53:37Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "myles.borins@gmail.com",
+          "date": "2016-11-11T15:48:36Z"
+        },
+        "message": "v8: update make-v8.sh to use git\n\ngoogle build tool gclient doesn't support\nsvn anymore. Updating v8 build script to use\ngit instead.\n\nPR-URL: https://github.com/nodejs/node/pull/9393\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "42de90a38ab9499bad7d34a472584b164cc4640c",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/42de90a38ab9499bad7d34a472584b164cc4640c"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/45df0ee7171cf5f9642fb755be1b24075192347c",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/45df0ee7171cf5f9642fb755be1b24075192347c",
+      "html_url": "https://github.com/nodejs/node/commit/45df0ee7171cf5f9642fb755be1b24075192347c",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/45df0ee7171cf5f9642fb755be1b24075192347c/comments",
+      "author": {
+        "login": "jbajwa",
+        "id": 577562,
+        "node_id": "MDQ6VXNlcjU3NzU2Mg==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/577562?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jbajwa",
+        "html_url": "https://github.com/jbajwa",
+        "followers_url": "https://api.github.com/users/jbajwa/followers",
+        "following_url": "https://api.github.com/users/jbajwa/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jbajwa/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jbajwa/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jbajwa/subscriptions",
+        "organizations_url": "https://api.github.com/users/jbajwa/orgs",
+        "repos_url": "https://api.github.com/users/jbajwa/repos",
+        "events_url": "https://api.github.com/users/jbajwa/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jbajwa/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "MylesBorins",
+        "id": 498775,
+        "node_id": "MDQ6VXNlcjQ5ODc3NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/498775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/MylesBorins",
+        "html_url": "https://github.com/MylesBorins",
+        "followers_url": "https://api.github.com/users/MylesBorins/followers",
+        "following_url": "https://api.github.com/users/MylesBorins/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MylesBorins/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/MylesBorins/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MylesBorins/subscriptions",
+        "organizations_url": "https://api.github.com/users/MylesBorins/orgs",
+        "repos_url": "https://api.github.com/users/MylesBorins/repos",
+        "events_url": "https://api.github.com/users/MylesBorins/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/MylesBorins/received_events",
+        "type": "User",
+        "site_admin": true
+      },
+      "parents": [
+        {
+          "sha": "3daf11635dc8e0cf48110514000fd550ed79a425",
+          "url": "https://api.github.com/repos/nodejs/node/commits/3daf11635dc8e0cf48110514000fd550ed79a425",
+          "html_url": "https://github.com/nodejs/node/commit/3daf11635dc8e0cf48110514000fd550ed79a425"
+        }
+      ]
+    },
+    {
+      "sha": "33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzNiY2Q2ZmVjOGE2MTVlNGZlNjU5MTJlYWFhYTJjZWM0NWQ3ODFiYg==",
+      "commit": {
+        "author": {
+          "name": "Michaël Zasso",
+          "email": "targos@protonmail.com",
+          "date": "2016-11-02T10:28:09Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "myles.borins@gmail.com",
+          "date": "2016-11-11T15:49:21Z"
+        },
+        "message": "deps: update V8 to 5.4.500.41\n\nPR-URL: https://github.com/nodejs/node/pull/9412\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Ali Ijaz Sheikh <ofrobots@google.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Franziska Hinkelmann <franziska.hinkelmann@gmail.com>",
+        "tree": {
+          "sha": "d43f807a05457541ca0918db40f77b9529893e5c",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/d43f807a05457541ca0918db40f77b9529893e5c"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+      "html_url": "https://github.com/nodejs/node/commit/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb/comments",
+      "author": {
+        "login": "targos",
+        "id": 2352663,
+        "node_id": "MDQ6VXNlcjIzNTI2NjM=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2352663?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/targos",
+        "html_url": "https://github.com/targos",
+        "followers_url": "https://api.github.com/users/targos/followers",
+        "following_url": "https://api.github.com/users/targos/following{/other_user}",
+        "gists_url": "https://api.github.com/users/targos/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/targos/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/targos/subscriptions",
+        "organizations_url": "https://api.github.com/users/targos/orgs",
+        "repos_url": "https://api.github.com/users/targos/repos",
+        "events_url": "https://api.github.com/users/targos/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/targos/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "MylesBorins",
+        "id": 498775,
+        "node_id": "MDQ6VXNlcjQ5ODc3NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/498775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/MylesBorins",
+        "html_url": "https://github.com/MylesBorins",
+        "followers_url": "https://api.github.com/users/MylesBorins/followers",
+        "following_url": "https://api.github.com/users/MylesBorins/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MylesBorins/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/MylesBorins/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MylesBorins/subscriptions",
+        "organizations_url": "https://api.github.com/users/MylesBorins/orgs",
+        "repos_url": "https://api.github.com/users/MylesBorins/repos",
+        "events_url": "https://api.github.com/users/MylesBorins/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/MylesBorins/received_events",
+        "type": "User",
+        "site_admin": true
+      },
+      "parents": [
+        {
+          "sha": "45df0ee7171cf5f9642fb755be1b24075192347c",
+          "url": "https://api.github.com/repos/nodejs/node/commits/45df0ee7171cf5f9642fb755be1b24075192347c",
+          "html_url": "https://github.com/nodejs/node/commit/45df0ee7171cf5f9642fb755be1b24075192347c"
+        }
+      ]
+    },
+    {
+      "sha": "6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NmIwMWJmYTlkNmU1ODJlYTViMDU3YWMwNDM1Y2M1NjVkM2NhNGUyOQ==",
+      "commit": {
+        "author": {
+          "name": "Johan Bergström",
+          "email": "bugs@bergstroem.nu",
+          "date": "2016-10-25T16:26:46Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "myles.borins@gmail.com",
+          "date": "2016-11-11T15:52:08Z"
+        },
+        "message": "gitignore: ignore all tap files\n\nWe now have multiple tap producers; just ignore all\nfiles with the `.tap` extension.\n\nPR-URL: https://github.com/nodejs/node/pull/9262\nReviewed-By: Gibson Fahnestock <gibfahn@gmail.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Myles Borins <myles.borins@gmail.com>",
+        "tree": {
+          "sha": "302c30e2e61b4f6bb5c92ab19cf35f0cbcd088c4",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/302c30e2e61b4f6bb5c92ab19cf35f0cbcd088c4"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+      "html_url": "https://github.com/nodejs/node/commit/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29/comments",
+      "author": {
+        "login": "jbergstroem",
+        "id": 176984,
+        "node_id": "MDQ6VXNlcjE3Njk4NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/176984?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jbergstroem",
+        "html_url": "https://github.com/jbergstroem",
+        "followers_url": "https://api.github.com/users/jbergstroem/followers",
+        "following_url": "https://api.github.com/users/jbergstroem/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jbergstroem/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jbergstroem/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jbergstroem/subscriptions",
+        "organizations_url": "https://api.github.com/users/jbergstroem/orgs",
+        "repos_url": "https://api.github.com/users/jbergstroem/repos",
+        "events_url": "https://api.github.com/users/jbergstroem/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jbergstroem/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "MylesBorins",
+        "id": 498775,
+        "node_id": "MDQ6VXNlcjQ5ODc3NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/498775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/MylesBorins",
+        "html_url": "https://github.com/MylesBorins",
+        "followers_url": "https://api.github.com/users/MylesBorins/followers",
+        "following_url": "https://api.github.com/users/MylesBorins/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MylesBorins/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/MylesBorins/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MylesBorins/subscriptions",
+        "organizations_url": "https://api.github.com/users/MylesBorins/orgs",
+        "repos_url": "https://api.github.com/users/MylesBorins/repos",
+        "events_url": "https://api.github.com/users/MylesBorins/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/MylesBorins/received_events",
+        "type": "User",
+        "site_admin": true
+      },
+      "parents": [
+        {
+          "sha": "33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+          "url": "https://api.github.com/repos/nodejs/node/commits/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb",
+          "html_url": "https://github.com/nodejs/node/commit/33bcd6fec8a615e4fe65912eaaaa2cec45d781bb"
+        }
+      ]
+    },
+    {
+      "sha": "23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MjM1ODRlNGVjNWZkNDdlMjBmNmExMTM5NWI1ZTY3MmUyMDNmYzFhYg==",
+      "commit": {
+        "author": {
+          "name": "Johan Bergström",
+          "email": "bugs@bergstroem.nu",
+          "date": "2016-10-25T15:23:48Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "myles.borins@gmail.com",
+          "date": "2016-11-11T15:52:12Z"
+        },
+        "message": "gtest: output tap comments as yamlish\n\nThis makes yaml-ish parsers happy.\nNote: gtest still seems to output the expected/result slightly\ndifferent making the full traceback less informational.\n\nPR-URL: https://github.com/nodejs/node/pull/9262\nReviewed-By: Gibson Fahnestock <gibfahn@gmail.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Myles Borins <myles.borins@gmail.com>",
+        "tree": {
+          "sha": "cb02fca48a95c89682b6e148e6e0e56a0dfa9fd4",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/cb02fca48a95c89682b6e148e6e0e56a0dfa9fd4"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+      "html_url": "https://github.com/nodejs/node/commit/23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/23584e4ec5fd47e20f6a11395b5e672e203fc1ab/comments",
+      "author": {
+        "login": "jbergstroem",
+        "id": 176984,
+        "node_id": "MDQ6VXNlcjE3Njk4NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/176984?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jbergstroem",
+        "html_url": "https://github.com/jbergstroem",
+        "followers_url": "https://api.github.com/users/jbergstroem/followers",
+        "following_url": "https://api.github.com/users/jbergstroem/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jbergstroem/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jbergstroem/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jbergstroem/subscriptions",
+        "organizations_url": "https://api.github.com/users/jbergstroem/orgs",
+        "repos_url": "https://api.github.com/users/jbergstroem/repos",
+        "events_url": "https://api.github.com/users/jbergstroem/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jbergstroem/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "MylesBorins",
+        "id": 498775,
+        "node_id": "MDQ6VXNlcjQ5ODc3NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/498775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/MylesBorins",
+        "html_url": "https://github.com/MylesBorins",
+        "followers_url": "https://api.github.com/users/MylesBorins/followers",
+        "following_url": "https://api.github.com/users/MylesBorins/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MylesBorins/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/MylesBorins/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MylesBorins/subscriptions",
+        "organizations_url": "https://api.github.com/users/MylesBorins/orgs",
+        "repos_url": "https://api.github.com/users/MylesBorins/repos",
+        "events_url": "https://api.github.com/users/MylesBorins/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/MylesBorins/received_events",
+        "type": "User",
+        "site_admin": true
+      },
+      "parents": [
+        {
+          "sha": "6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+          "url": "https://api.github.com/repos/nodejs/node/commits/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29",
+          "html_url": "https://github.com/nodejs/node/commit/6b01bfa9d6e582ea5b057ac0435cc565d3ca4e29"
+        }
+      ]
+    },
+    {
+      "sha": "6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NmE5NGZmYjFjZmRiNDFjMDc0NmQ2MDU1ZTJmYTNhYzJmOTk1ZjRkZQ==",
+      "commit": {
+        "author": {
+          "name": "Johan Bergström",
+          "email": "bugs@bergstroem.nu",
+          "date": "2016-10-12T14:34:28Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "myles.borins@gmail.com",
+          "date": "2016-11-11T15:52:17Z"
+        },
+        "message": "test: output tap13 instead of almost-tap\n\nProduce a tap13-compatible output which makes it\nsimpler to parse. Output is still readable by\nthe jenkins tap plugin.\n\nPR-URL: https://github.com/nodejs/node/pull/9262\nReviewed-By: Gibson Fahnestock <gibfahn@gmail.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Myles Borins <myles.borins@gmail.com>",
+        "tree": {
+          "sha": "3ff5006b93047e6ad08d40385a17af4bca89b664",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/3ff5006b93047e6ad08d40385a17af4bca89b664"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+      "html_url": "https://github.com/nodejs/node/commit/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de/comments",
+      "author": {
+        "login": "jbergstroem",
+        "id": 176984,
+        "node_id": "MDQ6VXNlcjE3Njk4NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/176984?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jbergstroem",
+        "html_url": "https://github.com/jbergstroem",
+        "followers_url": "https://api.github.com/users/jbergstroem/followers",
+        "following_url": "https://api.github.com/users/jbergstroem/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jbergstroem/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jbergstroem/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jbergstroem/subscriptions",
+        "organizations_url": "https://api.github.com/users/jbergstroem/orgs",
+        "repos_url": "https://api.github.com/users/jbergstroem/repos",
+        "events_url": "https://api.github.com/users/jbergstroem/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jbergstroem/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "MylesBorins",
+        "id": 498775,
+        "node_id": "MDQ6VXNlcjQ5ODc3NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/498775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/MylesBorins",
+        "html_url": "https://github.com/MylesBorins",
+        "followers_url": "https://api.github.com/users/MylesBorins/followers",
+        "following_url": "https://api.github.com/users/MylesBorins/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MylesBorins/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/MylesBorins/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MylesBorins/subscriptions",
+        "organizations_url": "https://api.github.com/users/MylesBorins/orgs",
+        "repos_url": "https://api.github.com/users/MylesBorins/repos",
+        "events_url": "https://api.github.com/users/MylesBorins/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/MylesBorins/received_events",
+        "type": "User",
+        "site_admin": true
+      },
+      "parents": [
+        {
+          "sha": "23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+          "url": "https://api.github.com/repos/nodejs/node/commits/23584e4ec5fd47e20f6a11395b5e672e203fc1ab",
+          "html_url": "https://github.com/nodejs/node/commit/23584e4ec5fd47e20f6a11395b5e672e203fc1ab"
+        }
+      ]
+    },
+    {
+      "sha": "f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZjBkNDBlOGJlMzdhZjNhMDA4ZTIyMjNmYWVmYmViNTg5OWJhOTVkOQ==",
+      "commit": {
+        "author": {
+          "name": "Daniel Bevenius",
+          "email": "daniel.bevenius@gmail.com",
+          "date": "2016-11-05T14:37:36Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "mborins@us.ibm.com",
+          "date": "2016-11-15T20:53:28Z"
+        },
+        "message": "doc: fix link to cli.md in vm.md\n\nLooks like the link to cli.md is missing in vm.md:\nhttps://nodejs.org/api/vm.html#vm_vm_runindebugcontext_code\n\nAdded the link which can be verified by using the following commands:\n$ make doc\n$ open out/doc/api/vm.html\n\nPR-URL: https://github.com/nodejs/node/pull/9481\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "5910ebcc51b1658331b6ec21ebff5254523de30d",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/5910ebcc51b1658331b6ec21ebff5254523de30d"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+      "html_url": "https://github.com/nodejs/node/commit/f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/f0d40e8be37af3a008e2223faefbeb5899ba95d9/comments",
+      "author": {
+        "login": "danbev",
+        "id": 432351,
+        "node_id": "MDQ6VXNlcjQzMjM1MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/432351?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/danbev",
+        "html_url": "https://github.com/danbev",
+        "followers_url": "https://api.github.com/users/danbev/followers",
+        "following_url": "https://api.github.com/users/danbev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/danbev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/danbev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/danbev/subscriptions",
+        "organizations_url": "https://api.github.com/users/danbev/orgs",
+        "repos_url": "https://api.github.com/users/danbev/repos",
+        "events_url": "https://api.github.com/users/danbev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/danbev/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": null,
+      "parents": [
+        {
+          "sha": "6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+          "url": "https://api.github.com/repos/nodejs/node/commits/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de",
+          "html_url": "https://github.com/nodejs/node/commit/6a94ffb1cfdb41c0746d6055e2fa3ac2f995f4de"
+        }
+      ]
+    },
+    {
+      "sha": "ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZWU2NWI0ODcyZGUyMzU3YTIzOWM3Y2NmYTY0YWFkNTRiOGIzYzc5Ng==",
+      "commit": {
+        "author": {
+          "name": "Fedor Indutny",
+          "email": "fedor@indutny.com",
+          "date": "2016-11-12T21:08:59Z"
+        },
+        "committer": {
+          "name": "Myles Borins",
+          "email": "mborins@us.ibm.com",
+          "date": "2016-11-16T19:11:53Z"
+        },
+        "message": "tls: fix leak of WriteWrap+TLSWrap combination\n\nWriting data to TLSWrap instance during handshake will result in it\nbeing queued in `write_item_queue_`. This queue won't get cleared up\nuntil the end of the handshake.\n\nTechnically, it gets cleared on `~TLSWrap` invocation, however this\nwon't ever happen because every `WriteWrap` holds a reference to the\n`TLSWrap` through JS object, meaning that they are doomed to be alive\nfor eternity.\n\nTo breach this dreadful contract a knight shall embark from the\n`close` function to kill the dragon of memory leak with his magic\nspear of `destroySSL`.\n\n`destroySSL` cleans up `write_item_queue_` and frees `SSL` structure,\nboth are good for memory usage.\n\nPR-URL: https://github.com/nodejs/node/pull/9586\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>",
+        "tree": {
+          "sha": "6b91062d8d9203e9aec6633c468c149a3d0295d4",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/6b91062d8d9203e9aec6633c468c149a3d0295d4"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+      "html_url": "https://github.com/nodejs/node/commit/ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/ee65b4872de2357a239c7ccfa64aad54b8b3c796/comments",
+      "author": {
+        "login": "indutny",
+        "id": 238531,
+        "node_id": "MDQ6VXNlcjIzODUzMQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/238531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/indutny",
+        "html_url": "https://github.com/indutny",
+        "followers_url": "https://api.github.com/users/indutny/followers",
+        "following_url": "https://api.github.com/users/indutny/following{/other_user}",
+        "gists_url": "https://api.github.com/users/indutny/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/indutny/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/indutny/subscriptions",
+        "organizations_url": "https://api.github.com/users/indutny/orgs",
+        "repos_url": "https://api.github.com/users/indutny/repos",
+        "events_url": "https://api.github.com/users/indutny/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/indutny/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": null,
+      "parents": [
+        {
+          "sha": "f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+          "url": "https://api.github.com/repos/nodejs/node/commits/f0d40e8be37af3a008e2223faefbeb5899ba95d9",
+          "html_url": "https://github.com/nodejs/node/commit/f0d40e8be37af3a008e2223faefbeb5899ba95d9"
+        }
+      ]
+    },
+    {
+      "sha": "3efb43c8bab0c0a64af916265d14febba207ca49",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6M2VmYjQzYzhiYWIwYzBhNjRhZjkxNjI2NWQxNGZlYmJhMjA3Y2E0OQ==",
+      "commit": {
+        "author": {
+          "name": "Wayne Andrews",
+          "email": "andreww@uk.ibm.com",
+          "date": "2016-10-14T12:33:25Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:13Z"
+        },
+        "message": "build: Add option to compile for coverage reports\n\nAdd --coverage option to configure to support\ncompiling for generation of C based coverage reports\n\nPR-URL: https://github.com/nodejs/node/pull/9463\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "b00a3652dcdbf8bca349e7f266ca0679be78c85f",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/b00a3652dcdbf8bca349e7f266ca0679be78c85f"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/3efb43c8bab0c0a64af916265d14febba207ca49",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9hdAAoJENi59a6uhOTPmbEP/01WHeKO8WZ3EtZ5UKOfaguX\no3W1nrVr73gkT8N/uKVazLQ/k701uX4Rui5nFy9tg+mNA7IYal5xtxvuDpBe3yMO\np07JFjuNx2uWjGYnuRdBVLp9kBxmALOo3VETZiQgt8xYr0L+k3G3lwadW7PBRZ0h\nfLxTF/CvNzSGvHi15fC7XoEUwUQU75Tehraq7FkeGaEQEiBOkKnXRRQa9N7PMubd\ne9qSdKdGlRfChFp6Bn0v65B2mXRnd01ByEiYKlY6wXX8bhIR4fjOHXzoGs47a0oB\nNb3G1lmOOs+5V82Ix/hxA1G9rFEW21W4KRlBx3B15RoVrWDFWT1KgUBX/N9QfN55\n46FRd0NmrSwnM5Ei4Cmho1Y3SftcGi+pZdMXFnz/wkqxe8GAGhjQ+J67FUkZWRck\nu65ojPe8Tz9I56XO2nZ8E1s64x7HpLsW8qw7AzkBtIoqpCA0Q9z63qDL0gj0R7Sl\nwUkUVQm6VRj76H99Pd2/mxLRvFDO4pZgCcvVOHR6E2uvqIYteJc1+0s3kJh/3mhf\nilsLAEhcvUhpjq9XOnJcF5ydK6H9It7AwIpPGYCXAsvy3MmmqxviQJi9a+V6yq5M\n0mYOr2lVL0LfyhXUfmP0Dbck9FT1MHwcdpVnUlI4cyhnn26hgm5AWqCAM9R+kH3k\nnRDmuyKiHHURP8Fzr9ij\n=v5D3\n-----END PGP SIGNATURE-----",
+          "payload": "tree b00a3652dcdbf8bca349e7f266ca0679be78c85f\nparent ee65b4872de2357a239c7ccfa64aad54b8b3c796\nauthor Wayne Andrews <andreww@uk.ibm.com> 1476448405 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792733 +0100\n\nbuild: Add option to compile for coverage reports\n\nAdd --coverage option to configure to support\ncompiling for generation of C based coverage reports\n\nPR-URL: https://github.com/nodejs/node/pull/9463\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/3efb43c8bab0c0a64af916265d14febba207ca49",
+      "html_url": "https://github.com/nodejs/node/commit/3efb43c8bab0c0a64af916265d14febba207ca49",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/3efb43c8bab0c0a64af916265d14febba207ca49/comments",
+      "author": {
+        "login": "CurryKitten",
+        "id": 12443664,
+        "node_id": "MDQ6VXNlcjEyNDQzNjY0",
+        "avatar_url": "https://avatars.githubusercontent.com/u/12443664?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/CurryKitten",
+        "html_url": "https://github.com/CurryKitten",
+        "followers_url": "https://api.github.com/users/CurryKitten/followers",
+        "following_url": "https://api.github.com/users/CurryKitten/following{/other_user}",
+        "gists_url": "https://api.github.com/users/CurryKitten/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/CurryKitten/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/CurryKitten/subscriptions",
+        "organizations_url": "https://api.github.com/users/CurryKitten/orgs",
+        "repos_url": "https://api.github.com/users/CurryKitten/repos",
+        "events_url": "https://api.github.com/users/CurryKitten/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/CurryKitten/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+          "url": "https://api.github.com/repos/nodejs/node/commits/ee65b4872de2357a239c7ccfa64aad54b8b3c796",
+          "html_url": "https://github.com/nodejs/node/commit/ee65b4872de2357a239c7ccfa64aad54b8b3c796"
+        }
+      ]
+    },
+    {
+      "sha": "9491352b8645d8e667592d75283bcf5257f341ea",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OTQ5MTM1MmI4NjQ1ZDhlNjY3NTkyZDc1MjgzYmNmNTI1N2YzNDFlYQ==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-05T06:04:36Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:13Z"
+        },
+        "message": "test: remove watchdog in test-debug-signal-cluster\n\ntest-debug-signal-cluster contains a watchdog timer that results in\nfalse positives in CI. Remove the watchdog timer and let the test runner\ndetermine that the test has timed out.\n\nPR-URL: https://github.com/nodejs/node/pull/9476\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>",
+        "tree": {
+          "sha": "858c4139aec20ef74c1fe67054755ecde7ecd8aa",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/858c4139aec20ef74c1fe67054755ecde7ecd8aa"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/9491352b8645d8e667592d75283bcf5257f341ea",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9hdAAoJENi59a6uhOTPuHsP/2H9WyBMGvKhI7VteoI0HkwR\njRiFkMedorQ8pTZZ+DVRnVuswTloR0G9KSg0DlSRO8hQXB9gu8ZT8viB4iylPMV3\nWH6zIZ/SRkDjFCE4OaOkyeIYec23k8n9OwPuw851OfOVoZDU8kSyjzmNrqz1nk/m\nakb0XIA2C4dvZbjXPPxNvYhtQmy/lcDDI98MlEgJQ+dgL82VY+uMXbx6tY5kHu5/\nXgum+b03UEgcAmkb7w8OFx3KxkgauUrMt5KOiO92eKGfxb0g1zRT5M/taJrOLN5y\neSAsN/A14DWgBMjElQiymLes+/21RetKmxxwddxwJprvmCrY7rGK7UjrZMxYCgpl\nV7uNi/8MtTEVJGja2jGYKD4BvXBDHSznqQUrqB6ARc3scyHpf2VasLCXbNuGRV9D\nIqUTKVAqj5TpntfMfaASsAjT5gVYF/mEmz1Mmnzedj7i8AYYilny5vm+ytuwSzlf\nkujZ4Oc1ABRnV8oLNR7zLtPkdjvhiw76ytVHARu5UrzpcJK3G/3XNPeVhhqVP5vh\nJNRNE8ZwwXAolxWRiLOM9eencom2r+TpqoXFcuZJWJyspG2MvFK9KdICE3XOP6Jh\nhdLGE82HWV9r1qNXT+USj9ek1exhct3/HS586GbreFVvMJNd260viBF8FMYGPB00\n7QBXd0wVxuhFvCwqQes8\n=NPZ3\n-----END PGP SIGNATURE-----",
+          "payload": "tree 858c4139aec20ef74c1fe67054755ecde7ecd8aa\nparent 3efb43c8bab0c0a64af916265d14febba207ca49\nauthor Rich Trott <rtrott@gmail.com> 1478325876 -0700\ncommitter Anna Henningsen <anna@addaleax.net> 1479792733 +0100\n\ntest: remove watchdog in test-debug-signal-cluster\n\ntest-debug-signal-cluster contains a watchdog timer that results in\nfalse positives in CI. Remove the watchdog timer and let the test runner\ndetermine that the test has timed out.\n\nPR-URL: https://github.com/nodejs/node/pull/9476\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/9491352b8645d8e667592d75283bcf5257f341ea",
+      "html_url": "https://github.com/nodejs/node/commit/9491352b8645d8e667592d75283bcf5257f341ea",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/9491352b8645d8e667592d75283bcf5257f341ea/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "3efb43c8bab0c0a64af916265d14febba207ca49",
+          "url": "https://api.github.com/repos/nodejs/node/commits/3efb43c8bab0c0a64af916265d14febba207ca49",
+          "html_url": "https://github.com/nodejs/node/commit/3efb43c8bab0c0a64af916265d14febba207ca49"
+        }
+      ]
+    },
+    {
+      "sha": "841a2c41d43f61361dff3fcf028f08cc134d122d",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ODQxYTJjNDFkNDNmNjEzNjFkZmYzZmNmMDI4ZjA4Y2MxMzRkMTIyZA==",
+      "commit": {
+        "author": {
+          "name": "solebox",
+          "email": "5013box@gmail.com",
+          "date": "2016-10-31T23:11:18Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:14Z"
+        },
+        "message": "zlib: name every function Ref: #8913\n\nPR-URL: https://github.com/nodejs/node/pull/9389\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "03f855375f49fe576f3e927706f013d000d75694",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/03f855375f49fe576f3e927706f013d000d75694"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/841a2c41d43f61361dff3fcf028f08cc134d122d",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9heAAoJENi59a6uhOTPALgQALuCbks2qsz3wkxla7T7YLiX\nT6R4LxXWLJefIx89NNAImKXb7HG3Fa8mmDb8Y/yjndIjowM42Ddg6X2oiGVo9j0w\nRHX9WawawCBgkF2SmAO5K1ZtDyMblo6XeofOYsluSU0w3mChfxQPmLGa7YU7rou8\n+7LZYz2w/Aeo7qbRmebZ4mHob6OTStNWmQvsu7JUrYTmN7hZuCxgGVcSMXCMMpF2\n/5RH0xIR+cTzcu3skB49jVIPwXr3pGS0IgWyXabsr58ZIru7m+fSxP47XR58zdKu\ng+8aWq29IlvVgfn/M6BbxqnwP02oGHJ5uX/nJ6NyqGAkeEaKX7XGNUonk6W12DDs\nCMcDUYAUXQExA4KHo7z/PLEfVXKx1bsmXU8cGp3YgxHN6NowHJ+XsUhlAZkm6dUP\nbr/i98ZhpU3p0eOZrBPjd/YeYGZnR7Ue7lPsmudTpX+lsdT/ktsSD1/Q8Mwych52\n/tql9J4gxKd40Rhh9XVKJ41s8fLeAcSG264OwmF38r4yQZgg2ECKDsLPk6MLxeX6\np3Zd8/4nOdEdsYJpYoR77eLqc06sXkv9fSDvJqTHyk3NsqDc24AgYT7qFrVLc1g3\nSXeHL+xGG4vm0MNCX6Q2gALZVUZiEmnNbdjJ8uxhzBQjVwkNaZA3AkzSwGVufa1G\n3z5Gg9RMAEQLUY97LCMJ\n=HtRB\n-----END PGP SIGNATURE-----",
+          "payload": "tree 03f855375f49fe576f3e927706f013d000d75694\nparent 9491352b8645d8e667592d75283bcf5257f341ea\nauthor solebox <5013box@gmail.com> 1477955478 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792734 +0100\n\nzlib: name every function Ref: #8913\n\nPR-URL: https://github.com/nodejs/node/pull/9389\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/841a2c41d43f61361dff3fcf028f08cc134d122d",
+      "html_url": "https://github.com/nodejs/node/commit/841a2c41d43f61361dff3fcf028f08cc134d122d",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/841a2c41d43f61361dff3fcf028f08cc134d122d/comments",
+      "author": {
+        "login": "solebox",
+        "id": 103052,
+        "node_id": "MDQ6VXNlcjEwMzA1Mg==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/103052?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/solebox",
+        "html_url": "https://github.com/solebox",
+        "followers_url": "https://api.github.com/users/solebox/followers",
+        "following_url": "https://api.github.com/users/solebox/following{/other_user}",
+        "gists_url": "https://api.github.com/users/solebox/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/solebox/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/solebox/subscriptions",
+        "organizations_url": "https://api.github.com/users/solebox/orgs",
+        "repos_url": "https://api.github.com/users/solebox/repos",
+        "events_url": "https://api.github.com/users/solebox/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/solebox/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "9491352b8645d8e667592d75283bcf5257f341ea",
+          "url": "https://api.github.com/repos/nodejs/node/commits/9491352b8645d8e667592d75283bcf5257f341ea",
+          "html_url": "https://github.com/nodejs/node/commit/9491352b8645d8e667592d75283bcf5257f341ea"
+        }
+      ]
+    },
+    {
+      "sha": "adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YWRjYzViMTVmNzdmZjk2MmI2MDdjMmIxMGUyMjNmZTFmNmQ3NjdiYQ==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-09T00:32:07Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:14Z"
+        },
+        "message": "zlib: fix linting recently-introduced lint error\n\nRemove unnecessary named function. V8 will do a better job inferring the\nname from the assignment to a property. The current formulation does not\npass linting.\n\nPR-URL: https://github.com/nodejs/node/pull/9524\nReviewed-By: Anna Henningsen <anna@addaleax.net>",
+        "tree": {
+          "sha": "ed096837f872575726cec31b433e1f149c64f1da",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/ed096837f872575726cec31b433e1f149c64f1da"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9heAAoJENi59a6uhOTPXq4P/iScnZGxQ3UovKiI6xC3SIRj\nALmeqnWkCsDjskYM/rgRyLJ56ef5LKjOi8EYrl+8qgFM85vz4eOs0u4z64LW8/rY\nYKhmPCs4OcNnjdRSjM9wJZTQZVeECQFMj4JbyMjQwxPKPMEVHJyJGCEZxgNRwRCE\n37ssvYNxZ/eDyhazyVwiKKZ9V1tmaf/8kCYAXwMB4b2UeaW4dS2A1rFV/lnTyXbZ\npgNRrTm/KBKsyN0y8iE9g5ZLhzxo5pT+YBgBuGZu6dAZgfNZVFxDsi0AxhHonrJ7\nZB7/ff++m7DC4QA9Iz9D9E4ORjeYY+f3i+kYloL5sqOXP8Jx//j8mbZlfZo9J6pH\nqfMJBTP5KqeV+YF/m64ODJ5WtgzgND8KBSxjk3zcuqYg+DMGGpmenv9jTS+ocowP\nTcc01bSWFFrYZ6SGdASVib6F1Bt8Ti85yKpW26aI+6r1pthSsCHYG7nYzWEQzbrt\nu50J5PZisafITAI5wjADgWrap/DMEGLpLLZUl5PGeIa12Fi2Wu2tEyO0OxeDAbCq\nHwh7In3EEg0YRQxnE3LpdR+JCSKaFI8Y+bPCbtT1Z4hu7VEByI78E262t/Wd2Wtf\np6O1nS+n52cdavY2W1iYy72sjQ3MKxiclFLRjyzaOc9+CHEgq/RH3Gm9QBmLWbke\nRIOI0aLPNeKPryUSyt/O\n=k3Ot\n-----END PGP SIGNATURE-----",
+          "payload": "tree ed096837f872575726cec31b433e1f149c64f1da\nparent 841a2c41d43f61361dff3fcf028f08cc134d122d\nauthor Rich Trott <rtrott@gmail.com> 1478651527 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792734 +0100\n\nzlib: fix linting recently-introduced lint error\n\nRemove unnecessary named function. V8 will do a better job inferring the\nname from the assignment to a property. The current formulation does not\npass linting.\n\nPR-URL: https://github.com/nodejs/node/pull/9524\nReviewed-By: Anna Henningsen <anna@addaleax.net>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+      "html_url": "https://github.com/nodejs/node/commit/adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/adcc5b15f77ff962b607c2b10e223fe1f6d767ba/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "841a2c41d43f61361dff3fcf028f08cc134d122d",
+          "url": "https://api.github.com/repos/nodejs/node/commits/841a2c41d43f61361dff3fcf028f08cc134d122d",
+          "html_url": "https://github.com/nodejs/node/commit/841a2c41d43f61361dff3fcf028f08cc134d122d"
+        }
+      ]
+    },
+    {
+      "sha": "6f513e0b46bde53c885b404cce088548daad39d9",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NmY1MTNlMGI0NmJkZTUzYzg4NWI0MDRjY2UwODg1NDhkYWFkMzlkOQ==",
+      "commit": {
+        "author": {
+          "name": "Oscar Morrison",
+          "email": "me@oscarmorrison.com",
+          "date": "2016-07-27T12:39:18Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:15Z"
+        },
+        "message": "doc: add npm link to README\n\nPR-URL: https://github.com/nodejs/node/pull/7894\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>",
+        "tree": {
+          "sha": "98789947ba00275ccd471f046728355ce28f587d",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/98789947ba00275ccd471f046728355ce28f587d"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/6f513e0b46bde53c885b404cce088548daad39d9",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9hfAAoJENi59a6uhOTPFXAP/3+YGFegIESGKSeJC+ZcvXtL\nLcpzGydaeblI+3vbyHYWcAQ+3w7JEqtFzhEXdVI0QCnmB5tyyThgvrz5rcPRjche\nzYXqckCNuDoQEixRgh7H1/3CCmjdqw2OqSezByUhrm//SP+QtwoR8b7/CVjvSPLv\njx+krUFmFu0O0MMg7WcYjqsd7HSQOUcm8Bst9hnVKKXVkfna51Vy+pLoEAVsuGE1\nRxttoToPghB1nOQpm/+14xbG5R4k0m4II7j10a4AnZqFLfODUzAudR5dCCoL9ELm\nsQy30+03RSbwpE7UVvv4YZyZpqNHZ3ljVvGdN1s/XHcGG3ap8vI1IyAWMkkDKgjj\n1HN1EMBn5kw9OkoV1Bm302ZGqy50bimcVy/iJdkz9T932rpThKZB4pkEXgkcJz8A\nxL6jbdiqhrUbBQGWiv6bXdGf1Fp8GeHEmM3H4CNQGbPYte+j1KNt/iN/e60/ZX5t\n5FcNDONjaMNfGl1yYUkv/NKZEzDjYqyncSxQk8IHbcOCRroh/HgASZr5wu+CvVsn\ncZacNVdMPxw06WSTv1eRzqHZeuXUSWqbEcyaLz4ae8KVO8kdJUdeALt1qCWEFxVZ\nG11CC1k54o2tCmK8BvuzM1r16ZhjPDmOQw/xmzl/vTzxkJsL6CGTyEZ5bjkABPYU\negaeb4aiwM9diaHSspIk\n=Z0Ar\n-----END PGP SIGNATURE-----",
+          "payload": "tree 98789947ba00275ccd471f046728355ce28f587d\nparent adcc5b15f77ff962b607c2b10e223fe1f6d767ba\nauthor Oscar Morrison <me@oscarmorrison.com> 1469623158 -0400\ncommitter Anna Henningsen <anna@addaleax.net> 1479792735 +0100\n\ndoc: add npm link to README\n\nPR-URL: https://github.com/nodejs/node/pull/7894\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/6f513e0b46bde53c885b404cce088548daad39d9",
+      "html_url": "https://github.com/nodejs/node/commit/6f513e0b46bde53c885b404cce088548daad39d9",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/6f513e0b46bde53c885b404cce088548daad39d9/comments",
+      "author": {
+        "login": "oscarmorrison",
+        "id": 1651212,
+        "node_id": "MDQ6VXNlcjE2NTEyMTI=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1651212?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/oscarmorrison",
+        "html_url": "https://github.com/oscarmorrison",
+        "followers_url": "https://api.github.com/users/oscarmorrison/followers",
+        "following_url": "https://api.github.com/users/oscarmorrison/following{/other_user}",
+        "gists_url": "https://api.github.com/users/oscarmorrison/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/oscarmorrison/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/oscarmorrison/subscriptions",
+        "organizations_url": "https://api.github.com/users/oscarmorrison/orgs",
+        "repos_url": "https://api.github.com/users/oscarmorrison/repos",
+        "events_url": "https://api.github.com/users/oscarmorrison/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/oscarmorrison/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+          "url": "https://api.github.com/repos/nodejs/node/commits/adcc5b15f77ff962b607c2b10e223fe1f6d767ba",
+          "html_url": "https://github.com/nodejs/node/commit/adcc5b15f77ff962b607c2b10e223fe1f6d767ba"
+        }
+      ]
+    },
+    {
+      "sha": "f5442ece33d5b5291c80afcc1125e22eddedd8da",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZjU0NDJlY2UzM2Q1YjUyOTFjODBhZmNjMTEyNWUyMmVkZGVkZDhkYQ==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-06T02:08:31Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:15Z"
+        },
+        "message": "lib,test: remove unneeded escaping of /\n\nThe `/` character does not need to be escaped when occurring inside a\ncharacter class in a regular expression. Remove such instances of\nescaping in the code base.\n\nPR-URL: https://github.com/nodejs/node/pull/9485\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Teddy Katz <teddy.katz@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "a24356f5ef7b6270eacbc881b81b5fcdb4643f3f",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/a24356f5ef7b6270eacbc881b81b5fcdb4643f3f"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/f5442ece33d5b5291c80afcc1125e22eddedd8da",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9hgAAoJENi59a6uhOTPmBMP/jphWvoYkIx2GNpeNWQ9U1BK\nOFVaUwmETAEXjBfMEelCyQRc2FtstB3cjFMp8lWEIf8hNlxknhZCy3ZFgX6N6lGU\ncGjDrciRtUeYCOAxLbsSKiaq4pupPUezyN/qAzH1UV3f+OVeGzmZkQ/auT5kxlPy\nL5itPNGWjKDpKlicVoqKzOLDWdHk2lBVHNX3z3rJ71tVq+dmYl/tLmxEkTB6Fnk3\n0YlykkN6Kdn3v7WmbDgGSv5gqmDYcqXfSsx2Rk0+gwIJXSJGc4o1mGKCX5bCO90r\njw0ImtJDruSL9gV5mL8RBIZVCGeaGbz0peDg1rYmFeGp4Ta6nvKwTyHa+XEBc9Mp\nJysOz1BC7mpI1t0kETq/4AP3rSMlmLaPzzBZ8BvQVAi10JyT+PujiXOnYS537jAe\ndFjV9AOSri8QFm4LkGXbNimklRWQQPVw3kTS/xRC6Zv4IvR7R7wKgx5QoY74max7\nSYThXIDgGrv9+xVQ1zBtEFoZJT/SNTse2aNsPoU5NR1ItTvSOMdY09W/HLWPkW0S\nOZbOM9iI7T+drfcJfpY1SGIBpTYCSsplAxmnKTl4SQ5l5FToCKUApG2UCmc+IdMz\n2K+APhqCzaWotZztUW4WPgpFnKFmedsJRGWK4rqTd73Fw1xMPaaZlHOnAIfTatue\nOmPfznEEycNcltDyKMWG\n=lubY\n-----END PGP SIGNATURE-----",
+          "payload": "tree a24356f5ef7b6270eacbc881b81b5fcdb4643f3f\nparent 6f513e0b46bde53c885b404cce088548daad39d9\nauthor Rich Trott <rtrott@gmail.com> 1478398111 -0700\ncommitter Anna Henningsen <anna@addaleax.net> 1479792735 +0100\n\nlib,test: remove unneeded escaping of /\n\nThe `/` character does not need to be escaped when occurring inside a\ncharacter class in a regular expression. Remove such instances of\nescaping in the code base.\n\nPR-URL: https://github.com/nodejs/node/pull/9485\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Teddy Katz <teddy.katz@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/f5442ece33d5b5291c80afcc1125e22eddedd8da",
+      "html_url": "https://github.com/nodejs/node/commit/f5442ece33d5b5291c80afcc1125e22eddedd8da",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/f5442ece33d5b5291c80afcc1125e22eddedd8da/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "6f513e0b46bde53c885b404cce088548daad39d9",
+          "url": "https://api.github.com/repos/nodejs/node/commits/6f513e0b46bde53c885b404cce088548daad39d9",
+          "html_url": "https://github.com/nodejs/node/commit/6f513e0b46bde53c885b404cce088548daad39d9"
+        }
+      ]
+    },
+    {
+      "sha": "ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZWU3NjA2OTQwYWNmZDMyMmU2NGE0ZDA3ZGIzZThkNWIwMDU3NGRjZg==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-06T02:20:17Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:16Z"
+        },
+        "message": "test: fix helper-debugger-repl.js\n\nThe test `debugger/test-debugger-repl-break-in-module` (and probably\nothers) was failing because the handshake message for debugging is no\nlonger `listening on port <port>` but is instead `listening on\n<address>:<port>`.\n\nThis change makes the check less strict so as to hopefully future-proof\nit at least a little bit against subsequent changes.\n\nThis test failure is not caught in CI because currently debugger tests\nare not run in CI.\n\nPR-URL: https://github.com/nodejs/node/pull/9486\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Minwoo Jung <jmwsoft@gmail.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>",
+        "tree": {
+          "sha": "22c2bba8dbc71c57721020a1d16bc5bc3288224b",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/22c2bba8dbc71c57721020a1d16bc5bc3288224b"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9hgAAoJENi59a6uhOTPWY4P/3TUe1IC0xqeCEQgD8FAL6rA\nJ7uACzszOIbyyAFyGjzN1kfRa30ydK02CrfNef/Do6oWmyBUeFs0FBDiOhXL8GEV\nz4pP8cWA1DR4quZPSGmCds45xIBO+1xJzNLVxxsTKq3UkLiHYGPelKlREhjL1jIJ\nWJah7KIjiMW7oo6N8Y8lYsS2Uagc/+Sa69WIE68WbMsN5fWVQ2IhDaEAiVoohgTq\nRvh7mbxWaxeH447o8Y3H7UDJSfk6nae9WpAERF6UoYHB9KYSc3bzByTe7Mjv3zQ9\nU0nScrS0CgWxf0J13gHlGhYeGeNt3wioJ/ezAwgaxNsrMvLfiaVrBiHDWwUUplS0\no9nt/MR3zi0cQJ1wgRIdigURQ0cePBAvpEsYuZlZnyu4AiJawBG7J0MQF6a2fpsl\nTXwxDUNaSfM83+hjqVJflsBK8GDKihzSWigobvkOuKMZ34ZzNW6vcELBCKm/+7k+\nlNvOGqwF0MieNF9gozm020S6BIFs5wRDuAQy81vYUygXKfzRHX3dO2LJnCJsgziK\niwnyFMLptzCWlLUgpFgnDLHUxEyGEntXChd7lQP5wSz9v1uGsBTYtfoWGlvsfKnD\ne3Ypvsqd1jMIDszvJMH7o1DI/xfa12znH/+Dpt+6eELyl5PV6TS2rV/XSabY1p87\njSgX9fAT/0coNVEZ7xX+\n=Uvui\n-----END PGP SIGNATURE-----",
+          "payload": "tree 22c2bba8dbc71c57721020a1d16bc5bc3288224b\nparent f5442ece33d5b5291c80afcc1125e22eddedd8da\nauthor Rich Trott <rtrott@gmail.com> 1478398817 -0700\ncommitter Anna Henningsen <anna@addaleax.net> 1479792736 +0100\n\ntest: fix helper-debugger-repl.js\n\nThe test `debugger/test-debugger-repl-break-in-module` (and probably\nothers) was failing because the handshake message for debugging is no\nlonger `listening on port <port>` but is instead `listening on\n<address>:<port>`.\n\nThis change makes the check less strict so as to hopefully future-proof\nit at least a little bit against subsequent changes.\n\nThis test failure is not caught in CI because currently debugger tests\nare not run in CI.\n\nPR-URL: https://github.com/nodejs/node/pull/9486\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Minwoo Jung <jmwsoft@gmail.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+      "html_url": "https://github.com/nodejs/node/commit/ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/ee7606940acfd322e64a4d07db3e8d5b00574dcf/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "f5442ece33d5b5291c80afcc1125e22eddedd8da",
+          "url": "https://api.github.com/repos/nodejs/node/commits/f5442ece33d5b5291c80afcc1125e22eddedd8da",
+          "html_url": "https://github.com/nodejs/node/commit/f5442ece33d5b5291c80afcc1125e22eddedd8da"
+        }
+      ]
+    },
+    {
+      "sha": "2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MmE5NjI1NjU2ZDRmOGU5MjY4ODkwZTI0YTg0NTRiZTdjMGEyYmFjMg==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-06T03:45:16Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:52Z"
+        },
+        "message": "test: move timer-dependent test to sequential\n\n`test-regress-GH-897` is dependent on a timer firing within a period of\ntime. Especially on some of the FreeBSD hosts on CI, we have seen tests\nlike that fail when run in parallel. (This may have nothing to do with\nFreeBSD and may just mean that the hosts are resource-constrained.) Move\nthis test to sequential as we have done with several other\ntimer-dependent tests recently.\n\nThe test has also been refactored and documented via comments.\n\nPR-URL: https://github.com/nodejs/node/pull/9487\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Minwoo Jung <jmwsoft@gmail.com>",
+        "tree": {
+          "sha": "5ac21434aa8433255d82627b84139453318cdc87",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/5ac21434aa8433255d82627b84139453318cdc87"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iEAAoJENi59a6uhOTPekYP/i5T7eeFS689M5WeWlOE1DMq\nmwuepoGx2ZRD5+4yzA/daCDWENpk3sJCR1n1PSJV3T+K077YwBcvryr/Yqmm2DNj\nkCUUr1bSB0QBNFXgWTLjtPAqoAvG0qiHfKrVoitxDRFevo0swSwHDCD0yVC3kpnO\n9TfF7KQ/HEh/BjsHH9QimATJ5c/OtFav2xguaoC7urxzjwwsT7NUSSQr+Tv56FWT\nSFYF+pfsXmXT5mWDEdUfBAzExgSiNt7XWcV9VZF4szSRWltviv1RFg6L3n5inZV4\nKG3V6Q7qP2Hu7XAG56BPJA8IipXYrWcoScF/lyuBmdYFAOkSsw6qWdNVFoEX7rle\nXCNTg9xhbyL2KzvxJceHJQnF73nBXRQN5fFV7a0Ng80Y7HiQqyp08mgdhVRtwsgY\n+QioTS27oBNa2RgpYb9NDouSNL/es5cri2hpcL+EFX39DisXwGiWy/pigHgn8qg+\n6CDA2TeRbF88+cuU0rLniukF1SVKSzGIuNxHEk48onpeFW+R47y7S0S3C6Ls1X85\njZxvG49wM6nGbt7bjkN3gIiObGsSryO/PbwC/UAW2m4pm8u6hkv8bfD1YcYCV0gx\nfy2MTAdOOVF0lZDP6p7Vfua/QZ9QYMNhtxT9Fjn/qpk+8lbBLWf60tQR3nQSdN16\nWOf/IIEP8xwyc3wpYqKz\n=goB6\n-----END PGP SIGNATURE-----",
+          "payload": "tree 5ac21434aa8433255d82627b84139453318cdc87\nparent ee7606940acfd322e64a4d07db3e8d5b00574dcf\nauthor Rich Trott <rtrott@gmail.com> 1478403916 -0700\ncommitter Anna Henningsen <anna@addaleax.net> 1479792772 +0100\n\ntest: move timer-dependent test to sequential\n\n`test-regress-GH-897` is dependent on a timer firing within a period of\ntime. Especially on some of the FreeBSD hosts on CI, we have seen tests\nlike that fail when run in parallel. (This may have nothing to do with\nFreeBSD and may just mean that the hosts are resource-constrained.) Move\nthis test to sequential as we have done with several other\ntimer-dependent tests recently.\n\nThe test has also been refactored and documented via comments.\n\nPR-URL: https://github.com/nodejs/node/pull/9487\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Minwoo Jung <jmwsoft@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+      "html_url": "https://github.com/nodejs/node/commit/2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/2a9625656d4f8e9268890e24a8454be7c0a2bac2/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+          "url": "https://api.github.com/repos/nodejs/node/commits/ee7606940acfd322e64a4d07db3e8d5b00574dcf",
+          "html_url": "https://github.com/nodejs/node/commit/ee7606940acfd322e64a4d07db3e8d5b00574dcf"
+        }
+      ]
+    },
+    {
+      "sha": "819a38df96b73102beef7b7497886f34ec11dbdf",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ODE5YTM4ZGY5NmI3MzEwMmJlZWY3Yjc0OTc4ODZmMzRlYzExZGJkZg==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-07T00:47:41Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:52Z"
+        },
+        "message": "benchmark: split timers benchmark and refactor\n\nThe depth benchmark for timers sets a timer that sets a timer that sets\na timer that... 500K of them.\n\nSince each timer has to wait for the next tick of the event loop this\nbenchmark takes a very long time to run compared to the breadth\ntest that is already in the file. This may be more of an event loop\nbenchmark than a timer benchmark.\n\nReduce the number of iterations for the depth test as it's really just\nrunning the iterations in sequence, not in parallel. And even on an\ninfinitely fast machine, it would take over 8 minutes to run because\neach tick of the event loop would have to wait 1ms before firing the\ntimer.\n\nSplit the depth and breadth benchmarks so that their `N` values can be\nset independently.\n\nDo some minor refactoring to the benchmarks (but no ES6 additions so\nthat the benchmarks can still be run with old versions of Node.js).\n\nRefs: https://github.com/nodejs/node/issues/9493\nPR-URL: https://github.com/nodejs/node/pull/9497\nReviewed-By: Andreas Madsen <amwebdk@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>",
+        "tree": {
+          "sha": "3773c9bf1759a1a2f64d6b0827ed890929a5fb2a",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/3773c9bf1759a1a2f64d6b0827ed890929a5fb2a"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/819a38df96b73102beef7b7497886f34ec11dbdf",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iEAAoJENi59a6uhOTPEZkP/iFnt+1t9npZGMQ+E8DJ5e0s\nSEMPmp1EF0gpHoErrWECjY0PjD2iuQ7Y2lquConOZPaKLRpD2qSKOBK48kn42Pe+\ntzlgA+jEueJYDnCb0LKRjwBZIoJ12jZoQ1PHcYDgD5OFjey0bYjByHcCKn617U5Z\nihle1EG+OEawW/JkCgDy5NPbf3DMP6bPeu0bjTNTmZjNLBUBEFOwSFCIzN/e8Ntv\nb9Dl34ELJqnQw43tgsNphFYh7Cjn1Kn+6WMx3gK9MK5beiVPd3IMew6D18jAFtG7\nW64u8OBKBHMWN1n+YI19ubwnDx63sQet3tzqFxfhvNmCgbiZrTuR1+dQiWlpDmoZ\nMSoD4ujYNAY4nahBWlG5zDq3dAGZn5Om99d0pT+ZS7mwsch58ujrVq8NY3mChXHi\nlXX1MaOcSF5JVZPYkXd/aCIMrRrehuaszqueMmGAyAZFsJ4NSwihsUBswzYG7bhh\nEQPApYaKSoff5Su+J85kYBCA4sVpgjcqcq6ISLVN6t+VMG3Rh2+juhVBy8fNKP5K\nCktO1NwJqPDzjc6uIcnHupQ6atvmvOvBa3xV47/AuxLypa4a1J1IroIXXmNpclex\n7bpe/0ztLx2rAX/b4ylSBgefZN54fQdnjN4WXPyHTGlbrMG8xQ3hNZVU/anqGv4z\n5RdGDUkOSuEJzewhzkdm\n=Wmiz\n-----END PGP SIGNATURE-----",
+          "payload": "tree 3773c9bf1759a1a2f64d6b0827ed890929a5fb2a\nparent 2a9625656d4f8e9268890e24a8454be7c0a2bac2\nauthor Rich Trott <rtrott@gmail.com> 1478479661 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792772 +0100\n\nbenchmark: split timers benchmark and refactor\n\nThe depth benchmark for timers sets a timer that sets a timer that sets\na timer that... 500K of them.\n\nSince each timer has to wait for the next tick of the event loop this\nbenchmark takes a very long time to run compared to the breadth\ntest that is already in the file. This may be more of an event loop\nbenchmark than a timer benchmark.\n\nReduce the number of iterations for the depth test as it's really just\nrunning the iterations in sequence, not in parallel. And even on an\ninfinitely fast machine, it would take over 8 minutes to run because\neach tick of the event loop would have to wait 1ms before firing the\ntimer.\n\nSplit the depth and breadth benchmarks so that their `N` values can be\nset independently.\n\nDo some minor refactoring to the benchmarks (but no ES6 additions so\nthat the benchmarks can still be run with old versions of Node.js).\n\nRefs: https://github.com/nodejs/node/issues/9493\nPR-URL: https://github.com/nodejs/node/pull/9497\nReviewed-By: Andreas Madsen <amwebdk@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/819a38df96b73102beef7b7497886f34ec11dbdf",
+      "html_url": "https://github.com/nodejs/node/commit/819a38df96b73102beef7b7497886f34ec11dbdf",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/819a38df96b73102beef7b7497886f34ec11dbdf/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+          "url": "https://api.github.com/repos/nodejs/node/commits/2a9625656d4f8e9268890e24a8454be7c0a2bac2",
+          "html_url": "https://github.com/nodejs/node/commit/2a9625656d4f8e9268890e24a8454be7c0a2bac2"
+        }
+      ]
+    },
+    {
+      "sha": "dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZGFiM2U0NTFhY2JkZDRhOGQwMDAwZmYwNmU2M2JlYzcwMWZkMTNhMg==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-07T04:01:17Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:53Z"
+        },
+        "message": "test: refactor make-callback-recurse test\n\nMove copy/pasted callback into its own function.\n\nPR-URL: https://github.com/nodejs/node/pull/9498\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>",
+        "tree": {
+          "sha": "04a22d251ed126b6ad8266be29418407cd2df022",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/04a22d251ed126b6ad8266be29418407cd2df022"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iFAAoJENi59a6uhOTPCtcP/2HxIOOmvMXFnfLFn/qgwGPJ\nQXHV7kwySNiXqlLeZcUtdhECixeUInnrzy03rfjnCwmhHH8p1/BhkImSofJTP15N\n9zIngxFA1NJiRf3Ek+E6Ks9DdGSU2tPmjbe2wGCnZiBlEZW8fK1+LQJHP9dk5CyP\nhWxCf2x95xE0SajE2fHRJnaZH1NJ6h3Tc6yB3zhFrQNQyzJy2ksB22SKBFtyDxpx\nIXeWKef+v1cayk0iopN4svHZzOGbu7PhzG3uJpf8IWfn61DbSV4OMk9rnx2D7KYg\nwKjnodwtDGWA/prTB+W4ASu4yShrZfBUa/ahkK0oPieJqfWhxvNaBGqmg0z/vznn\nrDN9omv95JNHqQnB2QIXwMJQztbsWiB2GF4Bp5nSboMSX0FIoBVt6v/Vs2Vti28/\nv2IAI4xsAX11pmI8oM6GVyElCreXRQd8CxBOqfkunAU1pdsTUvc5t2eyovwOZNq5\nnahJzBmYbz/fh/0iafFsbCWriQsbfCk3gG83DIU58yHAqd6s1wGqtn0ng9Kuusbd\n2Mo6QyyvxsUI1t6k9LpDJ23OtMKqQB9X9xs13egpthOsL3s3u+YKmza9FRT+VX4+\nWYvrRB2HzzkIPfquc5xH/Wki7mEpmkFvJ+FO36yos8D8GxnWgo2n+2KWWwvff5Jx\nSLUBo1dkZhQina1D6gt6\n=uekW\n-----END PGP SIGNATURE-----",
+          "payload": "tree 04a22d251ed126b6ad8266be29418407cd2df022\nparent 819a38df96b73102beef7b7497886f34ec11dbdf\nauthor Rich Trott <rtrott@gmail.com> 1478491277 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792773 +0100\n\ntest: refactor make-callback-recurse test\n\nMove copy/pasted callback into its own function.\n\nPR-URL: https://github.com/nodejs/node/pull/9498\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+      "html_url": "https://github.com/nodejs/node/commit/dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/dab3e451acbdd4a8d0000ff06e63bec701fd13a2/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "819a38df96b73102beef7b7497886f34ec11dbdf",
+          "url": "https://api.github.com/repos/nodejs/node/commits/819a38df96b73102beef7b7497886f34ec11dbdf",
+          "html_url": "https://github.com/nodejs/node/commit/819a38df96b73102beef7b7497886f34ec11dbdf"
+        }
+      ]
+    },
+    {
+      "sha": "342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzQyZDhlMDVjYjMzZDVjNzI3NGVmZjNmZjYyM2ZiYTJhYzdkNmU2OA==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-07T04:20:03Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:53Z"
+        },
+        "message": "test: refactor inspector-helper.js\n\nThere are two instances of `setTimeout()` called without a duration in\n`inspector-helper.js`. Change to `setImmediate()` for clarity that it\nisn't a mistake.\n\nPR-URL: https://github.com/nodejs/node/pull/9499\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Eugene Ostroukhov <eostroukhov@google.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>",
+        "tree": {
+          "sha": "7a89100b65a75cd8be9c1c3d0c3b7cb009af07f8",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/7a89100b65a75cd8be9c1c3d0c3b7cb009af07f8"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iFAAoJENi59a6uhOTPwLoP/3eaFdH0PANxPkJVsyiTIvvU\nisBesPQyEM3L99pHACiJHrNNpf6yei6sQ8IaZ9A+tMmCCcDmep6v0UypNaV2XDe2\nbsc7bIvAqvQJB2ULJIkqbRSLXK844lurLpgnZh5sRSnf38rgiUI+FQAXyPPsgUlR\nzLMJxjkHhdrjZ3AAsyPayGZ44CTevgKZwLzEPPleKXSvC388epfPx5CZAChMohPV\nfUgVx3rxy2UbGIVCstCttysTARHBGcHySsD8h/ThcrLlDT8qPNZRqsyf5y6fEkrU\nNSnkLyaC6zGy2hwSwqmQsRr6z9iskIX6deUvNJsFAdSgY/hc8xx2rfUk7S+lgKGl\nXQYV98kBpuaSTftb3ZZDUoBzUWRKY5tYhY5TpGrxGf0GO49hODiZq2kx1M33aQn1\n7F6K3TctMICqBEViWCptHfuud7uDr7uh4tB+SVFTiDXwzR7sjrYZSP/5f8uQxzEf\nvXVQatxePcDx61YF6td8P0B6Okybo9rbobJ/cirEzk6hFPUJaTXDIgv6cYQPFtLl\nm3q2MCKab2jV5Kne6/hu/NlvVQI2/G35SumVywq1KzYfQUImt0Fbe1atOjixZidD\n3vQhKgPPxVyGme69jcHwDCoD4hPlHzPsoDzihMKgksStakPer6Gl17N+dkDzFQnz\nJtDBOYcF7XrQO5qPMvCn\n=qX01\n-----END PGP SIGNATURE-----",
+          "payload": "tree 7a89100b65a75cd8be9c1c3d0c3b7cb009af07f8\nparent dab3e451acbdd4a8d0000ff06e63bec701fd13a2\nauthor Rich Trott <rtrott@gmail.com> 1478492403 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792773 +0100\n\ntest: refactor inspector-helper.js\n\nThere are two instances of `setTimeout()` called without a duration in\n`inspector-helper.js`. Change to `setImmediate()` for clarity that it\nisn't a mistake.\n\nPR-URL: https://github.com/nodejs/node/pull/9499\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Eugene Ostroukhov <eostroukhov@google.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+      "html_url": "https://github.com/nodejs/node/commit/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+          "url": "https://api.github.com/repos/nodejs/node/commits/dab3e451acbdd4a8d0000ff06e63bec701fd13a2",
+          "html_url": "https://github.com/nodejs/node/commit/dab3e451acbdd4a8d0000ff06e63bec701fd13a2"
+        }
+      ]
+    },
+    {
+      "sha": "96471556b5cf5de89d838726cef8afc3263f0feb",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OTY0NzE1NTZiNWNmNWRlODlkODM4NzI2Y2VmOGFmYzMyNjNmMGZlYg==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-07T21:34:54Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:54Z"
+        },
+        "message": "test: move tick-processor tests to own directory\n\nThe tick-processor tests are inherently non-deterministic. They\ntherefore have false negatives from time to time. They also\nsometimes leave extra processes running.\n\nMove them to their own directory until these issues are sorted. Note\nthat this means that the tests will not be run in CI. Like the inspector\ntests and other tests, they will have to be run manually when they are\nwanted.\n\nPR-URL: https://github.com/nodejs/node/pull/9506\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: Matthew Loring <mattloring@google.com>\nReviewed-By: Gibson Fahnestock <gibfahn@gmail.com>",
+        "tree": {
+          "sha": "99ce2e4a39afdd9cecd0bd00b257641d9580baca",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/99ce2e4a39afdd9cecd0bd00b257641d9580baca"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/96471556b5cf5de89d838726cef8afc3263f0feb",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iGAAoJENi59a6uhOTPLL8P/2sjE3AcQS/XUwwvHqH8RFb4\n4cojOuAa0KN3UE1kOoIAWBDd7f6YGbL3un0cwLReeEZAevzR7qMNK3ZpHv8TRoCa\nsCRxzoz2WRd1RM6RWAUMYuKojTXqTjLE29F7bAZSXcifxQtOAPMv9nliKNYFrJ++\n8DS0lQ9JLq79hzLXgynA1qA1m1/WULyOZc4TFcrjx2roBd+e89lcZbcte9xfLk+d\nE4B727OrbueVMYZGNUYUwroZj65deaoW4/ZZhLNKX6FgLGolUrNJ4ulaZJkyuaXI\nANWbgj31STdOIU6t8KyrOBlvHe6tj3ceMhd+Vii5Z6pAwvVcWTkhDyAtVxLaweSA\n0c72fFHJ3rMbQ6ip2d3EZ/W259layR+DwRDz9qMKrxjIg/gdg4RpSVNpjTPmMRL/\nA/j3chFGqUJhG46NxOAfoBk+DZg7vKTb2D+wMqSZCQJHOw7c5LSUrKeavXgUDOCl\n+vzKQZHWatkcj3yDQ/vs/oYirIM88PFG8R/1PW3qCSofxt5MVe/1/AyYR+uJp1pH\n8iM33zm/NF/5kev+bjTILTpgSVvJyqOHFVT7n8JuuaxsXNWQ5AOtWTcWjb9uex1r\nGXoGp22mgfstwHRhs4E851HI5Xrkb7lKEoHPEu3+DBfS63vHbcruzcsqNvB301NM\nRI3ksCVnzVcp2xVXDMWA\n=ih3P\n-----END PGP SIGNATURE-----",
+          "payload": "tree 99ce2e4a39afdd9cecd0bd00b257641d9580baca\nparent 342d8e05cb33d5c7274eff3ff623fba2ac7d6e68\nauthor Rich Trott <rtrott@gmail.com> 1478554494 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792774 +0100\n\ntest: move tick-processor tests to own directory\n\nThe tick-processor tests are inherently non-deterministic. They\ntherefore have false negatives from time to time. They also\nsometimes leave extra processes running.\n\nMove them to their own directory until these issues are sorted. Note\nthat this means that the tests will not be run in CI. Like the inspector\ntests and other tests, they will have to be run manually when they are\nwanted.\n\nPR-URL: https://github.com/nodejs/node/pull/9506\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: Matthew Loring <mattloring@google.com>\nReviewed-By: Gibson Fahnestock <gibfahn@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/96471556b5cf5de89d838726cef8afc3263f0feb",
+      "html_url": "https://github.com/nodejs/node/commit/96471556b5cf5de89d838726cef8afc3263f0feb",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/96471556b5cf5de89d838726cef8afc3263f0feb/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+          "url": "https://api.github.com/repos/nodejs/node/commits/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68",
+          "html_url": "https://github.com/nodejs/node/commit/342d8e05cb33d5c7274eff3ff623fba2ac7d6e68"
+        }
+      ]
+    },
+    {
+      "sha": "c07f6486629e9cbb8a03529f681fa55f7656c830",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YzA3ZjY0ODY2MjllOWNiYjhhMDM1MjlmNjgxZmE1NWY3NjU2YzgzMA==",
+      "commit": {
+        "author": {
+          "name": "Andreas Lind",
+          "email": "andreas@one.com",
+          "date": "2016-11-02T22:21:54Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:54Z"
+        },
+        "message": "doc: Fix inaccuracy in https.request docs\n\nPR-URL: https://github.com/nodejs/node/pull/9453\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Sam Roberts <sam@strongloop.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "f339b4721d4d7d2806216dde66a0824b2950aa54",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/f339b4721d4d7d2806216dde66a0824b2950aa54"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/c07f6486629e9cbb8a03529f681fa55f7656c830",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iGAAoJENi59a6uhOTP3lkQAI1CeRJacX5ZpOENPw/bIq4J\nhdq7Ik3RKFj8VlXs9lpQ38DWN1kqTlN1RfFhofVqkc2JC8xb0TxhEv7Zzv3TlaNZ\nv5l0GSmbnVTOlmdK8iBQ3TP7tm05TQkvJIBPamRVEsebTJL0+ElRWNt/3i3Kr8Zb\nEm9zafpDrzTc3PHSHAx2AEWgnLpzs0BECAsmsduIosoAmSlgEgp9x/Y7lZ2Z9JQz\nC1wgcr9L0BRKNFKT4h0m6xqzUD2Km9LsBv+3QqTRuUb4pcec13RG/wKv/Fjx8aS0\ntD8FQjyXpPzD5Wj7h7ZKJr3oYS/ncWKo1jBFt/aVh2jwRtEiVr/Eoiewz8leUBaN\nbnprr7/mjsHv+D9Drw7beqn3L0bR9cCyOZyPxZFbmDTuSLJgphqhQSc0AjNCXwUd\n0Pfjj/VTpKBMIhkGB8Ek0a77AfCKbCFvFmo4e/AmRlgNTpAx7Wi7sv4D1BEAcHj8\nuLHqZsXnmvoU4QoyVKfS66KdF64bBbKSHKcB8xI66VMlakxBWMcbhkCKg45zCPc1\nidAoWYE8G8tXymXqTl9705QmCsgq6AOl2YzMLET6Cn+DWAulbFCa6c7ISyGPukbv\nqiarvjPU/EC5DfsAlB+LqfsYAThBwYf3WR5OtXDLHjplg9lv1EbjcP9j2BIVKzHA\nwtoOT3nWDoadSreNHT4v\n=L9+R\n-----END PGP SIGNATURE-----",
+          "payload": "tree f339b4721d4d7d2806216dde66a0824b2950aa54\nparent 96471556b5cf5de89d838726cef8afc3263f0feb\nauthor Andreas Lind <andreas@one.com> 1478125314 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792774 +0100\n\ndoc: Fix inaccuracy in https.request docs\n\nPR-URL: https://github.com/nodejs/node/pull/9453\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Sam Roberts <sam@strongloop.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/c07f6486629e9cbb8a03529f681fa55f7656c830",
+      "html_url": "https://github.com/nodejs/node/commit/c07f6486629e9cbb8a03529f681fa55f7656c830",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/c07f6486629e9cbb8a03529f681fa55f7656c830/comments",
+      "author": {
+        "login": "papandreou",
+        "id": 373545,
+        "node_id": "MDQ6VXNlcjM3MzU0NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/373545?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/papandreou",
+        "html_url": "https://github.com/papandreou",
+        "followers_url": "https://api.github.com/users/papandreou/followers",
+        "following_url": "https://api.github.com/users/papandreou/following{/other_user}",
+        "gists_url": "https://api.github.com/users/papandreou/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/papandreou/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/papandreou/subscriptions",
+        "organizations_url": "https://api.github.com/users/papandreou/orgs",
+        "repos_url": "https://api.github.com/users/papandreou/repos",
+        "events_url": "https://api.github.com/users/papandreou/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/papandreou/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "96471556b5cf5de89d838726cef8afc3263f0feb",
+          "url": "https://api.github.com/repos/nodejs/node/commits/96471556b5cf5de89d838726cef8afc3263f0feb",
+          "html_url": "https://github.com/nodejs/node/commit/96471556b5cf5de89d838726cef8afc3263f0feb"
+        }
+      ]
+    },
+    {
+      "sha": "62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NjI0NzhlYjNkOTcyNDNlMmM3ZjcxYjY0YzIzYjRhYzBhMGRmYjAxMg==",
+      "commit": {
+        "author": {
+          "name": "timathon",
+          "email": "timathon@outlook.com",
+          "date": "2016-11-09T04:07:49Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:55Z"
+        },
+        "message": "doc: fix link to Event Loop page\n\nPR-URL: https://github.com/nodejs/node/pull/9527\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "be3639c91789fc1aa5453a210bc4aa4d2e5d0380",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/be3639c91789fc1aa5453a210bc4aa4d2e5d0380"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iHAAoJENi59a6uhOTPg1IP/1ysRKwBIXWd0MV3UNLOykuM\nyv/6ZO7O4GsQNdla9ksN6Hqrfbab0XTAyu5IjXnHkeYvZyOcKw31e+yamGYJuj96\n/JPZ+16pT+a0OKllcfcL8auiyl/64ep8qxpQnudzHX9K00tCkqJJlXhT7En+WgWw\nQk06F5ntgJm+fcvJRu62P/4p7gw4WzOtz0iURczrxHoBg0C2bEA55hY/I/zDEVma\nZhTGURfDXlo9zwJ3XYWApRKi5G3pg9VGPmfeW5o2SMeA9hAmdPFMvY05baU9ERvH\nGYXr6PQbN6Z1pP6vkhPtlQHurHYTq3q3AoZZNGLsP1DSvnWvXXlcnBByIze476/b\nSeTbgDaHKJX0ktPjA1Hk0B3a2LkZ4q+ZY3B9AWoXS1gouQlfyvh7cuTWjUjmk/Wf\n7tMNrE2wdF3zjHzq38MEAYViHlpBlDdsl9sXtJtpb3g5/KbFLm2yV5XKJAud4ZHw\n4UN4HGk+Kc1nPQYgmTdaJG55jJXrtNamwJPCNCKseb8UEVQi9h1XEjE4KYz6+Md0\nDCLVKs+tD54U/IQXC+1oywna87UIzZdlaXQuwd25DzE6MoaCvkGI+p0p20EhWq9+\n/bgDuxaP4glmE84HJjyPQ7o3qBx/t5nNsCUk+ZSWZnZnm1CuniDzRFeIM0536NN9\n/ZObBC6HOYbDr6YC6i1i\n=NML/\n-----END PGP SIGNATURE-----",
+          "payload": "tree be3639c91789fc1aa5453a210bc4aa4d2e5d0380\nparent c07f6486629e9cbb8a03529f681fa55f7656c830\nauthor timathon <timathon@outlook.com> 1478664469 +0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792775 +0100\n\ndoc: fix link to Event Loop page\n\nPR-URL: https://github.com/nodejs/node/pull/9527\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+      "html_url": "https://github.com/nodejs/node/commit/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012/comments",
+      "author": {
+        "login": "timathon",
+        "id": 9364651,
+        "node_id": "MDQ6VXNlcjkzNjQ2NTE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/9364651?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/timathon",
+        "html_url": "https://github.com/timathon",
+        "followers_url": "https://api.github.com/users/timathon/followers",
+        "following_url": "https://api.github.com/users/timathon/following{/other_user}",
+        "gists_url": "https://api.github.com/users/timathon/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/timathon/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/timathon/subscriptions",
+        "organizations_url": "https://api.github.com/users/timathon/orgs",
+        "repos_url": "https://api.github.com/users/timathon/repos",
+        "events_url": "https://api.github.com/users/timathon/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/timathon/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "c07f6486629e9cbb8a03529f681fa55f7656c830",
+          "url": "https://api.github.com/repos/nodejs/node/commits/c07f6486629e9cbb8a03529f681fa55f7656c830",
+          "html_url": "https://github.com/nodejs/node/commit/c07f6486629e9cbb8a03529f681fa55f7656c830"
+        }
+      ]
+    },
+    {
+      "sha": "92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OTJmMTYzZTQ2NTViNzM4MzcwYzc4MWVkYzcyYmRkMWI2YmJmZThkZA==",
+      "commit": {
+        "author": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-07T14:27:37Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:55Z"
+        },
+        "message": "doc: clarify the exit code part of writing_tests\n\nPR-URL: https://github.com/nodejs/node/pull/9502\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>",
+        "tree": {
+          "sha": "96c311acf51b18660696de9e36c57f6e53d8f6ab",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/96c311acf51b18660696de9e36c57f6e53d8f6ab"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iHAAoJENi59a6uhOTPocoP+wfofIGwwq6w3o6XzMvgvzdn\nlwnwhkBiml6eNbqwdLrBOOEIXIhWUKteC/jSLIeff0xJFXLaandYRlFIzF4gvLg2\ngk4oRZDMmf02JuW7P/6pH/QMz9dKuDLx/nUbZE6UoL+un3t1zC9pLE/32rXfkSsX\nmiVznF832n3wr9AzweRBZPCMQSdgkVM7FWbJLU+NDrOLgvz5oKnq8scSJlHhmOR0\nIEnG7uygcy+Ti0tb++w60z33xN6ZZotAKY98aSC7LN2bZp2ewUJAx4YPNCe0G2nk\nT9QrKUmG5/Q646hGesdo43sL6f3t0z9Q/C1Z+joLb5JEbwkYs88Ge6acY0DA4hxm\nzeDifwGfQr//MBqtRCziWsMEaMOhdVVKj7ZlxzY1BV2b0F3pWxL1Ou/wJlx1luKS\nzPz3VF2o+7BsvXpSoO/mVOk+U11mXnCmYyD+5YMsaTVIofQnowEZyQkDgRpRs0Ag\nTAhp6Xoz4YVd6qfDhdl6m9y1eiEEr0PDV2Eqn96r+mTNkEjEcmaZyLQMHiSk4ENn\n9fKjPzUCjb7HCIsDG1mIrfV5AJ6Zm3WuO6wDqbEx53eboBvIuL3aeIMJWZaMjlRw\nidFfMHCnyjrtiklY+juw06dn3go4XOX1bZ7z1s2SCg446++q3NaXnUf67DZ6/i7g\nyam7d8Mx9szlI/+AdMT+\n=UX6p\n-----END PGP SIGNATURE-----",
+          "payload": "tree 96c311acf51b18660696de9e36c57f6e53d8f6ab\nparent 62478eb3d97243e2c7f71b64c23b4ac0a0dfb012\nauthor Jeremiah Senkpiel <fishrock123@rocketmail.com> 1478528857 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792775 +0100\n\ndoc: clarify the exit code part of writing_tests\n\nPR-URL: https://github.com/nodejs/node/pull/9502\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+      "html_url": "https://github.com/nodejs/node/commit/92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/92f163e4655b738370c781edc72bdd1b6bbfe8dd/comments",
+      "author": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+          "url": "https://api.github.com/repos/nodejs/node/commits/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012",
+          "html_url": "https://github.com/nodejs/node/commit/62478eb3d97243e2c7f71b64c23b4ac0a0dfb012"
+        }
+      ]
+    },
+    {
+      "sha": "a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YTQxMmI5ZmE5YWI4ODJmMjUyNzBlZDk4M2E5YjM1NDIwZjJjOWY3Mw==",
+      "commit": {
+        "author": {
+          "name": "Ryan Lewis",
+          "email": "ryanharrisonlewis@gmail.com",
+          "date": "2016-11-06T21:29:59Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:56Z"
+        },
+        "message": "doc: grammar and structure revisions of wg doc\n\nPR-URL: https://github.com/nodejs/node/pull/9495\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "0654a0d16b1fad4274bb2d5a0b5524f90c5ded07",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/0654a0d16b1fad4274bb2d5a0b5524f90c5ded07"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iIAAoJENi59a6uhOTPPS0P/3vIgtojr5Bc8e5G7KFnrlgL\nfiLf7gAE+hAIv/C2rXR7uXtNYi8d/0Pbp23qCHIXspyIQ25lMWoPfxdcyzXFIPG3\nIVcJG67jbi1KQAgo9Tj8K7hngouYSuCN/hdiKgwkqxeDtJPPm6LFKZkUlS0zl54O\nosApi62IPEunOL084VYvAmqOlj+I563xy4hFscoe7AN48Y4RWTxQ/aQNMzI3oN+4\nbm/0XYlzheoKNCUZkLqwlwinOYzbDUxieFpj00I8emZOqaYfnNBwea6BM5jLbkvZ\nce1cCry0pZgliG+XHN53cAEniInMqF9uYHfWJ2MPobdj6HyiOQljbissmfMZ0ITS\nF5g5FXu2Ic+AJ9cav+SD/Pq5lhPPo5TW69BqlI8iUl4rjFh75m1xUWKYOG1ofxvi\nmIddii2pMlLpBO2gt6oW0OPkfgHbLXv+DCWLw5mVZYt5T8vnlnD7ubwjsZGj6zq8\nAsyNin3oKIoGCB4o6L8f12NDNTF15sa25+ZfrUpj7Ut4m6GV5/SJLf1FTw7w4uu4\nGC6G3vnU6QvGgeRtGse1GiBEBQXz+HiZ3qulT2SXfHLWfDvJKSciGYyGSk877J6Q\nJJWvRqYGRTzt7HIkMkxI0YXqy5yER5qLNR5N8kl3+D+FZpSYBaCuedqBPiqDW7ml\nGzXNAOwRn1dhhh0t00qY\n=Czqf\n-----END PGP SIGNATURE-----",
+          "payload": "tree 0654a0d16b1fad4274bb2d5a0b5524f90c5ded07\nparent 92f163e4655b738370c781edc72bdd1b6bbfe8dd\nauthor Ryan Lewis <ryanharrisonlewis@gmail.com> 1478467799 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792776 +0100\n\ndoc: grammar and structure revisions of wg doc\n\nPR-URL: https://github.com/nodejs/node/pull/9495\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+      "html_url": "https://github.com/nodejs/node/commit/a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/a412b9fa9ab882f25270ed983a9b35420f2c9f73/comments",
+      "author": {
+        "login": "ryanmurakami",
+        "id": 767105,
+        "node_id": "MDQ6VXNlcjc2NzEwNQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/767105?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ryanmurakami",
+        "html_url": "https://github.com/ryanmurakami",
+        "followers_url": "https://api.github.com/users/ryanmurakami/followers",
+        "following_url": "https://api.github.com/users/ryanmurakami/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ryanmurakami/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ryanmurakami/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ryanmurakami/subscriptions",
+        "organizations_url": "https://api.github.com/users/ryanmurakami/orgs",
+        "repos_url": "https://api.github.com/users/ryanmurakami/repos",
+        "events_url": "https://api.github.com/users/ryanmurakami/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ryanmurakami/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+          "url": "https://api.github.com/repos/nodejs/node/commits/92f163e4655b738370c781edc72bdd1b6bbfe8dd",
+          "html_url": "https://github.com/nodejs/node/commit/92f163e4655b738370c781edc72bdd1b6bbfe8dd"
+        }
+      ]
+    },
+    {
+      "sha": "31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzFhMzRkNzk5MmMyY2I2ZmIxOWYyYzA4MThmMWY0OThiNDBhMTM1OA==",
+      "commit": {
+        "author": {
+          "name": "Daniel Bevenius",
+          "email": "daniel.bevenius@gmail.com",
+          "date": "2016-11-10T19:19:56Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:56Z"
+        },
+        "message": "doc: fix minor style issue in code examples\n\nI've noticed that a few of the code examples have an minor\nindentation issue with the first line, for example:\n\nhttps://nodejs.org/api/child_process.html#child_process_child_process\nThis commit attempt to fix this issue by using the solution provided\nprovided by silverwind and hiendv.\n\nFixes: https://github.com/nodejs/node/issues/9381\nPR-URL: https://github.com/nodejs/node/pull/9482\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "d425ec01d87ac7fe5be07a1309a6c4ab2985d8ab",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/d425ec01d87ac7fe5be07a1309a6c4ab2985d8ab"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iIAAoJENi59a6uhOTPf+MP/1Trs0OsqieQIWFLEjwdf7lc\n80IlUkJ+H8o4ijVzdNrmZ588/7J2eycEFrbxOvPrmv9Y5OUJpdlyVyyzoDWzL5YW\nItUOY5Ex5PUoRkOfepFQHigoIdw3opdhgE4R1ZgFA1rR1GTbl/ONoSlScq8CIxQX\n19JCaPSaW+oHKasnWE/Oad9Rg2+A/JKsyEhkT3ynoM50ZNrUsR9cQ5x9L61IrruN\nWUR2XAuiuEj33x0KfDcrg4gRa+ZHbWO1QuzE7pnhRA+Ttd0ohXPjmmehv9M6IDuG\nJ61ec6EUJpnml5zDi/nFzzdV+u6x2S7UD7KlxDvGulYbUM+sVtKzs/ZxUJ/mLDFt\ngMBlK1Qqg50Xk/SWK+0ELZxEIK30VoWb529/VvJQl2NBwbeFXb0CDmjOfmRb1mVG\n0TYM7Sg4CQmNmbiI44rqYZYv1tgjsL3KF07I802Ge+8aUX/3xvFCK4XdC6OTbpsH\n3lQ+MpRzO2guUjXy/52hIQxDmaglshXrT1o6qUTXoYWu+yPZPU9M9rfkL5Egcgtl\n+hpmiSQA1FifHKe+7RV0x3T95H9ZEBAu8Q9Q1mstl2ks+++roX6BJiS8oUBat6lF\nf+Gy1VMzce9iXqnCnSGNbh93wX+s9x6sdY15c8JWQ0urWARFf007jChoA7EpZTaa\nUUzp5HRtKuNrCA/AJ099\n=hnU8\n-----END PGP SIGNATURE-----",
+          "payload": "tree d425ec01d87ac7fe5be07a1309a6c4ab2985d8ab\nparent a412b9fa9ab882f25270ed983a9b35420f2c9f73\nauthor Daniel Bevenius <daniel.bevenius@gmail.com> 1478805596 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792776 +0100\n\ndoc: fix minor style issue in code examples\n\nI've noticed that a few of the code examples have an minor\nindentation issue with the first line, for example:\n\nhttps://nodejs.org/api/child_process.html#child_process_child_process\nThis commit attempt to fix this issue by using the solution provided\nprovided by silverwind and hiendv.\n\nFixes: https://github.com/nodejs/node/issues/9381\nPR-URL: https://github.com/nodejs/node/pull/9482\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+      "html_url": "https://github.com/nodejs/node/commit/31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/31a34d7992c2cb6fb19f2c0818f1f498b40a1358/comments",
+      "author": {
+        "login": "danbev",
+        "id": 432351,
+        "node_id": "MDQ6VXNlcjQzMjM1MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/432351?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/danbev",
+        "html_url": "https://github.com/danbev",
+        "followers_url": "https://api.github.com/users/danbev/followers",
+        "following_url": "https://api.github.com/users/danbev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/danbev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/danbev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/danbev/subscriptions",
+        "organizations_url": "https://api.github.com/users/danbev/orgs",
+        "repos_url": "https://api.github.com/users/danbev/repos",
+        "events_url": "https://api.github.com/users/danbev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/danbev/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+          "url": "https://api.github.com/repos/nodejs/node/commits/a412b9fa9ab882f25270ed983a9b35420f2c9f73",
+          "html_url": "https://github.com/nodejs/node/commit/a412b9fa9ab882f25270ed983a9b35420f2c9f73"
+        }
+      ]
+    },
+    {
+      "sha": "549b6f23dbb8c0fc219ea6893767078ed7032202",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NTQ5YjZmMjNkYmI4YzBmYzIxOWVhNjg5Mzc2NzA3OGVkNzAzMjIwMg==",
+      "commit": {
+        "author": {
+          "name": "Timothy",
+          "email": "zzzzBov@gmail.com",
+          "date": "2016-11-07T23:36:40Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:57Z"
+        },
+        "message": "doc: fix fs constants link\n\nhttps://nodejs.org/api/fs.html#fs_fs_constants links to itself rather\nthan to https://nodejs.org/api/fs.html#fs_fs_constants_1\n\nPR-URL: https://github.com/nodejs/node/pull/9508\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "0b168748e00ab0d6b5d05bfb6fa1b477eb9055df",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/0b168748e00ab0d6b5d05bfb6fa1b477eb9055df"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/549b6f23dbb8c0fc219ea6893767078ed7032202",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iJAAoJENi59a6uhOTPzSsQAId24p+F96AVU6PBE1saxaKC\nffWV1xVW0qHDBECiohVFkJrbQtpuQ5rf/NfIgaj6XrQLB0NOnnWA+NMDduynXhNq\n1obAjPSnoIuA7gUCU8ON98/UGomM/UMcp3r555NixH68Czlvn5zWrhRkuivJP3P+\nRBajVhXcWxBDF9vffLA/j/xVdEkaDD1HmPm6t90uJYV7ambU9sacAGj40WRS+I3t\n5Jbhen75FHwi/AxFW9pPknyQqUlBdJW2o8Yu4xZP9s43DDYm8HlyCsIyYT1nCeCS\n2TcyKX0EMe9X3XI9zclIkzv361mkoAgUW/IdKXGP90xdW/jRgxmIGyS9AQC6zNYm\nkddF09Q/gYc5nCxKJEaelS5hPoy/VkPv/Ywcrdtw3LmKGleC9gkLJrLpF9+G9RL2\nwLWP39+7cnPUJo8NYmqbLMJ689o5aYDTjTVknuRE31A17cb4w6UFRAxWiXP6ZoGu\nFqm805vz6FJfuSC9KrhMyqirnuQk+Bu8hvRUd27MJMLA9f7E+qvuVWh4klUmkcjk\nLXFAc3dea6JQeWyLfDxjsk0RXxQOqGVHxiuvz/lU48/3P0NxhfKVeTdLR6TBOLuj\nmawF6yspQLKvyc4PJb5Pa4MYHTiS6L0b2fEK2RWpQvzx7F40hwWR5ny6Xj3hP4jg\ntkizBoXYK9nmRPGxoIAK\n=BwVz\n-----END PGP SIGNATURE-----",
+          "payload": "tree 0b168748e00ab0d6b5d05bfb6fa1b477eb9055df\nparent 31a34d7992c2cb6fb19f2c0818f1f498b40a1358\nauthor Timothy <zzzzBov@gmail.com> 1478561800 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792777 +0100\n\ndoc: fix fs constants link\n\nhttps://nodejs.org/api/fs.html#fs_fs_constants links to itself rather\nthan to https://nodejs.org/api/fs.html#fs_fs_constants_1\n\nPR-URL: https://github.com/nodejs/node/pull/9508\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/549b6f23dbb8c0fc219ea6893767078ed7032202",
+      "html_url": "https://github.com/nodejs/node/commit/549b6f23dbb8c0fc219ea6893767078ed7032202",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/549b6f23dbb8c0fc219ea6893767078ed7032202/comments",
+      "author": {
+        "login": "zzzzBov",
+        "id": 518319,
+        "node_id": "MDQ6VXNlcjUxODMxOQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/518319?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/zzzzBov",
+        "html_url": "https://github.com/zzzzBov",
+        "followers_url": "https://api.github.com/users/zzzzBov/followers",
+        "following_url": "https://api.github.com/users/zzzzBov/following{/other_user}",
+        "gists_url": "https://api.github.com/users/zzzzBov/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/zzzzBov/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/zzzzBov/subscriptions",
+        "organizations_url": "https://api.github.com/users/zzzzBov/orgs",
+        "repos_url": "https://api.github.com/users/zzzzBov/repos",
+        "events_url": "https://api.github.com/users/zzzzBov/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/zzzzBov/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+          "url": "https://api.github.com/repos/nodejs/node/commits/31a34d7992c2cb6fb19f2c0818f1f498b40a1358",
+          "html_url": "https://github.com/nodejs/node/commit/31a34d7992c2cb6fb19f2c0818f1f498b40a1358"
+        }
+      ]
+    },
+    {
+      "sha": "7488b0041f956e6275050760809a47043e549320",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NzQ4OGIwMDQxZjk1NmU2Mjc1MDUwNzYwODA5YTQ3MDQzZTU0OTMyMA==",
+      "commit": {
+        "author": {
+          "name": "imatvieiev",
+          "email": "idmatvieiev@gmail.com",
+          "date": "2016-11-08T18:00:30Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:32:58Z"
+        },
+        "message": "doc: added types to path docs\n\nPR-URL: https://github.com/nodejs/node/pull/9514\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "2d07bab3122916dc841d32a017c4852425adea80",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/2d07bab3122916dc841d32a017c4852425adea80"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/7488b0041f956e6275050760809a47043e549320",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9iKAAoJENi59a6uhOTP3AYP/1A4LX0CUlPK6smzubu3S0zH\n3iwaK9gkPSfQ2P18cXDhcxoUNxEN3IqLPSNeWsTJpnVBrJdkro7ZslbAF8+tMTFO\nvbAIVWPN9JfeaYIN5hc+YUX3sk9PJqPNVC9ca7s6rrEz6RRCt1oHSfnlZBa/yy2G\ny25QdCP4rQfxC2wqIsPAvsV3ZNDhzyGi+Lel3eDm10diRLNNncutrsPtjGZKf3dr\ni/NQytBpNz4xOowj+pxJj7qRMEnsTjUN4GEvxvFEQiXLPmmB0+HXlUZeQLRLx6xT\nVrBtpjt9GiJYntBWd+Zo+KTH9PH5pA9UgFGRyPBa6yYnliLLJA3LB/TlGQU4s39K\nVSymBD545oJl9z49Fz7asbKk72tkXqEH98+ysgmOJwVkeTXO+TgDnN8WtQSUh7HR\nptaPsjxVHSBwIc8y3bhL8MEvUyo44BzgsB46Od74KHU2u7QfO7P3BJyU/jDRJ4nd\nXOjb+SAfiEYPX0XF2PSx1gboNsHeWNraAQwBZ6xizTskyMT2pQemedHlWqKkKFGc\n+vOlxJI54x+IuFB/0z3Zv/Jr65kHEvofyT5Z/LgRGtrUts+PMfYw0x5UNF6YOOoX\njqEPFODExWlGtK/mnDAezPuAY3RxfYVTU1Q7m6kGKA0qq/NsJx8jKC5ZSeokavJK\ng/c2IQJxkELnOBWkmvnr\n=LJWA\n-----END PGP SIGNATURE-----",
+          "payload": "tree 2d07bab3122916dc841d32a017c4852425adea80\nparent 549b6f23dbb8c0fc219ea6893767078ed7032202\nauthor imatvieiev <idmatvieiev@gmail.com> 1478628030 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792778 +0100\n\ndoc: added types to path docs\n\nPR-URL: https://github.com/nodejs/node/pull/9514\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/7488b0041f956e6275050760809a47043e549320",
+      "html_url": "https://github.com/nodejs/node/commit/7488b0041f956e6275050760809a47043e549320",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/7488b0041f956e6275050760809a47043e549320/comments",
+      "author": {
+        "login": "imatveev",
+        "id": 10616396,
+        "node_id": "MDQ6VXNlcjEwNjE2Mzk2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10616396?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/imatveev",
+        "html_url": "https://github.com/imatveev",
+        "followers_url": "https://api.github.com/users/imatveev/followers",
+        "following_url": "https://api.github.com/users/imatveev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/imatveev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/imatveev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/imatveev/subscriptions",
+        "organizations_url": "https://api.github.com/users/imatveev/orgs",
+        "repos_url": "https://api.github.com/users/imatveev/repos",
+        "events_url": "https://api.github.com/users/imatveev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/imatveev/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "549b6f23dbb8c0fc219ea6893767078ed7032202",
+          "url": "https://api.github.com/repos/nodejs/node/commits/549b6f23dbb8c0fc219ea6893767078ed7032202",
+          "html_url": "https://github.com/nodejs/node/commit/549b6f23dbb8c0fc219ea6893767078ed7032202"
+        }
+      ]
+    },
+    {
+      "sha": "77aded3ba1f6f601b2ca9779099640795a8d9b48",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NzdhZGVkM2JhMWY2ZjYwMWIyY2E5Nzc5MDk5NjQwNzk1YThkOWI0OA==",
+      "commit": {
+        "author": {
+          "name": "imatvieiev",
+          "email": "idmatvieiev@gmail.com",
+          "date": "2016-11-07T21:23:41Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:48Z"
+        },
+        "message": "doc: add process api data types to documentation\n\nPR-URL: https://github.com/nodejs/node/pull/9505\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Brian White <mscdex@mscdex.net>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "520c8aedbcd05ccea1560cabad567595da6c2d27",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/520c8aedbcd05ccea1560cabad567595da6c2d27"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/77aded3ba1f6f601b2ca9779099640795a8d9b48",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i8AAoJENi59a6uhOTPZ8sP/jvr+MMM7IPUK3srJFB7Vng2\nBn7UwxO4SFGVFugLkEN+oCzIfhXB+CiNZXNnPz6PAiY+jzdQQRfUVbUCcgHXZHZ2\n8xIOzKcHdAmCHS0dRjZEpp6GC3/hS8L5BJIIfe5PgcdcUk4cgJKzqpH8ynP7kwVA\n8Fg4nl2C4uVRDlx0g6GFmwqsTBWEntq3nRZ5ozg5wf4S+W/8ZIFN6tBC65hqsDTx\n7cuAtY8x976LAwZ0L58OM4BQFz7i6O+8smuJ/PK1BiQqVas/GixwybR1S8S9ymmN\njI+/67cVN/yFnl0XDZypYa7MUdBfotqo24Bx2EQrJv06x0QlATlDEHh7j5z8/qvi\ncaSZ2YoztVJFhamAKRyxB6+0aOQKnhpJA8LwAlZ9WXVeoqjE6jXynV0Lobsz6xs0\ndmLgFxKOBGBO0OLyErDhYd8BTkbCPDl384hTtIExhQqAyTJ6XhoDtBds74BR6VOw\nmnI13kTLT2qO1cyvZ3ExjgG2tq/VOE/PEQ634GnZaeBmmTCEOnGXzLDQFCD0qcg1\nef758dkodQV7YWj5Ns+kD7EwKJzls8ciBfxzW3fmbD0FICy6LQYk/G1J8d3CCTPi\nQk9CA+EjUWiD4VQcT55y91VxUSyKlygmZlbYjkpA6gfJ+5Kvkt2jEGL0lbGI4iUX\nZMdc4XYTCLwDSl3ab6eM\n=22pw\n-----END PGP SIGNATURE-----",
+          "payload": "tree 520c8aedbcd05ccea1560cabad567595da6c2d27\nparent 7488b0041f956e6275050760809a47043e549320\nauthor imatvieiev <idmatvieiev@gmail.com> 1478553821 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792828 +0100\n\ndoc: add process api data types to documentation\n\nPR-URL: https://github.com/nodejs/node/pull/9505\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Brian White <mscdex@mscdex.net>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/77aded3ba1f6f601b2ca9779099640795a8d9b48",
+      "html_url": "https://github.com/nodejs/node/commit/77aded3ba1f6f601b2ca9779099640795a8d9b48",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/77aded3ba1f6f601b2ca9779099640795a8d9b48/comments",
+      "author": {
+        "login": "imatveev",
+        "id": 10616396,
+        "node_id": "MDQ6VXNlcjEwNjE2Mzk2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10616396?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/imatveev",
+        "html_url": "https://github.com/imatveev",
+        "followers_url": "https://api.github.com/users/imatveev/followers",
+        "following_url": "https://api.github.com/users/imatveev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/imatveev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/imatveev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/imatveev/subscriptions",
+        "organizations_url": "https://api.github.com/users/imatveev/orgs",
+        "repos_url": "https://api.github.com/users/imatveev/repos",
+        "events_url": "https://api.github.com/users/imatveev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/imatveev/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "7488b0041f956e6275050760809a47043e549320",
+          "url": "https://api.github.com/repos/nodejs/node/commits/7488b0041f956e6275050760809a47043e549320",
+          "html_url": "https://github.com/nodejs/node/commit/7488b0041f956e6275050760809a47043e549320"
+        }
+      ]
+    },
+    {
+      "sha": "d09a9f4d2781a114f8926a0355d5117980b1a838",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZDA5YTlmNGQyNzgxYTExNGY4OTI2YTAzNTVkNTExNzk4MGIxYTgzOA==",
+      "commit": {
+        "author": {
+          "name": "William Kapke",
+          "email": "william.kapke@gmail.com",
+          "date": "2016-11-10T23:20:43Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:49Z"
+        },
+        "message": "doc: remove Roadmap Working Group\n\nRefs: https://github.com/nodejs/CTC/issues/16\nPR-URL: https://github.com/nodejs/node/pull/9545\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Johan Bergström <bugs@bergstroem.nu>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "0813bde80c46a5c5e13623084509dcae8b26110a",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/0813bde80c46a5c5e13623084509dcae8b26110a"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/d09a9f4d2781a114f8926a0355d5117980b1a838",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i9AAoJENi59a6uhOTPLiAP/1r7DGnb7//+BHU0aiv7ouXg\nQVnS7tW+YOLdRanQsa+/s825ylb/QIXUntbVzqTEwZlZx90RnszmmNjZspdNEcMn\nOwkQhIYcFE7OF231u6TFl1zXvlsqWuZ81wH7cEDEvJZK9CKXc0r15d8Zi377EqWy\nfamh2422aambpXR8QTrWB4/MxIWbabqmSxilO30+zA8Kh5nVdl0uIQxJOASbTbmx\n4SGOQVPlhxM+LF/dFcM6fjYlPukkQ8/h0p2jm6EGuZogOK7nI5i6KAfu0KSI7n8U\n/N+8pG+1q/3EyJUgG1N9Bc3dCoXTGN57hgvtj7QrB61rKKLW2gnKxLXi1DFB7xwr\ncDBUCj3m3oqhAnbpgItyunNgMUwZodpqETHzs5BT9G3oORCm3v2r4T4wwIPYQaHS\nKjgsfl2RtQtg5a6WC0viS+dGfl9oxYTDeZMImBem8a3Ig1/W57GxmD0SlK+tSMHc\nSpX69AEM58P93g732py0ela8dHRk24B/1dcYctCUfhdA9VTJLzSLnGN/x9qRwOrj\nsVwi/wCPbHYjKZ3/xllsEFPjP+LFHJfplATrNloMql/6GP5K5Xz4aHXNta7xR6Z+\nzhRzFHN6QMgcnfQc3682tsqG5/Nf8cyDaCFu0PLQhP8zWFxg5jI3wN3buPmlkUK+\nXamezCXVXEH9biAG3fPi\n=AGv/\n-----END PGP SIGNATURE-----",
+          "payload": "tree 0813bde80c46a5c5e13623084509dcae8b26110a\nparent 77aded3ba1f6f601b2ca9779099640795a8d9b48\nauthor William Kapke <william.kapke@gmail.com> 1478820043 +0000\ncommitter Anna Henningsen <anna@addaleax.net> 1479792829 +0100\n\ndoc: remove Roadmap Working Group\n\nRefs: https://github.com/nodejs/CTC/issues/16\nPR-URL: https://github.com/nodejs/node/pull/9545\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Johan Bergström <bugs@bergstroem.nu>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/d09a9f4d2781a114f8926a0355d5117980b1a838",
+      "html_url": "https://github.com/nodejs/node/commit/d09a9f4d2781a114f8926a0355d5117980b1a838",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/d09a9f4d2781a114f8926a0355d5117980b1a838/comments",
+      "author": {
+        "login": "williamkapke",
+        "id": 739813,
+        "node_id": "MDQ6VXNlcjczOTgxMw==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/739813?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/williamkapke",
+        "html_url": "https://github.com/williamkapke",
+        "followers_url": "https://api.github.com/users/williamkapke/followers",
+        "following_url": "https://api.github.com/users/williamkapke/following{/other_user}",
+        "gists_url": "https://api.github.com/users/williamkapke/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/williamkapke/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/williamkapke/subscriptions",
+        "organizations_url": "https://api.github.com/users/williamkapke/orgs",
+        "repos_url": "https://api.github.com/users/williamkapke/repos",
+        "events_url": "https://api.github.com/users/williamkapke/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/williamkapke/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "77aded3ba1f6f601b2ca9779099640795a8d9b48",
+          "url": "https://api.github.com/repos/nodejs/node/commits/77aded3ba1f6f601b2ca9779099640795a8d9b48",
+          "html_url": "https://github.com/nodejs/node/commit/77aded3ba1f6f601b2ca9779099640795a8d9b48"
+        }
+      ]
+    },
+    {
+      "sha": "7c9e8cbd762505430d4367ca167e93cbae4366ff",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6N2M5ZThjYmQ3NjI1MDU0MzBkNDM2N2NhMTY3ZTkzY2JhZTQzNjZmZg==",
+      "commit": {
+        "author": {
+          "name": "kohta ito",
+          "email": "kohta110@gmail.com",
+          "date": "2016-11-12T07:18:05Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:49Z"
+        },
+        "message": "doc: fix the index order in pseudocode of modules\n\nfix the index order in pseudocode of modules.\n\nPR-URL: https://github.com/nodejs/node/pull/9562\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "c4cf3dc3aeaa01e54c604fa98f5e94c77c099d99",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/c4cf3dc3aeaa01e54c604fa98f5e94c77c099d99"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/7c9e8cbd762505430d4367ca167e93cbae4366ff",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i9AAoJENi59a6uhOTP+wYP/3ufptyDJv6Ovvh0qlbBUHvK\n72foBNioqo6THeB9Sqb4hD4M6/im0IG63hKongopMb+DfH8GZkjnSo7b1ccCTLLJ\n0QXgV8hgRMRtWDkEeF5e3E2cK3QBa2B++CRSWWPThljcnnopMEFdoAPGpK4f9S83\nBJSpGPE27N8C9EKddsrZKXXAPczRqTDSLwIXwll+7TVzhZOvVQ9AGvpApEWXQ4sJ\nK0q+ZACiyJqH/Y+lScGLE3KLAXk0vGpam1L6lcq7GdIUmaubMR4+4kHxs9F/kAr2\n/dWVwxOCaSD9tEZEf36FnZz7JZypNl4A5X9Xi3wfstm9AJGb6ren1/3DpqVDbCGo\nzfRM3PthsuTi7z9RVXBo6zUSitGdTTRmF/R4/E10DnEflvPSMjvqndPqFYMw8nTB\nMWF/4Fp8DiYDYOriQb+jQ/7s+58w4/dzxVUuyULP28+sDwM/vEd8ERtwFITAQR2+\n9PV7938EM+UgfkHobbi/IwiUlrERgMjsZolk+jOILypYA423gYTQgnuT51kQNKXj\nd6uCMgaEywflHIca9mIOgMRDJu6l0EBhkPIrLiNhFDiG7SG9bkfjl5aOGZsh6Fio\nWoE45s50KfVMCQPh6HqMW94foE2Z2djNJVJEIjZOQ5evaQ6HapXjHGWMYwzZyABP\nHz4WPilsL/cQZfKjHjQx\n=ceUL\n-----END PGP SIGNATURE-----",
+          "payload": "tree c4cf3dc3aeaa01e54c604fa98f5e94c77c099d99\nparent d09a9f4d2781a114f8926a0355d5117980b1a838\nauthor kohta ito <kohta110@gmail.com> 1478935085 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792829 +0100\n\ndoc: fix the index order in pseudocode of modules\n\nfix the index order in pseudocode of modules.\n\nPR-URL: https://github.com/nodejs/node/pull/9562\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/7c9e8cbd762505430d4367ca167e93cbae4366ff",
+      "html_url": "https://github.com/nodejs/node/commit/7c9e8cbd762505430d4367ca167e93cbae4366ff",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/7c9e8cbd762505430d4367ca167e93cbae4366ff/comments",
+      "author": {
+        "login": "koh110",
+        "id": 1889831,
+        "node_id": "MDQ6VXNlcjE4ODk4MzE=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1889831?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/koh110",
+        "html_url": "https://github.com/koh110",
+        "followers_url": "https://api.github.com/users/koh110/followers",
+        "following_url": "https://api.github.com/users/koh110/following{/other_user}",
+        "gists_url": "https://api.github.com/users/koh110/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/koh110/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/koh110/subscriptions",
+        "organizations_url": "https://api.github.com/users/koh110/orgs",
+        "repos_url": "https://api.github.com/users/koh110/repos",
+        "events_url": "https://api.github.com/users/koh110/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/koh110/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "d09a9f4d2781a114f8926a0355d5117980b1a838",
+          "url": "https://api.github.com/repos/nodejs/node/commits/d09a9f4d2781a114f8926a0355d5117980b1a838",
+          "html_url": "https://github.com/nodejs/node/commit/d09a9f4d2781a114f8926a0355d5117980b1a838"
+        }
+      ]
+    },
+    {
+      "sha": "8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OGM4NTlkNThhYmEzZWViYTZiZDhmZDBkODQxNmM2YjE4OTcwOTk0OA==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-10T05:02:14Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:50Z"
+        },
+        "message": "test: refactor test-tls-inception\n\n* buffer-to-string comparison replaced with string-to-string comparison\n* equal -> strictEqual\n* var -> const\n* rename identifiers to avoid masking\n\nPR-URL: https://github.com/nodejs/node/pull/9536\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "ddb8937212309d2fff9cd6c553ae3fef98af931e",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/ddb8937212309d2fff9cd6c553ae3fef98af931e"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i+AAoJENi59a6uhOTPA6gP/0Fu9Fgp0o8+hBrizHIc81L7\nvnOhMxadU6rHNVfiIRLoiMkT4TpJdU0HEkcNShEY0tAIlxJgGDcq6WmqkQXKJNfw\n5aRIZbH1KiX1mPGP3e3oyYx+H6w9kMeVf9iAlIqcO3iwJRF2Tk49fa7UfeCeQfbf\nS9L28PpJXwaCnRvVij4sVZzLRaTjktY4H8L6dx4lC/aSnZXq85cTMIFWmq+bdbuJ\ncg/dQBPivXndNCAKC4RExt09InlgCavysTXyQCNkTIbkwa8Mrcwel6/2POgPBG1a\nm+4aC+PUZhzZrjIThxKD4kR/3cIErACEpWImfUyK8f8CClZ6z2iGc6fm6U9XWEVe\nwLB2IxyAOMFMUwn302JAVsKi+Z5MlKdkhVPgO+7GtjgFyy/00gJnFUZpfyGuE+lh\nN9vl6I5owBWL50T0a5ZCLOrU+oZ/D0FR5EvcWd5Wy54ghZc68/fXJ5gxFiJouHhA\nMILAY5ODOgTMzM1+C+/zxaHIaLvNrntqDQO3E8VwlvTT222/KfiosU2Y0+pntI6J\nH7Udch0mOm0GzhAwAa7NzcmlXMX0uGyXdZz0nVF9W/MA/ATK8PnyRerlPMy4wD7h\njPVr6DFlQD/7ymXqYb9jhbWgb5yimzrQr74zwKxAI+DX34L7M2Lkh9xOb/VpxM4s\nyiawfprBx6LLOMrT9Qcw\n=WOaI\n-----END PGP SIGNATURE-----",
+          "payload": "tree ddb8937212309d2fff9cd6c553ae3fef98af931e\nparent 7c9e8cbd762505430d4367ca167e93cbae4366ff\nauthor Rich Trott <rtrott@gmail.com> 1478754134 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792830 +0100\n\ntest: refactor test-tls-inception\n\n* buffer-to-string comparison replaced with string-to-string comparison\n* equal -> strictEqual\n* var -> const\n* rename identifiers to avoid masking\n\nPR-URL: https://github.com/nodejs/node/pull/9536\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+      "html_url": "https://github.com/nodejs/node/commit/8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/8c859d58aba3eeba6bd8fd0d8416c6b189709948/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "7c9e8cbd762505430d4367ca167e93cbae4366ff",
+          "url": "https://api.github.com/repos/nodejs/node/commits/7c9e8cbd762505430d4367ca167e93cbae4366ff",
+          "html_url": "https://github.com/nodejs/node/commit/7c9e8cbd762505430d4367ca167e93cbae4366ff"
+        }
+      ]
+    }
+  ]
+  

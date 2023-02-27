@@ -1,0 +1,1109 @@
+[
+    {
+      "sha": "3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6M2Y0NWNjMTliMDg3OWQzZGE4YzcxMTY5YmZjZmFiODcyZGQyNzViOQ==",
+      "commit": {
+        "author": {
+          "name": "Adam Majer",
+          "email": "amajer@suse.de",
+          "date": "2016-08-30T11:16:27Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:02Z"
+        },
+        "message": "crypto: Use reference count to manage cert_store\n\nSetting reference count at the time of setting cert_store instead of\ntrying to manage it by modifying internal states in destructor.\n\nPR-URL: https://github.com/nodejs/node/pull/9409\nReviewed-By: Fedor Indutny <fedor@indutny.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "b436da5ef2ef22825496279e3fabff9432089e91",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/b436da5ef2ef22825496279e3fabff9432089e91"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+      "html_url": "https://github.com/nodejs/node/commit/3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/3f45cc19b0879d3da8c71169bfcfab872dd275b9/comments",
+      "author": {
+        "login": "AdamMajer",
+        "id": 1211498,
+        "node_id": "MDQ6VXNlcjEyMTE0OTg=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1211498?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/AdamMajer",
+        "html_url": "https://github.com/AdamMajer",
+        "followers_url": "https://api.github.com/users/AdamMajer/followers",
+        "following_url": "https://api.github.com/users/AdamMajer/following{/other_user}",
+        "gists_url": "https://api.github.com/users/AdamMajer/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/AdamMajer/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/AdamMajer/subscriptions",
+        "organizations_url": "https://api.github.com/users/AdamMajer/orgs",
+        "repos_url": "https://api.github.com/users/AdamMajer/repos",
+        "events_url": "https://api.github.com/users/AdamMajer/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/AdamMajer/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "8a9c45a4a974bc39223c441c31e5369134f8e6c2",
+          "url": "https://api.github.com/repos/nodejs/node/commits/8a9c45a4a974bc39223c441c31e5369134f8e6c2",
+          "html_url": "https://github.com/nodejs/node/commit/8a9c45a4a974bc39223c441c31e5369134f8e6c2"
+        }
+      ]
+    },
+    {
+      "sha": "bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YmNkYmYyMmYwZGUwZTZhMDhiMTc0M2QyNzRjMjE1OTM0YmQ3ZDcxYQ==",
+      "commit": {
+        "author": {
+          "name": "Adam Langley",
+          "email": "agl@google.com",
+          "date": "2016-10-30T20:22:50Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:03Z"
+        },
+        "message": "crypto: fix handling of root_cert_store.\n\nSecureContext::AddRootCerts only parses the root certificates once and\nkeeps the result in root_cert_store, a global X509_STORE. This change\naddresses the following issues:\n\n1. SecureContext::AddCACert would add certificates to whatever\nX509_STORE was being used, even if that happened to be root_cert_store.\nThus adding a CA certificate to a SecureContext would also cause it to\nbe included in unrelated SecureContexts.\n\n2. AddCRL would crash if neither AddRootCerts nor AddCACert had been\ncalled first.\n\n3. Calling AddCACert without calling AddRootCerts first, and with an\ninput that didn't contain any certificates, would leak an X509_STORE.\n\n4. AddCRL would add the CRL to whatever X509_STORE was being used. Thus,\nlike AddCACert, unrelated SecureContext objects could be affected.\n\nThe following, non-obvious behaviour remains: calling AddRootCerts\ndoesn't /add/ them, rather it sets the CA certs to be the root set and\noverrides any previous CA certificates.\n\nPoints 1–3 are probably unimportant because the SecureContext is\ntypically configured by `createSecureContext` in `lib/_tls_common.js`.\nThis function either calls AddCACert or AddRootCerts and only calls\nAddCRL after setting up CA certificates. Point four could still apply in\nthe unlikely case that someone configures a CRL without explicitly\nconfiguring the CAs.\n\nPR-URL: https://github.com/nodejs/node/pull/9409\nReviewed-By: Fedor Indutny <fedor@indutny.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "85fa57816738d23b6ddeeb75dc5e8f9bc5d422aa",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/85fa57816738d23b6ddeeb75dc5e8f9bc5d422aa"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+      "html_url": "https://github.com/nodejs/node/commit/bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/bcdbf22f0de0e6a08b1743d274c215934bd7d71a/comments",
+      "author": {
+        "login": "agl",
+        "id": 21203,
+        "node_id": "MDQ6VXNlcjIxMjAz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/21203?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/agl",
+        "html_url": "https://github.com/agl",
+        "followers_url": "https://api.github.com/users/agl/followers",
+        "following_url": "https://api.github.com/users/agl/following{/other_user}",
+        "gists_url": "https://api.github.com/users/agl/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/agl/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/agl/subscriptions",
+        "organizations_url": "https://api.github.com/users/agl/orgs",
+        "repos_url": "https://api.github.com/users/agl/repos",
+        "events_url": "https://api.github.com/users/agl/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/agl/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+          "url": "https://api.github.com/repos/nodejs/node/commits/3f45cc19b0879d3da8c71169bfcfab872dd275b9",
+          "html_url": "https://github.com/nodejs/node/commit/3f45cc19b0879d3da8c71169bfcfab872dd275b9"
+        }
+      ]
+    },
+    {
+      "sha": "af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YWY3NGRiMzk2MTRjZTYyNWVjNmFmNGYwODlmN2Y5ZDIwYzhkNjdhMw==",
+      "commit": {
+        "author": {
+          "name": "Adam Langley",
+          "email": "agl@google.com",
+          "date": "2016-10-28T20:21:51Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:03Z"
+        },
+        "message": "crypto: use SSL_get_servername.\n\n(Patch by David Benjamin.)\n\nRather than reach into the SSL_SESSION, use the intended API,\nSSL_get_servername. This will also help the transition to OpenSSL 1.1.0.\n\nAlso don't fill in the tlsTicket field here. This is never read by\noncertcb and was always false anyway; that field is maintained by\nclients and tracks whether the server issued a ticket or a session ID.\n\n(Note this is distinct from the copy passed to onclienthello which is\nused and is not a no-op.)\n\nPR-URL: https://github.com/nodejs/node/pull/9347\nReviewed-By: Fedor Indutny <fedor@indutny.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>",
+        "tree": {
+          "sha": "700541e78e1bd9b46199d07cd38c9544d54946f0",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/700541e78e1bd9b46199d07cd38c9544d54946f0"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+      "html_url": "https://github.com/nodejs/node/commit/af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/af74db39614ce625ec6af4f089f7f9d20c8d67a3/comments",
+      "author": {
+        "login": "agl",
+        "id": 21203,
+        "node_id": "MDQ6VXNlcjIxMjAz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/21203?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/agl",
+        "html_url": "https://github.com/agl",
+        "followers_url": "https://api.github.com/users/agl/followers",
+        "following_url": "https://api.github.com/users/agl/following{/other_user}",
+        "gists_url": "https://api.github.com/users/agl/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/agl/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/agl/subscriptions",
+        "organizations_url": "https://api.github.com/users/agl/orgs",
+        "repos_url": "https://api.github.com/users/agl/repos",
+        "events_url": "https://api.github.com/users/agl/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/agl/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+          "url": "https://api.github.com/repos/nodejs/node/commits/bcdbf22f0de0e6a08b1743d274c215934bd7d71a",
+          "html_url": "https://github.com/nodejs/node/commit/bcdbf22f0de0e6a08b1743d274c215934bd7d71a"
+        }
+      ]
+    },
+    {
+      "sha": "ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZWJjOWM0YmE5NzQ3NjViMzIxZmRmZTExM2NkOWFlY2NiZDAyMTdmYw==",
+      "commit": {
+        "author": {
+          "name": "Evan Lucas",
+          "email": "evanlucas@me.com",
+          "date": "2016-11-10T11:13:14Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:03Z"
+        },
+        "message": "doc: add missing link in changelog\n\nThe link to v7.1.0 was missing.\n\nPR-URL: https://github.com/nodejs/node/pull/9540\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "bcf10fa83cb1eb6821e81f847f010e2effc79dbb",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/bcf10fa83cb1eb6821e81f847f010e2effc79dbb"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+      "html_url": "https://github.com/nodejs/node/commit/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc/comments",
+      "author": {
+        "login": "evanlucas",
+        "id": 677994,
+        "node_id": "MDQ6VXNlcjY3Nzk5NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/677994?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/evanlucas",
+        "html_url": "https://github.com/evanlucas",
+        "followers_url": "https://api.github.com/users/evanlucas/followers",
+        "following_url": "https://api.github.com/users/evanlucas/following{/other_user}",
+        "gists_url": "https://api.github.com/users/evanlucas/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/evanlucas/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/evanlucas/subscriptions",
+        "organizations_url": "https://api.github.com/users/evanlucas/orgs",
+        "repos_url": "https://api.github.com/users/evanlucas/repos",
+        "events_url": "https://api.github.com/users/evanlucas/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/evanlucas/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+          "url": "https://api.github.com/repos/nodejs/node/commits/af74db39614ce625ec6af4f089f7f9d20c8d67a3",
+          "html_url": "https://github.com/nodejs/node/commit/af74db39614ce625ec6af4f089f7f9d20c8d67a3"
+        }
+      ]
+    },
+    {
+      "sha": "409851427a1b49c2a2cd46e47861420ecb2d83b1",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NDA5ODUxNDI3YTFiNDljMmEyY2Q0NmU0Nzg2MTQyMGVjYjJkODNiMQ==",
+      "commit": {
+        "author": {
+          "name": "Syuhei Kobayashi",
+          "email": "nanocloudx@gmail.com",
+          "date": "2016-11-12T07:36:09Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:03Z"
+        },
+        "message": "doc: fix typo in doc/tls.md\n\nfix doc/tls.md: line 762 836 1026 e.g., => e.g.\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9566\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "e9f36f824d10da1fe4d097cd5b3eb9566b8c6ee3",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/e9f36f824d10da1fe4d097cd5b3eb9566b8c6ee3"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/409851427a1b49c2a2cd46e47861420ecb2d83b1",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/409851427a1b49c2a2cd46e47861420ecb2d83b1",
+      "html_url": "https://github.com/nodejs/node/commit/409851427a1b49c2a2cd46e47861420ecb2d83b1",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/409851427a1b49c2a2cd46e47861420ecb2d83b1/comments",
+      "author": {
+        "login": "nanocloudx",
+        "id": 6778507,
+        "node_id": "MDQ6VXNlcjY3Nzg1MDc=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6778507?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/nanocloudx",
+        "html_url": "https://github.com/nanocloudx",
+        "followers_url": "https://api.github.com/users/nanocloudx/followers",
+        "following_url": "https://api.github.com/users/nanocloudx/following{/other_user}",
+        "gists_url": "https://api.github.com/users/nanocloudx/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/nanocloudx/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/nanocloudx/subscriptions",
+        "organizations_url": "https://api.github.com/users/nanocloudx/orgs",
+        "repos_url": "https://api.github.com/users/nanocloudx/repos",
+        "events_url": "https://api.github.com/users/nanocloudx/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/nanocloudx/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+          "url": "https://api.github.com/repos/nodejs/node/commits/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc",
+          "html_url": "https://github.com/nodejs/node/commit/ebc9c4ba974765b321fdfe113cd9aeccbd0217fc"
+        }
+      ]
+    },
+    {
+      "sha": "a83a28663172d140d4163fe880fadfc298dde1de",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YTgzYTI4NjYzMTcyZDE0MGQ0MTYzZmU4ODBmYWRmYzI5OGRkZTFkZQ==",
+      "commit": {
+        "author": {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com",
+          "date": "2016-11-09T15:08:23Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:04Z"
+        },
+        "message": "test: add test for broken child process stdio\n\nThis commit adds a test for the scenario where a child process is\nspawned, but the stdio streams could not be created.\n\nPR-URL: https://github.com/nodejs/node/pull/9528\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "290c8a43ff7c5d85b5245df617f82f99a30124dd",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/290c8a43ff7c5d85b5245df617f82f99a30124dd"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/a83a28663172d140d4163fe880fadfc298dde1de",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/a83a28663172d140d4163fe880fadfc298dde1de",
+      "html_url": "https://github.com/nodejs/node/commit/a83a28663172d140d4163fe880fadfc298dde1de",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/a83a28663172d140d4163fe880fadfc298dde1de/comments",
+      "author": {
+        "login": "cjihrig",
+        "id": 2512748,
+        "node_id": "MDQ6VXNlcjI1MTI3NDg=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2512748?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/cjihrig",
+        "html_url": "https://github.com/cjihrig",
+        "followers_url": "https://api.github.com/users/cjihrig/followers",
+        "following_url": "https://api.github.com/users/cjihrig/following{/other_user}",
+        "gists_url": "https://api.github.com/users/cjihrig/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/cjihrig/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/cjihrig/subscriptions",
+        "organizations_url": "https://api.github.com/users/cjihrig/orgs",
+        "repos_url": "https://api.github.com/users/cjihrig/repos",
+        "events_url": "https://api.github.com/users/cjihrig/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/cjihrig/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "409851427a1b49c2a2cd46e47861420ecb2d83b1",
+          "url": "https://api.github.com/repos/nodejs/node/commits/409851427a1b49c2a2cd46e47861420ecb2d83b1",
+          "html_url": "https://github.com/nodejs/node/commit/409851427a1b49c2a2cd46e47861420ecb2d83b1"
+        }
+      ]
+    },
+    {
+      "sha": "30475beef69e6e5e4de428de531a0d71546964de",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzA0NzViZWVmNjllNmU1ZTRkZTQyOGRlNTMxYTBkNzE1NDY5NjRkZQ==",
+      "commit": {
+        "author": {
+          "name": "Evan Lucas",
+          "email": "evanlucas@me.com",
+          "date": "2016-11-15T11:29:38Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:04Z"
+        },
+        "message": "src: use ABORT() macro instead of abort()\n\nThis makes sure that we dump a backtrace and use raise(SIGABRT) on\nWindows.\n\nPR-URL: https://github.com/nodejs/node/pull/9613\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "144602047b4e17acb8347d30c30347535afcbd29",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/144602047b4e17acb8347d30c30347535afcbd29"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/30475beef69e6e5e4de428de531a0d71546964de",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/30475beef69e6e5e4de428de531a0d71546964de",
+      "html_url": "https://github.com/nodejs/node/commit/30475beef69e6e5e4de428de531a0d71546964de",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/30475beef69e6e5e4de428de531a0d71546964de/comments",
+      "author": {
+        "login": "evanlucas",
+        "id": 677994,
+        "node_id": "MDQ6VXNlcjY3Nzk5NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/677994?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/evanlucas",
+        "html_url": "https://github.com/evanlucas",
+        "followers_url": "https://api.github.com/users/evanlucas/followers",
+        "following_url": "https://api.github.com/users/evanlucas/following{/other_user}",
+        "gists_url": "https://api.github.com/users/evanlucas/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/evanlucas/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/evanlucas/subscriptions",
+        "organizations_url": "https://api.github.com/users/evanlucas/orgs",
+        "repos_url": "https://api.github.com/users/evanlucas/repos",
+        "events_url": "https://api.github.com/users/evanlucas/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/evanlucas/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "a83a28663172d140d4163fe880fadfc298dde1de",
+          "url": "https://api.github.com/repos/nodejs/node/commits/a83a28663172d140d4163fe880fadfc298dde1de",
+          "html_url": "https://github.com/nodejs/node/commit/a83a28663172d140d4163fe880fadfc298dde1de"
+        }
+      ]
+    },
+    {
+      "sha": "786631c7b478a489cb9f99bef8e28662c930f86d",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6Nzg2NjMxYzdiNDc4YTQ4OWNiOWY5OWJlZjhlMjg2NjJjOTMwZjg2ZA==",
+      "commit": {
+        "author": {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com",
+          "date": "2016-11-16T18:49:21Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:04Z"
+        },
+        "message": "deps: upgrade libuv to 1.10.1\n\nFixes: https://github.com/nodejs/node/issues/9542\nFixes: https://github.com/nodejs/node/issues/9546\nPR-URL: https://github.com/nodejs/node/pull/9647\nReviewed-By: Imran Iqbal <imran@imraniqbal.org>\nReviewed-By: Santiago Gimeno <santiago.gimeno@gmail.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Myles Borins <myles.borins@gmail.com>\nReviewed-By: Johan Bergström <bugs@bergstroem.nu>",
+        "tree": {
+          "sha": "bdbb080211422cca1b84b1ff17a3cc81b64f45e3",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/bdbb080211422cca1b84b1ff17a3cc81b64f45e3"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/786631c7b478a489cb9f99bef8e28662c930f86d",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/786631c7b478a489cb9f99bef8e28662c930f86d",
+      "html_url": "https://github.com/nodejs/node/commit/786631c7b478a489cb9f99bef8e28662c930f86d",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/786631c7b478a489cb9f99bef8e28662c930f86d/comments",
+      "author": {
+        "login": "cjihrig",
+        "id": 2512748,
+        "node_id": "MDQ6VXNlcjI1MTI3NDg=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2512748?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/cjihrig",
+        "html_url": "https://github.com/cjihrig",
+        "followers_url": "https://api.github.com/users/cjihrig/followers",
+        "following_url": "https://api.github.com/users/cjihrig/following{/other_user}",
+        "gists_url": "https://api.github.com/users/cjihrig/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/cjihrig/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/cjihrig/subscriptions",
+        "organizations_url": "https://api.github.com/users/cjihrig/orgs",
+        "repos_url": "https://api.github.com/users/cjihrig/repos",
+        "events_url": "https://api.github.com/users/cjihrig/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/cjihrig/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "30475beef69e6e5e4de428de531a0d71546964de",
+          "url": "https://api.github.com/repos/nodejs/node/commits/30475beef69e6e5e4de428de531a0d71546964de",
+          "html_url": "https://github.com/nodejs/node/commit/30475beef69e6e5e4de428de531a0d71546964de"
+        }
+      ]
+    },
+    {
+      "sha": "15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MTVhZjkxMmFiNTgyZTkyYWI0ZTJmMGUzOGVjNmJiNmU5ODhmYzA5OQ==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-11-14T12:39:40Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:04Z"
+        },
+        "message": "src: fix memory leak introduced in 34febfbf4\n\nFix leaking the BIO in the error path.  Introduced in commit 34febfbf4\n(\"crypto: fix handling of root_cert_store\").\n\nPR-URL: https://github.com/nodejs/node/pull/9604\nRefs: https://github.com/nodejs/node/pull/9409\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Fedor Indutny <fedor@indutny.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Rod Vagg <rod@vagg.org>",
+        "tree": {
+          "sha": "1b9ff21f1820f0b6016fa31cd2b43e5f68b0b1f6",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/1b9ff21f1820f0b6016fa31cd2b43e5f68b0b1f6"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+      "html_url": "https://github.com/nodejs/node/commit/15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/15af912ab582e92ab4e2f0e38ec6bb6e988fc099/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "786631c7b478a489cb9f99bef8e28662c930f86d",
+          "url": "https://api.github.com/repos/nodejs/node/commits/786631c7b478a489cb9f99bef8e28662c930f86d",
+          "html_url": "https://github.com/nodejs/node/commit/786631c7b478a489cb9f99bef8e28662c930f86d"
+        }
+      ]
+    },
+    {
+      "sha": "1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MWJkNzkzNjhjZGFiMTJlNTZiNjY3NWRmZThiZjBkOTQ5YTdkY2NmYg==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-10-26T05:51:34Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:05Z"
+        },
+        "message": "dns: implement {ttl: true} for dns.resolve4()\n\nAdd an option to retrieve the Time-To-Live of the A record.\n\nPR-URL: https://github.com/nodejs/node/pull/9296\nRefs: https://github.com/nodejs/node/issues/5893\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "6186b486ce217a6cd85bc0823635eb189e99fadf",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/6186b486ce217a6cd85bc0823635eb189e99fadf"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+      "html_url": "https://github.com/nodejs/node/commit/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+          "url": "https://api.github.com/repos/nodejs/node/commits/15af912ab582e92ab4e2f0e38ec6bb6e988fc099",
+          "html_url": "https://github.com/nodejs/node/commit/15af912ab582e92ab4e2f0e38ec6bb6e988fc099"
+        }
+      ]
+    },
+    {
+      "sha": "0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MGEzZTVjYzU3YWM5MTM2ZDU3NmFiNmUzNzgyNWVjMDRmYTViYWM3ZQ==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-10-26T05:54:20Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T16:15:05Z"
+        },
+        "message": "dns: implement {ttl: true} for dns.resolve6()\n\nAdd an option to retrieve the Time-To-Live of the AAAA record.\n\nPR-URL: https://github.com/nodejs/node/pull/9296\nRefs: https://github.com/nodejs/node/issues/5893\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "a07257932b461a9643941c522ade943bacce13de",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/a07257932b461a9643941c522ade943bacce13de"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+      "html_url": "https://github.com/nodejs/node/commit/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+          "url": "https://api.github.com/repos/nodejs/node/commits/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb",
+          "html_url": "https://github.com/nodejs/node/commit/1bd79368cdab12e56b6675dfe8bf0d949a7dccfb"
+        }
+      ]
+    },
+    {
+      "sha": "fa98eec410e1e4269cf9bf67fe1569503562159a",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZmE5OGVlYzQxMGUxZTQyNjljZjliZjY3ZmUxNTY5NTAzNTYyMTU5YQ==",
+      "commit": {
+        "author": {
+          "name": "Vse Mozhet Byt",
+          "email": "vsemozhetbyt@gmail.com",
+          "date": "2016-11-20T02:20:35Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T17:29:41Z"
+        },
+        "message": "doc: fix typo in assert code example\n\nPR-URL: https://github.com/nodejs/node/pull/9704\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>",
+        "tree": {
+          "sha": "6b5ecdd5bd5df64e455c7b1426df3c7484df91c2",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/6b5ecdd5bd5df64e455c7b1426df3c7484df91c2"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/fa98eec410e1e4269cf9bf67fe1569503562159a",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/fa98eec410e1e4269cf9bf67fe1569503562159a",
+      "html_url": "https://github.com/nodejs/node/commit/fa98eec410e1e4269cf9bf67fe1569503562159a",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/fa98eec410e1e4269cf9bf67fe1569503562159a/comments",
+      "author": {
+        "login": "vsemozhetbyt",
+        "id": 10393198,
+        "node_id": "MDQ6VXNlcjEwMzkzMTk4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10393198?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/vsemozhetbyt",
+        "html_url": "https://github.com/vsemozhetbyt",
+        "followers_url": "https://api.github.com/users/vsemozhetbyt/followers",
+        "following_url": "https://api.github.com/users/vsemozhetbyt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/vsemozhetbyt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/vsemozhetbyt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/vsemozhetbyt/subscriptions",
+        "organizations_url": "https://api.github.com/users/vsemozhetbyt/orgs",
+        "repos_url": "https://api.github.com/users/vsemozhetbyt/repos",
+        "events_url": "https://api.github.com/users/vsemozhetbyt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/vsemozhetbyt/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+          "url": "https://api.github.com/repos/nodejs/node/commits/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e",
+          "html_url": "https://github.com/nodejs/node/commit/0a3e5cc57ac9136d576ab6e37825ec04fa5bac7e"
+        }
+      ]
+    },
+    {
+      "sha": "02c2bf7d34141ddb903e215580ee79551790ac48",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MDJjMmJmN2QzNDE0MWRkYjkwM2UyMTU1ODBlZTc5NTUxNzkwYWM0OA==",
+      "commit": {
+        "author": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-18T20:47:15Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T17:29:41Z"
+        },
+        "message": "timers: use consistent checks for canceled timers\n\nPreviously not all codepaths set `timer._idleTimeout = -1` for canceled\nor closed timers, and not all codepaths checked it either.\n\nUnenroll uses this to say that a timer is indeed closed and it is the\nclosest thing there is to an authoritative source for this.\n\nRefs: https://github.com/nodejs/node/pull/9606\nFixes: https://github.com/nodejs/node/issues/9561\nPR-URL: https://github.com/nodejs/node/pull/9685\nReviewed-By: Rich Trott <rtrott@gmail.com>",
+        "tree": {
+          "sha": "41c49c72effaf229888f8fb75e0f3918f1804cce",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/41c49c72effaf229888f8fb75e0f3918f1804cce"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/02c2bf7d34141ddb903e215580ee79551790ac48",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/02c2bf7d34141ddb903e215580ee79551790ac48",
+      "html_url": "https://github.com/nodejs/node/commit/02c2bf7d34141ddb903e215580ee79551790ac48",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/02c2bf7d34141ddb903e215580ee79551790ac48/comments",
+      "author": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "fa98eec410e1e4269cf9bf67fe1569503562159a",
+          "url": "https://api.github.com/repos/nodejs/node/commits/fa98eec410e1e4269cf9bf67fe1569503562159a",
+          "html_url": "https://github.com/nodejs/node/commit/fa98eec410e1e4269cf9bf67fe1569503562159a"
+        }
+      ]
+    },
+    {
+      "sha": "c1aa949064892dbe693750686c06f4ad5673e577",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YzFhYTk0OTA2NDg5MmRiZTY5Mzc1MDY4NmMwNmY0YWQ1NjczZTU3Nw==",
+      "commit": {
+        "author": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T22:13:11Z"
+        },
+        "committer": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-22T22:13:11Z"
+        },
+        "message": "2016-11-22, Version 7.2.0 (Current)\n\nThis is a security release impacting Windows 10 users.\n\nNotable changes:\n\n* crypto: The `Decipher` methods `setAuthTag()` and `setAAD` now return\n`this`. (Kirill Fomichev) https://github.com/nodejs/node/pull/9398\n* dns: Implemented `{ttl: true}` for `resolve4()` and `resolve6()`.\n(Ben Noordhuis) https://github.com/nodejs/node/pull/9296 &\nhttps://github.com/nodejs/node/pull/9296\n* libuv: Upgrade to v1.10.1 (cjihrig)\nhttps://github.com/nodejs/node/pull/9647\n  - Fixed a potential buffer overflow when writing data to console on\nWindows 10. (CVE-2016-9551)\n* process: Added a new `external` property to the data returned by\n`memoryUsage()`. (Fedor Indutny)\nhttps://github.com/nodejs/node/pull/9587\n* tls: Fixed a memory leak when writes were queued on TLS connection\nthat was destroyed during handshake. (Fedor Indutny)\nhttps://github.com/nodejs/node/pull/9626\n* V8 (dep): Upgrade to v5.4.500.43 (Michaël Zasso)\nhttps://github.com/nodejs/node/pull/9697\n* v8: The data returned by `getHeapStatistics()` now includes three new\nfields: `malloced_memory`, `peak_malloced_memory`, and\n`does_zap_garbage`. (Gareth Ellis)\nhttps://github.com/nodejs/node/pull/8610\n\nPR-URL: https://github.com/nodejs/node/pull/9745",
+        "tree": {
+          "sha": "f87da6adf9e7e876103744caf4530793c3650129",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/f87da6adf9e7e876103744caf4530793c3650129"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/c1aa949064892dbe693750686c06f4ad5673e577",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/c1aa949064892dbe693750686c06f4ad5673e577",
+      "html_url": "https://github.com/nodejs/node/commit/c1aa949064892dbe693750686c06f4ad5673e577",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/c1aa949064892dbe693750686c06f4ad5673e577/comments",
+      "author": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "02c2bf7d34141ddb903e215580ee79551790ac48",
+          "url": "https://api.github.com/repos/nodejs/node/commits/02c2bf7d34141ddb903e215580ee79551790ac48",
+          "html_url": "https://github.com/nodejs/node/commit/02c2bf7d34141ddb903e215580ee79551790ac48"
+        }
+      ]
+    }
+  ]
+  
