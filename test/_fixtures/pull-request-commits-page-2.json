@@ -1,0 +1,2373 @@
+[
+    {
+      "sha": "dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZGFlM2QzZTUzYzViZWQ2MWRjNzBjYzYyNGM3ZmFjNTBjYTVhZjkyZA==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-10T06:09:56Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:50Z"
+        },
+        "message": "test: refactor test-next-tick-error-spin\n\n* use common.mustCall()\n* setTimeout() -> setImmediate()\n* assert() -> assert.strictEqual()\n* var -> const\n* remove unneeded console.log()\n* remove commented-out code\n\nPR-URL: https://github.com/nodejs/node/pull/9537\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "5f1953500c8f50879ae5ea22da38bf5a4c63863a",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/5f1953500c8f50879ae5ea22da38bf5a4c63863a"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i/AAoJENi59a6uhOTPES4P/RGPAwHYX7TqFQ9Kp1JH9TCT\nGY/IZziLRFA+fanAFFDRCNwSM2K3pwBJ9ZTvsoaU4Pb/knPiP1DcD/L28d+nR32d\nSEwKfwY7W5MeW/DAxL6CBeuCVXrrIlwurGBC5qJEwPYS9FsReRfz+/C/gfh/cvTv\ny4nlSyns3akLLdjOn+Cf+yiMBuznEzAS5yZgaZs2Q+XYsj0NacBQ8n4e7KUvXVcW\nAUDH6qyOLJc1O4gwTmC6DSaMMB9/xlc99ot+QGyDfdK09CzQNLYWHnAMI96pCOSk\n8iVV9diF3DQXvvLEE9VnUjHrIF4cK/GPt0vZ3djZm1yEeLQ7l14YYIDOzFLfHlpV\n6YxPFbUsV5AG7CotIuGZSOQ/LbVlOgGz+uquydtrRClcMizmQQgM0FwhuwRTG9WQ\nlGwSKEbbdlWPWpyu9vsyFZubc8pP00hERe5i70DOwILd0p6mkmJmYR2r7lQmE1+H\nG56qRwqJ3xGloEmyDGulaBrIRJXp/rwtHuMc2ncKyWdzz3D5hVKQfUqncDKxuZhL\nhBHHEOtAMCNRtDBgzpidYGe+/cjcaiWczmmtjI31RKHxiuTDeuntQm977cE/i8Bj\nKXaOg2eXlc4WI6ZV3hz6sVAiE5jIKxc65Z6P5KaXj5Hy+f1iUNYgdxVjw0QJM/y2\nvS+UN3GhMq1d45yTGI7Z\n=jE0w\n-----END PGP SIGNATURE-----",
+          "payload": "tree 5f1953500c8f50879ae5ea22da38bf5a4c63863a\nparent 8c859d58aba3eeba6bd8fd0d8416c6b189709948\nauthor Rich Trott <rtrott@gmail.com> 1478758196 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792830 +0100\n\ntest: refactor test-next-tick-error-spin\n\n* use common.mustCall()\n* setTimeout() -> setImmediate()\n* assert() -> assert.strictEqual()\n* var -> const\n* remove unneeded console.log()\n* remove commented-out code\n\nPR-URL: https://github.com/nodejs/node/pull/9537\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+      "html_url": "https://github.com/nodejs/node/commit/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+          "url": "https://api.github.com/repos/nodejs/node/commits/8c859d58aba3eeba6bd8fd0d8416c6b189709948",
+          "html_url": "https://github.com/nodejs/node/commit/8c859d58aba3eeba6bd8fd0d8416c6b189709948"
+        }
+      ]
+    },
+    {
+      "sha": "64dec14502ab41036c23da7f501b4fc83945f427",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NjRkZWMxNDUwMmFiNDEwMzZjMjNkYTdmNTAxYjRmYzgzOTQ1ZjQyNw==",
+      "commit": {
+        "author": {
+          "name": "ikasumi_wt",
+          "email": "wtsnyk13@gmail.com",
+          "date": "2016-11-12T07:19:47Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:51Z"
+        },
+        "message": "doc: fix e.g., to e.g. in doc/http.md\n\nfix e.g., to e.g. in doc/http.md\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9564\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "de2edfd0a528a521c519c7274d7f9ace7fedb5f6",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/de2edfd0a528a521c519c7274d7f9ace7fedb5f6"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/64dec14502ab41036c23da7f501b4fc83945f427",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9i/AAoJENi59a6uhOTPQ78P/R3yeOBZzIPTUPNh+xaQT+uz\nUX69mQxFe13gk6S6HuikShZpkE4VHm7PpcoCez0uATJUd+d9pJgIwkHp3l/6VVih\nL19YnFnVq1uSU3bk4np4BgCtG89EfM2sLfxEzSoKXQbSwNWWgnrOhZf2aWJQUIQ7\n7CIHKmzSVSm46dITq8+Wrybg/4tXf+ADSvYL/QmSX8AnV8YpT3JhdRWLWFbvOQpM\nXfkoHJN+XThAGHoRFsBYdz32SKUw+SQ0164jXJ+ufwOT/1a8OeWbgqSfnGZ9yuDw\ntQ8qZuv6HAEWEBmtceOkjsCYhgTSr1mxBZVEsYAuCV+YnMmis6NXPGxwDowJKCT5\nJorpDEKtV//uSp+qkBy3YMwfXHfsTZM9PZwJS+TVngOGk3CN9wVDl8KRCDN+7Sbd\nV07PnljvsXlsdsD9u2haLsQKk6kOcfSbwK8c4Pn7oivzZMjwx0WxEoEZ6FNN8gag\nQMzruK/LEWNOqvMxZscrTAds95yB8jQ+yenU4ST7rMzLf7l5YWsOrSkMiCZM+l2U\nigJvdVy/0iCQ80AfW2FEtkM0V78l5IK0U2X+ejK/ov/HcGR2ajX4C07NixH++BmK\n+6Katm/Y2fVYjzVvb8EGEw3lhZzL01yBJpSKZTBl+IzUTGfMtuMpJG+IMhDa3z8P\nbL7sW4RKprxiub9vbpmd\n=3Htw\n-----END PGP SIGNATURE-----",
+          "payload": "tree de2edfd0a528a521c519c7274d7f9ace7fedb5f6\nparent dae3d3e53c5bed61dc70cc624c7fac50ca5af92d\nauthor ikasumi_wt <wtsnyk13@gmail.com> 1478935187 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792831 +0100\n\ndoc: fix e.g., to e.g. in doc/http.md\n\nfix e.g., to e.g. in doc/http.md\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9564\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/64dec14502ab41036c23da7f501b4fc83945f427",
+      "html_url": "https://github.com/nodejs/node/commit/64dec14502ab41036c23da7f501b4fc83945f427",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/64dec14502ab41036c23da7f501b4fc83945f427/comments",
+      "author": {
+        "login": "ikasumiwt",
+        "id": 4006425,
+        "node_id": "MDQ6VXNlcjQwMDY0MjU=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/4006425?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ikasumiwt",
+        "html_url": "https://github.com/ikasumiwt",
+        "followers_url": "https://api.github.com/users/ikasumiwt/followers",
+        "following_url": "https://api.github.com/users/ikasumiwt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ikasumiwt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ikasumiwt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ikasumiwt/subscriptions",
+        "organizations_url": "https://api.github.com/users/ikasumiwt/orgs",
+        "repos_url": "https://api.github.com/users/ikasumiwt/repos",
+        "events_url": "https://api.github.com/users/ikasumiwt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ikasumiwt/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+          "url": "https://api.github.com/repos/nodejs/node/commits/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d",
+          "html_url": "https://github.com/nodejs/node/commit/dae3d3e53c5bed61dc70cc624c7fac50ca5af92d"
+        }
+      ]
+    },
+    {
+      "sha": "e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZTdlYjljY2RjZmE3MTkzYjdiMzczNmIyZjY1MjJiOGQ1YzQ5M2Q0MA==",
+      "commit": {
+        "author": {
+          "name": "Yoshiya Hinosawa",
+          "email": "stibium121@gmail.com",
+          "date": "2016-11-12T07:26:52Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:52Z"
+        },
+        "message": "test: improve test-stream2-objects.js\n\nThis commit improves the test cases in\ntest-stream2-objects.js by using assert.strictEqual\ninstead of assert.equal.\n\nThis is a part of Code And Learn at NodeFest 2016\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9565\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>",
+        "tree": {
+          "sha": "f9c9455abce7f05da782836ded7df77a66400da0",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/f9c9455abce7f05da782836ded7df77a66400da0"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jAAAoJENi59a6uhOTPMCYQAJY7brLIwrx7q9ObiCqr6Noi\nExflJXq1wDe6R5pPFwCZRg4MTxDvXKXe2hKtbdv44q7CKVu779olBwS/vyrRxusX\nt03E16mV2RbuxregVGVqmrn9Ix1cdYgdDxPwB3/gn/WjeYIXwRIncre/zxxuhp+3\n74ib84wz06yxfVn1lF+Zmr6MGooT2xHY+msnrl+nQ7ecxF6Htw2BIdXteZcvl0ZT\n9V6X8Ta0YugHyz1m0i+9uVATRmIfyUf3hk9AujKuU9/2ej0W2wnoatkw8q7S+BA7\nL+LK/iI/+FxqE0PJAYky8wBf3yyVIE2C9777RHAIfAeDx+qFaUbSP5h/RUbRqRuv\npN76misQgULl26XAE49bJmlaBTriGUJVp9zgvF9pAvNipJ7DbB8nTGNyr/uXwyAL\nGpIH/tP5YHq7mOxLO//wP64XSK7F4CpGlzmrNRyTRvYKTjZ7isSa0OEa/AVgvMgW\nkZfvdERrGLmhXcK77KmZk+Hv8VQcRp1cRBvejUN1hyEWZju4cnklQibke8Pu8fGX\n8UvbEbU9zBetLgX5haxH+uufivaL3a+47BQ9krEX0l4EIjbrJys6vd5n/adnd9pD\nQkTPgGCj6ywgVEryfG6oaAKYIi/bfaGZXyRot9nlTGe2YZkL6MVeYgz7nAq84JIl\n/T7/593VKlPKDvgfUmeB\n=HMAz\n-----END PGP SIGNATURE-----",
+          "payload": "tree f9c9455abce7f05da782836ded7df77a66400da0\nparent 64dec14502ab41036c23da7f501b4fc83945f427\nauthor Yoshiya Hinosawa <stibium121@gmail.com> 1478935612 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792832 +0100\n\ntest: improve test-stream2-objects.js\n\nThis commit improves the test cases in\ntest-stream2-objects.js by using assert.strictEqual\ninstead of assert.equal.\n\nThis is a part of Code And Learn at NodeFest 2016\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9565\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+      "html_url": "https://github.com/nodejs/node/commit/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40/comments",
+      "author": {
+        "login": "kt3k",
+        "id": 613956,
+        "node_id": "MDQ6VXNlcjYxMzk1Ng==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/613956?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/kt3k",
+        "html_url": "https://github.com/kt3k",
+        "followers_url": "https://api.github.com/users/kt3k/followers",
+        "following_url": "https://api.github.com/users/kt3k/following{/other_user}",
+        "gists_url": "https://api.github.com/users/kt3k/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/kt3k/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/kt3k/subscriptions",
+        "organizations_url": "https://api.github.com/users/kt3k/orgs",
+        "repos_url": "https://api.github.com/users/kt3k/repos",
+        "events_url": "https://api.github.com/users/kt3k/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/kt3k/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "64dec14502ab41036c23da7f501b4fc83945f427",
+          "url": "https://api.github.com/repos/nodejs/node/commits/64dec14502ab41036c23da7f501b4fc83945f427",
+          "html_url": "https://github.com/nodejs/node/commit/64dec14502ab41036c23da7f501b4fc83945f427"
+        }
+      ]
+    },
+    {
+      "sha": "4ae4e00ae94a0b0039876e06db59381ccfa27998",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NGFlNGUwMGFlOTRhMGIwMDM5ODc2ZTA2ZGI1OTM4MWNjZmEyNzk5OA==",
+      "commit": {
+        "author": {
+          "name": "YutamaKotaro",
+          "email": "california.dreamin.never.die@gmail.com",
+          "date": "2016-11-12T07:36:06Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:52Z"
+        },
+        "message": "doc: fix typo about cluster doc, (eg. -> e.g.)\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9568\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "c8fb88289d094c386428bfd93876ba735bdf4dae",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/c8fb88289d094c386428bfd93876ba735bdf4dae"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/4ae4e00ae94a0b0039876e06db59381ccfa27998",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jAAAoJENi59a6uhOTPMtsP/0vjczEj4jnHI3aP5yhu3YPU\ntefagfiPqNwQEzPhUzN2O31+53RuhajpZra0vQIaaIDc3Tv65WOOI56PUskiAHTS\nD6xtF/dx9EW3OrMcpgD9U/bxykrgodNvr1QtR6mvqGKubBgU9GXtgINExX5fiO/l\ncY9+OMdD/Gcpj3ILV8MuGP3u/0bWrQn0cj10W/32IH38HCK11wr5hlVg2lPGOsxJ\n+cqYmHhnl1D0ZcU9KZQQ0+jffrj+Ua6REl2cTfWEf4LsUnXZumq2L1d70ialwslc\n/b+Ehe70wzDx3KBhXpLL2VbkKrUxNlr4FWfoLJw2qKQkq69ln6l0u7C/gVcMAxaD\n5x6epZrxq9uVDgKMp+UAi1GA60E6Q1yzNartR58X4hy5EXZxdViTb/t1FTbygh8X\nidZM8fIUSLFdMHPuKTZJoMNIfPVLgCBub8GGI8h6gipUA4Tp7o6/yNPUdP32AV2q\nT/ayqnJFf4l5tojmBS2HMdch5A4KWp6yNyBlnSl60+bwIW+bISGmy/hpQ3IK368I\nS5hg6nhJqzuoj/rzIUV99qjD2SdcUNotw2a2Gb7lklnSZr7e7Uh/wJriUSpM5thq\npo4ErVfPH08fMNzZ2Jq4vOhDNHzxT0nyAL+GcLW9S8oslfrkM4tMT59REAf+9kzS\n4HOKbDCV+VsA4SDZ9wV4\n=SqmT\n-----END PGP SIGNATURE-----",
+          "payload": "tree c8fb88289d094c386428bfd93876ba735bdf4dae\nparent e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40\nauthor YutamaKotaro <california.dreamin.never.die@gmail.com> 1478936166 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792832 +0100\n\ndoc: fix typo about cluster doc, (eg. -> e.g.)\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9568\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/4ae4e00ae94a0b0039876e06db59381ccfa27998",
+      "html_url": "https://github.com/nodejs/node/commit/4ae4e00ae94a0b0039876e06db59381ccfa27998",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/4ae4e00ae94a0b0039876e06db59381ccfa27998/comments",
+      "author": {
+        "login": "YutamaKotaro",
+        "id": 19544218,
+        "node_id": "MDQ6VXNlcjE5NTQ0MjE4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/19544218?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/YutamaKotaro",
+        "html_url": "https://github.com/YutamaKotaro",
+        "followers_url": "https://api.github.com/users/YutamaKotaro/followers",
+        "following_url": "https://api.github.com/users/YutamaKotaro/following{/other_user}",
+        "gists_url": "https://api.github.com/users/YutamaKotaro/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/YutamaKotaro/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/YutamaKotaro/subscriptions",
+        "organizations_url": "https://api.github.com/users/YutamaKotaro/orgs",
+        "repos_url": "https://api.github.com/users/YutamaKotaro/repos",
+        "events_url": "https://api.github.com/users/YutamaKotaro/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/YutamaKotaro/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+          "url": "https://api.github.com/repos/nodejs/node/commits/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40",
+          "html_url": "https://github.com/nodejs/node/commit/e7eb9ccdcfa7193b7b3736b2f6522b8d5c493d40"
+        }
+      ]
+    },
+    {
+      "sha": "58fc7a137c71ecc9abdad40846259121f26f8328",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NThmYzdhMTM3YzcxZWNjOWFiZGFkNDA4NDYyNTkxMjFmMjZmODMyOA==",
+      "commit": {
+        "author": {
+          "name": "MURAKAMI Masahiko",
+          "email": "fossamagna2@gmail.com",
+          "date": "2016-11-12T08:04:42Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:53Z"
+        },
+        "message": "test: change from setTimeout to setImmediate\n\nThis is a part of Code And Learn at NodeFest 2016 Challenge\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9578\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>",
+        "tree": {
+          "sha": "5c2557e934f01a6b6b8fe305e09c79e7153a292e",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/5c2557e934f01a6b6b8fe305e09c79e7153a292e"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/58fc7a137c71ecc9abdad40846259121f26f8328",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jBAAoJENi59a6uhOTPutAP/jmUK7pPylnxggSs9ALYn9iW\naWPfBuJ+gMQC0XdoKeOp/bALJUNFl9oziwD3HTXOA4hEolvzL+caPy5pxHnNrWHY\nK5ABHcPsPRloImlGWbdV/Fh6V8lou+lPtFXxcYYq0jUV6B+NpmMZwXWdDEEfUDUV\nKkNW8+zXZvnNxnXxON8zeMFUiN9WG/MWp9m82ft1MebEoWPBt5Ixcfc5fyxKSV3z\n++8hR6Tm5RbfLfJuPBleJmykArUuUDHScjQPSYpXTK9uiAqfaE1K8cbtRc3y1IhN\nga/BIUSuwHTckEBTwD8OzcrrjSxqNoApKAWRz6TUdl7zQIGCoTrSgmcoP0OgtKUZ\nGvoeDzmNnFkFm2VMkqm+wlcXbN60VnyIYUAVulPloeb5e/NwEuW0jS4IllFiVBUy\npnx1W+TU1cwo2hFEsC98luMN1SsR66E8OB6FxQFR9NWbagmtM7UQAuixyYrjAddU\nvoslCHcGyxcm+DsjMcHTJhziXFC/C/NpeSwItJcXuSr3G5AfGU9ns4YeNAUDkBSb\nfwyST7Bu9BLJQ3xk2Jl40i510Tj8uGoj8gKQls9aPSC1nCcVfkq+ZTKnaWXXi6eg\n78vaOf1puDVTXNRlWSQh7o5CzJ2KickViToUVLFu2tVEvDBxB/lDuM6kYisz5wbg\nTpZP46xVLTMksAmyKEo6\n=RZNN\n-----END PGP SIGNATURE-----",
+          "payload": "tree 5c2557e934f01a6b6b8fe305e09c79e7153a292e\nparent 4ae4e00ae94a0b0039876e06db59381ccfa27998\nauthor MURAKAMI Masahiko <fossamagna2@gmail.com> 1478937882 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792833 +0100\n\ntest: change from setTimeout to setImmediate\n\nThis is a part of Code And Learn at NodeFest 2016 Challenge\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9578\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/58fc7a137c71ecc9abdad40846259121f26f8328",
+      "html_url": "https://github.com/nodejs/node/commit/58fc7a137c71ecc9abdad40846259121f26f8328",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/58fc7a137c71ecc9abdad40846259121f26f8328/comments",
+      "author": {
+        "login": "fossamagna",
+        "id": 1638848,
+        "node_id": "MDQ6VXNlcjE2Mzg4NDg=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1638848?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/fossamagna",
+        "html_url": "https://github.com/fossamagna",
+        "followers_url": "https://api.github.com/users/fossamagna/followers",
+        "following_url": "https://api.github.com/users/fossamagna/following{/other_user}",
+        "gists_url": "https://api.github.com/users/fossamagna/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/fossamagna/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/fossamagna/subscriptions",
+        "organizations_url": "https://api.github.com/users/fossamagna/orgs",
+        "repos_url": "https://api.github.com/users/fossamagna/repos",
+        "events_url": "https://api.github.com/users/fossamagna/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/fossamagna/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "4ae4e00ae94a0b0039876e06db59381ccfa27998",
+          "url": "https://api.github.com/repos/nodejs/node/commits/4ae4e00ae94a0b0039876e06db59381ccfa27998",
+          "html_url": "https://github.com/nodejs/node/commit/4ae4e00ae94a0b0039876e06db59381ccfa27998"
+        }
+      ]
+    },
+    {
+      "sha": "92bd19e0bdfb24776db6c5b325975843435acc62",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OTJiZDE5ZTBiZGZiMjQ3NzZkYjZjNWIzMjU5NzU4NDM0MzVhY2M2Mg==",
+      "commit": {
+        "author": {
+          "name": "Thomas Watson Steen",
+          "email": "w@tson.dk",
+          "date": "2016-11-12T03:17:52Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:53Z"
+        },
+        "message": "doc: simplify process.memoryUsage() example code\n\nUsing util.inspect doesn't change the output in this case\n\nPR-URL: https://github.com/nodejs/node/pull/9560\nReviewed-By: Myles Borins <myles.borins@gmail.com>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>",
+        "tree": {
+          "sha": "3226843f794c1d83da28011f1e132fb60eac719e",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/3226843f794c1d83da28011f1e132fb60eac719e"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/92bd19e0bdfb24776db6c5b325975843435acc62",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jBAAoJENi59a6uhOTPrO8P/3LDk3SXx50eP9/XV+gynRKa\nIpGcZxJgIiMTK00v1bdRDhHRqp5n2HtJ3OTqTG742s5b5f67AC4cateq4DgYNFw/\nKbzggaJKycP0tiggNIFUdqCODxWERvVfzN4XOgUKjbIVEHaVPgQwHdkhgjgaO3XA\nhLnD/T15cwKhE0P54pb2aVCYCi1cL2qbg/JrvzGaQXBUWCscauxNyJZiIwKQk6mn\ncf9X8ZRQa0hN05ryxzk7k16hcVhIY/ghH2U5Pl6PtJwdYSqdfsAeXviAhv0HbaiZ\nO6rmaiM8FziaUxfqUit8bkmLmvPe793WZh3rEZYOqeo4u6t9osYgsfPA2gBDb9kV\n4MmMmdhDTYQ32CEUoIAS9BNYFZSYAzo3OHOidmHAtBEM9jtLPZZ7fL7Nk6IuXdkA\n59NCQ9DyWHi9EUjS40il8fZMDjIYSBAKOhwrYhHGwd06WDaUfVHbl5J4MSeo9TC4\no47GDxAACHGxmUYTYVcGnRs4kxBJZKasmlfgCC+t1hzJv2nsVQgJbfG3PRmp8lbn\nkP4k+o9KJkUvf16/13/SWxUWrKyOwBnLX8nZX80+7uZpQiEN6iwhAJXhYsC3FHE+\n0UizZ3dciDrOcGYR4cAJQPYtcRRQECH+mBXfzQSYUGnyQh5x40ygacw0fLpNnQBz\npME7q6oesPiLSMCYAyrp\n=hUPT\n-----END PGP SIGNATURE-----",
+          "payload": "tree 3226843f794c1d83da28011f1e132fb60eac719e\nparent 58fc7a137c71ecc9abdad40846259121f26f8328\nauthor Thomas Watson Steen <w@tson.dk> 1478920672 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792833 +0100\n\ndoc: simplify process.memoryUsage() example code\n\nUsing util.inspect doesn't change the output in this case\n\nPR-URL: https://github.com/nodejs/node/pull/9560\nReviewed-By: Myles Borins <myles.borins@gmail.com>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/92bd19e0bdfb24776db6c5b325975843435acc62",
+      "html_url": "https://github.com/nodejs/node/commit/92bd19e0bdfb24776db6c5b325975843435acc62",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/92bd19e0bdfb24776db6c5b325975843435acc62/comments",
+      "author": {
+        "login": "watson",
+        "id": 10602,
+        "node_id": "MDQ6VXNlcjEwNjAy",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10602?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/watson",
+        "html_url": "https://github.com/watson",
+        "followers_url": "https://api.github.com/users/watson/followers",
+        "following_url": "https://api.github.com/users/watson/following{/other_user}",
+        "gists_url": "https://api.github.com/users/watson/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/watson/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/watson/subscriptions",
+        "organizations_url": "https://api.github.com/users/watson/orgs",
+        "repos_url": "https://api.github.com/users/watson/repos",
+        "events_url": "https://api.github.com/users/watson/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/watson/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "58fc7a137c71ecc9abdad40846259121f26f8328",
+          "url": "https://api.github.com/repos/nodejs/node/commits/58fc7a137c71ecc9abdad40846259121f26f8328",
+          "html_url": "https://github.com/nodejs/node/commit/58fc7a137c71ecc9abdad40846259121f26f8328"
+        }
+      ]
+    },
+    {
+      "sha": "d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZDUzMmE1N2E0YjAwN2U1YTc0YmE5OTAxYzZhYTFlZmY4Y2U2NzZhZg==",
+      "commit": {
+        "author": {
+          "name": "Roman Reiss",
+          "email": "me@silverwind.io",
+          "date": "2016-11-11T20:29:01Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:54Z"
+        },
+        "message": "doc: consistent 'Returns:'\n\nFor consistency, changed all `Return:` to `Returns:` in the API docs.\n\nPR-URL: https://github.com/nodejs/node/pull/9554\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>",
+        "tree": {
+          "sha": "a0259899e69a964aebd7daf44b4aca11b6d85a42",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/a0259899e69a964aebd7daf44b4aca11b6d85a42"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jCAAoJENi59a6uhOTPHwwP/0+ES6fQ+2l4498bzb/Fjh4m\ndRBh0sFjEzk/ThrrAp12s6XHiwBY3pgtPHf6ph6qPdnpbQqt+uwpnoED7imNppGC\npHSClyp5JRkKrcA4FSfk073p8TS3Y0QnA+1JeELNl1p01jjWnUZsS8G8ax+Bk9On\nen6M65uwHZr+gGzCdTk+s8hx5iF52nCkU8+nI5lBTfh3kPzcA0Liz8h1iOAcANps\n0QPwfaSNGI+FCdqd8/GR/AKDefZ9xzl2G3XxyT9sZ+InPFrY6PWP70kVMbBbxLL3\nT+CbWWncCsDlZZ2n1O9tpaBQPedDJ8GjaqYVmGCKt2i1OxNekk5OwLX1jHYLHB9k\nyvmQvve0anXcin0Cl6Bc1rDKJlEH1Y8rpEkil6B+Rbg8JtrIqaKNZ+O/+FFfWKHQ\n9GjXy4+D3nilPQbJynRFW4org0QNQKUMG1gI7EnxngW/23NTGk+XRw15jZqvZh/3\noWtqXUzefpQyMldRWnDDe8xSX198KFtkM2WIgxCajHPLXzLkJ0HT4ElRp5xc8/lx\nXWz/9SwdpbJ4PrLywjkmDVEU7VBdtBa6vunu3XDAwI5mtZpN3wtMx9pn+hkzGz3z\ncdb3u+S1mHYnpccC02bSkf7ABHlunckir0MIdwTpIq62/gIScb0PqrG+wONHA924\ngvke2ddG7u6k+C7kWu2j\n=rYur\n-----END PGP SIGNATURE-----",
+          "payload": "tree a0259899e69a964aebd7daf44b4aca11b6d85a42\nparent 92bd19e0bdfb24776db6c5b325975843435acc62\nauthor Roman Reiss <me@silverwind.io> 1478896141 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792834 +0100\n\ndoc: consistent 'Returns:'\n\nFor consistency, changed all `Return:` to `Returns:` in the API docs.\n\nPR-URL: https://github.com/nodejs/node/pull/9554\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+      "html_url": "https://github.com/nodejs/node/commit/d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/d532a57a4b007e5a74ba9901c6aa1eff8ce676af/comments",
+      "author": {
+        "login": "silverwind",
+        "id": 115237,
+        "node_id": "MDQ6VXNlcjExNTIzNw==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/115237?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/silverwind",
+        "html_url": "https://github.com/silverwind",
+        "followers_url": "https://api.github.com/users/silverwind/followers",
+        "following_url": "https://api.github.com/users/silverwind/following{/other_user}",
+        "gists_url": "https://api.github.com/users/silverwind/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/silverwind/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/silverwind/subscriptions",
+        "organizations_url": "https://api.github.com/users/silverwind/orgs",
+        "repos_url": "https://api.github.com/users/silverwind/repos",
+        "events_url": "https://api.github.com/users/silverwind/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/silverwind/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "92bd19e0bdfb24776db6c5b325975843435acc62",
+          "url": "https://api.github.com/repos/nodejs/node/commits/92bd19e0bdfb24776db6c5b325975843435acc62",
+          "html_url": "https://github.com/nodejs/node/commit/92bd19e0bdfb24776db6c5b325975843435acc62"
+        }
+      ]
+    },
+    {
+      "sha": "d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZDgzY2I0OGIzYTIwNTlhYmVjM2NmYjgwMGE2NWFhNWMwMTNkMmJlMA==",
+      "commit": {
+        "author": {
+          "name": "Daijiro Yamada",
+          "email": "yamad@daiji.ro",
+          "date": "2016-11-12T07:24:46Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:54Z"
+        },
+        "message": "doc: fix typo e.g., => e.g.\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9563\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "93843f98d6a955c4c6ce9239a4ed9962ea2f41d3",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/93843f98d6a955c4c6ce9239a4ed9962ea2f41d3"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jCAAoJENi59a6uhOTPGdgQALu/6R3ZPJc/IWvEV0LPwqNV\niq6Fp8FCewc4bz8wop1SA2i0gNsTy9QA75bEz8nlosZ58JsUy04ZzJsmdUmuP6z0\n45DLiEQzXIrojAjMxcOb5nM1lxvLbOYtwcQqhDtNIzum/fZAixYp0T5COJbR/Y6w\nRy6mLJkJAMLVYkTEyfthDsJL14Dk7pT4LqWqYb/nwZ9QOXIEEvtvRaqotn0pLUKB\nevXBZjV+YBGQw6xLTYyQYo/fB0vm8P7xH1EmYYCA4qmJkRJjrK7sMLhkY/pLIVOH\nzKOATBq3cYR3breR43aaNlzZQRtVJrn6cAtv4mc49mgIzgmzRV2hnftzQEiI52o6\n8jvEZSZh/SpyVBkwk4uWklqpI227an2FYa404aNf9RA+p2PTLJh8WYEhJvX9sJ6U\n+ajk2JbmjmZFHfQTM7ophTJwJGnHGL8flCMLJMZVCy9eExDLNrTfgVEPvt6IMUPz\nr+mo43/2FlRZWL4c28pprBoHkmXD11w2cWQuWHWwjM8rbaYFn0reMl2I/NGxJeZG\n3PsuasIwQ5GyYUCB2P2V0Eu/nEhUBjfmfnRhQ3bZ1ObXluWk8gU1gMzbPSnhwuXn\nvuWJ3klHKpsroZCh6tiMVTqFzHGR8/2WTm9XCmeK3boKGr9MlJNbBtIMXizKeROk\nt5C/3tJbKF2X6Y/l7utX\n=hbzk\n-----END PGP SIGNATURE-----",
+          "payload": "tree 93843f98d6a955c4c6ce9239a4ed9962ea2f41d3\nparent d532a57a4b007e5a74ba9901c6aa1eff8ce676af\nauthor Daijiro Yamada <yamad@daiji.ro> 1478935486 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792834 +0100\n\ndoc: fix typo e.g., => e.g.\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9563\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+      "html_url": "https://github.com/nodejs/node/commit/d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/d83cb48b3a2059abec3cfb800a65aa5c013d2be0/comments",
+      "author": {
+        "login": "dorako321",
+        "id": 857898,
+        "node_id": "MDQ6VXNlcjg1Nzg5OA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/857898?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/dorako321",
+        "html_url": "https://github.com/dorako321",
+        "followers_url": "https://api.github.com/users/dorako321/followers",
+        "following_url": "https://api.github.com/users/dorako321/following{/other_user}",
+        "gists_url": "https://api.github.com/users/dorako321/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/dorako321/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/dorako321/subscriptions",
+        "organizations_url": "https://api.github.com/users/dorako321/orgs",
+        "repos_url": "https://api.github.com/users/dorako321/repos",
+        "events_url": "https://api.github.com/users/dorako321/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/dorako321/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+          "url": "https://api.github.com/repos/nodejs/node/commits/d532a57a4b007e5a74ba9901c6aa1eff8ce676af",
+          "html_url": "https://github.com/nodejs/node/commit/d532a57a4b007e5a74ba9901c6aa1eff8ce676af"
+        }
+      ]
+    },
+    {
+      "sha": "163397a206aecce0b18b304f73456a569bb06733",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MTYzMzk3YTIwNmFlY2NlMGIxOGIzMDRmNzM0NTZhNTY5YmIwNjczMw==",
+      "commit": {
+        "author": {
+          "name": "Fedor Indutny",
+          "email": "fedor@indutny.com",
+          "date": "2016-11-12T21:49:40Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:33:55Z"
+        },
+        "message": "process: add `process.memoryUsage.external`\n\nPR-URL: https://github.com/nodejs/node/pull/9587\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Matteo Collina <matteo.collina@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Johan Bergström <bugs@bergstroem.nu>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>",
+        "tree": {
+          "sha": "2a48e10db5ae481b1ea3a3b0f34635d791cdade6",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/2a48e10db5ae481b1ea3a3b0f34635d791cdade6"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/163397a206aecce0b18b304f73456a569bb06733",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9jDAAoJENi59a6uhOTPJmYP/iJXNf1gC87z0ky1qOV1/vRR\nUX1eX4H6O/FFFWAoYmAHQ9LqqdXLQb9qu+aBZ4Uta9UZvJyG3ncNVBaF9fqi3DLh\n6LxdUVyTWxYQpuwi48U5O42eiqspZhg1dn95TI1IluwA0aJO+IC5NL6d/N/kfXcp\nACbTVab2cqAaEQesYNRzUsaKPWdjgbvK2icmFidiwM1sZoOE52VpK6iHjWmqKcQD\nIc/chOQHMV+cJQahIFT6n4fCGlY7O4b43X9pKFP1EDUtMDbdSy4wfmW9ql2xtbiy\n0fwmyznoo3PVoPS430weUpUX1cbFrDs7HYLFOsSKVe4e3+7uSCFfCwKLWuaiv4qr\n5VyDtGUuOSemY8xHFTjDUZ3lBVrv6i8hNiuB8KFJb5WMuIoj4Ei+A2rRGcrVcfCB\nTuXqoUSGccZDV/ez+YZozoXadOHmTY5JJjhDxJaUxOaXtffF71o2vIdEnUEXoXE+\neHW/22GHfDDhI+6ruQZQA4KK9lNstgKRueQQDSOg0vqzeGSIV+/ZgryyhSFulXfx\nHR6mvhxs04nziunJmA2xRfUWZU1+k14Xs/01vU0zdRlgyCtj/0kNaJ/60f5pqSV4\nkTn+th876geBn7TfLagBPXSQLQlFkCoN4cMlfycPTS5WMW+9XIpqEVCTuO8ONJGs\nfhH0W90YmNkf0EQqVaHW\n=8B7L\n-----END PGP SIGNATURE-----",
+          "payload": "tree 2a48e10db5ae481b1ea3a3b0f34635d791cdade6\nparent d83cb48b3a2059abec3cfb800a65aa5c013d2be0\nauthor Fedor Indutny <fedor@indutny.com> 1478987380 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792835 +0100\n\nprocess: add `process.memoryUsage.external`\n\nPR-URL: https://github.com/nodejs/node/pull/9587\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: Matteo Collina <matteo.collina@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\nReviewed-By: Johan Bergström <bugs@bergstroem.nu>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/163397a206aecce0b18b304f73456a569bb06733",
+      "html_url": "https://github.com/nodejs/node/commit/163397a206aecce0b18b304f73456a569bb06733",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/163397a206aecce0b18b304f73456a569bb06733/comments",
+      "author": {
+        "login": "indutny",
+        "id": 238531,
+        "node_id": "MDQ6VXNlcjIzODUzMQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/238531?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/indutny",
+        "html_url": "https://github.com/indutny",
+        "followers_url": "https://api.github.com/users/indutny/followers",
+        "following_url": "https://api.github.com/users/indutny/following{/other_user}",
+        "gists_url": "https://api.github.com/users/indutny/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/indutny/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/indutny/subscriptions",
+        "organizations_url": "https://api.github.com/users/indutny/orgs",
+        "repos_url": "https://api.github.com/users/indutny/repos",
+        "events_url": "https://api.github.com/users/indutny/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/indutny/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+          "url": "https://api.github.com/repos/nodejs/node/commits/d83cb48b3a2059abec3cfb800a65aa5c013d2be0",
+          "html_url": "https://github.com/nodejs/node/commit/d83cb48b3a2059abec3cfb800a65aa5c013d2be0"
+        }
+      ]
+    },
+    {
+      "sha": "f3db5e4720903f4dd719e7e087881ee2a9018e53",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZjNkYjVlNDcyMDkwM2Y0ZGQ3MTllN2UwODc4ODFlZTJhOTAxOGU1Mw==",
+      "commit": {
+        "author": {
+          "name": "Rich Trott",
+          "email": "rtrott@gmail.com",
+          "date": "2016-11-10T19:26:20Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:47Z"
+        },
+        "message": "test: refactor test-zlib.js\n\n* minor layout changes for clarity\n* assert.equal() and assert.ok() swapped out for assert.strictEqual()\n* var -> const for modules included via require()\n\nPR-URL: https://github.com/nodejs/node/pull/9544\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "0dd000fbdb213e92156ac58a0cbcad75065d487f",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/0dd000fbdb213e92156ac58a0cbcad75065d487f"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/f3db5e4720903f4dd719e7e087881ee2a9018e53",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9kzAAoJENi59a6uhOTP80MQAKnZ3mUZanN36TSLpFGsO9Q6\np0CswA1QxKDKtUt5dOKJRpzsnzXW3muAdaMYegMfruPwRR3CHFj3krEPgnkFj879\nGroNxYMSkYLnkTU9aNP9OKv0KFJPjg3gAJokt7bUfQPdxGu2wwFq++uDELU+jpyM\nuAEiZhlgn8vSyDpnLdavyEyZpnn1v666tY/amCVkvFs0vf2bXwCG/qyixYOr40P4\nW4HPbR9cEPttwhbB11+EA6HxpSNoLgZi0+OidwMLF7xbhsKBglhvTrfqI5UoRTFS\nI9sIKZC4dd9UASRSZ57SxDfG5XjYtoL7mYBLZSBaq1bScbEAUWjaAB6I1ibPDMcI\nDX+oZgT5zDkt7M9zwH/NIhDlBLFaOolTZp4HssCNvk+kHFM5Ns38wTS5PMMkrQeg\nE+uC95QFbvpm+QOFFpxUUo0FbUkqMC1Jy9X1JQFxPTZ/lek1Ooqo6C7AymjuAok9\nybxalYSJf/Rm/dTVi2/5gr36IAeMpYhdP9Ow9Y0gX8t026C94mQaLF7zLEk/8rvg\nSh1R5uGF52bkJyJz4nmZBe5qrxsSR3BYLKyx95pfHMhtF14qtvlnBAolXy/K1n+e\nvqPFkTkWl7zlJoBGRqD18AALnJko3dtRx/Fz40al39aDcgUbklayRmUM68/zJblD\nYRKLl0AcBntRdJnWeJyo\n=8VEe\n-----END PGP SIGNATURE-----",
+          "payload": "tree 0dd000fbdb213e92156ac58a0cbcad75065d487f\nparent 163397a206aecce0b18b304f73456a569bb06733\nauthor Rich Trott <rtrott@gmail.com> 1478805980 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792947 +0100\n\ntest: refactor test-zlib.js\n\n* minor layout changes for clarity\n* assert.equal() and assert.ok() swapped out for assert.strictEqual()\n* var -> const for modules included via require()\n\nPR-URL: https://github.com/nodejs/node/pull/9544\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/f3db5e4720903f4dd719e7e087881ee2a9018e53",
+      "html_url": "https://github.com/nodejs/node/commit/f3db5e4720903f4dd719e7e087881ee2a9018e53",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/f3db5e4720903f4dd719e7e087881ee2a9018e53/comments",
+      "author": {
+        "login": "Trott",
+        "id": 718899,
+        "node_id": "MDQ6VXNlcjcxODg5OQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/718899?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Trott",
+        "html_url": "https://github.com/Trott",
+        "followers_url": "https://api.github.com/users/Trott/followers",
+        "following_url": "https://api.github.com/users/Trott/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Trott/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Trott/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Trott/subscriptions",
+        "organizations_url": "https://api.github.com/users/Trott/orgs",
+        "repos_url": "https://api.github.com/users/Trott/repos",
+        "events_url": "https://api.github.com/users/Trott/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Trott/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "163397a206aecce0b18b304f73456a569bb06733",
+          "url": "https://api.github.com/repos/nodejs/node/commits/163397a206aecce0b18b304f73456a569bb06733",
+          "html_url": "https://github.com/nodejs/node/commit/163397a206aecce0b18b304f73456a569bb06733"
+        }
+      ]
+    },
+    {
+      "sha": "00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MDBhNTQ5MGVjZDk0N2VhOGU2YWQ0YTAyYTUxZmVmODhiMjQ4MTc3YQ==",
+      "commit": {
+        "author": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-11T20:57:18Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:47Z"
+        },
+        "message": "test: increase coverage of process.emitWarning\n\nPreviously our tests did not check these codepaths as seen at\ncoverage.nodejs.org\n\nPR-URL: https://github.com/nodejs/node/pull/9556\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>",
+        "tree": {
+          "sha": "77f38597a01268a6f0296d496f8565dfbf4eaa39",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/77f38597a01268a6f0296d496f8565dfbf4eaa39"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9kzAAoJENi59a6uhOTPrVkP/j/sGrcYa3oozKrWoXI+oqq6\nmop0gIqxI9WI1i/SfssoUgesF8msm09dIVSKcye/SJ95cbWDbkXH1aL6uRb+ZQCZ\nmmlPSOaqjrk9UjTD+uDpwIEv5AeimpQ4DYv6DLp44TVT8h8c8ltm1KAWvWXNxrxb\nDcoZb5u17EPApLR9akUrfwoabqhi7XaKn3tVOX8obcgT5Vtj1kVBcil/y6Ogzb1R\nu5dn9ZYiuyipkgAWMQlxhehHONkoRDl6Rb+HNHdLeIJ06LO3TUc8/3x5GJs9E65U\n5VHjWBZ2mvJh0CqEwfqtn9eggQZ8ixPc1mDvaQj0vttADFIrYthAyXpcHJEWSK1k\nTnJz+bkKj77TU+G8D1Huz0xOpd/1yyjunvwtuMtYiAPyWPUIBtJsaOmJSCdZhpio\nrpHk9tJ1P2NwsFK3IdBJKQX+/9m0BfYBmKsHbpP5U0aHUbKmjJ6+kks8WD7MbCpF\nFD5xzvmNuL41desyLBOaHlXopqOyHTWGQM8jmdW9GN+mJGoP8tmV6vwaUtp9ACxg\nk0Lc0q2zEtRr6rL0iqpF/T8ZglHPLmcWoyUUyea/l8HAT7/iolopp8Dnaw1mSUBT\nk7nXQ61rEbdOCrylHA1N8s0WM8OStIGjIKouHwCsr6o4tRFHmJzsfVtamXwaP0Ik\ndGYLurZlM8ghDGVXKq9C\n=rxFp\n-----END PGP SIGNATURE-----",
+          "payload": "tree 77f38597a01268a6f0296d496f8565dfbf4eaa39\nparent f3db5e4720903f4dd719e7e087881ee2a9018e53\nauthor Jeremiah Senkpiel <fishrock123@rocketmail.com> 1478897838 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792947 +0100\n\ntest: increase coverage of process.emitWarning\n\nPreviously our tests did not check these codepaths as seen at\ncoverage.nodejs.org\n\nPR-URL: https://github.com/nodejs/node/pull/9556\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+      "html_url": "https://github.com/nodejs/node/commit/00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/00a5490ecd947ea8e6ad4a02a51fef88b248177a/comments",
+      "author": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "f3db5e4720903f4dd719e7e087881ee2a9018e53",
+          "url": "https://api.github.com/repos/nodejs/node/commits/f3db5e4720903f4dd719e7e087881ee2a9018e53",
+          "html_url": "https://github.com/nodejs/node/commit/f3db5e4720903f4dd719e7e087881ee2a9018e53"
+        }
+      ]
+    },
+    {
+      "sha": "ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6Y2NjNmU3NWJlYTViM2Q2ZTEzMGYxODk3YTliMzcyM2Q5MTEyNGZhNg==",
+      "commit": {
+        "author": {
+          "name": "Jeremiah Senkpiel",
+          "email": "fishrock123@rocketmail.com",
+          "date": "2016-11-11T20:28:18Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:48Z"
+        },
+        "message": "test: ensure nextTick is not scheduled in exit\n\nPreviously our tests did not check this codepath as seen at\ncoverage.nodejs.org\n\nPR-URL: https://github.com/nodejs/node/pull/9555\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>",
+        "tree": {
+          "sha": "7b6eef4cfc45f1c2f81f28e9e9e4f2ef0c6b6bd8",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/7b6eef4cfc45f1c2f81f28e9e9e4f2ef0c6b6bd8"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k0AAoJENi59a6uhOTPuh4QALIrG2KlbxA6KAII2pSv90xo\ncQHvaQXQVFLF67gm7tXSN8vfbbaHI81lzhFzGYPhs4jK6kjMpXw0YKbca6yxTxee\nhfqdNBBD/2cMWPFlvoTpZp7pOcmZxiBPysFqrNmd6HYssGyCcbquQOhf5sBvm0vM\ngE9v8BnMj/QvWNvC0wZJyhxkIpcFmGzkee4XDDVCEn2VpB3AFn9WkQ/3Fe0bQlVA\nrcUz6LH0Yp5M6eELEptjRd6IY4BDikbUZnEHrSRw1dLuOv641ardEw9uOJdsyvaT\nY5sF4g58me5O6A3054NEnrmTTmaMBiW9Rrk8cE1x3iUpmr89LSy+8+NJG2ZlZ5wM\nTvVK/YW3rYfHtw0088zu03/7sbhEflJC2YFxsUjOitf8g9qkEx3yGq1b9cmglcFm\nNrARh+BLMTEszVCfFoucCuvv01bXQ6MyNkDpcnEl1AwjswrMNBhxL6+WhXmJaG3/\n/69VF5i0oektJe02n+WS9LuxeHDqM32ditWW93SpksRtelU7NQXzElyVg52F3gkg\n+Z0HkorzCUGoP0BGrtC8eI2TM5NYcV2yqaXGnTjhwwZ1UquFS2hyys4xTa+cNoOn\nx5M501TJI53x+8aF8V0f/whBjifZdaLlL6A2C+DF6iM1fRESUI1XTgn7jwzLY8vv\nsudUb91wEGUVj4wNHDuH\n=9RwL\n-----END PGP SIGNATURE-----",
+          "payload": "tree 7b6eef4cfc45f1c2f81f28e9e9e4f2ef0c6b6bd8\nparent 00a5490ecd947ea8e6ad4a02a51fef88b248177a\nauthor Jeremiah Senkpiel <fishrock123@rocketmail.com> 1478896098 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792948 +0100\n\ntest: ensure nextTick is not scheduled in exit\n\nPreviously our tests did not check this codepath as seen at\ncoverage.nodejs.org\n\nPR-URL: https://github.com/nodejs/node/pull/9555\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+      "html_url": "https://github.com/nodejs/node/commit/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6/comments",
+      "author": {
+        "login": "Fishrock123",
+        "id": 1093990,
+        "node_id": "MDQ6VXNlcjEwOTM5OTA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1093990?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Fishrock123",
+        "html_url": "https://github.com/Fishrock123",
+        "followers_url": "https://api.github.com/users/Fishrock123/followers",
+        "following_url": "https://api.github.com/users/Fishrock123/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Fishrock123/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Fishrock123/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Fishrock123/subscriptions",
+        "organizations_url": "https://api.github.com/users/Fishrock123/orgs",
+        "repos_url": "https://api.github.com/users/Fishrock123/repos",
+        "events_url": "https://api.github.com/users/Fishrock123/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Fishrock123/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+          "url": "https://api.github.com/repos/nodejs/node/commits/00a5490ecd947ea8e6ad4a02a51fef88b248177a",
+          "html_url": "https://github.com/nodejs/node/commit/00a5490ecd947ea8e6ad4a02a51fef88b248177a"
+        }
+      ]
+    },
+    {
+      "sha": "65b60801ce1107bc3950a25d1317370fcee80ad0",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NjViNjA4MDFjZTExMDdiYzM5NTBhMjVkMTMxNzM3MGZjZWU4MGFkMA==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-11-08T21:07:16Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:48Z"
+        },
+        "message": "tools: copy run-valgrind.py to tools/\n\nIt was a symbolic link to deps/v8/tools/run-valgrind.py before.  We are\ngoing to make changes to it and we don't want to carry the patch forward\nso make a copy.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "3df026e82adbfce1e4d760233194bf978fee5753",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/3df026e82adbfce1e4d760233194bf978fee5753"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/65b60801ce1107bc3950a25d1317370fcee80ad0",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k0AAoJENi59a6uhOTPTP8QAJfL+G3f501/clb+yn477NsK\ngdibKNmjVGHnUbnG/3Bgy00DRjGj6K6DdYH4rU3042lLoJ0Ic4sLMC+SPyvbNngG\nFJlULaxBh5MAyryVFVRE3+TTtLIGyw7wW3eZsNOAoqTfXR7HuJaaOSN5mjH2LES7\nDBBZpqW9lp1tryVCt4wENvSzR9X+FajXRY9I7yaVHUKMWvfXpvwPPZt596fgq87h\nghALFkHh1ftv5i2qW4QaU/N0lLPr6C+M4kbxRT+RXqhZtnuWgcQfuqv+5TQvOIvD\nNxFSE/BhjCUCIvnItb8YOGZkXtrkGDauCAKIEHNRRHirh8CwDkKzK1CfqQhYEoTM\np1g7c3phh7pyWFzcy2mdPtvLXCDLBUt18r5qH1g8Y8MxeIkjNBDZPB2vxpDGszCw\n6fHa5DCuxXHGcxaVW8ewFQt9VameQtdoG7OjMgGJHXAktDLeoqNjnh8NwGEPAkcd\ndHwNeWFShXJtPsGv2X62yIs4koCDNTOOBS92TUe+xzM/V2/lZnqS2uiAs+7OcQ5R\nEKYXjNb4W8m8wIMVf/gyZ3kG032QL4U0zFybk8JlWHn/6B0a28NkbLjtbN4DK00V\nf1dRaFhg3uKk9zBDdPy0FJ3XLqtxLgA2C1+RKe9ofCq3aohLpK1xBTjlJiZ5Id/d\n3U5WV/7lgqqphmEHdKvI\n=CcQD\n-----END PGP SIGNATURE-----",
+          "payload": "tree 3df026e82adbfce1e4d760233194bf978fee5753\nparent ccc6e75bea5b3d6e130f1897a9b3723d91124fa6\nauthor Ben Noordhuis <info@bnoordhuis.nl> 1478639236 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792948 +0100\n\ntools: copy run-valgrind.py to tools/\n\nIt was a symbolic link to deps/v8/tools/run-valgrind.py before.  We are\ngoing to make changes to it and we don't want to carry the patch forward\nso make a copy.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/65b60801ce1107bc3950a25d1317370fcee80ad0",
+      "html_url": "https://github.com/nodejs/node/commit/65b60801ce1107bc3950a25d1317370fcee80ad0",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/65b60801ce1107bc3950a25d1317370fcee80ad0/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+          "url": "https://api.github.com/repos/nodejs/node/commits/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6",
+          "html_url": "https://github.com/nodejs/node/commit/ccc6e75bea5b3d6e130f1897a9b3723d91124fa6"
+        }
+      ]
+    },
+    {
+      "sha": "887c76a664d97695abbef39846a2491a73fd8fee",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ODg3Yzc2YTY2NGQ5NzY5NWFiYmVmMzk4NDZhMjQ5MWE3M2ZkOGZlZQ==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-11-08T21:07:17Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:49Z"
+        },
+        "message": "tools: fix run-valgrind.py script\n\nThe script had a dependency on the copy of valgrind that is bundled\nwith V8 but that only gets checked out when doing a full depot_tools\ncheckout.  Use the system-provided valgrind.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "c4ff10addc9f486358006e19833df64f903af1f8",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/c4ff10addc9f486358006e19833df64f903af1f8"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/887c76a664d97695abbef39846a2491a73fd8fee",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k1AAoJENi59a6uhOTPOKkQAKUGpl8aTEY8Up4l1PszEfP0\nJhpL6hqRbxs9XKkJOzdVkKVdDRX9fSE5S8Hw8cjbdII5WBuME0ZiH6doXfXR5VJK\n3ykUQYbfjoDelOWUQKdpNmGnMFgp+XILL9uaQKnEiQ9YDeG5rpKuGlnUuEzMnz1/\n0bKs3E0LPgzQGtxvOb3XV/FpaajgT+t+P7CBw7xmpBJ9WXL7SUoOkYYafcyykvD+\nEbqTEWUlRTNUUCTbwpGTUGM2MBb+AuBfO8QWnhDNoCXeC0XiAcorW6/4jOOG2ARf\nVhj/wd40EOuOSSsLmWXG/m9m/+ukr7g5UMQ/lAHyGl3ZTwo7Y5wLlevk4aQJRszp\nkP0u2EFOaQZJoVFjl2nI4lRb7FYr9zR15u94NTVTxEpvKOy8B6OOOhIYa2dmsscm\nDBAyJv86SyNDceEIKJaZAqsQWdXUAjyLQK9zo+1SVTV76GbOPKF9jC/IqhAdohKz\nt9FHSUQ0RdTevMos6N8zE2nk4MSdwmuNdc/0K7Q9qf+QJOxM/HPmdPp1p1TyJvG/\nLqCoPvWIl0BDiwaA0g8F+XpIP+LeMTDNylGtgkhIq0Tpx3DuENjk+rfQfnMMcBKo\nc7WaM8boExMFDgFMTy36ApjGnlEp2BUTirW9m61RfnsM2/vvZtSveTm7yTy+RS5d\n2avK/1+/0R2zjiVJUAB9\n=KdhF\n-----END PGP SIGNATURE-----",
+          "payload": "tree c4ff10addc9f486358006e19833df64f903af1f8\nparent 65b60801ce1107bc3950a25d1317370fcee80ad0\nauthor Ben Noordhuis <info@bnoordhuis.nl> 1478639237 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792949 +0100\n\ntools: fix run-valgrind.py script\n\nThe script had a dependency on the copy of valgrind that is bundled\nwith V8 but that only gets checked out when doing a full depot_tools\ncheckout.  Use the system-provided valgrind.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/887c76a664d97695abbef39846a2491a73fd8fee",
+      "html_url": "https://github.com/nodejs/node/commit/887c76a664d97695abbef39846a2491a73fd8fee",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/887c76a664d97695abbef39846a2491a73fd8fee/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "65b60801ce1107bc3950a25d1317370fcee80ad0",
+          "url": "https://api.github.com/repos/nodejs/node/commits/65b60801ce1107bc3950a25d1317370fcee80ad0",
+          "html_url": "https://github.com/nodejs/node/commit/65b60801ce1107bc3950a25d1317370fcee80ad0"
+        }
+      ]
+    },
+    {
+      "sha": "deabb5cfaac407a601175af9a6b841ecab93f9b3",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZGVhYmI1Y2ZhYWM0MDdhNjAxMTc1YWY5YTZiODQxZWNhYjkzZjliMw==",
+      "commit": {
+        "author": {
+          "name": "Ben Noordhuis",
+          "email": "info@bnoordhuis.nl",
+          "date": "2016-11-08T21:07:34Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:49Z"
+        },
+        "message": "tools: make run-valgrind.py useful\n\nNode.js does not clean up on exit so don't complain about memory leaks\nbut do complain about invalid memory access.  In the future we may want\nto add a cleanup-on-exit flag or put together a suppression list.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>",
+        "tree": {
+          "sha": "16bc432761052c764e9d4a5d18b4f1ec8d835e5d",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/16bc432761052c764e9d4a5d18b4f1ec8d835e5d"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/deabb5cfaac407a601175af9a6b841ecab93f9b3",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k1AAoJENi59a6uhOTPf5IQAJx4/Nt19K2ZKdRN+b+/3Urd\nNeVKblATZGC5XbKjwOCWMbpHlTgKlu8ymsO3x65Wj2GjswG1LEm0j0EIEtKBHvyA\ny2aFIChf2xQxoQp4HM8u/6A9zmnABcm4jmg6rKi4IZehuBetu7Esah/bLiIogfv7\nQmkKGuoikAuK6saNQ7vn1eytSD1xF9tu4RMcmJtLXZKGrsIShOllPzptAU/WcgRi\nNMihonrzGkVVGoZAW8ejCdUERQ3ePO+x+DdX45dJzE+Xseeofidi45nGlhZTF7WS\nui1WwGbrLskX3HrUsC+Kz9YtttvtInx1v4LmTY61xf59nDId9Ft+oGxb6053nSHE\nwVWgPbWtBnzWi4WfxHixm97frLjHxCAF26gjHbxSJYkKsgsTJTPZQki8JPGuzj/T\nZCZi1z3Mrp4ZultkSUdOMD6h28UDpZXd8R6ZI0NYjXKs48wwKbEqENoUje2wNoXV\nVczo2mYNER+dhUN0l6YxPaRXgy0nyn3LI2PsZIYlSHB0GDyo80t3XRNzLhq9/4ey\n/3X7YrBtQvz1Bz5ET8uIl93h6gV7zzYhT9Uh8GWtejpgZk7f+fyaKyXWuzg/U/cO\n6E2mUmQW6xkIP/ke3Xs52BuJKIWzoXluCBSOMPboMj+wHql5E64l2zTSBVT6yh2G\ntKvmukGYmAfRAOi576j6\n=ZNhC\n-----END PGP SIGNATURE-----",
+          "payload": "tree 16bc432761052c764e9d4a5d18b4f1ec8d835e5d\nparent 887c76a664d97695abbef39846a2491a73fd8fee\nauthor Ben Noordhuis <info@bnoordhuis.nl> 1478639254 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792949 +0100\n\ntools: make run-valgrind.py useful\n\nNode.js does not clean up on exit so don't complain about memory leaks\nbut do complain about invalid memory access.  In the future we may want\nto add a cleanup-on-exit flag or put together a suppression list.\n\nPR-URL: https://github.com/nodejs/node/pull/9520\nReviewed By: Sakthipriyan Vairamani <thechargingvolcano@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/deabb5cfaac407a601175af9a6b841ecab93f9b3",
+      "html_url": "https://github.com/nodejs/node/commit/deabb5cfaac407a601175af9a6b841ecab93f9b3",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/deabb5cfaac407a601175af9a6b841ecab93f9b3/comments",
+      "author": {
+        "login": "bnoordhuis",
+        "id": 275871,
+        "node_id": "MDQ6VXNlcjI3NTg3MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/275871?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/bnoordhuis",
+        "html_url": "https://github.com/bnoordhuis",
+        "followers_url": "https://api.github.com/users/bnoordhuis/followers",
+        "following_url": "https://api.github.com/users/bnoordhuis/following{/other_user}",
+        "gists_url": "https://api.github.com/users/bnoordhuis/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/bnoordhuis/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/bnoordhuis/subscriptions",
+        "organizations_url": "https://api.github.com/users/bnoordhuis/orgs",
+        "repos_url": "https://api.github.com/users/bnoordhuis/repos",
+        "events_url": "https://api.github.com/users/bnoordhuis/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/bnoordhuis/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "887c76a664d97695abbef39846a2491a73fd8fee",
+          "url": "https://api.github.com/repos/nodejs/node/commits/887c76a664d97695abbef39846a2491a73fd8fee",
+          "html_url": "https://github.com/nodejs/node/commit/887c76a664d97695abbef39846a2491a73fd8fee"
+        }
+      ]
+    },
+    {
+      "sha": "bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6YmZmNGU4OGYwYjcxMjI3ZmQ4ZjA4NDQyY2ZhMjJkNzdkY2FiMDdkNA==",
+      "commit": {
+        "author": {
+          "name": "Vse Mozhet Byt",
+          "email": "vsemozhetbyt@gmail.com",
+          "date": "2016-11-13T23:50:08Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:50Z"
+        },
+        "message": "doc: fix a typo in the assert.md\n\nPR-URL: https://github.com/nodejs/node/pull/9598\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "1af3aae0512143af3e2f64226e57b9b68206e229",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/1af3aae0512143af3e2f64226e57b9b68206e229"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k2AAoJENi59a6uhOTPsSkQAIF31zBt3sFuxRp5kpw0VWLH\nHHtUpdmrj0BYH0wpq5VDShO3bP29qvAdYPMH3DkOHgBjJI2QdOqnvog4pUAuXX9w\nLl0dwEVoDHWOzqGNEBh2OYHXe7RdqP+Mjq7conLBjlfDiqkssUCNlbCGQZZLNT3T\nN0w9NfeXU2EcfZxpf6FFKLD1R6GV5MmOkyLeiC1C9UggT0Ni5FUcqhmPvzL0bxL0\n6NzhvcwDnr6v7vbCT6hBTuWDkwQ4lCGZFR35n8uJ0ppq9Hyo/HZ1VgEI0S/oXZxd\nlUUJ5zOAGRJtpOia4XFFVVrBMfbbM9cfvydwd3WBVMQRHulBJTnZYBEwFnbyxN3b\nVpzKyZlJ2+i5FTQs+yfyaeZ0axTMH/wswSB3C/fopvpVzgwuAYtO0bLyie3lssGS\ndbn/9+FB0nhMesWKamPRPmT/bQ5Ocni0bv8Wghw8/0ZegGKiqT2TQqtIwKA/bD3L\n9ID/M/6mc7L4uuBd6JSFd9x3R7zSI59utl3DBVnOErzdbOVy2VeDw3unf6PRYJ8g\n3pog6HsDkjyelPs8SocaIU5KyCXXlh1GBBqJ26vo6w3t9FvAwhd4R47/ixxgGShA\n/gbZi+haQKqNPmCiGRAIAS5NW9wT3m+MdpcMRV0TO8pFFzYNnwI7rWYdziNRL0hx\nNsyUtJombJjfKuLyZObl\n=XSKC\n-----END PGP SIGNATURE-----",
+          "payload": "tree 1af3aae0512143af3e2f64226e57b9b68206e229\nparent deabb5cfaac407a601175af9a6b841ecab93f9b3\nauthor Vse Mozhet Byt <vsemozhetbyt@gmail.com> 1479081008 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792950 +0100\n\ndoc: fix a typo in the assert.md\n\nPR-URL: https://github.com/nodejs/node/pull/9598\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+      "html_url": "https://github.com/nodejs/node/commit/bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/bff4e88f0b71227fd8f08442cfa22d77dcab07d4/comments",
+      "author": {
+        "login": "vsemozhetbyt",
+        "id": 10393198,
+        "node_id": "MDQ6VXNlcjEwMzkzMTk4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10393198?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/vsemozhetbyt",
+        "html_url": "https://github.com/vsemozhetbyt",
+        "followers_url": "https://api.github.com/users/vsemozhetbyt/followers",
+        "following_url": "https://api.github.com/users/vsemozhetbyt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/vsemozhetbyt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/vsemozhetbyt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/vsemozhetbyt/subscriptions",
+        "organizations_url": "https://api.github.com/users/vsemozhetbyt/orgs",
+        "repos_url": "https://api.github.com/users/vsemozhetbyt/repos",
+        "events_url": "https://api.github.com/users/vsemozhetbyt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/vsemozhetbyt/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "deabb5cfaac407a601175af9a6b841ecab93f9b3",
+          "url": "https://api.github.com/repos/nodejs/node/commits/deabb5cfaac407a601175af9a6b841ecab93f9b3",
+          "html_url": "https://github.com/nodejs/node/commit/deabb5cfaac407a601175af9a6b841ecab93f9b3"
+        }
+      ]
+    },
+    {
+      "sha": "34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzRjOGIwYjQxMWI1ODhkYjk5ZWJhMGJmZGVkYWQxZDc2NDlmN2E0Yw==",
+      "commit": {
+        "author": {
+          "name": "Kelvin Jin",
+          "email": "kelvinjin@google.com",
+          "date": "2016-10-01T00:24:03Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:50Z"
+        },
+        "message": "module: check -e flag in debug break setup\n\nWhen both --debug-brk and --eval are set, and a filename is\nspecified, its full path is not set correctly, causing an error\nfor relative filenames with './' omitted.\n\nFor example, 'node --debug-brk -e 0 hello.js' throws an error.\n\nSince the script referenced by the filename is never run anyway,\nthis change skips resolving its full path if both --debug-brk and\n--eval are set.\n\nPR-URL: https://github.com/nodejs/node/pull/8876\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: James M Snell <jasnell@gmail.com>",
+        "tree": {
+          "sha": "fb1a8f4989d27b3142eb7254f64d2cbab670d13b",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/fb1a8f4989d27b3142eb7254f64d2cbab670d13b"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k2AAoJENi59a6uhOTPaKoP/jYYdEZruvmFrU7jNZNGA7+Y\nOzF9pGlj6+mZw3YY65UUHN+oH7vu9HV2hbxhqMbB98qLpUmX11yIeVs2j0WDpjsW\n6LZpW/qM4pOvLGOfJay3JoutZpm77ULUZffgw1OzJGmE5bUj40vyc4EKpGlukOAV\nIUaBe3nfDaGLtKWYGNKtC42DcPE5Bu6bU9CDLnhS0+l0VTjBns3i24CisqhqTHtp\ncpdL5U3xS7shD+5DsXCG2WuvhxHp0w3tSdFOwBFfIf/n/GMN5JCaHEuaUU8YtHXk\nYShVH2LWUEoPVLSd+HI959+KGrmLK01kuzr3XHk18HJqbj/sMS0zJeXeowrcus2Y\npkjmVeULI+2am5q/9gtOsVwEuSlVecol6jbr8z4H1WmQFaPO6c6FeUtBu5+2aUEe\n1+G4r8aqLNwepeQdWJsIfmN+yTiQyyqk3EbS457dj3Z+ATGOlJX2uMtnUNX2DCig\nCTt26MHpyETMcrb+4gopRW2huoepVap0b1X+rYpy9qD7r5CpuzwQ7y3lK7eokKsG\nG0SHVB3fKzkK/GDUK0paaUCS2tqauynEg1kfchSU2fAO/oDBH2mpldY53ZoSn9Ba\n+35hfVC1aJyLeMiEmC9m39maQLFVu12Di2yxaVPp6aIX00sDWjoXn6H+CkcZeA/1\nQA366Z90glM5MPIvaxVD\n=oZMj\n-----END PGP SIGNATURE-----",
+          "payload": "tree fb1a8f4989d27b3142eb7254f64d2cbab670d13b\nparent bff4e88f0b71227fd8f08442cfa22d77dcab07d4\nauthor Kelvin Jin <kelvinjin@google.com> 1475281443 -0700\ncommitter Anna Henningsen <anna@addaleax.net> 1479792950 +0100\n\nmodule: check -e flag in debug break setup\n\nWhen both --debug-brk and --eval are set, and a filename is\nspecified, its full path is not set correctly, causing an error\nfor relative filenames with './' omitted.\n\nFor example, 'node --debug-brk -e 0 hello.js' throws an error.\n\nSince the script referenced by the filename is never run anyway,\nthis change skips resolving its full path if both --debug-brk and\n--eval are set.\n\nPR-URL: https://github.com/nodejs/node/pull/8876\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\nReviewed-By: James M Snell <jasnell@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+      "html_url": "https://github.com/nodejs/node/commit/34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/34c8b0b411b588db99eba0bfdedad1d7649f7a4c/comments",
+      "author": {
+        "login": "kjin",
+        "id": 2365820,
+        "node_id": "MDQ6VXNlcjIzNjU4MjA=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2365820?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/kjin",
+        "html_url": "https://github.com/kjin",
+        "followers_url": "https://api.github.com/users/kjin/followers",
+        "following_url": "https://api.github.com/users/kjin/following{/other_user}",
+        "gists_url": "https://api.github.com/users/kjin/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/kjin/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/kjin/subscriptions",
+        "organizations_url": "https://api.github.com/users/kjin/orgs",
+        "repos_url": "https://api.github.com/users/kjin/repos",
+        "events_url": "https://api.github.com/users/kjin/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/kjin/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+          "url": "https://api.github.com/repos/nodejs/node/commits/bff4e88f0b71227fd8f08442cfa22d77dcab07d4",
+          "html_url": "https://github.com/nodejs/node/commit/bff4e88f0b71227fd8f08442cfa22d77dcab07d4"
+        }
+      ]
+    },
+    {
+      "sha": "89216a45b73fb325f91a81c20ad3c23be5ac2157",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ODkyMTZhNDViNzNmYjMyNWY5MWE4MWMyMGFkM2MyM2JlNWFjMjE1Nw==",
+      "commit": {
+        "author": {
+          "name": "Timothy Gu",
+          "email": "timothygu99@gmail.com",
+          "date": "2016-11-12T18:17:20Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:51Z"
+        },
+        "message": "doc: fix type of http.request's `agent` option\n\nPR-URL: https://github.com/nodejs/node/pull/9584\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "3fc3127389ec8d50ef7d4d22dbd3ea46e0f6758a",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/3fc3127389ec8d50ef7d4d22dbd3ea46e0f6758a"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/89216a45b73fb325f91a81c20ad3c23be5ac2157",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k3AAoJENi59a6uhOTP2QIP/Ai9clmYgYdzZT5CEwNKkADq\npI0IOOtqRli0a3VxNkm0te1IgsuDtBHPijeCKoSor7Ssn0nljgYXh4uk9oR4G7sT\nBPNJQcugNTKTIdGYLup5i3RLEHazsSzWbeqT27akiRnLiDMWwqXUr6zlIRcmm/45\nfKpHUvWetbWBPEqlqLgAYlQFwAwiA/VQHOIWCeopsAQe5IQBJ27XBiRfAQMFZXqQ\nPcCgHPVCURbOcZmu02HHIpv1EECWgEnohYQfDwQp7LaalKBqF28dm6xyIrqW0DJv\nwSVimcfQJ7U4CtgmE2G9xsrg914bAvRyRzJ6/K6r3/GKlZAdrGGTWgi6Z0NnsCf3\nTyouNWNUcYSmcrOxqah314h09YEyuv8zjfYyD7Zgi928R3V6Z7fNbtedjsysHNYw\n0fVgUkam6u7/N15dtiyOifRdH3XwynPItyIiXlr+7MrlVhJ6vpAnBcbEdQGCZn5S\nMXnVA7onO8jpvF67bEaYQ7CiaVaXEHSkh6hS8cb6H4hlxJhOTVsgc0kATZKoD4FU\n5cL0llp3IPmNHphUy6XspcE+DZ5mEUXZ1JlqVUBRdnNyna6h+RInN8+roRcquk90\nZxgdgAjTJXZ/eI7nOlIKhC1nskB1tOW8J0Kdvcs6oZAcM8MAJ/D8NsWpCmvEqRv+\njXpZmbf2pCjfM20TZqvM\n=QoUc\n-----END PGP SIGNATURE-----",
+          "payload": "tree 3fc3127389ec8d50ef7d4d22dbd3ea46e0f6758a\nparent 34c8b0b411b588db99eba0bfdedad1d7649f7a4c\nauthor Timothy Gu <timothygu99@gmail.com> 1478974640 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792951 +0100\n\ndoc: fix type of http.request's `agent` option\n\nPR-URL: https://github.com/nodejs/node/pull/9584\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/89216a45b73fb325f91a81c20ad3c23be5ac2157",
+      "html_url": "https://github.com/nodejs/node/commit/89216a45b73fb325f91a81c20ad3c23be5ac2157",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/89216a45b73fb325f91a81c20ad3c23be5ac2157/comments",
+      "author": {
+        "login": "TimothyGu",
+        "id": 1538624,
+        "node_id": "MDQ6VXNlcjE1Mzg2MjQ=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1538624?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/TimothyGu",
+        "html_url": "https://github.com/TimothyGu",
+        "followers_url": "https://api.github.com/users/TimothyGu/followers",
+        "following_url": "https://api.github.com/users/TimothyGu/following{/other_user}",
+        "gists_url": "https://api.github.com/users/TimothyGu/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/TimothyGu/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/TimothyGu/subscriptions",
+        "organizations_url": "https://api.github.com/users/TimothyGu/orgs",
+        "repos_url": "https://api.github.com/users/TimothyGu/repos",
+        "events_url": "https://api.github.com/users/TimothyGu/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/TimothyGu/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+          "url": "https://api.github.com/repos/nodejs/node/commits/34c8b0b411b588db99eba0bfdedad1d7649f7a4c",
+          "html_url": "https://github.com/nodejs/node/commit/34c8b0b411b588db99eba0bfdedad1d7649f7a4c"
+        }
+      ]
+    },
+    {
+      "sha": "3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MzAxNGRmZDI1NDc0ZTJiOWYyOTkxZGFiNmE5ZThjYzc2Njk3MThjYg==",
+      "commit": {
+        "author": {
+          "name": "Timothy Gu",
+          "email": "timothygu99@gmail.com",
+          "date": "2016-11-13T14:43:55Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:51Z"
+        },
+        "message": "doc: wrap long lines in http.request\n\nPR-URL: https://github.com/nodejs/node/pull/9584\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "4f9db1e0f9e241f402ed826949bf43878d68db7c",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/4f9db1e0f9e241f402ed826949bf43878d68db7c"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k4AAoJENi59a6uhOTPjZQP/0m851Fmmsj+cMC9eX+veBx5\n3yiQlQXatzEHBVqE3ycM96f+E1ywiLvNuVYufZaIbJuESmdc/BrOMB514y8MQaWs\nD82WnjXacFkSza1Hz8nyqepdyl4f16e4JO+qqaq4H7Zkvr6WRDh+wRdOgSh63AW6\nD8lJmvjDFdcWka2b7gJgKR348+ubg/ZJ2ZkD8n/v/8pZRBhQgmju5rh4H5XhL+HU\n2ZqdGpsaA8hHuehLfMnkE5j2WNLTxcaX7jdihw6uac63m63EkbkPLLUwi2xC6rvg\nZAl6a0n3u6mtqPfD0xNDTi0KEEoXZ76pd655WOVkYDLWZqkJoqJQW2s8XX3kvSpw\nGxK+qAnZF68gf1Wtd5YEBgsGsfitOA0xWCEwECFmn4aSOxHRftXXXr/A8cuNNHDX\nD+ft91SQZTDN8EAfKXAPnBnpqwnCEBxsEB4Mjh0JsOuueFfrZxwxMmNkBKGVfq7K\nNzh4UP0/ftVJtS1m2rYVN4Bc/XZ3208rF0JA0+Ca2um1C+21MqnJuBdzqoLmA+fr\nRkE9cxYo88cVtVAvOqdOJjNwgvO2DbacQKvli23GxWpwbtOzKXbbZCFbJU38+En7\nm9iHHntYPv58jEgvUE6xKphw3rnXjibb31kttuDGrWCY0ih20J2Xp3TmyQ0nQtWJ\nY9zbMQvg9rGNbxQkLA7S\n=mu08\n-----END PGP SIGNATURE-----",
+          "payload": "tree 4f9db1e0f9e241f402ed826949bf43878d68db7c\nparent 89216a45b73fb325f91a81c20ad3c23be5ac2157\nauthor Timothy Gu <timothygu99@gmail.com> 1479048235 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792951 +0100\n\ndoc: wrap long lines in http.request\n\nPR-URL: https://github.com/nodejs/node/pull/9584\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+      "html_url": "https://github.com/nodejs/node/commit/3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/3014dfd25474e2b9f2991dab6a9e8cc7669718cb/comments",
+      "author": {
+        "login": "TimothyGu",
+        "id": 1538624,
+        "node_id": "MDQ6VXNlcjE1Mzg2MjQ=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1538624?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/TimothyGu",
+        "html_url": "https://github.com/TimothyGu",
+        "followers_url": "https://api.github.com/users/TimothyGu/followers",
+        "following_url": "https://api.github.com/users/TimothyGu/following{/other_user}",
+        "gists_url": "https://api.github.com/users/TimothyGu/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/TimothyGu/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/TimothyGu/subscriptions",
+        "organizations_url": "https://api.github.com/users/TimothyGu/orgs",
+        "repos_url": "https://api.github.com/users/TimothyGu/repos",
+        "events_url": "https://api.github.com/users/TimothyGu/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/TimothyGu/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "89216a45b73fb325f91a81c20ad3c23be5ac2157",
+          "url": "https://api.github.com/repos/nodejs/node/commits/89216a45b73fb325f91a81c20ad3c23be5ac2157",
+          "html_url": "https://github.com/nodejs/node/commit/89216a45b73fb325f91a81c20ad3c23be5ac2157"
+        }
+      ]
+    },
+    {
+      "sha": "d5fa1d530721461e9bec0577d80c2a8957193103",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZDVmYTFkNTMwNzIxNDYxZTliZWMwNTc3ZDgwYzJhODk1NzE5MzEwMw==",
+      "commit": {
+        "author": {
+          "name": "Nikolai Vavilov",
+          "email": "vvnicholas@gmail.com",
+          "date": "2016-10-27T17:49:21Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:52Z"
+        },
+        "message": "doc: clarify eventType in fs.watch\n\n'rename' is confusing, and it's not clear what \"they\" refers to.\n\nFixes: https://github.com/nodejs/node/issues/9082\nPR-URL: https://github.com/nodejs/node/pull/9318\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "723bd784c06f24adb33a7983fb20a36f528736f6",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/723bd784c06f24adb33a7983fb20a36f528736f6"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/d5fa1d530721461e9bec0577d80c2a8957193103",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k4AAoJENi59a6uhOTPCHoQAKIU8NIjhj3ds9i2rNbHolu0\nfOwjmzI1CeZcx3VzWFpE56+jQFQ/Q7vUgeIxCuDUtXAQPFEbmLmyyZoEGJXT7xE9\nsu6BfU/zS6r6+1ZCtk8QY1jfNlmIfzAtuI8E2VUftNcSbO07ByvnAOaAvuFEF/ux\nYK/8S6wKOSxbdVYpY09vqDyqoxJGUmIwJwriTDH6QyvHtnPIn+9rVBnQMJvupHHe\nhbpiaMaWee+IzJYXRZ4Jzlr3bDkz5bcJS+WxNZeLlJxpfs2kv60Npvj0gKagXl9Y\neXBD1FzlQoBB5OwmQsW6/SOc46/zodJXoHNLP/53hs7v0tcoeGJPi9f+h9gv3n6G\nOUdvuKz9eDPNx9XCfnheAogLQEFW9hrbIBWHt1dWBssF1m0oYr928DxJ8OqqLEyG\nrczvF1mmfVZP2YQaVTnKqzOTUi4tmAOnx8/V3Zl9FJLCJ+0bCKa5WL9CcFJzXbNd\niCDmbtRNR6tfjgyk+TS9juus5kBBQZ364jRGMtN9pDtz0aDqapdyOYLgC+S6yA9i\nVMxOd5IYk89uYQxvFK1wWqX1+YgeVuyQitRO7xsvVku9+ih1DxZ6x99Yc1boWp8U\nX6G2VXvCRimJog8Jkmghp1WtTjbM7CsZwuZL3wB33rl1z5eTCNS6ZXNHLNy+Mc+E\n7ikExCyum90Jg4Voxypn\n=0LAO\n-----END PGP SIGNATURE-----",
+          "payload": "tree 723bd784c06f24adb33a7983fb20a36f528736f6\nparent 3014dfd25474e2b9f2991dab6a9e8cc7669718cb\nauthor Nikolai Vavilov <vvnicholas@gmail.com> 1477590561 +0300\ncommitter Anna Henningsen <anna@addaleax.net> 1479792952 +0100\n\ndoc: clarify eventType in fs.watch\n\n'rename' is confusing, and it's not clear what \"they\" refers to.\n\nFixes: https://github.com/nodejs/node/issues/9082\nPR-URL: https://github.com/nodejs/node/pull/9318\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/d5fa1d530721461e9bec0577d80c2a8957193103",
+      "html_url": "https://github.com/nodejs/node/commit/d5fa1d530721461e9bec0577d80c2a8957193103",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/d5fa1d530721461e9bec0577d80c2a8957193103/comments",
+      "author": {
+        "login": "seishun",
+        "id": 988441,
+        "node_id": "MDQ6VXNlcjk4ODQ0MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/988441?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/seishun",
+        "html_url": "https://github.com/seishun",
+        "followers_url": "https://api.github.com/users/seishun/followers",
+        "following_url": "https://api.github.com/users/seishun/following{/other_user}",
+        "gists_url": "https://api.github.com/users/seishun/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/seishun/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/seishun/subscriptions",
+        "organizations_url": "https://api.github.com/users/seishun/orgs",
+        "repos_url": "https://api.github.com/users/seishun/repos",
+        "events_url": "https://api.github.com/users/seishun/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/seishun/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+          "url": "https://api.github.com/repos/nodejs/node/commits/3014dfd25474e2b9f2991dab6a9e8cc7669718cb",
+          "html_url": "https://github.com/nodejs/node/commit/3014dfd25474e2b9f2991dab6a9e8cc7669718cb"
+        }
+      ]
+    },
+    {
+      "sha": "3b4ec5f6c584e49ca6cf6c618191daff44247806",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6M2I0ZWM1ZjZjNTg0ZTQ5Y2E2Y2Y2YzYxODE5MWRhZmY0NDI0NzgwNg==",
+      "commit": {
+        "author": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-10-21T20:57:17Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:53Z"
+        },
+        "message": "test: check that `process.execPath` is a realpath\n\nThis test is only here to ensure consistent cross-platform behaviour.\n\nPR-URL: https://github.com/nodejs/node/pull/9229\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>",
+        "tree": {
+          "sha": "968608b3f1a7be0db628418eae6fac4fda013a37",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/968608b3f1a7be0db628418eae6fac4fda013a37"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/3b4ec5f6c584e49ca6cf6c618191daff44247806",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k5AAoJENi59a6uhOTPOIsP/RnCQ78F1JxWR032Nbp82PYE\n0R4c8cGf4jxwbH3HVGN6GzzXPzKS3jDZ/bKPzdvbQ6d86gL+ZWf+4AWXRAF/Pl0X\nRTGXUklDVj50J3j28OKrT0RekW+SH6Pf4W5NQ+3UEFp/DJmaTQ8kKJ2hz8p9iyf3\nn+ONqsDQZtQ/2fBa0pWYtCx61P+F+edr7yod2OtI+6EeCS0hxhyQYRv84E5jTdHp\nhetxvNCmoocgqcihQVdbJAB185SkYRsrMDiJ2PICCnG1qfh/Logkc+izN7zl+fyU\nan4mmGwo9NZ8rYmxUpwNuu2vlsRN8akfcZJnxwDMLtw6cTmWOWOqZQtlWVQkgEJY\n8esAzfki5R79uXX98QhY/oWZPNaIZSOYnroeOveT6QM1DDFr50xtcEgo0TKJ+1l9\nADWvXjoJADZn/B2PB0CdGvCAXkHQh1TgunCerCTaUP/iTR3JLe0EMw1t7++qlRg5\niNZnQiZ6JxL2dUudtjb9zAprFr68tHS/rc+7lMBNT0ceb95uC0uQsnCvRD5Qy0Vn\n29rO3fLAF4p/Wss4I67d6+u+EAUu4Q5/NRJ1bn3eL0Kh6l6kE38cCBZcyHXZ2wQu\nFP2rBYNyByqVrTrLO/k1SLDLNhPskidfp/FOqq89eZ7s+9mjjF7ma7EtQPGUdOBh\n5lmU2voAOJCMXRi/b5uX\n=geeN\n-----END PGP SIGNATURE-----",
+          "payload": "tree 968608b3f1a7be0db628418eae6fac4fda013a37\nparent d5fa1d530721461e9bec0577d80c2a8957193103\nauthor Anna Henningsen <anna@addaleax.net> 1477083437 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792953 +0100\n\ntest: check that `process.execPath` is a realpath\n\nThis test is only here to ensure consistent cross-platform behaviour.\n\nPR-URL: https://github.com/nodejs/node/pull/9229\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Ben Noordhuis <info@bnoordhuis.nl>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/3b4ec5f6c584e49ca6cf6c618191daff44247806",
+      "html_url": "https://github.com/nodejs/node/commit/3b4ec5f6c584e49ca6cf6c618191daff44247806",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/3b4ec5f6c584e49ca6cf6c618191daff44247806/comments",
+      "author": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "d5fa1d530721461e9bec0577d80c2a8957193103",
+          "url": "https://api.github.com/repos/nodejs/node/commits/d5fa1d530721461e9bec0577d80c2a8957193103",
+          "html_url": "https://github.com/nodejs/node/commit/d5fa1d530721461e9bec0577d80c2a8957193103"
+        }
+      ]
+    },
+    {
+      "sha": "25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6MjVhNmY4OGQ5OGQ3MzJmNjk1NjJiZjk1YzM5YmY2ZDczZTM1ZTQ4ZA==",
+      "commit": {
+        "author": {
+          "name": "Brian White",
+          "email": "mscdex@mscdex.net",
+          "date": "2016-11-13T04:34:35Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:53Z"
+        },
+        "message": "doc: improve process.emitWarning() example\n\nPR-URL: https://github.com/nodejs/node/pull/9590\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "bcedf1f5ea1114480c3f81bfd288842d9d36df0d",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/bcedf1f5ea1114480c3f81bfd288842d9d36df0d"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k5AAoJENi59a6uhOTPjVwQAIQHNQmnCLTnWipHjgZ+blgo\ncYUG++b0faYi96zHF4KuOV7S0un/kzJ3VpNSBzHN01rOWLXCbr4VU6XAxLpLBFDs\nqSI1GbWmUx0JM8LbBqCwZiTRgW22S9YwACgHnnLeuwj+toq1IDuvcJ38otTy4qjp\nhiEROcYm6YpJz/WWYxp17f2Ow23zSZcgU7O165WPZptoQdQ8wMmiCwZ38FslLONS\n3gK52/4zIYnUmbnWr0e+ZDlUpfE3DQxBaPu5v1ua91mlaD+gubq2BOYNxiC+bvFd\n0KMnRuIZj+nhtpn/uI7AT5oHgXQm14oJCuaISG7ehil7H36aCKPJEyFB4Fuw1PRs\naekEDR+cQJo2Z5RjBQLnsJDmTAA8P2iLDTi/W0wyIo55p7d7o5y46COjnXN9Hu4j\nZ8bVvE4eFcVA06W5wcZwjzz15MLiOOt72r2+WPejr52jt9tr3pYw5MkDDQKYYodS\nCK+GrRrFlZTjU1+xziT/LZkk+ITmNGUeRIeMCZHgqcq7UpfkY/Pek0OrgUcTfShQ\nIxhZPlUgbQ3T/lYCGlO/czA7YlXZGL1VFcwM6zFfT1RasG02ZbUrfcmjhvD+mNqH\nZagsuLhhd1ibc2F88hE293+RM3M/tUXYhRiuFH4YgXwgAvzi60fer63f9+f4k9eq\nJjk6fjt8ih1foyNDufj4\n=piTz\n-----END PGP SIGNATURE-----",
+          "payload": "tree bcedf1f5ea1114480c3f81bfd288842d9d36df0d\nparent 3b4ec5f6c584e49ca6cf6c618191daff44247806\nauthor Brian White <mscdex@mscdex.net> 1479011675 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792953 +0100\n\ndoc: improve process.emitWarning() example\n\nPR-URL: https://github.com/nodejs/node/pull/9590\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+      "html_url": "https://github.com/nodejs/node/commit/25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/25a6f88d98d732f69562bf95c39bf6d73e35e48d/comments",
+      "author": {
+        "login": "mscdex",
+        "id": 54666,
+        "node_id": "MDQ6VXNlcjU0NjY2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/54666?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mscdex",
+        "html_url": "https://github.com/mscdex",
+        "followers_url": "https://api.github.com/users/mscdex/followers",
+        "following_url": "https://api.github.com/users/mscdex/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mscdex/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mscdex/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mscdex/subscriptions",
+        "organizations_url": "https://api.github.com/users/mscdex/orgs",
+        "repos_url": "https://api.github.com/users/mscdex/repos",
+        "events_url": "https://api.github.com/users/mscdex/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mscdex/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "3b4ec5f6c584e49ca6cf6c618191daff44247806",
+          "url": "https://api.github.com/repos/nodejs/node/commits/3b4ec5f6c584e49ca6cf6c618191daff44247806",
+          "html_url": "https://github.com/nodejs/node/commit/3b4ec5f6c584e49ca6cf6c618191daff44247806"
+        }
+      ]
+    },
+    {
+      "sha": "d964eacd6aafd45f205e540bc7b6037a0f86b667",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ZDk2NGVhY2Q2YWFmZDQ1ZjIwNWU1NDBiYzdiNjAzN2EwZjg2YjY2Nw==",
+      "commit": {
+        "author": {
+          "name": "Brian White",
+          "email": "mscdex@mscdex.net",
+          "date": "2016-11-13T04:38:29Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:54Z"
+        },
+        "message": "doc: remove redundant warning information\n\nprocess.emitWarning() already describes how to emit custom warnings,\nso just merely provide a link to that function from the 'warning'\nevent documentation.\n\nPR-URL: https://github.com/nodejs/node/pull/9590\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>",
+        "tree": {
+          "sha": "5f1853a2732b54ced13f37487776ec2f5e8f0438",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/5f1853a2732b54ced13f37487776ec2f5e8f0438"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/d964eacd6aafd45f205e540bc7b6037a0f86b667",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k6AAoJENi59a6uhOTPR04P/AnADZoBAE77Nc9s4ivCdVWq\nlZG3xwc9/D/JEsJ7FuUnnSCWOqzd+51C7PdGDvEbMOG+dYryv20cVUcHaLOzILIQ\nJoHweBNBcTGrlWYaEO06fAsDg3Mt4dKnjczz9ZZ+vuGVwgbV+cSa0bWKgM6nd1ZU\nQJ/wlgffURDAo/3q/+1Co2rqCSDTivNQx6QnFikFiT/DZTOi01jScL40L9P1Bg0f\ndhctaXpNV5hvFuCD7QQMI56TdeRwQuZUJDpjkN0HDiUItLmJ7s02xTGxi+/tEsgJ\nQ2SM9N7MMyz9qHyMR1TD8S8iC1IRJ/t7zX9lIc370jtEeTmEPB7ipubQECHRKUX9\nUqwPGqPpyC+6AK0Wb1d58GnRSVtwpJiv0FKQIxkobkaokXfzOirs0bD03nVfSzI+\n7zdzCS6bd8D7TuKo3uzhzYk9PTHcrzfYIKJq0f2bwn7xKns0eH8+jyMG+r//82UE\nRUchMXWBhyf+zkDi6aY7jGC9hqIyQYfbzyGkuBcDQCGo3gk2EJl+Cg3aLMp9wa1m\ndz594AjEKERzBxo1ILzxI0Br+IYAJMfMywEqa/6xdRoAt1UuwW8kvKZzy6yCLywA\noj1R0Hno4W29trX/bGYQIFNxTPJG7EtCc9MvbXHxYc89fwe2mNPUv+shKQgMqyoG\n1GGrEwrfcKOzz6xA0zl4\n=bKGO\n-----END PGP SIGNATURE-----",
+          "payload": "tree 5f1853a2732b54ced13f37487776ec2f5e8f0438\nparent 25a6f88d98d732f69562bf95c39bf6d73e35e48d\nauthor Brian White <mscdex@mscdex.net> 1479011909 -0500\ncommitter Anna Henningsen <anna@addaleax.net> 1479792954 +0100\n\ndoc: remove redundant warning information\n\nprocess.emitWarning() already describes how to emit custom warnings,\nso just merely provide a link to that function from the 'warning'\nevent documentation.\n\nPR-URL: https://github.com/nodejs/node/pull/9590\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Prince John Wesley <princejohnwesley@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/d964eacd6aafd45f205e540bc7b6037a0f86b667",
+      "html_url": "https://github.com/nodejs/node/commit/d964eacd6aafd45f205e540bc7b6037a0f86b667",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/d964eacd6aafd45f205e540bc7b6037a0f86b667/comments",
+      "author": {
+        "login": "mscdex",
+        "id": 54666,
+        "node_id": "MDQ6VXNlcjU0NjY2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/54666?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mscdex",
+        "html_url": "https://github.com/mscdex",
+        "followers_url": "https://api.github.com/users/mscdex/followers",
+        "following_url": "https://api.github.com/users/mscdex/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mscdex/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mscdex/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mscdex/subscriptions",
+        "organizations_url": "https://api.github.com/users/mscdex/orgs",
+        "repos_url": "https://api.github.com/users/mscdex/repos",
+        "events_url": "https://api.github.com/users/mscdex/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mscdex/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+          "url": "https://api.github.com/repos/nodejs/node/commits/25a6f88d98d732f69562bf95c39bf6d73e35e48d",
+          "html_url": "https://github.com/nodejs/node/commit/25a6f88d98d732f69562bf95c39bf6d73e35e48d"
+        }
+      ]
+    },
+    {
+      "sha": "7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6N2FmNjgwZTZmZTUzMWUwNjc5MmFlMmMwZGJkZjhkN2M1YzcyNDNjNA==",
+      "commit": {
+        "author": {
+          "name": "Daniel Bevenius",
+          "email": "daniel.bevenius@gmail.com",
+          "date": "2016-11-08T20:04:57Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:54Z"
+        },
+        "message": "doc: make comment indentation consistent\n\nCurrently, some of the docs use different indentation for comments\nin the code examples. This commit makes the indentation consistent\nby putting the comments at the beginning of the line (really no\nindentation that is).\n\nPR-URL: https://github.com/nodejs/node/pull/9518\nReviewed-By: Teddy Katz <teddy.katz@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Michaël Zasso <targos@protonmail.com>",
+        "tree": {
+          "sha": "e62ad917d30f8daeddf7c054318fb37315e2c54c",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/e62ad917d30f8daeddf7c054318fb37315e2c54c"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k6AAoJENi59a6uhOTPS9IQAKC5JsDP9OozfSghx285x6wv\nem7j6n6ImGDm86EpLj+9b0DZgoD0KEG6kI2sEK7JpiABtdycQRWO2AppTq3GgGyv\nXnq6XG1bkKR0mcmOW7/cB7kfk/hYlAG+iA2bhAmUGuC3wi97ZbDchWePcWaLHpxS\ndLjN9FJPwQTfPChoErVAdCb4RMaFVz7bNBU24cZCP5gAbuDxO8gbl1b7QBv0Ht6R\nMSGAywe8WIt2T1jy8ZeI2zEwCAKcB1X7z4uS5X7FrJPsXExb/uTSZOK0e+MVS+it\nD1sbLJkmoQlIAjkl8pPBuD93tFQn6TCZCY+zlfwMR5N20mcNMrfDAIOP8VV3zBJO\nejkRg+t02xllXad+iX9suwsZAG/UVhN+G5lRmNjeV+j59GOvQRtgZ32zlnjxf7y7\nVmlOeWqsDhjlc1QjZhrx5JXXPwep+44bZOSvlbCV5nVZ/0TfyJ9W6qkG6v4p7Vam\nKpV1H7ncemrGb9OqkitWaAly4hhmm1rXc+dfLTClgNqa53BqRbeQJ6tM3nfZSIEy\n1uGSwxd2kqe0yPiYCtJHydU96LUA6R4WWA7JGxl9D29x592w4dfmSi7qp2UqRULI\n2O8SLSMjp0KoWF6V6J7pewHdYNzQrtJLo0uTci6xE2FRC0C/w5UtHqZKfu06wqc+\nyjcsKcTla1ry3+E7hsms\n=C7rT\n-----END PGP SIGNATURE-----",
+          "payload": "tree e62ad917d30f8daeddf7c054318fb37315e2c54c\nparent d964eacd6aafd45f205e540bc7b6037a0f86b667\nauthor Daniel Bevenius <daniel.bevenius@gmail.com> 1478635497 +0100\ncommitter Anna Henningsen <anna@addaleax.net> 1479792954 +0100\n\ndoc: make comment indentation consistent\n\nCurrently, some of the docs use different indentation for comments\nin the code examples. This commit makes the indentation consistent\nby putting the comments at the beginning of the line (really no\nindentation that is).\n\nPR-URL: https://github.com/nodejs/node/pull/9518\nReviewed-By: Teddy Katz <teddy.katz@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\nReviewed-By: Michaël Zasso <targos@protonmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+      "html_url": "https://github.com/nodejs/node/commit/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4/comments",
+      "author": {
+        "login": "danbev",
+        "id": 432351,
+        "node_id": "MDQ6VXNlcjQzMjM1MQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/432351?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/danbev",
+        "html_url": "https://github.com/danbev",
+        "followers_url": "https://api.github.com/users/danbev/followers",
+        "following_url": "https://api.github.com/users/danbev/following{/other_user}",
+        "gists_url": "https://api.github.com/users/danbev/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/danbev/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/danbev/subscriptions",
+        "organizations_url": "https://api.github.com/users/danbev/orgs",
+        "repos_url": "https://api.github.com/users/danbev/repos",
+        "events_url": "https://api.github.com/users/danbev/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/danbev/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "d964eacd6aafd45f205e540bc7b6037a0f86b667",
+          "url": "https://api.github.com/repos/nodejs/node/commits/d964eacd6aafd45f205e540bc7b6037a0f86b667",
+          "html_url": "https://github.com/nodejs/node/commit/d964eacd6aafd45f205e540bc7b6037a0f86b667"
+        }
+      ]
+    },
+    {
+      "sha": "9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6OWEwYmNmYzQ1MjJiMjMzYzU1MDZkYTkxYjAxYjZkNjQ5Y2ZlNTAyMA==",
+      "commit": {
+        "author": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-09-30T14:16:28Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:55Z"
+        },
+        "message": "fs: export `realpathCacheKey` from `internal/fs`\n\nMove the internally defined symbol `fs.realpathCacheKey` to\nthe internal fs module, where it’s more appropriate.\n\nThe symbol was recently added in c084287a608ef, but since\n`internal/fs` is only available in the v7.x branch, this\nneeds to be a separate follow-up change.\n\nPR-URL: https://github.com/nodejs/node/pull/8862\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>",
+        "tree": {
+          "sha": "67799c40c7732a94f9aa2df57747a83a9e0fa928",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/67799c40c7732a94f9aa2df57747a83a9e0fa928"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k7AAoJENi59a6uhOTPHKQP/jkoRIDtUOxFB55w7JMvGd9H\nkv2oRTCiOzz7LDc8DaB7iQq+7LMKs1o7OPmmiBlTbYd8ay18VFCWkQgwGHFPH5ws\nKc8jaFstTI3G0xVE2zh4AYPI/4nmGnQoTCnEQuo7sOkp/MaXc+IY5HrSkfSjqZ7d\n79cjV2RJViAwTkPXgJeGZq62EG60wfby9HbAL+q+xJ4AZho9ik/+AuxehybtmWXh\n9buqyshZVDb7XOngR8bcyUjdQJBRel7rai1swwlLFDAmYa8tQrOa2lkwYyya5Ml3\nxGMoRDxe1d8d5cEQ9Qvh9J68cOZaCh43w+pVXLabxpnAsoJryIZRqrg5C8HRKPgk\nmGoj3HcXfTUpZNCOd2Jb8qeSK4bwnYLfGoQ8+lYAka4EWPn0HDxB528gsb49XrTN\noXGCh029duvjuQyBbv93lHRjMTxQtM3B5NNzD7o8mE8IS0usVOkYnt0MHsv4K+h1\n8l9FlGk3vGyvDxokzVvSdOWdRec5tanjQhcKMtu6EUTiwwouJxr/7X6RCDIQSR48\nD/XV0d24TWIf4qmE0IJgmNbzKdGnSLGSlgrycjr7SgHdwZyf3geqlYDmtjcHccX4\ngobBsnKhe93F66X1wqwrN2B1lDtb2JLmtbpK8rpjxihoGL+wEsGidrd4sAIQk+sJ\nE0yAcTMpa6JySBq70eG2\n=ehKa\n-----END PGP SIGNATURE-----",
+          "payload": "tree 67799c40c7732a94f9aa2df57747a83a9e0fa928\nparent 7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4\nauthor Anna Henningsen <anna@addaleax.net> 1475244988 +0200\ncommitter Anna Henningsen <anna@addaleax.net> 1479792955 +0100\n\nfs: export `realpathCacheKey` from `internal/fs`\n\nMove the internally defined symbol `fs.realpathCacheKey` to\nthe internal fs module, where it’s more appropriate.\n\nThe symbol was recently added in c084287a608ef, but since\n`internal/fs` is only available in the v7.x branch, this\nneeds to be a separate follow-up change.\n\nPR-URL: https://github.com/nodejs/node/pull/8862\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+      "html_url": "https://github.com/nodejs/node/commit/9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/9a0bcfc4522b233c5506da91b01b6d649cfe5020/comments",
+      "author": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+          "url": "https://api.github.com/repos/nodejs/node/commits/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4",
+          "html_url": "https://github.com/nodejs/node/commit/7af680e6fe531e06792ae2c0dbdf8d7c5c7243c4"
+        }
+      ]
+    },
+    {
+      "sha": "cc6901d48204363888fda4b54a85ca070f798092",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6Y2M2OTAxZDQ4MjA0MzYzODg4ZmRhNGI1NGE4NWNhMDcwZjc5ODA5Mg==",
+      "commit": {
+        "author": {
+          "name": "Sakthipriyan Vairamani (thefourtheye)",
+          "email": "thechargingvolcano@gmail.com",
+          "date": "2016-11-03T09:03:13Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:55Z"
+        },
+        "message": "tools: improve docopen target in Makefile\n\n1. As it is, it just tries to build only the `all.html` file. If none of\n   the other files are built already, generated page will not be good.\n   To fix this, we process the assets and generate HTML files first.\n\n2. After the HTML is generated, `google-chrome` is used to open the\n   generated file in browser. This is not very portable as it might not\n   be installed or installations might have used a different name. So,\n   we use Python's webbrowser module to open the file.\n\nPR-URL: https://github.com/nodejs/node/pull/9436\n\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "b99061e61bb15a5d97b1f6a1627b42c7429a6032",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/b99061e61bb15a5d97b1f6a1627b42c7429a6032"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/cc6901d48204363888fda4b54a85ca070f798092",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k7AAoJENi59a6uhOTP4XwP/jzj9xkyH/cUxpoaWMxjiz9Z\nYRDOKgb5bfcm8wFf5hFU9qEFLbDJSVqIJxX8hPoSP7YkUj+SwJLNyKzL/YZxtcUK\nB8uxT/FV5EcmlGqNMUfDPPVfMDT2TC9qUpdlkxo+sdlEseovaj0K+jFMbu2BpbM7\ns6sD0/CLFzSLdV4GWNs/jCHcTdhGZMDNZY9PvheaGirnCr8rx/LUsaswmWaAHYN7\nTsw5I5Yj/d9JMGQ15vv/O4tiZfXuCGYTI4MltjrY80St4g0aqv0gKGqvxUF+9M1m\nnjmXrWv1MSmZ9xoQZxZV7r0m5uSyac3mxkY7QCI9Nef1HFDS6aWMos3Knb9Hc1Vy\nrUVlTr4D+lQ4ELwG++88K7aH9ZxwPFsLDa8GMZ2ZVY1F/QOdDwjnKaq+/3WT79jb\ncrqhp4RcyGNJCyAAb/EskIda+X9R/rxC+K6NxsjsUuBCiJElCdePgImpoltiLUlM\nF/Mf8MPhglMeXAkIGhPPzPtQOpRdlE2JajhFnDgAWmQUraNCJjNe+2hgt+NpSfkL\n6mAteaMsSipNn4An/pljJePzfPah3OBhmD0OYPAKWkVxyn7E8Cjg5JJB9YzN/JV2\nmBWqw/V8cuRP49rsMlxt3F+UUrmQwIOYCvRTtdYTBdneGMSAMwJDBU5lTqSsO0Xk\n80xD+KFX8NYeakBdgXW0\n=35jC\n-----END PGP SIGNATURE-----",
+          "payload": "tree b99061e61bb15a5d97b1f6a1627b42c7429a6032\nparent 9a0bcfc4522b233c5506da91b01b6d649cfe5020\nauthor Sakthipriyan Vairamani (thefourtheye) <thechargingvolcano@gmail.com> 1478163793 +0530\ncommitter Anna Henningsen <anna@addaleax.net> 1479792955 +0100\n\ntools: improve docopen target in Makefile\n\n1. As it is, it just tries to build only the `all.html` file. If none of\n   the other files are built already, generated page will not be good.\n   To fix this, we process the assets and generate HTML files first.\n\n2. After the HTML is generated, `google-chrome` is used to open the\n   generated file in browser. This is not very portable as it might not\n   be installed or installations might have used a different name. So,\n   we use Python's webbrowser module to open the file.\n\nPR-URL: https://github.com/nodejs/node/pull/9436\n\nReviewed-By: Daniel Bevenius <daniel.bevenius@gmail.com>\nReviewed-By: James M Snell <jasnell@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/cc6901d48204363888fda4b54a85ca070f798092",
+      "html_url": "https://github.com/nodejs/node/commit/cc6901d48204363888fda4b54a85ca070f798092",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/cc6901d48204363888fda4b54a85ca070f798092/comments",
+      "author": {
+        "login": "thefourtheye",
+        "id": 696611,
+        "node_id": "MDQ6VXNlcjY5NjYxMQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/696611?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/thefourtheye",
+        "html_url": "https://github.com/thefourtheye",
+        "followers_url": "https://api.github.com/users/thefourtheye/followers",
+        "following_url": "https://api.github.com/users/thefourtheye/following{/other_user}",
+        "gists_url": "https://api.github.com/users/thefourtheye/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/thefourtheye/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/thefourtheye/subscriptions",
+        "organizations_url": "https://api.github.com/users/thefourtheye/orgs",
+        "repos_url": "https://api.github.com/users/thefourtheye/repos",
+        "events_url": "https://api.github.com/users/thefourtheye/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/thefourtheye/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+          "url": "https://api.github.com/repos/nodejs/node/commits/9a0bcfc4522b233c5506da91b01b6d649cfe5020",
+          "html_url": "https://github.com/nodejs/node/commit/9a0bcfc4522b233c5506da91b01b6d649cfe5020"
+        }
+      ]
+    },
+    {
+      "sha": "875d1b93fc122902d2883a504212c0f97d1ff9cb",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6ODc1ZDFiOTNmYzEyMjkwMmQyODgzYTUwNDIxMmMwZjk3ZDFmZjljYg==",
+      "commit": {
+        "author": {
+          "name": "Yoshiya Hinosawa",
+          "email": "stibium121@gmail.com",
+          "date": "2016-11-12T08:16:03Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:56Z"
+        },
+        "message": "test: add test case of PassThrough\n\nThis commit adds the test case of PassThrough.\nThis test case checks that PassThrough can\nconstruct without new operator.\n\nThis is a part of Code And Learn at NodeFest 2016\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9581\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "0151609711b66ffb1163f6db79cf2f0aba0ed3e6",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/0151609711b66ffb1163f6db79cf2f0aba0ed3e6"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/875d1b93fc122902d2883a504212c0f97d1ff9cb",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k8AAoJENi59a6uhOTPiR4QAK39hE4PppKybIS3Su7x3Z8t\nIxoBths/IExP0IcqP9NKFz3X1dewBS8N6gaZTrGyxaZ63Tus8zfAMsuUXByszKig\ns3+7l2yMVUNze4092vZ/7OuaRklq/w/MFD9mk4vwNxlV9XDx6nXA/iImf3i3wCVy\naLyom6h9IHZNd2IpQ0gRxQ/RmvF7r8k0w9mCPQ6MUvsPVAQD8/TliNsB6XNDix9h\nfsT19kQS8NToicTdqd9gjZpML92DxylWnMj6RzWkTB9DRg4jO6aiBURX/mHh1u+u\n5te/fKem6IF3WRqopEna4OD914kFr1JKLmZAA8qiWKy3E1H/4sAfDmKxJbxZDJAJ\nOZNuuH1DF83VyZ7P7dtSLVi3DWroL4dhAuWzmob4QUnxaFokjDo7wG0lH0uNvlMl\njAooe5bAGJkZJrxWKDs1dorWW0M/mX2h3JhW6acPZT3LUgq0xQ1LrFxR9sNWkyUA\nDhdAjeiiErgZpQO5iJb2eqmrvPkBC7HeJ3XWLG+M2IYLFvOgsQ1WRErA6eh+k+DI\n6F74HERcQ/qeYV7hddc6jc6caHcgyEXJYfNYkN7F75LLC43eC3fMxGE8fcBzxwWt\ntzN6NmWS8y5cT559KIKTkTW1qNQ7TMneUMm+BO6igYIhDvxtDZMfgCnj+FWNB7D/\nyA3gP7xjcGD1L+/ZdZH6\n=pZoY\n-----END PGP SIGNATURE-----",
+          "payload": "tree 0151609711b66ffb1163f6db79cf2f0aba0ed3e6\nparent cc6901d48204363888fda4b54a85ca070f798092\nauthor Yoshiya Hinosawa <stibium121@gmail.com> 1478938563 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792956 +0100\n\ntest: add test case of PassThrough\n\nThis commit adds the test case of PassThrough.\nThis test case checks that PassThrough can\nconstruct without new operator.\n\nThis is a part of Code And Learn at NodeFest 2016\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9581\nReviewed-By: Yosuke Furukawa <yosuke.furukawa@gmail.com>\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/875d1b93fc122902d2883a504212c0f97d1ff9cb",
+      "html_url": "https://github.com/nodejs/node/commit/875d1b93fc122902d2883a504212c0f97d1ff9cb",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/875d1b93fc122902d2883a504212c0f97d1ff9cb/comments",
+      "author": {
+        "login": "kt3k",
+        "id": 613956,
+        "node_id": "MDQ6VXNlcjYxMzk1Ng==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/613956?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/kt3k",
+        "html_url": "https://github.com/kt3k",
+        "followers_url": "https://api.github.com/users/kt3k/followers",
+        "following_url": "https://api.github.com/users/kt3k/following{/other_user}",
+        "gists_url": "https://api.github.com/users/kt3k/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/kt3k/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/kt3k/subscriptions",
+        "organizations_url": "https://api.github.com/users/kt3k/orgs",
+        "repos_url": "https://api.github.com/users/kt3k/repos",
+        "events_url": "https://api.github.com/users/kt3k/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/kt3k/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "cc6901d48204363888fda4b54a85ca070f798092",
+          "url": "https://api.github.com/repos/nodejs/node/commits/cc6901d48204363888fda4b54a85ca070f798092",
+          "html_url": "https://github.com/nodejs/node/commit/cc6901d48204363888fda4b54a85ca070f798092"
+        }
+      ]
+    },
+    {
+      "sha": "474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NDc0ZDRhYTJlMzg0NDFhYTVjZjRmMzAzYjdiOGFkNDhlMjBjOGM2Yw==",
+      "commit": {
+        "author": {
+          "name": "Mitsuo Utano",
+          "email": "utano320@gmail.com",
+          "date": "2016-11-12T08:04:28Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:35:56Z"
+        },
+        "message": "doc: fix typo in doc/repl.md line: 6\n\nfix doc/api/repl.md line 6 \"includable\" => \"includible\"\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9582\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "767b5729dec67ef4147282bcb5edcc3bbb37bcb3",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/767b5729dec67ef4147282bcb5edcc3bbb37bcb3"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9k9AAoJENi59a6uhOTPHUkQAI17jo1941mpspWALjfQyCNx\n9cwap4UWeYv4ud0kPAiDfh17Xm7HZgVE4jK5Kfcji3Hre3C0fonfr4WqqJKxqFhR\nXgSFSSPZOpsBfm22P5QY4cyHx2ceV1rAsLrvehtDxNcDiLLBRDdibFCs2E5jl+ak\nLGL6/iYNVuU+cPFkAvmr1OFG1E4q2eBvMRj19e0PHllWaR7epxtmcjCIiJeidxk6\nhvErFPz5tJIKWtYmRb1zirc6Iw7aNIv+j26NWqVgjnSTwLTaNLfB8miur3QX4/Ba\nUKjm8+a2o5/u6VeTlCpFJmqqgCx7rs6J3xEg2pDvfxcxSzmlWq2vIanNF+3naV4S\nR5ifj7EFqyFhzPDMH8hyTZYuN/2gcRKicF9SLF6kMr5cIbSsXIHlp6FkyLPgvQOu\nJuqGkIeXqaYkOkvzAanFwvBeWHRC3Zt9GbtPit8lnHf7DfO442J9bUhV5pEKbUQJ\ndLW1Wpr8BS8u+KKA2WaxF8EOWKyfAVB10HAmnAPd+Z3mjUgdZt2XLk5/adp2+eE9\nJliqgGdMEsXgn7ez2d/yEw0BsJI/b2xAvtxXBdv7eyBaubz8FDPhR6OjHJAn9vGE\nlFyhyBur5/VObrsDkDm+aUzbiif32uR8kGODDjpyeOUM/yOkKwHAVwpzEayvc/bY\nLFl/ptqgsGqEJfdu0CDx\n=r2R7\n-----END PGP SIGNATURE-----",
+          "payload": "tree 767b5729dec67ef4147282bcb5edcc3bbb37bcb3\nparent 875d1b93fc122902d2883a504212c0f97d1ff9cb\nauthor Mitsuo Utano <utano320@gmail.com> 1478937868 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792956 +0100\n\ndoc: fix typo in doc/repl.md line: 6\n\nfix doc/api/repl.md line 6 \"includable\" => \"includible\"\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9582\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+      "html_url": "https://github.com/nodejs/node/commit/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c/comments",
+      "author": {
+        "login": "utano320",
+        "id": 2193992,
+        "node_id": "MDQ6VXNlcjIxOTM5OTI=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2193992?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/utano320",
+        "html_url": "https://github.com/utano320",
+        "followers_url": "https://api.github.com/users/utano320/followers",
+        "following_url": "https://api.github.com/users/utano320/following{/other_user}",
+        "gists_url": "https://api.github.com/users/utano320/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/utano320/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/utano320/subscriptions",
+        "organizations_url": "https://api.github.com/users/utano320/orgs",
+        "repos_url": "https://api.github.com/users/utano320/repos",
+        "events_url": "https://api.github.com/users/utano320/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/utano320/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "875d1b93fc122902d2883a504212c0f97d1ff9cb",
+          "url": "https://api.github.com/repos/nodejs/node/commits/875d1b93fc122902d2883a504212c0f97d1ff9cb",
+          "html_url": "https://github.com/nodejs/node/commit/875d1b93fc122902d2883a504212c0f97d1ff9cb"
+        }
+      ]
+    },
+    {
+      "sha": "51e24e770abf1e2c452969b508d5fea781cd3dc0",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NTFlMjRlNzcwYWJmMWUyYzQ1Mjk2OWI1MDhkNWZlYTc4MWNkM2RjMA==",
+      "commit": {
+        "author": {
+          "name": "masashi.g",
+          "email": "masashi.g@gmail.com",
+          "date": "2016-11-12T13:56:19Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:36:11Z"
+        },
+        "message": "test: use setImmediate() in test of stream2\n\nuse setImmediate() insted of setTimeout()\n in test of stream2 push.\nThe test is in test/parallel/test-stream2-push.js\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9583\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>",
+        "tree": {
+          "sha": "7813218cf046c59abcdf3be7ee97d6bf7665ec1b",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/7813218cf046c59abcdf3be7ee97d6bf7665ec1b"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/51e24e770abf1e2c452969b508d5fea781cd3dc0",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9lLAAoJENi59a6uhOTPoGMQAKL2ZSc56Zh4nIxLOumx5YIc\nXJwB2jY9FwSTz3U6DCLMn0tEFFNWjCOQpQkYVhTKy4opu337KGWi0sF6dUZwlCwP\nFOC2O8CJz1n4LP/l7T/N2rlRJ56HH3GnIkeeRtE4zOaMNVrESyj7pHk6l9Dm/Rju\nlhjcccD8kTv5ThAQeJSbo4HZUiB7pApT8AYhiXi1g4UodSStlKBd6/L3+52uOIL2\nuZPslWjCQLNq49IuIgBewSOQCt7B13Jpwx73IdHmM2MxyftZ69SOnh+3tpmMNZ5v\nsS0Qky5m9yT+pD0fkzduvCXn5SBtd0bCFyg2Zpl5st6Y1w2LFyxLOBkyqC+ox21M\nuYB6Pqwvp4SdZ6I0PFrf1vf3UFsG7T2XDt6SQjxpD4Y+OWoyGaD+xZLad2/dNm1v\nHYPKv/Cvvc4/esIwT/GA/VcJ6PYKs50JC1RI6ojOLoM/EkZTpmgZjzj7NfrYkoa0\nkUWHjxrHaxPqq9ORwOMuo2MbREJ1IFI8qLDvJn13BTOa2isVyhKuUj4O1s2hGnoy\nnuImmVlZJqMl3eMsRihtFmzjyJFsJquutVaEG+Evg3kPnOuD9895dDAsyZg/lQPN\nEo6KKm+fue9NnPucAZSxGagYwdIHKKxl5VmcIhOqlQWzEcGdRuvPqzAKozasubGQ\nbWAuw8VeWSEwHCZD/5sx\n=hsHS\n-----END PGP SIGNATURE-----",
+          "payload": "tree 7813218cf046c59abcdf3be7ee97d6bf7665ec1b\nparent 474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c\nauthor masashi.g <masashi.g@gmail.com> 1478958979 +0900\ncommitter Anna Henningsen <anna@addaleax.net> 1479792971 +0100\n\ntest: use setImmediate() in test of stream2\n\nuse setImmediate() insted of setTimeout()\n in test of stream2 push.\nThe test is in test/parallel/test-stream2-push.js\n\nFixes: https://github.com/nodejs/code-and-learn/issues/58\nPR-URL: https://github.com/nodejs/node/pull/9583\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Anna Henningsen <anna@addaleax.net>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Shigeki Ohtsu <ohtsu@ohtsu.org>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/51e24e770abf1e2c452969b508d5fea781cd3dc0",
+      "html_url": "https://github.com/nodejs/node/commit/51e24e770abf1e2c452969b508d5fea781cd3dc0",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/51e24e770abf1e2c452969b508d5fea781cd3dc0/comments",
+      "author": {
+        "login": "mganeko",
+        "id": 3625666,
+        "node_id": "MDQ6VXNlcjM2MjU2NjY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/3625666?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mganeko",
+        "html_url": "https://github.com/mganeko",
+        "followers_url": "https://api.github.com/users/mganeko/followers",
+        "following_url": "https://api.github.com/users/mganeko/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mganeko/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mganeko/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mganeko/subscriptions",
+        "organizations_url": "https://api.github.com/users/mganeko/orgs",
+        "repos_url": "https://api.github.com/users/mganeko/repos",
+        "events_url": "https://api.github.com/users/mganeko/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mganeko/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+          "url": "https://api.github.com/repos/nodejs/node/commits/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c",
+          "html_url": "https://github.com/nodejs/node/commit/474d4aa2e38441aa5cf4f303b7b8ad48e20c8c6c"
+        }
+      ]
+    },
+    {
+      "sha": "4ddc23828d1acb57bbbca94ebabec2b03cfd49ec",
+      "node_id": "MDY6Q29tbWl0MjcxOTM3Nzk6NGRkYzIzODI4ZDFhY2I1N2JiYmNhOTRlYmFiZWMyYjAzY2ZkNDllYw==",
+      "commit": {
+        "author": {
+          "name": "James M Snell",
+          "email": "jasnell@gmail.com",
+          "date": "2016-11-07T16:26:19Z"
+        },
+        "committer": {
+          "name": "Anna Henningsen",
+          "email": "anna@addaleax.net",
+          "date": "2016-11-22T05:36:12Z"
+        },
+        "message": "doc: move TSC and CTC meeting minutes out of core repo\n\nThe TSC and CTC meeting minutes are more properly placed in\nthe nodejs/tsc and nodejs/ctc repositories, respectively.\n\nPR-URL: https://github.com/nodejs/node/pull/9503\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Myles Borins <myles.borins@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>",
+        "tree": {
+          "sha": "2fcc34df5e6bb65248bcf6e3cb87a6afc287b5cc",
+          "url": "https://api.github.com/repos/nodejs/node/git/trees/2fcc34df5e6bb65248bcf6e3cb87a6afc287b5cc"
+        },
+        "url": "https://api.github.com/repos/nodejs/node/git/commits/4ddc23828d1acb57bbbca94ebabec2b03cfd49ec",
+        "comment_count": 0,
+        "verification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQIcBAABAgAGBQJYM9lMAAoJENi59a6uhOTPShQQAKv0lxkL3L1/MqD6E6M33l4W\nsGY8YE6odi8g9opZGxot0WzvCaeVm0hehJJP71CF78BAwBcY7uiW1MF1I9Q5dDyT\nzm9RsUAVjSzAiC5Y2V3WvbqK/mQEyQergI/aX+VjvHLF0B6dzSCB6dQYDRrzyg1A\ny9SYooKu87UtmEKMmKRlhOqeSpbvsq67WWfSin/Ucl5/forQMCsu+hfwmhHGGlor\nJmDgwp0bDPL8Vs5i7X6Ko6eF8w4qju0rT1y5jP0UW7Syi+MceHUAHt+x3yeWksbV\nr6aQz9hF3jUf1UZVstoEvrSyMMEiDsmukLa3VIztizmljjf5bSbOgnIh+GziUBRt\nmru7f21bqtEYy+yLEKawiRdK29IMsBOnPqfBtIi6/ruDi1nHUdgiwIjHzEE5EGaP\neOZoy9ThB9hIqVnXZJU7+NrHlvX2bjQ5Lml7Cd3CiLa6dWjVX2tyYAm0GUf/pJWy\nzoynJIyPVUE3upB6TF3kTHL+tWiEidP2mXZ+NYZTcI2Z2ox/DNn5hKTehTheOWkK\nGBlcPzUINEzv4dMhHsqDTWILKDsxRnkUPnddD6GbwztjDQ43dkbrQJFDvcXss62k\nhO9A7JV/eSRtOde76eR/Ip3mQsnjcR6nURNCtk1sTNrMPz7fQNcocJ4xzr73ihwo\nZZ+RYWm4oPevFOCMwxWt\n=tqjY\n-----END PGP SIGNATURE-----",
+          "payload": "tree 2fcc34df5e6bb65248bcf6e3cb87a6afc287b5cc\nparent 51e24e770abf1e2c452969b508d5fea781cd3dc0\nauthor James M Snell <jasnell@gmail.com> 1478535979 -0800\ncommitter Anna Henningsen <anna@addaleax.net> 1479792972 +0100\n\ndoc: move TSC and CTC meeting minutes out of core repo\n\nThe TSC and CTC meeting minutes are more properly placed in\nthe nodejs/tsc and nodejs/ctc repositories, respectively.\n\nPR-URL: https://github.com/nodejs/node/pull/9503\nReviewed-By: Colin Ihrig <cjihrig@gmail.com>\nReviewed-By: Myles Borins <myles.borins@gmail.com>\nReviewed-By: Michael Dawson <michael_dawson@ca.ibm.com>\nReviewed-By: Evan Lucas <evanlucas@me.com>\nReviewed-By: Rich Trott <rtrott@gmail.com>\nReviewed-By: Luigi Pinca <luigipinca@gmail.com>\nReviewed-By: Roman Reiss <me@silverwind.io>\n"
+        }
+      },
+      "url": "https://api.github.com/repos/nodejs/node/commits/4ddc23828d1acb57bbbca94ebabec2b03cfd49ec",
+      "html_url": "https://github.com/nodejs/node/commit/4ddc23828d1acb57bbbca94ebabec2b03cfd49ec",
+      "comments_url": "https://api.github.com/repos/nodejs/node/commits/4ddc23828d1acb57bbbca94ebabec2b03cfd49ec/comments",
+      "author": {
+        "login": "jasnell",
+        "id": 439929,
+        "node_id": "MDQ6VXNlcjQzOTkyOQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/439929?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jasnell",
+        "html_url": "https://github.com/jasnell",
+        "followers_url": "https://api.github.com/users/jasnell/followers",
+        "following_url": "https://api.github.com/users/jasnell/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jasnell/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jasnell/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jasnell/subscriptions",
+        "organizations_url": "https://api.github.com/users/jasnell/orgs",
+        "repos_url": "https://api.github.com/users/jasnell/repos",
+        "events_url": "https://api.github.com/users/jasnell/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jasnell/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "addaleax",
+        "id": 899444,
+        "node_id": "MDQ6VXNlcjg5OTQ0NA==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/899444?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/addaleax",
+        "html_url": "https://github.com/addaleax",
+        "followers_url": "https://api.github.com/users/addaleax/followers",
+        "following_url": "https://api.github.com/users/addaleax/following{/other_user}",
+        "gists_url": "https://api.github.com/users/addaleax/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/addaleax/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/addaleax/subscriptions",
+        "organizations_url": "https://api.github.com/users/addaleax/orgs",
+        "repos_url": "https://api.github.com/users/addaleax/repos",
+        "events_url": "https://api.github.com/users/addaleax/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/addaleax/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "51e24e770abf1e2c452969b508d5fea781cd3dc0",
+          "url": "https://api.github.com/repos/nodejs/node/commits/51e24e770abf1e2c452969b508d5fea781cd3dc0",
+          "html_url": "https://github.com/nodejs/node/commit/51e24e770abf1e2c452969b508d5fea781cd3dc0"
+        }
+      ]
+    }
+  ]
+  
