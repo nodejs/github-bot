@@ -2,7 +2,7 @@
 
 require('dotenv').config({ silent: true })
 
-const glob = require('glob')
+const { globSync } = require('glob')
 const logger = require('./lib/logger')
 
 const port = process.env.PORT || 3000
@@ -10,7 +10,7 @@ const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
 const { app, events } = require('./app')
 
 // load all the files in the scripts folder
-glob.sync(scriptsToLoad).forEach((file) => {
+globSync(scriptsToLoad).forEach((file) => {
   logger.info('Loading:', file)
   require(file)(app, events)
 })
