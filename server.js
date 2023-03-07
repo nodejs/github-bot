@@ -12,7 +12,7 @@ const { app, events } = require('./app')
 // load all the files in the scripts folder
 globSync(scriptsToLoad).forEach((file) => {
   logger.info('Loading:', file)
-  require(file)(app, events)
+  require(`./${file}`)(app, events)
 })
 
 app.listen(port, () => {
