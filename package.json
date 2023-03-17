@@ -13,7 +13,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^19.0.0",
+    "@octokit/rest": "^19.0.7",
     "aigle": "^1.14.1",
     "async": "3.2.4",
     "basic-auth": "^2.0.1",
