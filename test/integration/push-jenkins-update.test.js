@@ -1,10 +1,10 @@
 'use strict'
 
 const tap = require('tap')
-const nock = require('nock')
-const supertest = require('supertest')
+const fetchMock = require('fetch-mock')
+fetchMock.config.overwriteRoutes = true
 
-const { ignoreQueryParams } = require('../common')
+const supertest = require('supertest')
 
 const { app, events } = require('../../app')
 
@@ -15,17 +15,10 @@ require('../../scripts/jenkins-status')(app, events)
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  setupListCommitsMock('node')
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-    .reply(201)
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
+  const listCommitsUrl = setupListCommitsMock('node')
+
+  const url = 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
+  fetchMock.mock({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -35,23 +28,18 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
+      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.done(listCommitsUrl), true)
     })
 })
 
 tap.test('Allows repository name to be provided with URL parameter when pushing job started', (t) => {
   const jenkinsPayload = readFixture('pending-payload.json')
 
-  setupListCommitsMock('citgm')
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-    .reply(201)
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
+  const listCommitsUrl = setupListCommitsMock('citgm')
+
+  const url = 'https://api.github.com/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
+  fetchMock.mock({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -61,23 +49,18 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
+      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.done(listCommitsUrl), true)
     })
 })
 
 tap.test('Allows repository name to be provided with URL parameter when pushing job ended', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  setupListCommitsMock('citgm')
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-    .reply(201)
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
+  const listCommitsUrl = setupListCommitsMock('citgm')
+
+  const url = 'https://api.github.com/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
+  fetchMock.mock({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -87,28 +70,24 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
+      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.done(listCommitsUrl), true)
     })
 })
 
 tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) => {
   const fixture = readFixture('success-payload.json')
 
-  setupListCommitsMock('node')
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1', {
-      state: 'success',
-      context: 'test/osx',
-      description: 'tests passed',
-      target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
-    })
-    .reply(201)
-    .on('replied', (req, interceptor) => {
-      t.doesNotThrow(() => interceptor.scope.done())
-    })
+  const listCommitsUrl = setupListCommitsMock('node')
+
+  const url = 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
+  const body = {
+    state: 'success',
+    context: 'test/osx',
+    description: 'tests passed',
+    target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
+  }
+  fetchMock.mock({ url, method: 'POST', body }, 201)
 
   t.plan(3)
 
@@ -118,31 +97,34 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
+      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.done(listCommitsUrl), true)
     })
 })
 
 tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t) => {
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
-  const commentScope = nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/12345/comments', { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
-    .reply(200)
+
+  const url = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
+  const body = { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' }
+  fetchMock.mock({ url, method: 'POST', body }, 200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupListCommitsMock('node')
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-    .reply(201)
+  fetchMock.mock(
+    {
+      url: 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1',
+      method: 'POST'
+    }, 201)
 
-  t.plan(1)
+  t.plan(2)
 
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      commentScope.done()
+      t.equal(fetchMock.done(url), true)
       t.equal(err, null)
     })
 })
@@ -151,26 +133,26 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
   fixture.identifier = 'node-test-pull-request-lite-pipeline'
 
-  const commentScope = nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/issues/12345/comments', { body: 'Lite-CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' })
-    .reply(200)
+  const url = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
+  const body = { body: 'Lite-CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' }
+  fetchMock.mock({ url, body, method: 'POST' }, 200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupListCommitsMock('node')
-  nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .post('/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1')
-    .reply(201)
+  fetchMock.mock(
+    {
+      url: 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1',
+      method: 'POST'
+    }, 201)
 
-  t.plan(1)
+  t.plan(2)
 
   supertest(app)
     .post('/node/jenkins/start')
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      commentScope.done()
+      t.equal(fetchMock.done(url), true)
       t.equal(err, null)
     })
 })
@@ -179,7 +161,7 @@ tap.test('Responds with 400 / "Bad request" when incoming request has invalid pa
   const fixture = readFixture('invalid-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  nock('https://api.github.com')
+  fetchMock.mock('https://api.github.com', 200)
 
   t.plan(1)
 
@@ -196,7 +178,7 @@ tap.test('Responds with 400 / "Bad request" when build started status update is 
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  nock('https://api.github.com')
+  fetchMock.mock('https://api.github.com', 200)
 
   t.plan(1)
 
@@ -213,7 +195,7 @@ tap.test('Responds with 400 / "Bad request" when build ended status update is no
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  nock('https://api.github.com')
+  fetchMock.mock('https://api.github.com/', 200)
 
   t.plan(1)
 
@@ -230,7 +212,7 @@ tap.test('Responds with 400 / "Bad request" when incoming providing invalid repo
   const fixture = readFixture('pending-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  nock('https://api.github.com')
+  fetchMock.mock('https://api.github.com/', 200)
 
   t.plan(1)
 
@@ -245,9 +227,8 @@ tap.test('Responds with 400 / "Bad request" when incoming providing invalid repo
 
 function setupListCommitsMock (repoName) {
   const commitsResponse = readFixture('pr-commits.json')
+  const url = `https://api.github.com/repos/nodejs/${repoName}/pulls/12345/commits`
 
-  return nock('https://api.github.com')
-    .filteringPath(ignoreQueryParams)
-    .get(`/repos/nodejs/${repoName}/pulls/12345/commits`)
-    .reply(200, commitsResponse)
+  fetchMock.mock(url, commitsResponse)
+  return url
 }

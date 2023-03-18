@@ -2,7 +2,7 @@ const tap = require('tap')
 
 const { findLatestCommitInPr } = require('../../lib/push-jenkins-update')
 
-const nock = require('nock')
+const fetchMock = require('fetch-mock')
 const readFixture = require('../read-fixture')
 
 tap.test('findLatestCommitInPr: paginates results when more than 100 commits in a PR', async (t) => {
@@ -14,24 +14,44 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
   const repo = 'node'
   const pr = 9745
 
-  const firstPageScope = nock('https://api.github.com')
-    .get(`/repos/${owner}/${repo}/pulls/${pr}/commits`)
-    .reply(200, commitsFixturePage1, { link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=2>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last"' })
+  const firstPageScope = fetchMock.mock(
+    `https://api.github.com/repos/${owner}/${repo}/pulls/${pr}/commits`,
+    {
+      body: commitsFixturePage1,
+      headers: {
+        link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=2>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last"'
+      }
+    }
+  )
 
-  const secondPageScope = nock('https://api.github.com')
-    .get(`/repositories/27193779/pulls/${pr}/commits`)
-    .query({ page: 2 })
-    .reply(200, commitsFixturePage2, { link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=3>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"' })
+  const secondPageScope = fetchMock.mock(
+    `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=2`,
+    {
+      body: commitsFixturePage2,
+      headers: {
+        link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=3>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"'
+      }
+    }
+  )
 
-  const thirdPageScope = nock('https://api.github.com')
-    .get(`/repositories/27193779/pulls/${pr}/commits`)
-    .query({ page: 3 })
-    .reply(200, commitsFixturePage3, { link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=2>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"' })
-
-  const fourthPageScope = nock('https://api.github.com')
-    .get(`/repositories/27193779/pulls/${pr}/commits`)
-    .query({ page: 4 })
-    .reply(200, commitsFixturePage4, { link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=3>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"' })
+  const thirdPageScope = fetchMock.mock(
+    `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=3`,
+    {
+      body: commitsFixturePage3,
+      headers: {
+        link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=2>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="next", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=4>; rel="last", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"'
+      }
+    }
+  )
+  const fourthPageScope = fetchMock.mock(
+    `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=4`,
+    {
+      body: commitsFixturePage4,
+      headers: {
+        link: '<https://api.github.com/repositories/27193779/pulls/9745/commits?page=3>; rel="prev", <https://api.github.com/repositories/27193779/pulls/9745/commits?page=1>; rel="first"'
+      }
+    }
+  )
 
   t.plan(1)
 
