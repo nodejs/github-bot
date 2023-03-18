@@ -1,7 +1,7 @@
 'use strict'
 
+const http = require('http')
 const tap = require('tap')
-const request = require('request')
 
 const { app, events } = require('../../app')
 
@@ -12,12 +12,20 @@ tap.test('GET /ping responds with status 200 / "pong"', (t) => {
   const port = server.address().port
   const url = `http://localhost:${port}/ping`
 
-  t.plan(3)
+  t.plan(2)
   t.teardown(() => server.close())
 
-  request(url, (err, res, body) => {
-    t.equal(err, null)
+  http.get(url, (res) => {
     t.equal(res.statusCode, 200)
-    t.equal(res.body, 'pong')
+
+    let data = ''
+    res.on('data', (chunk) => {
+      data += chunk
+    })
+    res.on('end', () => {
+      t.equal(data, 'pong')
+    })
+  }).on('error', (e) => {
+    t.fail(e)
   })
 })
