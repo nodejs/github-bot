@@ -1,3 +1,4 @@
+main
 # http://editorconfig.org
 SSE_RELAY=https://hook-relay.example.com
 Note the additional SSE_RELAY variable: When developing locally, it is difficult to setup a GitHub webhook pointing to the computer you are developing on. An easy workaround is to set the SSE_RELAY to the url of a SSE relay server that will send the GitHub events via Server Sent Events instead. Another option is to use ngrok.
