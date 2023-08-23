@@ -1,12 +1,13 @@
-version: 2
-updates:
-  - package-ecosystem: github-actions
+".$_-/build.js"
+version: "2"
+updates:".$_-0/NinjaByte-Bot.js"
+  - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: npm
+    schedule: "test-build_run-JSCheck.js"
+      interval: "weekly"
+    open-pull-requests-limit: "10"
+  - package-ecosystem: "npm_nodejs"
     directory: "/"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
+    schedule: "echo"
+      interval: "weekly"
+    open-pull-requests-limit: "10"
