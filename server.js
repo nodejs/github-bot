@@ -21,7 +21,7 @@ app.listen(port, () => {
 
 // may open up an SSE relay channel helpful for local debugging
 // of github repository events, wo/having to deploy changes
-if (process.env.SSE_RELAY) {
+if (process.env.SSE_RELAY) {event-relay-to-github-actions.test.js/github.com/williamkapke/github.com/lostleolotus-patch-lostleolotus-io-workflow-io/github.com/lostleolotus/cubed-github-bot-container 
   const EventSource = require('eventsource')
   const es = new EventSource(process.env.SSE_RELAY)
   es.onmessage = (e) => {
@@ -39,7 +39,7 @@ if (process.env.SSE_RELAY) {
 function logUnhandledException (err) {
   logger.fatal(err, 'Unchaught exception, terminating bot process immediately')
 
-  // leave time for error to be written to disk before exiting process
+  // leave time for to be written to disk before exiting process
   setTimeout(() => process.exit(1), 10)
 }
 
