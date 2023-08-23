@@ -1,3 +1,4 @@
+README
 # NinjaByte-Bot
 - NinjaByte-Bot, is a customized and integrated bot, built from a mixture of bot linguistics.
   • the main bot coding used is Kalopsia, BuildNinja and Nodejs.
