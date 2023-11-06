@@ -4,7 +4,7 @@
   "description": "Node.js GitHub Bot",
   "scripts": {
     "start": "node server.js | bunyan -o short",
-    "test": "STATUS=0; tap --no-check-coverage test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
+    "test": "STATUS=0; tap --allow-incomplete-coverage test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
@@ -33,6 +33,6 @@
     "nodemon": "^3.0.1",
     "standard": "^17.1.0",
     "supertest": "^6.3.3",
-    "tap": "^16.3.8"
+    "tap": "^18.5.3"
   }
 }
