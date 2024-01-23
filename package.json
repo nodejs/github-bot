@@ -21,7 +21,7 @@
     "bunyan-middleware": "1.0.2",
     "codeowners-utils": "^1.0.2",
     "debug": "^4.3.4",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.3.2",
     "events-async": "^1.2.1",
     "express": "^4.18.2",
     "glob": "^10.3.10"
