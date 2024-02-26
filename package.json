@@ -30,7 +30,7 @@
     "eventsource": "^2.0.2",
     "fetch-mock": "^9.11.0",
     "nock": "^13.5.3",
-    "nodemon": "^3.0.3",
+    "nodemon": "^3.1.0",
     "standard": "^17.1.0",
     "supertest": "^6.3.4",
     "tap": "^16.3.10"
