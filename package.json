@@ -23,7 +23,7 @@
     "debug": "^4.3.4",
     "dotenv": "^16.4.5",
     "events-async": "^1.2.1",
-    "express": "^4.19.1",
+    "express": "^4.19.2",
     "glob": "^10.3.10"
   },
   "devDependencies": {
