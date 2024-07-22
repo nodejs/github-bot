@@ -5,7 +5,7 @@ const pushJenkinsUpdate = require('../lib/push-jenkins-update')
 function handleJenkinsStart (event) {
   const { repo, owner } = event
 
-  pushJenkinsUpdate.pushStarted({
+  return pushJenkinsUpdate.pushStarted({
     owner,
     repo,
     logger: event.logger
@@ -19,7 +19,7 @@ function handleJenkinsStart (event) {
 function handleJenkinsStop (event) {
   const { repo, owner } = event
 
-  pushJenkinsUpdate.pushEnded({
+  return pushJenkinsUpdate.pushEnded({
     owner,
     repo,
     logger: event.logger
