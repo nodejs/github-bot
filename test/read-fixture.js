@@ -1,9 +1,7 @@
-'use strict'
+import fs from 'node:fs'
+import path from 'node:path'
 
-const fs = require('fs')
-const path = require('path')
-
-module.exports = function readFixture (fixtureName) {
-  const content = fs.readFileSync(path.join(__dirname, '_fixtures', fixtureName)).toString()
+export default function readFixture (fixtureName) {
+  const content = fs.readFileSync(path.join(import.meta.dirname, '_fixtures', fixtureName)).toString()
   return fixtureName.endsWith('.json') ? JSON.parse(content) : content
 }

@@ -1,11 +1,12 @@
-'use strict'
+import http from 'node:http'
 
-const http = require('http')
-const tap = require('tap')
+import tap from 'tap'
 
-const { app, events } = require('../../app')
+import { app, events } from '../../app.js'
 
-require('../../scripts/ping')(app, events)
+import ping from '../../scripts/ping.js'
+
+ping(app, events)
 
 tap.test('GET /ping responds with status 200 / "pong"', (t) => {
   const server = app.listen()

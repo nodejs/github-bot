@@ -1,12 +1,10 @@
-'use strict'
+import tap from 'tap'
+import fetchMock from 'fetch-mock'
 
-const tap = require('tap')
-const fetchMock = require('fetch-mock')
+import * as nodeRepo from '../../lib/node-repo.js'
 
-const nodeRepo = require('../../lib/node-repo')
-
-const logger = require('../../lib/logger')
-const readFixture = require('../read-fixture')
+import logger from '../../lib/logger.js'
+import readFixture from '../read-fixture.js'
 
 tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
   const events = readFixture('pull-request-events.json')

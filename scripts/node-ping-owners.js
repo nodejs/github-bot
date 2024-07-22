@@ -1,10 +1,10 @@
-'use strict'
+import debugLib from 'debug'
 
-const debug = require('debug')('node_ping_owners')
+import * as nodeRepo from '../lib/node-repo.js'
 
-const nodeRepo = require('../lib/node-repo')
+const debug = debugLib('node_ping_owners')
 
-module.exports = function (app, events) {
+export default function (app, events) {
   events.on('pull_request.opened', handlePrCreated)
 }
 

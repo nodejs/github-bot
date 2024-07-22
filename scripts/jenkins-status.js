@@ -1,6 +1,4 @@
-'use strict'
-
-const pushJenkinsUpdate = require('../lib/push-jenkins-update')
+import * as pushJenkinsUpdate from '../lib/push-jenkins-update.js'
 
 function handleJenkinsStart (event) {
   const { repo, owner } = event
@@ -30,7 +28,7 @@ function handleJenkinsStop (event) {
   })
 }
 
-module.exports = function (_, event) {
+export default function (_, event) {
   event.on('jenkins.start', handleJenkinsStart)
   event.on('jenkins.end', handleJenkinsStop)
 }

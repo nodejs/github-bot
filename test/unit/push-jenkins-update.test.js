@@ -1,9 +1,9 @@
-const tap = require('tap')
+import tap from 'tap'
 
-const { findLatestCommitInPr } = require('../../lib/push-jenkins-update')
+import { findLatestCommitInPr } from '../../lib/push-jenkins-update.js'
 
-const fetchMock = require('fetch-mock')
-const readFixture = require('../read-fixture')
+import fetchMock from 'fetch-mock'
+import readFixture from '../read-fixture.js'
 
 tap.test('findLatestCommitInPr: paginates results when more than 100 commits in a PR', async (t) => {
   const commitsFixturePage1 = readFixture('pull-request-commits-page-1.json')

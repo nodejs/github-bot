@@ -1,14 +1,14 @@
-'use strict'
+import tap from 'tap'
+import fetchMock from 'fetch-mock'
+import supertest from 'supertest'
 
-const tap = require('tap')
-const fetchMock = require('fetch-mock')
-const supertest = require('supertest')
+import { app, events } from '../../app.js'
 
-const { app, events } = require('../../app')
+import readFixture from '../read-fixture.js'
 
-const readFixture = require('../read-fixture')
+import eventRelay from '../../scripts/event-relay.js'
 
-require('../../scripts/event-relay')(app, events)
+eventRelay(app, events)
 
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/dispatches', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')

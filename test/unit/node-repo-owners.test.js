@@ -1,10 +1,10 @@
-'use strict'
+import tap from 'tap'
+import fetchMock from 'fetch-mock'
+import nock from 'nock'
 
-const tap = require('tap')
-const fetchMock = require('fetch-mock')
-const nock = require('nock')
+import { _testExports, resolveOwnersThenPingPr } from '../../lib/node-repo.js'
+import readFixture from '../read-fixture.js'
 
-const { resolveOwnersThenPingPr, _testExports } = require('../../lib/node-repo')
 const {
   getCodeOwnersUrl,
   listFiles,
@@ -13,7 +13,6 @@ const {
   pingOwners,
   getCommentForOwners
 } = _testExports
-const readFixture = require('../read-fixture')
 
 tap.test('getCodeOwnersUrl', (t) => {
   const owner = 'nodejs'
