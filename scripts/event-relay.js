@@ -7,7 +7,7 @@ async function handleJenkinsRelay (event) {
   const eventType = `jenkins.${identifier}.${event.event}`
   try {
     event.logger.debug(`Relaying ${eventType} to ${owner}/${repo}`)
-    await githubClient.repos.createDispatchEvent({
+    await (await githubClient).repos.createDispatchEvent({
       owner,
       repo,
       event_type: eventType,
