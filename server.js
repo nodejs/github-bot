@@ -1,19 +1,19 @@
-'use strict'
+import 'dotenv/config'
 
-require('dotenv').config({ silent: true })
-
-const { globSync } = require('glob')
-const logger = require('./lib/logger')
+import { globSync } from 'glob'
+import logger from './lib/logger.js'
+import { app, events } from './app.js'
 
 const port = process.env.PORT || 3000
 const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
-const { app, events } = require('./app')
 
 // load all the files in the scripts folder
-globSync(scriptsToLoad, { dotRelative: true }).forEach((file) => {
+const files = globSync(scriptsToLoad, { dotRelative: true })
+for (const file of files) {
   logger.info('Loading:', file)
-  require(file)(app, events)
-})
+  const { default: extend } = await import(file)
+  extend(app, events)
+}
 
 app.listen(port, () => {
   logger.info('Listening on port', port)

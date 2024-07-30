@@ -1,17 +1,19 @@
 'use strict'
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const bunyanMiddleware = require('bunyan-middleware')
-const AsyncEventEmitter = require('events-async')
+import express from 'express'
+import bodyParser from 'body-parser'
+import bunyanMiddleware from 'bunyan-middleware'
+import AsyncEventEmitter from 'events-async'
 
-const logger = require('./lib/logger')
-const authMiddleware = require('./lib/auth-middleware')
+import logger from './lib/logger.js'
+import authMiddleware from './lib/auth-middleware.js'
+import githubEvents from './lib/github-events.js'
+import jenkinsEvents from './lib/jenkins-events.js'
 
 const captureRaw = (req, res, buffer) => { req.raw = buffer }
 
-const app = express()
-const events = new AsyncEventEmitter()
+export const app = express()
+export const events = new AsyncEventEmitter()
 
 const logsDir = process.env.LOGS_DIR || ''
 
@@ -29,12 +31,10 @@ app.use(bunyanMiddleware({
   obscureHeaders: ['x-hub-signature']
 }))
 
-require('./lib/github-events')(app, events)
-require('./lib/jenkins-events')(app, events)
+githubEvents(app, events)
+jenkinsEvents(app, events)
 
 app.use(function logUnhandledErrors (err, req, res, next) {
   logger.error(err, 'Unhandled error while responding to incoming HTTP request')
   res.status(500).end()
 })
-
-module.exports = { app, events }

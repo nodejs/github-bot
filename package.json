@@ -2,13 +2,14 @@
   "name": "nodejs-github-bot",
   "version": "1.0.0-beta1",
   "description": "Node.js GitHub Bot",
+  "type": "module",
   "scripts": {
     "start": "node server.js | bunyan -o short",
     "test": "STATUS=0; tap --allow-incomplete-coverage test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">= 20.11.0"
   },
   "private": true,
   "license": "MIT",

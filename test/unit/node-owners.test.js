@@ -1,9 +1,7 @@
-'use strict'
+import tap from 'tap'
 
-const tap = require('tap')
-
-const { Owners } = require('../../lib/node-owners')
-const readFixture = require('../read-fixture')
+import { Owners } from '../../lib/node-owners.js'
+import readFixture from '../read-fixture.js'
 
 const ownersFile = readFixture('CODEOWNERS')
 

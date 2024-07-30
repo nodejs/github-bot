@@ -1,6 +1,4 @@
-'use strict'
-
-const githubClient = require('../lib/github-client')
+import githubClient from '../lib/github-client.js'
 
 async function handleJenkinsRelay (event) {
   const { owner, repo, identifier } = event
@@ -20,6 +18,6 @@ async function handleJenkinsRelay (event) {
   }
 }
 
-module.exports = function (_, event) {
+export default function (_, event) {
   event.on('jenkins', handleJenkinsRelay)
 }

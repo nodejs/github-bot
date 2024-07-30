@@ -1,16 +1,16 @@
-'use strict'
+import tap from 'tap'
+import fetchMock from 'fetch-mock'
+import supertest from 'supertest'
 
-const tap = require('tap')
-const fetchMock = require('fetch-mock')
+import { app, events } from '../../app.js'
+
+import readFixture from '../read-fixture.js'
+
+import jenkinsStatus from '../../scripts/jenkins-status.js'
+
 fetchMock.config.overwriteRoutes = true
 
-const supertest = require('supertest')
-
-const { app, events } = require('../../app')
-
-const readFixture = require('../read-fixture')
-
-require('../../scripts/jenkins-status')(app, events)
+jenkinsStatus(app, events)
 
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
