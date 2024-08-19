@@ -14,7 +14,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^21.0.1",
+    "@octokit/rest": "^21.0.2",
     "aigle": "^1.14.1",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.20.2",
