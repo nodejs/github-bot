@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "eventsource": "^2.0.2",
-    "fetch-mock": "^11.1.5",
+    "fetch-mock": "^12.0.2",
     "nock": "^13.5.5",
     "nodemon": "^3.1.7",
     "standard": "^17.1.2",
