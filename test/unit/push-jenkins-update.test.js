@@ -14,7 +14,9 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
   const repo = 'node'
   const pr = 9745
 
-  const firstPageScope = fetchMock.mock(
+  fetchMock.mockGlobal()
+
+  const firstPageScope = fetchMock.route(
     `https://api.github.com/repos/${owner}/${repo}/pulls/${pr}/commits`,
     {
       body: commitsFixturePage1,
@@ -24,7 +26,7 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
     }
   )
 
-  const secondPageScope = fetchMock.mock(
+  const secondPageScope = fetchMock.route(
     `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=2`,
     {
       body: commitsFixturePage2,
@@ -34,7 +36,7 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
     }
   )
 
-  const thirdPageScope = fetchMock.mock(
+  const thirdPageScope = fetchMock.route(
     `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=3`,
     {
       body: commitsFixturePage3,
@@ -43,7 +45,8 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
       }
     }
   )
-  const fourthPageScope = fetchMock.mock(
+
+  const fourthPageScope = fetchMock.route(
     `https://api.github.com/repositories/27193779/pulls/${pr}/commits?page=4`,
     {
       body: commitsFixturePage4,
@@ -57,8 +60,8 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
 
   const commit = await findLatestCommitInPr({ owner, repo, pr })
   t.equal(commit.sha, 'c1aa949064892dbe693750686c06f4ad5673e577')
-  firstPageScope.done()
-  secondPageScope.done()
-  thirdPageScope.done()
-  fourthPageScope.done()
+  firstPageScope.callHistory.called()
+  secondPageScope.callHistory.called()
+  thirdPageScope.callHistory.called()
+  fourthPageScope.callHistory.called()
 })

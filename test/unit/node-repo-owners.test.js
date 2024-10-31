@@ -14,6 +14,8 @@ const {
   getCommentForOwners
 } = _testExports
 
+fetchMock.mockGlobal()
+
 tap.test('getCodeOwnersUrl', (t) => {
   const owner = 'nodejs'
   const repo = 'node-auto-test'
@@ -39,11 +41,11 @@ tap.test('listFiles success', async (t) => {
 
   const fixture = readFixture('pull-request-files.json')
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`
-  fetchMock.mock(urlPattern, fixture)
+  fetchMock.route(urlPattern, fixture)
 
   const files = await listFiles(options)
   t.strictSame(files, fixture.map(({ filename }) => filename))
-  t.equal(fetchMock.done(urlPattern), true)
+  t.equal(fetchMock.callHistory.called(urlPattern), true)
   t.end()
 })
 
@@ -59,10 +61,10 @@ tap.test('listFiles fail', async (t) => {
   }
 
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`
-  fetchMock.mock(urlPattern, 500)
+  fetchMock.route(urlPattern, 500)
 
   await t.rejects(listFiles(options))
-  t.equal(fetchMock.done(urlPattern), true)
+  t.equal(fetchMock.callHistory.called(urlPattern), true)
   t.end()
 })
 
@@ -79,11 +81,11 @@ tap.test('getDefaultBranch success', async (t) => {
 
   const fixture = readFixture('get-repository.json')
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}`
-  fetchMock.mock(urlPattern, fixture)
+  fetchMock.route(urlPattern, fixture)
 
   const defaultBranch = await getDefaultBranch(options)
   t.strictSame(defaultBranch, fixture.default_branch)
-  t.equal(fetchMock.done(urlPattern), true)
+  t.equal(fetchMock.callHistory.called(urlPattern), true)
   t.end()
 })
 
@@ -100,10 +102,10 @@ tap.test('getDefaultBranch empty response', async (t) => {
 
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}`
 
-  fetchMock.mock(urlPattern, 200)
+  fetchMock.route(urlPattern, 200)
 
   await t.rejects(getDefaultBranch(options))
-  t.equal(fetchMock.done(), true)
+  t.equal(fetchMock.callHistory.called(), true)
   t.end()
 })
 
@@ -119,10 +121,10 @@ tap.test('getDefaultBranch fail', async (t) => {
   }
 
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}`
-  fetchMock.mock(urlPattern, 500)
+  fetchMock.route(urlPattern, 500)
 
   await t.rejects(getDefaultBranch(options))
-  t.equal(fetchMock.done(), true)
+  t.equal(fetchMock.callHistory.called(), true)
   t.end()
 })
 
@@ -190,7 +192,7 @@ tap.test('pingOwners success', async (t) => {
   const body = { body: getCommentForOwners(owners) }
   const url = `https://api.github.com/repos/${options.owner}/${options.repo}/issues/${options.prId}/comments`
 
-  fetchMock.mock(
+  fetchMock.route(
     {
       body,
       method: 'POST',
@@ -203,7 +205,7 @@ tap.test('pingOwners success', async (t) => {
   )
 
   await pingOwners(options, owners)
-  fetchMock.done(url)
+  fetchMock.callHistory.called(url)
   t.end()
 })
 
@@ -219,10 +221,10 @@ tap.test('pingOwners fail', async (t) => {
   }
 
   const url = `https://api.github.com/repos/${options.owner}/${options.repo}/issues/${options.prId}/comments`
-  fetchMock.mock({ url, method: 'POST' }, 500)
+  fetchMock.route({ url, method: 'POST' }, 500)
 
   await t.rejects(pingOwners(options, []))
-  fetchMock.done(url)
+  fetchMock.callHistory.called(url)
   t.end()
 })
 
@@ -239,12 +241,12 @@ tap.test('resolveOwnersThenPingPr success', async (t) => {
 
   const owners = ['@nodejs/team', '@nodejs/team2']
 
-  fetchMock.mock(
+  fetchMock.route(
     `https://api.github.com/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`,
     readFixture('pull-request-files.json')
   )
 
-  fetchMock.mock(
+  fetchMock.route(
     `https://api.github.com/repos/${options.owner}/${options.repo}`,
     readFixture('get-repository.json')
   )
@@ -253,7 +255,7 @@ tap.test('resolveOwnersThenPingPr success', async (t) => {
     .get(`/${options.owner}/${options.repo}/master/.github/CODEOWNERS`)
     .reply(200, readFixture('CODEOWNERS'))
 
-  fetchMock.mock(
+  fetchMock.route(
     {
       body: { body: getCommentForOwners(owners) },
       method: 'POST',
@@ -267,7 +269,7 @@ tap.test('resolveOwnersThenPingPr success', async (t) => {
 
   await resolveOwnersThenPingPr(options, owners)
 
-  t.equal(fetchMock.done(), true)
+  t.equal(fetchMock.callHistory.called(), true)
   scope.done()
   t.end()
 })

@@ -9,6 +9,7 @@ import readFixture from '../read-fixture.js'
 import jenkinsStatus from '../../scripts/jenkins-status.js'
 
 fetchMock.config.overwriteRoutes = true
+fetchMock.mockGlobal()
 
 jenkinsStatus(app, events)
 
@@ -18,7 +19,7 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
   const listCommitsUrl = setupListCommitsMock('node')
 
   const url = 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
-  fetchMock.mock({ url, method: 'POST' }, 201)
+  fetchMock.route({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -28,8 +29,8 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
-      t.equal(fetchMock.done(url), true)
-      t.equal(fetchMock.done(listCommitsUrl), true)
+      t.equal(fetchMock.callHistory.called(url), true)
+      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
     })
 })
 
@@ -39,7 +40,7 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
   const listCommitsUrl = setupListCommitsMock('citgm')
 
   const url = 'https://api.github.com/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
-  fetchMock.mock({ url, method: 'POST' }, 201)
+  fetchMock.route({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -49,8 +50,8 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
-      t.equal(fetchMock.done(url), true)
-      t.equal(fetchMock.done(listCommitsUrl), true)
+      t.equal(fetchMock.callHistory.called(url), true)
+      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
     })
 })
 
@@ -60,7 +61,7 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
   const listCommitsUrl = setupListCommitsMock('citgm')
 
   const url = 'https://api.github.com/repos/nodejs/citgm/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1'
-  fetchMock.mock({ url, method: 'POST' }, 201)
+  fetchMock.route({ url, method: 'POST' }, 201)
 
   t.plan(3)
 
@@ -70,8 +71,8 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
-      t.equal(fetchMock.done(url), true)
-      t.equal(fetchMock.done(listCommitsUrl), true)
+      t.equal(fetchMock.callHistory.called(url), true)
+      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
     })
 })
 
@@ -87,7 +88,7 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     description: 'tests passed',
     target_url: 'https://ci.nodejs.org/job/node-test-commit-osx/3157/'
   }
-  fetchMock.mock({ url, method: 'POST', body }, 201)
+  fetchMock.route({ url, method: 'POST', body }, 201)
 
   t.plan(3)
 
@@ -97,8 +98,8 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
-      t.equal(fetchMock.done(url), true)
-      t.equal(fetchMock.done(listCommitsUrl), true)
+      t.equal(fetchMock.callHistory.called(url), true)
+      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
     })
 })
 
@@ -107,11 +108,11 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
 
   const url = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
   const body = { body: 'CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' }
-  fetchMock.mock({ url, method: 'POST', body }, 200)
+  fetchMock.route({ url, method: 'POST', body }, 200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupListCommitsMock('node')
-  fetchMock.mock(
+  fetchMock.route(
     {
       url: 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1',
       method: 'POST'
@@ -124,7 +125,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.callHistory.called(url), true)
       t.equal(err, null)
     })
 })
@@ -135,11 +136,11 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
 
   const url = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
   const body = { body: 'Lite-CI: https://ci.nodejs.org/job/node-test-pull-request/21633/' }
-  fetchMock.mock({ url, body, method: 'POST' }, 200)
+  fetchMock.route({ url, body, method: 'POST' }, 200)
 
   // we don't care about asserting the scopes below, just want to stop the requests from actually being sent
   setupListCommitsMock('node')
-  fetchMock.mock(
+  fetchMock.route(
     {
       url: 'https://api.github.com/repos/nodejs/node/statuses/8a5fec2a6bade91e544a30314d7cf21f8a200de1',
       method: 'POST'
@@ -152,7 +153,7 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      t.equal(fetchMock.done(url), true)
+      t.equal(fetchMock.callHistory.called(url), true)
       t.equal(err, null)
     })
 })
@@ -161,7 +162,7 @@ tap.test('Responds with 400 / "Bad request" when incoming request has invalid pa
   const fixture = readFixture('invalid-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  fetchMock.mock('https://api.github.com', 200)
+  fetchMock.route('https://api.github.com', 200)
 
   t.plan(1)
 
@@ -178,7 +179,7 @@ tap.test('Responds with 400 / "Bad request" when build started status update is 
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  fetchMock.mock('https://api.github.com', 200)
+  fetchMock.route('https://api.github.com', 200)
 
   t.plan(1)
 
@@ -195,7 +196,7 @@ tap.test('Responds with 400 / "Bad request" when build ended status update is no
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  fetchMock.mock('https://api.github.com/', 200)
+  fetchMock.route('https://api.github.com/', 200)
 
   t.plan(1)
 
@@ -212,7 +213,7 @@ tap.test('Responds with 400 / "Bad request" when incoming providing invalid repo
   const fixture = readFixture('pending-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
-  fetchMock.mock('https://api.github.com/', 200)
+  fetchMock.route('https://api.github.com/', 200)
 
   t.plan(1)
 
@@ -229,6 +230,6 @@ function setupListCommitsMock (repoName) {
   const commitsResponse = readFixture('pr-commits.json')
   const url = `https://api.github.com/repos/nodejs/${repoName}/pulls/12345/commits`
 
-  fetchMock.mock(url, commitsResponse)
+  fetchMock.route(url, commitsResponse)
   return url
 }
