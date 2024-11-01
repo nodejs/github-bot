@@ -13,7 +13,8 @@ eventRelay(app, events)
 tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/dispatches', (t) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
-  fetchMock.mock('https://api.github.com/repos/nodejs/node/dispatches', 204)
+  fetchMock.mockGlobal()
+  fetchMock.route('https://api.github.com/repos/nodejs/node/dispatches', 204)
 
   t.plan(2)
 
@@ -23,6 +24,6 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/disp
     .expect(200)
     .end((err, res) => {
       t.equal(err, null)
-      t.equal(fetchMock.done(), true)
+      t.equal(fetchMock.callHistory.called(), true)
     })
 })

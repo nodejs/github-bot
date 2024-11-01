@@ -6,6 +6,8 @@ import * as nodeRepo from '../../lib/node-repo.js'
 import logger from '../../lib/logger.js'
 import readFixture from '../read-fixture.js'
 
+fetchMock.mockGlobal()
+
 tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
   const events = readFixture('pull-request-events.json')
 
@@ -14,12 +16,12 @@ tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
   const prId = '1'
   const urlPattern = `glob:https://api.github.com/repos/${owner}/${repo}/issues/${prId}/events?*`
 
-  fetchMock.mock(urlPattern, events.data)
+  fetchMock.route(urlPattern, events.data)
   t.plan(2)
 
   nodeRepo.getBotPrLabels({ owner, repo, prId }, (_, labels) => {
     t.same(labels, ['testlabel'])
-    t.equal(fetchMock.done(urlPattern), true)
+    t.equal(fetchMock.callHistory.called(urlPattern), true)
   })
 })
 
@@ -31,7 +33,7 @@ tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bo
   const prId = '2'
   const urlPattern = `glob:https://api.github.com/repos/${owner}/${repo}/issues/${prId}/events?*`
 
-  fetchMock.mock(
+  fetchMock.route(
     urlPattern,
     events.data
   )
@@ -39,7 +41,7 @@ tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bo
 
   nodeRepo.getBotPrLabels({ owner, repo, prId }, (_, labels) => {
     t.same(labels, [])
-    t.equal(fetchMock.done(urlPattern), true)
+    t.equal(fetchMock.callHistory.called(urlPattern), true)
   })
 })
 
@@ -50,7 +52,7 @@ tap.test('removeLabelFromPR(): should remove label', async (t) => {
   const label = '3'
   const urlPattern = `https://api.github.com/repos/${owner}/${repo}/issues/${prId}/labels/${label}`
 
-  fetchMock.mock(
+  fetchMock.route(
     urlPattern,
     200
   )
@@ -58,5 +60,5 @@ tap.test('removeLabelFromPR(): should remove label', async (t) => {
 
   const response = await nodeRepo.removeLabelFromPR({ owner, repo, prId, logger }, label)
   t.same(label, response)
-  t.equal(fetchMock.done(urlPattern), true)
+  t.equal(fetchMock.callHistory.called(urlPattern), true)
 })
