@@ -1,4 +1,4 @@
-import tap from 'tap'
+import test from 'node:test'
 import fetchMock from 'fetch-mock'
 import supertest from 'supertest'
 
@@ -10,7 +10,7 @@ import eventRelay from '../../scripts/event-relay.js'
 
 eventRelay(app, events)
 
-tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/dispatches', (t) => {
+test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/dispatches', (t, done) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
   fetchMock.mockGlobal()
@@ -23,7 +23,8 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/disp
     .send(jenkinsPayload)
     .expect(200)
     .end((err, res) => {
-      t.equal(err, null)
-      t.equal(fetchMock.callHistory.called(), true)
+      t.assert.strictEqual(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(), true)
+      done()
     })
 })

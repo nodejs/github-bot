@@ -1,4 +1,4 @@
-import tap from 'tap'
+import test from 'node:test'
 import fetchMock from 'fetch-mock'
 
 import * as nodeRepo from '../../lib/node-repo.js'
@@ -8,7 +8,7 @@ import readFixture from '../read-fixture.js'
 
 fetchMock.mockGlobal()
 
-tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
+test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t, done) => {
   const events = readFixture('pull-request-events.json')
 
   const owner = 'nodejs'
@@ -20,12 +20,13 @@ tap.test('getBotPrLabels(): returns labels added by nodejs-github-bot', (t) => {
   t.plan(2)
 
   nodeRepo.getBotPrLabels({ owner, repo, prId }, (_, labels) => {
-    t.same(labels, ['testlabel'])
-    t.equal(fetchMock.callHistory.called(urlPattern), true)
+    t.assert.deepStrictEqual(labels, ['testlabel'])
+    t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
+    done()
   })
 })
 
-tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bot', (t) => {
+test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bot', (t, done) => {
   const events = readFixture('pull-request-events-2.json')
 
   const owner = 'nodejs'
@@ -40,12 +41,13 @@ tap.test('getBotPrLabels(): returns net labels added/removed by nodejs-github-bo
   t.plan(2)
 
   nodeRepo.getBotPrLabels({ owner, repo, prId }, (_, labels) => {
-    t.same(labels, [])
-    t.equal(fetchMock.callHistory.called(urlPattern), true)
+    t.assert.deepStrictEqual(labels, [])
+    t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
+    done()
   })
 })
 
-tap.test('removeLabelFromPR(): should remove label', async (t) => {
+test('removeLabelFromPR(): should remove label', async (t) => {
   const owner = 'nodejs'
   const repo = 'node7'
   const prId = '3'
@@ -59,6 +61,6 @@ tap.test('removeLabelFromPR(): should remove label', async (t) => {
   t.plan(2)
 
   const response = await nodeRepo.removeLabelFromPR({ owner, repo, prId, logger }, label)
-  t.same(label, response)
-  t.equal(fetchMock.callHistory.called(urlPattern), true)
+  t.assert.deepStrictEqual(label, response)
+  t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
 })

@@ -1,87 +1,87 @@
-import tap from 'tap'
+import test from 'node:test'
 
 import { Owners } from '../../lib/node-owners.js'
 import readFixture from '../read-fixture.js'
 
 const ownersFile = readFixture('CODEOWNERS')
 
-tap.test('single file single team match', (t) => {
+test('single file single team match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['file1']),
     ['@nodejs/test1']
   )
-  t.end()
+  done()
 })
 
-tap.test('double file single team match', (t) => {
+test('double file single team match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['file1', 'file4']),
     ['@nodejs/test1']
   )
-  t.end()
+  done()
 })
 
-tap.test('double file double individual team match', (t) => {
+test('double file double individual team match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['file1', 'file2']),
     ['@nodejs/test1', '@nodejs/test2']
   )
-  t.end()
+  done()
 })
 
-tap.test('single file double team match', (t) => {
+test('single file double team match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['file3']),
     ['@nodejs/test1', '@nodejs/test2']
   )
-  t.end()
+  done()
 })
 
-tap.test('double file triple team match (1 + 2)', (t) => {
+test('double file triple team match (1 + 2)', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['file5', 'file3']),
     ['@nodejs/test1', '@nodejs/test2', '@nodejs/test3']
   )
-  t.end()
+  done()
 })
 
-tap.test('folder match', (t) => {
+test('folder match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['folder1/file5']),
     ['@nodejs/test3']
   )
-  t.end()
+  done()
 })
 
-tap.test('extension match', (t) => {
+test('extension match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['folder2/file1.js']),
     ['@nodejs/test4', '@nodejs/test5']
   )
-  t.end()
+  done()
 })
 
-tap.test('no match', (t) => {
+test('no match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['unknown']),
     []
   )
-  t.end()
+  done()
 })
 
-tap.test('no match + single match', (t) => {
+test('no match + single match', (t, done) => {
   const owners = Owners.fromFile(ownersFile)
-  t.strictSame(
+  t.assert.deepStrictEqual(
     owners.getOwnersForPaths(['unknown', 'file1']),
     ['@nodejs/test1']
   )
-  t.end()
+  done()
 })
