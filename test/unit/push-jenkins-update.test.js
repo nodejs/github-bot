@@ -1,11 +1,11 @@
-import tap from 'tap'
+import test from 'node:test'
 
 import { findLatestCommitInPr } from '../../lib/push-jenkins-update.js'
 
 import fetchMock from 'fetch-mock'
 import readFixture from '../read-fixture.js'
 
-tap.test('findLatestCommitInPr: paginates results when more than 100 commits in a PR', async (t) => {
+test('findLatestCommitInPr: paginates results when more than 100 commits in a PR', async (t) => {
   const commitsFixturePage1 = readFixture('pull-request-commits-page-1.json')
   const commitsFixturePage2 = readFixture('pull-request-commits-page-2.json')
   const commitsFixturePage3 = readFixture('pull-request-commits-page-3.json')
@@ -59,7 +59,7 @@ tap.test('findLatestCommitInPr: paginates results when more than 100 commits in 
   t.plan(1)
 
   const commit = await findLatestCommitInPr({ owner, repo, pr })
-  t.equal(commit.sha, 'c1aa949064892dbe693750686c06f4ad5673e577')
+  t.assert.strictEqual(commit.sha, 'c1aa949064892dbe693750686c06f4ad5673e577')
   firstPageScope.callHistory.called()
   secondPageScope.callHistory.called()
   thirdPageScope.callHistory.called()

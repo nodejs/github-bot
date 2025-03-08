@@ -1,4 +1,4 @@
-import tap from 'tap'
+import test from 'node:test'
 import fetchMock from 'fetch-mock'
 import nock from 'nock'
 
@@ -16,19 +16,19 @@ const {
 
 fetchMock.mockGlobal()
 
-tap.test('getCodeOwnersUrl', (t) => {
+test('getCodeOwnersUrl', (t, done) => {
   const owner = 'nodejs'
   const repo = 'node-auto-test'
   const defaultBranch = 'main'
 
-  t.equal(
+  t.assert.strictEqual(
     getCodeOwnersUrl(owner, repo, defaultBranch),
     `https://raw.githubusercontent.com/${owner}/${repo}/${defaultBranch}/.github/CODEOWNERS`
   )
-  t.end()
+  done()
 })
 
-tap.test('listFiles success', async (t) => {
+test('listFiles success', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test',
@@ -44,12 +44,11 @@ tap.test('listFiles success', async (t) => {
   fetchMock.route(urlPattern, fixture)
 
   const files = await listFiles(options)
-  t.strictSame(files, fixture.map(({ filename }) => filename))
-  t.equal(fetchMock.callHistory.called(urlPattern), true)
-  t.end()
+  t.assert.deepStrictEqual(files, fixture.map(({ filename }) => filename))
+  t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
 })
 
-tap.test('listFiles fail', async (t) => {
+test('listFiles fail', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test',
@@ -63,12 +62,11 @@ tap.test('listFiles fail', async (t) => {
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}/pulls/${options.prId}/files`
   fetchMock.route(urlPattern, 500)
 
-  await t.rejects(listFiles(options))
-  t.equal(fetchMock.callHistory.called(urlPattern), true)
-  t.end()
+  await t.assert.rejects(listFiles(options))
+  t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
 })
 
-tap.test('getDefaultBranch success', async (t) => {
+test('getDefaultBranch success', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-2',
@@ -84,12 +82,11 @@ tap.test('getDefaultBranch success', async (t) => {
   fetchMock.route(urlPattern, fixture)
 
   const defaultBranch = await getDefaultBranch(options)
-  t.strictSame(defaultBranch, fixture.default_branch)
-  t.equal(fetchMock.callHistory.called(urlPattern), true)
-  t.end()
+  t.assert.deepStrictEqual(defaultBranch, fixture.default_branch)
+  t.assert.strictEqual(fetchMock.callHistory.called(urlPattern), true)
 })
 
-tap.test('getDefaultBranch empty response', async (t) => {
+test('getDefaultBranch empty response', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-3',
@@ -104,12 +101,11 @@ tap.test('getDefaultBranch empty response', async (t) => {
 
   fetchMock.route(urlPattern, 200)
 
-  await t.rejects(getDefaultBranch(options))
-  t.equal(fetchMock.callHistory.called(), true)
-  t.end()
+  await t.assert.rejects(getDefaultBranch(options))
+  t.assert.strictEqual(fetchMock.callHistory.called(), true)
 })
 
-tap.test('getDefaultBranch fail', async (t) => {
+test('getDefaultBranch fail', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-4',
@@ -123,12 +119,11 @@ tap.test('getDefaultBranch fail', async (t) => {
   const urlPattern = `https://api.github.com/repos/${options.owner}/${options.repo}`
   fetchMock.route(urlPattern, 500)
 
-  await t.rejects(getDefaultBranch(options))
-  t.equal(fetchMock.callHistory.called(), true)
-  t.end()
+  await t.assert.rejects(getDefaultBranch(options))
+  t.assert.strictEqual(fetchMock.callHistory.called(), true)
 })
 
-tap.test('getCodeOwnersFile success', async (t) => {
+test('getCodeOwnersFile success', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-5',
@@ -148,12 +143,11 @@ tap.test('getCodeOwnersFile success', async (t) => {
     .reply(200, fixture)
 
   const file = await getCodeOwnersFile(url, options)
-  t.strictSame(file, fixture)
+  t.assert.deepStrictEqual(file, fixture)
   scope.done()
-  t.end()
 })
 
-tap.test('getCodeOwnersFile fail', async (t) => {
+test('getCodeOwnersFile fail', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-6',
@@ -171,12 +165,11 @@ tap.test('getCodeOwnersFile fail', async (t) => {
     .get(filePath)
     .reply(500)
 
-  await t.rejects(getCodeOwnersFile(url, options))
+  await t.assert.rejects(getCodeOwnersFile(url, options))
   scope.done()
-  t.end()
 })
 
-tap.test('pingOwners success', async (t) => {
+test('pingOwners success', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-6',
@@ -206,10 +199,9 @@ tap.test('pingOwners success', async (t) => {
 
   await pingOwners(options, owners)
   fetchMock.callHistory.called(url)
-  t.end()
 })
 
-tap.test('pingOwners fail', async (t) => {
+test('pingOwners fail', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test-6',
@@ -223,12 +215,11 @@ tap.test('pingOwners fail', async (t) => {
   const url = `https://api.github.com/repos/${options.owner}/${options.repo}/issues/${options.prId}/comments`
   fetchMock.route({ url, method: 'POST' }, 500)
 
-  await t.rejects(pingOwners(options, []))
+  await t.assert.rejects(pingOwners(options, []))
   fetchMock.callHistory.called(url)
-  t.end()
 })
 
-tap.test('resolveOwnersThenPingPr success', async (t) => {
+test('resolveOwnersThenPingPr success', async (t) => {
   const options = {
     owner: 'nodejs',
     repo: 'node-auto-test',
@@ -269,7 +260,6 @@ tap.test('resolveOwnersThenPingPr success', async (t) => {
 
   await resolveOwnersThenPingPr(options, owners)
 
-  t.equal(fetchMock.callHistory.called(), true)
+  t.assert.strictEqual(fetchMock.callHistory.called(), true)
   scope.done()
-  t.end()
 })

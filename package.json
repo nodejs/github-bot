@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js | bunyan -o short",
-    "test": "STATUS=0; tap --allow-incomplete-coverage test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
+    "test": "STATUS=0; node --test test/**/*.test.js || STATUS=$?; standard || STATUS=$?; exit $STATUS",
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
@@ -33,7 +33,6 @@
     "nock": "^14.0.1",
     "nodemon": "^3.1.9",
     "standard": "^17.1.2",
-    "supertest": "^7.0.0",
-    "tap": "^21.1.0"
+    "supertest": "^7.0.0"
   }
 }
