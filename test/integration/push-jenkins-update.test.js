@@ -1,4 +1,4 @@
-import tap from 'tap'
+import test from 'node:test'
 import fetchMock from 'fetch-mock'
 import supertest from 'supertest'
 
@@ -13,7 +13,7 @@ fetchMock.mockGlobal()
 
 jenkinsStatus(app, events)
 
-tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t) => {
+test('Sends POST requests to https://api.github.com/repos/nodejs/node/statuses/<SHA>', (t, done) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
   const listCommitsUrl = setupListCommitsMock('node')
@@ -28,13 +28,14 @@ tap.test('Sends POST requests to https://api.github.com/repos/nodejs/node/status
     .send(jenkinsPayload)
     .expect(200)
     .end((err, res) => {
-      t.equal(err, null)
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
+      t.assert.strictEqual(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(fetchMock.callHistory.called(listCommitsUrl), true)
+      done()
     })
 })
 
-tap.test('Allows repository name to be provided with URL parameter when pushing job started', (t) => {
+test('Allows repository name to be provided with URL parameter when pushing job started', (t, done) => {
   const jenkinsPayload = readFixture('pending-payload.json')
 
   const listCommitsUrl = setupListCommitsMock('citgm')
@@ -49,13 +50,14 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .send(jenkinsPayload)
     .expect(200)
     .end((err, res) => {
-      t.equal(err, null)
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
+      t.assert.strictEqual(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(fetchMock.callHistory.called(listCommitsUrl), true)
+      done()
     })
 })
 
-tap.test('Allows repository name to be provided with URL parameter when pushing job ended', (t) => {
+test('Allows repository name to be provided with URL parameter when pushing job ended', (t, done) => {
   const jenkinsPayload = readFixture('success-payload.json')
 
   const listCommitsUrl = setupListCommitsMock('citgm')
@@ -70,13 +72,14 @@ tap.test('Allows repository name to be provided with URL parameter when pushing 
     .send(jenkinsPayload)
     .expect(200)
     .end((err, res) => {
-      t.equal(err, null)
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
+      t.assert.strictEqual(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(fetchMock.callHistory.called(listCommitsUrl), true)
+      done()
     })
 })
 
-tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) => {
+test('Forwards payload provided in incoming POST to GitHub status API', (t, done) => {
   const fixture = readFixture('success-payload.json')
 
   const listCommitsUrl = setupListCommitsMock('node')
@@ -97,13 +100,14 @@ tap.test('Forwards payload provided in incoming POST to GitHub status API', (t) 
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      t.equal(err, null)
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(fetchMock.callHistory.called(listCommitsUrl), true)
+      t.assert.strictEqual(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(fetchMock.callHistory.called(listCommitsUrl), true)
+      done()
     })
 })
 
-tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t) => {
+test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request', (t, done) => {
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
 
   const url = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
@@ -125,12 +129,13 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
-tap.test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request-lite-pipeline', (t) => {
+test('Posts a CI comment in the related PR when Jenkins build is named node-test-pull-request-lite-pipeline', (t, done) => {
   const fixture = readFixture('jenkins-test-pull-request-success-payload.json')
   fixture.identifier = 'node-test-pull-request-lite-pipeline'
 
@@ -153,12 +158,13 @@ tap.test('Posts a CI comment in the related PR when Jenkins build is named node-
     .send(fixture)
     .expect(200)
     .end((err, res) => {
-      t.equal(fetchMock.callHistory.called(url), true)
-      t.equal(err, null)
+      t.assert.strictEqual(fetchMock.callHistory.called(url), true)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
-tap.test('Responds with 400 / "Bad request" when incoming request has invalid payload', (t) => {
+test('Responds with 400 / "Bad request" when incoming request has invalid payload', (t, done) => {
   const fixture = readFixture('invalid-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
@@ -171,11 +177,12 @@ tap.test('Responds with 400 / "Bad request" when incoming request has invalid pa
     .send(fixture)
     .expect(400, 'Invalid payload')
     .end((err, res) => {
-      t.equal(err, null)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
-tap.test('Responds with 400 / "Bad request" when build started status update is not related to a pull request', (t) => {
+test('Responds with 400 / "Bad request" when build started status update is not related to a pull request', (t, done) => {
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
@@ -188,11 +195,12 @@ tap.test('Responds with 400 / "Bad request" when build started status update is 
     .send(fixture)
     .expect(400, 'Will only push builds related to pull requests')
     .end((err, res) => {
-      t.equal(err, null)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
-tap.test('Responds with 400 / "Bad request" when build ended status update is not related to a pull request', (t) => {
+test('Responds with 400 / "Bad request" when build ended status update is not related to a pull request', (t, done) => {
   const fixture = readFixture('jenkins-staging-failure-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
@@ -205,11 +213,12 @@ tap.test('Responds with 400 / "Bad request" when build ended status update is no
     .send(fixture)
     .expect(400, 'Will only push builds related to pull requests')
     .end((err, res) => {
-      t.equal(err, null)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
-tap.test('Responds with 400 / "Bad request" when incoming providing invalid repository name', (t) => {
+test('Responds with 400 / "Bad request" when incoming providing invalid repository name', (t, done) => {
   const fixture = readFixture('pending-payload.json')
 
   // don't care about the results, just want to prevent any HTTP request ever being made
@@ -222,7 +231,8 @@ tap.test('Responds with 400 / "Bad request" when incoming providing invalid repo
     .send(fixture)
     .expect(400, 'Invalid repository')
     .end((err, res) => {
-      t.equal(err, null)
+      t.assert.strictEqual(err, null)
+      done()
     })
 })
 
