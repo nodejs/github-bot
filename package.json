@@ -33,6 +33,6 @@
     "nock": "^14.0.4",
     "nodemon": "^3.1.10",
     "standard": "^17.1.2",
-    "supertest": "^7.1.0"
+    "supertest": "^7.1.1"
   }
 }
