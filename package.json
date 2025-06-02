@@ -30,7 +30,7 @@
   "devDependencies": {
     "eventsource": "^4.0.0",
     "fetch-mock": "^12.5.2",
-    "nock": "^14.0.4",
+    "nock": "^14.0.5",
     "nodemon": "^3.1.10",
     "standard": "^17.1.2",
     "supertest": "^7.1.1"
