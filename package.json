@@ -28,7 +28,7 @@
     "glob": "13.0.0"
   },
   "devDependencies": {
-    "eventsource": "^4.0.0",
+    "eventsource": "^4.1.0",
     "fetch-mock": "^12.6.0",
     "nock": "^14.0.10",
     "nodemon": "^3.1.11",
