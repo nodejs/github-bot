@@ -2,10 +2,10 @@
 
 import express from 'express'
 import bodyParser from 'body-parser'
-import bunyanMiddleware from 'bunyan-middleware'
 import AsyncEventEmitter from 'events-async'
 
 import logger from './lib/logger.js'
+import requestLogger from './lib/request-logger.js'
 import authMiddleware from './lib/auth-middleware.js'
 import githubEvents from './lib/github-events.js'
 import jenkinsEvents from './lib/jenkins-events.js'
@@ -23,13 +23,8 @@ if (logsDir) {
   app.use('/logs', authMiddleware, express.static(logsDir))
 }
 
-// bunyanMiddleware gives us request id's and unique loggers per incoming request,
-// for safety reasons we don't want to include the webhook GitHub secret in logs
-app.use(bunyanMiddleware({
-  logger,
-  level: 'trace',
-  obscureHeaders: ['x-hub-signature']
-}))
+// Give each request a unique logger and avoid logging the GitHub webhook secret.
+app.use(requestLogger(logger))
 
 githubEvents(app, events)
 jenkinsEvents(app, events)
