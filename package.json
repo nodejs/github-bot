@@ -24,7 +24,8 @@
     "dotenv": "^17.4.2",
     "events-async": "^1.2.1",
     "express": "^5.2.1",
-    "glob": "13.0.6"
+    "glob": "13.0.6",
+    "node-core-utils": "^3.5.0"
   },
   "devDependencies": {
     "eventsource": "^5.1.1",
