@@ -9,14 +9,14 @@
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
-    "node": ">= 20.11.0"
+    "node": ">= 22.0.0"
   },
   "private": true,
   "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^22.0.1",
     "aigle": "^1.14.1",
-    "basic-auth": "^2.0.1",
+    "basic-auth": "^3.0.0",
     "body-parser": "^2.3.0",
     "bunyan": "^1.8.1",
     "codeowners-utils": "^1.0.2",
