@@ -169,6 +169,28 @@ test('getCodeOwnersFile fail', async (t) => {
   scope.done()
 })
 
+test('getCodeOwnersFile network error', async (t) => {
+  const options = {
+    owner: 'nodejs',
+    repo: 'node-auto-test-6',
+    prId: 12347,
+    logger: { info: () => {}, error: () => {}, debug: () => {}, child: function () { return this } },
+    retries: 1,
+    defaultBranch: 'main',
+    retryInterval: 10
+  }
+
+  const base = 'https://localhost'
+  const filePath = '/CODEOWNERS'
+  const url = `${base}${filePath}`
+  const scope = nock(base)
+    .get(filePath)
+    .replyWithError('socket hang up')
+
+  await t.assert.rejects(getCodeOwnersFile(url, options), { message: 'socket hang up' })
+  scope.done()
+})
+
 test('pingOwners success', async (t) => {
   const options = {
     owner: 'nodejs',
