@@ -22,7 +22,7 @@ app.listen(port, () => {
 // may open up an SSE relay channel helpful for local debugging
 // of github repository events, wo/having to deploy changes
 if (process.env.SSE_RELAY) {
-  const EventSource = require('eventsource')
+  const { EventSource } = await import('eventsource')
   const es = new EventSource(process.env.SSE_RELAY)
   es.onmessage = (e) => {
     try {
