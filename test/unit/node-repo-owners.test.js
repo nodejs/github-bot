@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { Readable } from 'node:stream'
 import fetchMock from 'fetch-mock'
 import nock from 'nock'
 
@@ -188,6 +189,34 @@ test('getCodeOwnersFile network error', async (t) => {
     .replyWithError('socket hang up')
 
   await t.assert.rejects(getCodeOwnersFile(url, options), { message: 'socket hang up' })
+  scope.done()
+})
+
+test('getCodeOwnersFile handles an interrupted error response', async (t) => {
+  const errors = []
+  const options = {
+    logger: { error: (...args) => errors.push(args) }
+  }
+  let sent = false
+  const response = new Readable({
+    read () {
+      if (sent) return
+      sent = true
+      this.push('partial response')
+      setImmediate(() => this.destroy(new Error('socket hang up')))
+    }
+  })
+  const base = 'https://localhost'
+  const filePath = '/CODEOWNERS'
+  const scope = nock(base)
+    .get(filePath)
+    .reply(500, () => response)
+
+  await t.assert.rejects(getCodeOwnersFile(`${base}${filePath}`, options))
+  await new Promise(resolve => setImmediate(resolve))
+
+  t.assert.strictEqual(errors.length, 2)
+  t.assert.ok(errors[1][0] instanceof Error)
   scope.done()
 })
 
