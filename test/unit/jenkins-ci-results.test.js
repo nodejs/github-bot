@@ -2,7 +2,12 @@ import test from 'node:test'
 import fetchMock from 'fetch-mock'
 import { MockAgent, setGlobalDispatcher } from 'undici'
 
-import { extractBuildNumber, fetchResultsMarkdown, postBuildResults } from '../../lib/jenkins-ci-results.js'
+import {
+  extractBuildNumber,
+  fetchResultsMarkdown,
+  limitResultsMarkdown,
+  postBuildResults
+} from '../../lib/jenkins-ci-results.js'
 
 import readFixture from '../read-fixture.js'
 
@@ -58,6 +63,29 @@ test('fetchResultsMarkdown: rejects when Jenkins results cannot be retrieved', a
     fetchResultsMarkdown(21634),
     /Unable to retrieve Jenkins CI results/
   )
+})
+
+test('limitResultsMarkdown: truncates at a complete details block', (t) => {
+  const buildUrl = 'https://ci.nodejs.org/job/node-test-pull-request/21633/'
+  const failure = name => [
+    `#### ${name}`,
+    '<details>',
+    '<summary>See failures</summary>',
+    '```',
+    'x'.repeat(35_000),
+    '```',
+    '</details>'
+  ].join('\n')
+  const markdown = `Failures\n\n${failure('first')}\n\n${failure('second')}`
+
+  const result = limitResultsMarkdown(markdown, buildUrl)
+
+  t.assert.ok(result.length <= 60_000)
+  t.assert.match(result, /CI results were truncated/)
+  t.assert.ok(result.includes(buildUrl))
+  t.assert.strictEqual((result.match(/<details>/g) || []).length, 1)
+  t.assert.strictEqual((result.match(/<\/details>/g) || []).length, 1)
+  t.assert.strictEqual((result.match(/```/g) || []).length, 2)
 })
 
 test('postBuildResults: posts CI results comment in the related PR', async (t) => {
