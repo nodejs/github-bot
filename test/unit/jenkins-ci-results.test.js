@@ -121,6 +121,30 @@ test('limitResultsMarkdown: truncates at a complete details block', (t) => {
   t.assert.strictEqual((result.match(/```/g) || []).length, 2)
 })
 
+test('limitResultsMarkdown: preserves an excerpt from one oversized details block', (t) => {
+  const buildUrl = 'https://ci.nodejs.org/job/node-test-pull-request/21633/'
+  const markdown = [
+    'Failures',
+    '#### first',
+    '<details>',
+    '<summary>See failures</summary>',
+    '```',
+    `useful diagnostic\n${'x'.repeat(70_000)}`,
+    '```',
+    '</details>'
+  ].join('\n')
+
+  const result = limitResultsMarkdown(markdown, buildUrl)
+
+  t.assert.ok(result.length <= 60_000)
+  t.assert.match(result, /useful diagnostic/)
+  t.assert.match(result, /diagnostic output truncated/)
+  t.assert.ok(result.includes(buildUrl))
+  t.assert.strictEqual((result.match(/<details>/g) || []).length, 1)
+  t.assert.strictEqual((result.match(/<\/details>/g) || []).length, 1)
+  t.assert.strictEqual((result.match(/```/g) || []).length, 2)
+})
+
 test('postBuildResults: posts CI results comment in the related PR', async (t) => {
   process.env.JENKINS_API_CREDENTIALS = 'bot:secret-token'
   t.after(restoreCredentials)
