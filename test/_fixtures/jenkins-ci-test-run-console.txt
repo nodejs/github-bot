@@ -1,0 +1,7 @@
+not ok 1 parallel/test-example
+  ---
+  duration_ms: 10
+  severity: fail
+  error: |-
+    AssertionError: expected true to equal false
+  ...

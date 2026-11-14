@@ -30,19 +30,30 @@ test('Posts a comment with the CI results when a node-test-pull-request build fa
   jenkinsPayload.status = 'failure'
   jenkinsPayload.message = 'tests failed'
 
-  const results = readFixture('jenkins-ci-pr-build-green.json')
-  results.result = 'FAILURE'
-  results.subBuilds[0].result = 'FAILURE'
-
   mockAgent.get('https://ci.nodejs.org')
     .intercept({ path: /^\/job\/node-test-pull-request\/21633\/api\/json/, method: 'GET' })
-    .reply(200, results)
+    .reply(200, readFixture('jenkins-ci-pr-build-failed-test.json'))
+  mockAgent.get('https://ci.nodejs.org')
+    .intercept({ path: /^\/job\/node-test-commit-linux-containered\/30001\/api\/json/, method: 'GET' })
+    .reply(200, readFixture('jenkins-ci-worker-failure.json'))
+  mockAgent.get('https://ci.nodejs.org')
+    .intercept({
+      path: /^\/job\/node-test-commit-linux-containered\/30001\/nodes=ubuntu2204-64\/1\/api\/json/,
+      method: 'GET'
+    })
+    .reply(200, readFixture('jenkins-ci-test-run.json'))
+  mockAgent.get('https://ci.nodejs.org')
+    .intercept({
+      path: '/job/node-test-commit-linux-containered/30001/nodes=ubuntu2204-64/1/consoleText',
+      method: 'GET'
+    })
+    .reply(200, readFixture('jenkins-ci-test-run-console.txt'))
 
   fetchMock.route({ url: commentUrl, method: 'POST' }, 200)
 
   setupPushStatusMocks()
 
-  t.plan(2)
+  t.plan(4)
 
   supertest(app)
     .post('/node/jenkins/end')
@@ -55,6 +66,10 @@ test('Posts a comment with the CI results when a node-test-pull-request build fa
       // so wait for the GitHub API call instead of asserting right away
       waitFor(() => fetchMock.callHistory.called(commentUrl), (err) => {
         t.assert.strictEqual(err, null)
+        const requestBody = fetchMock.callHistory.lastCall(commentUrl).options.body
+        const comment = JSON.parse(requestBody).body
+        t.assert.match(comment, /parallel\/test-example/)
+        t.assert.match(comment, /AssertionError: expected true to equal false/)
         done()
       })
     })
