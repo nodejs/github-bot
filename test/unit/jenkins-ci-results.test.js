@@ -7,6 +7,7 @@ import {
   fetchResultsMarkdown,
   limitResultsMarkdown,
   postBuildResults,
+  throwOnTopLevelRetrievalFailure,
   validateBuildDestination
 } from '../../lib/jenkins-ci-results.js'
 
@@ -64,6 +65,21 @@ test('fetchResultsMarkdown: rejects when Jenkins results cannot be retrieved', a
     fetchResultsMarkdown(21634),
     /Unable to retrieve Jenkins CI results/
   )
+})
+
+test('throwOnTopLevelRetrievalFailure: preserves partial downstream results', () => {
+  throwOnTopLevelRetrievalFailure({
+    failures: [
+      { type: 'JS_TEST_FAILURE', reason: 'test failed' },
+      { type: 'NCU_FAILURE', reason: 'one platform was unavailable' }
+    ]
+  })
+})
+
+test('throwOnTopLevelRetrievalFailure: rejects a top-level retrieval failure', (t) => {
+  t.assert.throws(() => throwOnTopLevelRetrievalFailure([
+    { type: 'NCU_FAILURE', reason: 'Jenkins was unavailable' }
+  ]), /Jenkins was unavailable/)
 })
 
 test('validateBuildDestination: accepts matching build parameters', () => {
