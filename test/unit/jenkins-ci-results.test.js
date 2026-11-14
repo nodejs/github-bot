@@ -1,12 +1,17 @@
 import test from 'node:test'
 import fetchMock from 'fetch-mock'
+import { MockAgent, setGlobalDispatcher } from 'undici'
 
-import { extractBuildNumber, postBuildResults } from '../../lib/jenkins-ci-results.js'
+import { extractBuildNumber, fetchResultsMarkdown, postBuildResults } from '../../lib/jenkins-ci-results.js'
 
 import readFixture from '../read-fixture.js'
 
 fetchMock.config.overwriteRoutes = true
 fetchMock.mockGlobal()
+
+const mockAgent = new MockAgent()
+mockAgent.disableNetConnect()
+setGlobalDispatcher(mockAgent)
 
 const originalCredentials = process.env.JENKINS_API_CREDENTIALS
 
@@ -39,6 +44,20 @@ test('extractBuildNumber: returns null when build URL is not a node-test-pull-re
   const build = readFixture('success-payload.json')
 
   t.assert.strictEqual(extractBuildNumber(build), null)
+})
+
+test('fetchResultsMarkdown: rejects when Jenkins results cannot be retrieved', async (t) => {
+  process.env.JENKINS_API_CREDENTIALS = 'bot:invalid-token'
+  t.after(restoreCredentials)
+
+  mockAgent.get('https://ci.nodejs.org')
+    .intercept({ path: /^\/job\/node-test-pull-request\/21634\/api\/json/, method: 'GET' })
+    .reply(401, 'Unauthorized')
+
+  await t.assert.rejects(
+    fetchResultsMarkdown(21634),
+    /Unable to retrieve Jenkins CI results/
+  )
 })
 
 test('postBuildResults: posts CI results comment in the related PR', async (t) => {
