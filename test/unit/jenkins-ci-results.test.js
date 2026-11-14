@@ -116,6 +116,7 @@ test('limitResultsMarkdown: truncates at a complete details block', (t) => {
   t.assert.ok(result.length <= 60_000)
   t.assert.match(result, /CI results were truncated/)
   t.assert.ok(result.includes(buildUrl))
+  t.assert.doesNotMatch(result, /#### second/)
   t.assert.strictEqual((result.match(/<details>/g) || []).length, 1)
   t.assert.strictEqual((result.match(/<\/details>/g) || []).length, 1)
   t.assert.strictEqual((result.match(/```/g) || []).length, 2)
