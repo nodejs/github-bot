@@ -9,11 +9,12 @@
     "test:watch": "nodemon -q -x 'npm test'"
   },
   "engines": {
-    "node": ">= 22.0.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@node-core/utils": "^7.8.0",
     "@octokit/rest": "^22.0.1",
     "aigle": "^1.14.1",
     "basic-auth": "^3.1.0",
@@ -31,6 +32,7 @@
     "nock": "^15.0.6",
     "nodemon": "^3.1.14",
     "standard": "^17.1.2",
-    "supertest": "^7.3.1"
+    "supertest": "^7.3.1",
+    "undici": "^8.12.4"
   }
 }

@@ -1,0 +1,44 @@
+{
+  "result": "SUCCESS",
+  "url": "https://ci.nodejs.org/job/node-test-pull-request/21633/",
+  "number": 21633,
+  "builtOn": "test-worker",
+  "timestamp": 1500000000000,
+  "actions": [
+    {
+      "parameters": [
+        { "name": "CERTIFY_SAFE", "value": "true" },
+        { "name": "TARGET_GITHUB_ORG", "value": "nodejs" },
+        { "name": "TARGET_REPO_NAME", "value": "node" },
+        { "name": "PR_ID", "value": "12345" },
+        { "name": "REBASE_ONTO", "value": "" }
+      ]
+    }
+  ],
+  "changeSet": {
+    "items": [
+      {
+        "commitId": "8a5fec2a6bade91e544a30314d7cf21f8a200de1",
+        "author": {
+          "absoluteUrl": "https://ci.nodejs.org/user/test-user",
+          "fullName": "Test User"
+        },
+        "authorEmail": "test-user@example.com",
+        "msg": "test: an example commit",
+        "date": "2017-10-25 02:33:44 +0900"
+      }
+    ]
+  },
+  "subBuilds": [
+    {
+      "builtOn": "test-worker",
+      "buildNumber": 30000,
+      "jobName": "node-test-commit",
+      "result": "SUCCESS",
+      "url": "job/node-test-commit/30000/",
+      "build": {
+        "subBuilds": []
+      }
+    }
+  ]
+}

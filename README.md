@@ -17,7 +17,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - **`GITHUB_WEBHOOK_SECRET`**<br>
   The webhook secret that GitHub signs the POSTed payloads with. This is created when the webhook is defined. The default is `hush-hush`.
 - **`JENKINS_WORKER_IPS`**<br>
-  List of valid Jenkins worker IPs allowed to push PR status updates, split by comma: `192.168.1.100,192.168.1.101`.
+  Required list of valid Jenkins worker IPs allowed to push PR status updates, split by comma:
+  `192.168.1.100,192.168.1.101`. Jenkins callbacks are rejected when this variable is not set.
 - **`JENKINS_API_CREDENTIALS`** (optional)<br>
   For scripts that communicate with Jenkins on http://ci.nodejs.org. The Jenkins API token is visible on
   your own profile page `https://ci.nodejs.org/user/<YOUR_GITHUB_USERNAME>/configure`, by clicking the

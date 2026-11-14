@@ -10,6 +10,7 @@ import jenkinsStatus from '../../scripts/jenkins-status.js'
 
 fetchMock.config.overwriteRoutes = true
 fetchMock.mockGlobal()
+process.env.JENKINS_WORKER_IPS = '127.0.0.1'
 
 jenkinsStatus(app, events)
 
@@ -230,6 +231,25 @@ test('Responds with 400 / "Bad request" when incoming providing invalid reposito
     .post('/not-valid-repo-name/jenkins/start')
     .send(fixture)
     .expect(400, 'Invalid repository')
+    .end((err, res) => {
+      t.assert.strictEqual(err, null)
+      done()
+    })
+})
+
+test('Rejects Jenkins callbacks when no worker IP allowlist is configured', (t, done) => {
+  const workerIps = process.env.JENKINS_WORKER_IPS
+  delete process.env.JENKINS_WORKER_IPS
+  t.after(() => { process.env.JENKINS_WORKER_IPS = workerIps })
+
+  const fixture = readFixture('pending-payload.json')
+
+  t.plan(1)
+
+  supertest(app)
+    .post('/node/jenkins/start')
+    .send(fixture)
+    .expect(401, 'Invalid Jenkins IP')
     .end((err, res) => {
       t.assert.strictEqual(err, null)
       done()

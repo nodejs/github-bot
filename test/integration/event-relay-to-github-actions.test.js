@@ -8,6 +8,8 @@ import readFixture from '../read-fixture.js'
 
 import eventRelay from '../../scripts/event-relay.js'
 
+process.env.JENKINS_WORKER_IPS = '127.0.0.1'
+
 eventRelay(app, events)
 
 test('Sends POST requests to https://api.github.com/repos/nodejs/<repo>/dispatches', (t, done) => {
