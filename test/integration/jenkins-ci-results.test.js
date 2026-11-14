@@ -18,6 +18,7 @@ const mockAgent = new MockAgent()
 mockAgent.disableNetConnect()
 setGlobalDispatcher(mockAgent)
 
+process.env.JENKINS_WORKER_IPS = '127.0.0.1'
 process.env.JENKINS_API_CREDENTIALS = 'bot:test-token'
 
 jenkinsStatus(app, events)
@@ -63,6 +64,37 @@ test('Does not post a comment when a node-test-pull-request build succeeds', (t,
   const jenkinsPayload = readFixture('jenkins-test-pull-request-success-payload.json')
   jenkinsPayload.status = 'success'
   jenkinsPayload.message = 'all tests passed'
+
+  setupPushStatusMocks()
+  fetchMock.clearHistory()
+
+  t.plan(2)
+
+  supertest(app)
+    .post('/node/jenkins/end')
+    .send(jenkinsPayload)
+    .expect(200)
+    .end((err, res) => {
+      t.assert.strictEqual(err, null)
+
+      setTimeout(() => {
+        t.assert.strictEqual(fetchMock.callHistory.called(commentUrl), false)
+        done()
+      }, 50)
+    })
+})
+
+test('Does not post results from a build for another pull request', (t, done) => {
+  const jenkinsPayload = readFixture('jenkins-test-pull-request-success-payload.json')
+  jenkinsPayload.status = 'failure'
+
+  const results = readFixture('jenkins-ci-pr-build-green.json')
+  results.result = 'FAILURE'
+  results.actions[0].parameters.find(parameter => parameter.name === 'PR_ID').value = '99999'
+
+  mockAgent.get('https://ci.nodejs.org')
+    .intercept({ path: /^\/job\/node-test-pull-request\/21633\/api\/json/, method: 'GET' })
+    .reply(200, results)
 
   setupPushStatusMocks()
   fetchMock.clearHistory()

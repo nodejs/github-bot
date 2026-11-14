@@ -6,7 +6,8 @@ import {
   extractBuildNumber,
   fetchResultsMarkdown,
   limitResultsMarkdown,
-  postBuildResults
+  postBuildResults,
+  validateBuildDestination
 } from '../../lib/jenkins-ci-results.js'
 
 import readFixture from '../read-fixture.js'
@@ -63,6 +64,22 @@ test('fetchResultsMarkdown: rejects when Jenkins results cannot be retrieved', a
     fetchResultsMarkdown(21634),
     /Unable to retrieve Jenkins CI results/
   )
+})
+
+test('validateBuildDestination: accepts matching build parameters', () => {
+  validateBuildDestination({
+    TARGET_GITHUB_ORG: 'nodejs',
+    TARGET_REPO_NAME: 'node',
+    PR_ID: '12345'
+  }, { owner: 'NodeJS', repo: 'Node', pr: 12345 })
+})
+
+test('validateBuildDestination: rejects unrelated build parameters', (t) => {
+  t.assert.throws(() => validateBuildDestination({
+    TARGET_GITHUB_ORG: 'nodejs',
+    TARGET_REPO_NAME: 'node',
+    PR_ID: '99999'
+  }, { owner: 'nodejs', repo: 'node', pr: 12345 }), /does not belong/)
 })
 
 test('limitResultsMarkdown: truncates at a complete details block', (t) => {
