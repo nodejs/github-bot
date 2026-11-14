@@ -1,6 +1,9 @@
 import 'dotenv/config'
 
-import { globSync } from 'glob'
+import { globSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
+
 import logger from './lib/logger.js'
 import { app, events } from './app.js'
 
@@ -8,10 +11,10 @@ const port = process.env.PORT || 3000
 const scriptsToLoad = process.env.SCRIPTS || './scripts/**/*.js'
 
 // load all the files in the scripts folder
-const files = globSync(scriptsToLoad, { dotRelative: true })
+const files = globSync(scriptsToLoad)
 for (const file of files) {
   logger.info('Loading:', file)
-  const { default: extend } = await import(file)
+  const { default: extend } = await import(pathToFileURL(resolve(file)))
   extend(app, events)
 }
 
