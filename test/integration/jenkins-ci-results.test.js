@@ -24,17 +24,20 @@ jenkinsStatus(app, events)
 
 const commentUrl = 'https://api.github.com/repos/nodejs/node/issues/12345/comments'
 
-test('Posts a comment with the CI results when a node-test-pull-request build ends', (t, done) => {
+test('Posts a comment with the CI results when a node-test-pull-request build fails', (t, done) => {
   const jenkinsPayload = readFixture('jenkins-test-pull-request-success-payload.json')
-  jenkinsPayload.status = 'success'
-  jenkinsPayload.message = 'all tests passed'
+  jenkinsPayload.status = 'failure'
+  jenkinsPayload.message = 'tests failed'
+
+  const results = readFixture('jenkins-ci-pr-build-green.json')
+  results.result = 'FAILURE'
+  results.subBuilds[0].result = 'FAILURE'
 
   mockAgent.get('https://ci.nodejs.org')
     .intercept({ path: /^\/job\/node-test-pull-request\/21633\/api\/json/, method: 'GET' })
-    .reply(200, readFixture('jenkins-ci-pr-build-green.json'))
+    .reply(200, results)
 
-  const body = { body: 'Job https://ci.nodejs.org/job/node-test-pull-request/21633/ is green.' }
-  fetchMock.route({ url: commentUrl, method: 'POST', body }, 200)
+  fetchMock.route({ url: commentUrl, method: 'POST' }, 200)
 
   setupPushStatusMocks()
 
@@ -53,6 +56,30 @@ test('Posts a comment with the CI results when a node-test-pull-request build en
         t.assert.strictEqual(err, null)
         done()
       })
+    })
+})
+
+test('Does not post a comment when a node-test-pull-request build succeeds', (t, done) => {
+  const jenkinsPayload = readFixture('jenkins-test-pull-request-success-payload.json')
+  jenkinsPayload.status = 'success'
+  jenkinsPayload.message = 'all tests passed'
+
+  setupPushStatusMocks()
+  fetchMock.clearHistory()
+
+  t.plan(2)
+
+  supertest(app)
+    .post('/node/jenkins/end')
+    .send(jenkinsPayload)
+    .expect(200)
+    .end((err, res) => {
+      t.assert.strictEqual(err, null)
+
+      setTimeout(() => {
+        t.assert.strictEqual(fetchMock.callHistory.called(commentUrl), false)
+        done()
+      }, 50)
     })
 })
 
